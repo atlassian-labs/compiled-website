@@ -669,9 +669,9 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@compiled/css-in-js@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.0.6.tgz#797f9c92cc8ec9334f6c63ca35b4e721194f3301"
+"@compiled/css-in-js@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.0.7.tgz#d9460daa0ed6256a1127eb41d7509f0e7eadb143"
   dependencies:
     "@compiled/ts-transform-css-in-js" "^0.0.3"
 
