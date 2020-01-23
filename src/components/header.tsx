@@ -1,23 +1,21 @@
 import React from 'react';
 import { styled } from '@compiled/css-in-js';
 
-export const FixedHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+export const Header = styled.header`
   height: 8rem;
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: #091f41;
   padding: 0 2rem;
-
-  :after {
-    content: '';
-    height: 8rem;
-    display: block;
-  }
+  color: white;
 `;
+
+export const FixedHeader = (props: any) => (
+  <>
+    <div css={{ height: '8rem' }} />
+    <FixedHeader {...props} />
+  </>
+);
 
 export const SecondaryActions = styled.nav`
   margin-left: auto;

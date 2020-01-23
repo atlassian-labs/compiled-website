@@ -1,2 +1,3 @@
-export const heroBackground = 'red';
-export const headerBackground = 'rgba(255, 255, 255, 0.3)';
+export const heroBackground = '#FAFBFC';
+export const headerBackground = '#091F41';
+export const codeBackground = '#ccc';
