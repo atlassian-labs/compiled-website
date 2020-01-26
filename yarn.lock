@@ -669,15 +669,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@compiled/css-in-js@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.0.8.tgz#1c43f9529455520364501a06fb6bb2f93655c5ab"
+"@compiled/css-in-js@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.0.9.tgz#10a5dfd9ed79b51dcef57f1ade0c9214ae17e5b6"
   dependencies:
-    "@compiled/ts-transform-css-in-js" "^0.0.3"
+    "@compiled/ts-transform-css-in-js" "0.0.9"
 
-"@compiled/ts-transform-css-in-js@0.0.8", "@compiled/ts-transform-css-in-js@^0.0.3":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.0.8.tgz#0711c5d3ebfc4c847e4637c0fc238088a50fbdc2"
+"@compiled/ts-transform-css-in-js@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.0.9.tgz#6a94b23c3a261882e95af1e21634bbe3942ba2c1"
   dependencies:
     "@emotion/is-prop-valid" "^0.8.6"
     stylis "^3.5.4"
