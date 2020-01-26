@@ -12,7 +12,7 @@ export const Header = styled.header`
 
 export const FixedHeader = (props: any) => (
   <>
-    <div css={{ height: '8rem' }} />
+    <div />
     <FixedHeader {...props} />
   </>
 );
