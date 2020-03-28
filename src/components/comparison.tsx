@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React, { useState } from 'react';
 import { jsx } from '@compiled/css-in-js';
 import { CodeBlock } from './code-block';
 

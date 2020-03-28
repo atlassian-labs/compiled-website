@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from '@compiled/css-in-js';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { light } from 'react-syntax-highlighter/styles/prism';

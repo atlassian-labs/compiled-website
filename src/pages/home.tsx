@@ -1,17 +1,13 @@
 import React from 'react';
 import { Hero } from '../components/hero';
-import { Header, PrimaryActions, SecondaryActions } from '../components/header';
 import { Heading } from '../components/heading';
 import { Comparison } from '../components/comparison';
 import { CodeBlock } from '../components/code-block';
 import { Content } from '../components/content';
+import { RootLayout } from './root';
 
 export default () => (
-  <main>
-    <Header>
-      <PrimaryActions>Compiled</PrimaryActions>
-      <SecondaryActions>github</SecondaryActions>
-    </Header>
+  <RootLayout>
     <Hero>
       <Content>
         <Heading as="h900">Compiled CSS in JS</Heading>
@@ -78,5 +74,5 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <Heading as="h800">Made for your consumers</Heading>
     </Content>
-  </main>
+  </RootLayout>
 );

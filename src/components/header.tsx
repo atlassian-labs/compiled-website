@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from '@compiled/css-in-js';
 
 export const Header = styled.header`
@@ -9,13 +8,6 @@ export const Header = styled.header`
   padding: 0 2rem;
   color: white;
 `;
-
-export const FixedHeader = (props: any) => (
-  <>
-    <div />
-    <FixedHeader {...props} />
-  </>
-);
 
 export const SecondaryActions = styled.nav`
   margin-left: auto;

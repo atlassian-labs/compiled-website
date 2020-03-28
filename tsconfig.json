@@ -2,6 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
+    "module": "ES2015",
     "plugins": [{ "transform": "@compiled/css-in-js/dist/ts-transformer" }]
   }
 }

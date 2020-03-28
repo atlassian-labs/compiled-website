@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from '@compiled/css-in-js';
-import { Heading } from './heading';
 import { heroBackground } from '../utils/colors';
 
 export const Hero = ({ children }: { children: React.ReactNode }) => {

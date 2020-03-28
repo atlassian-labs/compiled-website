@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from '@compiled/css-in-js';
 
 export const Content = styled.div`
