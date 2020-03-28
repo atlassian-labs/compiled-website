@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from '@compiled/css-in-js';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { light } from 'react-syntax-highlighter/styles/prism';
 import { codeBackground } from '../utils/colors';
 
 export const CodeBlock = (props: { children: string; className?: string }) => (
@@ -13,7 +15,9 @@ export const CodeBlock = (props: { children: string; className?: string }) => (
         fontFamily:
           "'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`",
       }}>
-      {props.children.replace(/^\n/, '')}
+      <SyntaxHighlighter language="tsx" style={light}>
+        {props.children.replace(/^\n/, '')}
+      </SyntaxHighlighter>
     </code>
   </pre>
 );
