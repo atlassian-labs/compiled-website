@@ -1,24 +1,31 @@
 /** @jsx jsx */
 import { jsx } from '@compiled/css-in-js';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokai } from 'react-syntax-highlighter/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { okaidia } from 'react-syntax-highlighter/styles/prism';
 import { codeBackground } from '../utils/colors';
 
-export const CodeBlock = (props: { children: string; className?: string; language?: string }) => (
+interface CodeBlockProps {
+  children: string;
+  className?: string;
+  language?: string;
+  before?: string;
+}
+
+export const CodeBlock = ({ children, language = 'tsx', before, ...props }: CodeBlockProps) => (
   <div
-    className={props.className}
     css={{
       fontSize: '2rem',
       backgroundColor: codeBackground,
       padding: '2rem',
       overflow: 'hidden',
       pre: {
-        margin: 0,
+        margin: '0 !important',
         padding: '0 !important',
       },
-    }}>
-    <SyntaxHighlighter language={props.language || 'typescriptreact'} style={monokai}>
-      {props.children.replace(/^\n/, '')}
+    }}
+    {...props}>
+    <SyntaxHighlighter language={language} style={okaidia}>
+      {children.replace(/^\n/, '')}
     </SyntaxHighlighter>
   </div>
 );

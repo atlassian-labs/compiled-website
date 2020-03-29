@@ -11,7 +11,9 @@ export const RootLayout = ({ children }: RootProps) => (
   <div>
     <Header>
       <nav aria-label="main" css={{ marginLeft: 'auto' }}>
-        <Icon name="github" />
+        <a href="https://github.com/atlassian-labs/compiled-css-in-js">
+          <Icon name="github" />
+        </a>
       </nav>
     </Header>
 

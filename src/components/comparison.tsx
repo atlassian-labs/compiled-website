@@ -11,15 +11,12 @@ interface ComparisonProps {
 export const Comparison = (props: ComparisonProps) => {
   return (
     <HorizontalStack
-      spacing={1}
+      gap={1}
       css={{
         display: 'flex',
         alignItems: 'stretch',
         pre: {
           height: '100%',
-        },
-        '> *': {
-          flexShrink: 0,
         },
       }}>
       <CodeBlock>{props.before}</CodeBlock>

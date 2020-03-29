@@ -21,37 +21,9 @@ const Hidden = styled.span`
   pointer-events: none;
 `;
 
-const CompiledLogo = styled.div`
-  width: 5rem;
-  height: 6rem;
-  position: relative;
-  margin-right: 5rem;
-  margin-top: 1.38rem;
-  margin-bottom: 1.38rem;
-
-  :before {
-    position: absolute;
-    display: block;
-    content: '';
-    width: 5rem;
-    height: 6rem;
-    left: 0;
-    background-color: #00d7f6;
-    transform: skewY(30deg);
-    border-bottom-left-radius: 3px;
-  }
-
-  :after {
-    position: absolute;
-    display: block;
-    content: '';
-    width: 5rem;
-    height: 6rem;
-    right: -100%;
-    background-color: #555ee9;
-    transform: skewY(-30deg);
-    border-bottom-right-radius: 3px;
-  }
+const Logo = styled.span`
+  font-size: 4rem;
+  font-family: 'Charlie Display';
 `;
 
 interface HeaderProps {
@@ -60,9 +32,8 @@ interface HeaderProps {
 
 export const Header = ({ children }: HeaderProps) => (
   <StyledHeader>
-    <CompiledLogo>
-      <Hidden>@compiled/css-in-js</Hidden>
-    </CompiledLogo>
+    <Logo aria-hidden="true">👷‍♀️ Compiled</Logo>
+    <Hidden>@compiled/css-in-js</Hidden>
     {children}
   </StyledHeader>
 );
