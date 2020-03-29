@@ -27,7 +27,7 @@ export const Heading = ({ children, as }: HeadingProps) => {
         font-family: 'Charlie Display';
         font-weight: 500;
         color: #253858;
-        margin-bottom: 24px;
+        margin: 0;
 
         h1& {
           font-size: 52px;
@@ -57,15 +57,14 @@ export const Heading = ({ children, as }: HeadingProps) => {
           font-size: 14px;
           line-height: 20px;
           text-transform: uppercase;
-          letterspacing: 1px;
+          letter-spacing: 1px;
         }
 
         h6& {
           font-size: 12px;
           line-height: 18px;
-          margin-bottom: 16px;
           text-transform: uppercase;
-          letterspacing: 1px;
+          letter-spacing: 1px;
         }
       `}>
       {children}
