@@ -91,9 +91,9 @@ import { ClassNames } from '@compiled/css-in-js';
         <Heading as="h800">And only a 700b runtime</Heading>
         With only a style component needed at runtime to manage moving styles to the head of your
         application, you won't have to worry about bundle size bloat. Watch out for future
-        optimizations coming - including CSS extraction to{' '}
-        <strong>completely remove the runtime</strong>, and then even atomic CSS to reduce the curve
-        of consumed styles.
+        optimizations coming - including a transformer that extracts CSS -{' '}
+        <strong>completely removing the runtime</strong>, and then another to atomic-ify your CSS to
+        reduce the curve of written styles.
       </VerticalStack>
 
       <VerticalStack align="right" spacing={10}>
