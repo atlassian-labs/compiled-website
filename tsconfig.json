@@ -2,6 +2,8 @@
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
     "plugins": [{ "transform": "@compiled/css-in-js/dist/ts-transformer" }]
   }
 }
