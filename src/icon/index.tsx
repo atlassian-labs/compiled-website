@@ -9,7 +9,7 @@ interface IconProps {
 
 export const Icon = ({ name }: IconProps) => {
   return (
-    <span css={{ display: 'inline-block' width: '3rem', height: '3rem', fill: 'white' }}>
+    <span css={{ display: 'inline-block' width: '4rem', height: '4rem' }}>
       <Github />
     </span>
   );
