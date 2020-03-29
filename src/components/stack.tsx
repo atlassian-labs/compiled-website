@@ -1,6 +1,6 @@
 import { styled } from '@compiled/css-in-js';
 
-export const HorizontalStack = styled.div<{ spacing?: number; gap: number }>`
+export const HorizontalStack = styled.div<{ spacing?: number; gap?: number }>`
   margin-top: ${props => props.spacing}rem;
   margin-bottom: ${props => props.spacing}rem;
 
@@ -13,9 +13,14 @@ export const HorizontalStack = styled.div<{ spacing?: number; gap: number }>`
   }
 `;
 
-export const VerticalStack = styled.div<{ spacing?: number; gap: number }>`
+export const VerticalStack = styled.div<{
+  spacing?: number;
+  gap?: number;
+  align?: 'left' | 'right';
+}>`
   margin-top: ${props => props.spacing}rem;
   margin-bottom: ${props => props.spacing}rem;
+  text-align: ${props => props.align};
 
   && > * {
     margin-bottom: ${props => props.gap}rem;

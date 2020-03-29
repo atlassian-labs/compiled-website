@@ -1,24 +1,15 @@
 import React from 'react';
 import { styled } from '@compiled/css-in-js';
+import { ScreenReaderText } from './helpers';
 
 export const StyledHeader = styled.header`
-  height: 12rem;
+  height: 10rem;
   display: flex;
   align-items: center;
-  background-color: #f6f6f6;
-  padding: 0 4rem;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  padding: 0 3rem;
   position: relative;
   z-index: 1;
-`;
-
-const Hidden = styled.span`
-  position: absolute;
-  top: -99999px;
-  width: 1;
-  height: 1;
-  opacity: 0;
-  pointer-events: none;
+  background-color: #ffe32c;
 `;
 
 const Logo = styled.span`
@@ -32,8 +23,10 @@ interface HeaderProps {
 
 export const Header = ({ children }: HeaderProps) => (
   <StyledHeader>
-    <Logo aria-hidden="true">👷‍♀️ Compiled</Logo>
-    <Hidden>@compiled/css-in-js</Hidden>
+    <Logo aria-hidden="true">👷‍♀</Logo>
+    <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
+      Compiled Css in js
+    </ScreenReaderText>
     {children}
   </StyledHeader>
 );

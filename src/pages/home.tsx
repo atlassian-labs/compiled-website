@@ -3,18 +3,17 @@ import { jsx } from '@compiled/css-in-js';
 import { Hero } from '../components/hero';
 import { Heading } from '../components/heading';
 import { Comparison } from '../components/comparison';
-import { CodeBlock } from '../components/code-block';
+import { Terminal } from '../components/code-block';
 import { Content } from '../components/content';
 import { RootLayout } from './root';
 import { VerticalStack } from '../components/stack';
-import { codeBackground } from '../utils/colors';
 
 export default () => (
   <RootLayout>
     <Hero>
       <Content>
-        <VerticalStack gap={3}>
-          <Heading as="h900">Turns this into that</Heading>
+        <VerticalStack spacing={12} gap={3}>
+          <Heading as="h900">Compile your CSS in JS</Heading>
           <Comparison
             before={`
 import { styled } from '@compiled/css-in-js';
@@ -41,43 +40,32 @@ const Heading = props => (
           />
         </VerticalStack>
       </Content>
-    </Hero>
 
-    <div css={{ backgroundColor: codeBackground }}>
-      <Content>
-        <CodeBlock before="$" language="bash">
-          {`
-$ npm i @compiled/css-in-js
+      <div css={{ backgroundColor: 'rgba(39, 40, 34, 0.5)' }}>
+        <Content>
+          <Terminal language="bash">
+            {`
+npm i @compiled/css-in-js
 `}
-        </CodeBlock>
-      </Content>
-    </div>
+          </Terminal>
+        </Content>
+      </div>
+    </Hero>
 
     <Content>
       <VerticalStack gap={2} spacing={10}>
-        <Heading as="h800">Familiar APIs</Heading>
-        <Heading as="h700">Styled</Heading>
-        <CodeBlock>
-          {`
-import { styled } from '@compiled/css-in-js';
+        <Heading as="h800">With other familiar apis</Heading>
 
-styled.div\`
-  color: blue;
-\`;
-`}
-        </CodeBlock>
-        <Heading as="h700">Css prop</Heading>
-        <CodeBlock>
-          {`
+        <Comparison
+          before={`
 /** @jsx jsx */
 import { jsx } from '@compiled/css-in-js';
 
-<div css={{ color: 'blue' }}>hello, world!</div>;
-`}
-        </CodeBlock>
-        <Heading as="h700">Class names component</Heading>
-        <CodeBlock>
-          {`
+<div css={{ color: 'blue' }}>
+  hello, world!
+</div>;
+          `}
+          after={`
 import { ClassNames } from '@compiled/css-in-js';
 
 <ClassNames>
@@ -87,8 +75,41 @@ import { ClassNames } from '@compiled/css-in-js';
     </div>
   )}
 </ClassNames>
-`}
-        </CodeBlock>
+          `}
+        />
+      </VerticalStack>
+
+      <VerticalStack spacing={10} gap={2}>
+        <Heading as="h800">Free consumers config</Heading>
+        Shipping a component library? You won't have to worry about your consumers needing extra
+        setup. All of the <strong>code is compiled into the Javascript</strong> output at build time
+        - so your consumers don't need to change their build setup! This includes{' '}
+        <strong>delivering SSR for free out of the box.</strong>
+      </VerticalStack>
+
+      <VerticalStack spacing={10} gap={2}>
+        <Heading as="h800">And only a 700b runtime</Heading>
+        With only a style component needed at runtime to manage moving styles to the head of your
+        application, you won't have to worry about bundle size bloat. Watch out for future
+        optimizations coming - including CSS extraction to{' '}
+        <strong>completely remove the runtime</strong>, and then even atomic CSS to reduce the curve
+        of consumed styles.
+      </VerticalStack>
+
+      <VerticalStack align="right" spacing={10}>
+        <Heading as="h800">
+          <a
+            css={{
+              display: 'inline-block',
+              color: '#0052CC',
+              textDecoration: 'none',
+              transition: 'transform 70ms ease-in-out',
+              '&:hover': { transform: 'translateX(5px)', paddingLeft: 5 },
+            }}
+            href="https://github.com/atlassian-labs/compiled-css-in-js#installation">
+            Get started now <span aria-hidden="true">➡</span>
+          </a>
+        </Heading>
       </VerticalStack>
     </Content>
   </RootLayout>

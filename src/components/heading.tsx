@@ -1,9 +1,10 @@
 /** @jsx jsx */
+import { ReactNode } from 'react';
 import { jsx } from '@compiled/css-in-js';
 
 interface HeadingProps {
   as: 'h900' | 'h800' | 'h700' | 'h600' | 'h500' | 'h400' | 'h300' | 'h200' | 'h100';
-  children: string;
+  children: ReactNode;
 }
 
 const headingMap = {
@@ -26,8 +27,8 @@ export const Heading = ({ children, as }: HeadingProps) => {
       css={`
         font-family: 'Charlie Display';
         font-weight: 500;
-        color: #253858;
         margin: 0;
+        opacity: 0.9;
 
         h1& {
           font-size: 52px;

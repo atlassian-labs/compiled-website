@@ -7,12 +7,9 @@ export const Hero = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       css={{
-        backgroundColor: heroBackground,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         flexDirection: 'column',
-        padding: '12rem 0',
+        background: heroBackground,
       }}>
       {children}
     </div>

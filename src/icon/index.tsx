@@ -1,15 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@compiled/css-in-js';
 import Github from './github.svg';
+import Npm from './npm.svg';
 
 interface IconProps {
-  name: string;
+  name: keyof typeof iconMap;
 }
 
-export const Icon = (_: IconProps) => {
+const iconMap = {
+  github: Github,
+  npm: Npm,
+};
+
+export const Icon = (props: IconProps) => {
+  const Svg = iconMap[props.name];
+
   return (
     <span css={{ display: 'inline-block', width: '4rem', height: '4rem' }}>
-      <Github />
+      <Svg />
     </span>
   );
 };
