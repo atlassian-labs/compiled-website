@@ -56,7 +56,6 @@ export const Terminal = ({ children }: CodeBlockProps) => {
     <div
       css={{
         padding: '3rem 0',
-        color: 'white',
         pre: {
           margin: '0 !important',
           padding: '0 !important',
@@ -69,14 +68,14 @@ export const Terminal = ({ children }: CodeBlockProps) => {
             opacity: 0.9,
             ':before': {
               content: '➜ ',
-              color: 'rgb(166, 226, 46)',
+              color: 'rgba(170, 255, 0, 0.9)',
               pointerEvents: 'none',
             },
             ':after': {
               content: '',
               display: 'block',
               position: 'absolute',
-              backgroundColor: 'white',
+              backgroundColor: 'currentColor',
               width: 12,
               height: 28,
               top: '-3px',

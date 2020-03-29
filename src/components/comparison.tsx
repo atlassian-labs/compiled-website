@@ -18,6 +18,9 @@ export const Comparison = (props: ComparisonProps) => {
         pre: {
           height: '100%',
         },
+        '> *': {
+          flexGrow: 1,
+        },
       }}>
       <CodeBlock>{props.before}</CodeBlock>
       <CodeBlock>{props.after}</CodeBlock>

@@ -6,11 +6,13 @@ import { Comparison } from '../components/comparison';
 import { Terminal } from '../components/code-block';
 import { Content } from '../components/content';
 import { RootLayout } from './root';
+import { HeaderSpacing } from '../components/header';
 import { VerticalStack } from '../components/stack';
 
 export default () => (
   <RootLayout>
     <Hero>
+      <HeaderSpacing aria-hidden="true" />
       <Content>
         <VerticalStack spacing={12} gap={3}>
           <Heading as="h900">Compile your CSS in JS</Heading>
@@ -41,7 +43,7 @@ const Heading = props => (
         </VerticalStack>
       </Content>
 
-      <div css={{ backgroundColor: 'rgba(39, 40, 34, 0.5)' }}>
+      <div css={{ backgroundColor: 'rgba(39, 40, 34, 0.2)' }}>
         <Content>
           <Terminal language="bash">
             {`
@@ -88,7 +90,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading as="h800">And only a 700b runtime</Heading>
+        <Heading as="h800">And only a 400b runtime</Heading>
         With only a style component needed at runtime to manage moving styles to the head of your
         application, you won't have to worry about bundle size bloat. Watch out for future
         optimizations coming - including a transformer that extracts CSS -{' '}
@@ -101,7 +103,7 @@ import { ClassNames } from '@compiled/css-in-js';
           <a
             css={{
               display: 'inline-block',
-              color: '#0052CC',
+              color: '#7ab2c8',
               textDecoration: 'none',
               transition: 'transform 70ms ease-in-out',
               '&:hover': { transform: 'translateX(5px)', paddingLeft: 5 },
