@@ -5,21 +5,23 @@ import { Comparison } from '../components/comparison';
 import { CodeBlock } from '../components/code-block';
 import { Content } from '../components/content';
 import { RootLayout } from './root';
+import { VerticalStack } from '../components/stack';
 
 export default () => (
   <RootLayout>
     <Hero>
       <Content>
-        <Heading as="h900">Compiled CSS in JS</Heading>
-        <Comparison
-          before={`
+        <VerticalStack spacing={3}>
+          <Heading as="h900">Compiled CSS in JS</Heading>
+          <Comparison
+            before={`
 import { styled } from '@compiled/css-in-js';
 
 const StyledDiv = styled.div\`
   color: blue;
 \`;
 `}
-          after={`
+            after={`
 import React, { Fragment } from 'react';
 
 const StyledDiv = (props) => (
@@ -29,7 +31,8 @@ const StyledDiv = (props) => (
   </Fragment>
 );
 `}
-        />
+          />
+        </VerticalStack>
       </Content>
     </Hero>
 
