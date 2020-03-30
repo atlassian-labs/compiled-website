@@ -108,7 +108,7 @@ import { ClassNames } from '@compiled/css-in-js';
               borderRadius: 44,
               padding: '1rem 2rem',
               boxSizing: 'border-box',
-              border: '3px solid currentColor',
+              border: '3px solid rgb(122, 177, 201)',
               display: 'inline-block',
               color: 'currentColor',
               textDecoration: 'none',
