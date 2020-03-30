@@ -8,12 +8,13 @@ import { Content } from '../components/content';
 import { RootLayout } from './root';
 import { HeaderSpacing } from '../components/header';
 import { VerticalStack } from '../components/stack';
+import { heroBackground } from '../utils/colors';
 
 export default () => (
   <RootLayout>
     <Hero>
-      <HeaderSpacing aria-hidden="true" />
       <Content>
+        <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={12} gap={3}>
           <Heading as="h900">Compile your CSS in JS</Heading>
           <Comparison
@@ -102,11 +103,17 @@ import { ClassNames } from '@compiled/css-in-js';
         <Heading as="h800">
           <a
             css={{
+              background: heroBackground,
+              backgroundSize: '45rem',
+              borderRadius: 44,
+              padding: '1rem 2rem',
+              boxSizing: 'border-box',
+              border: '3px solid currentColor',
               display: 'inline-block',
-              color: '#7ab2c8',
+              color: 'currentColor',
               textDecoration: 'none',
               transition: 'transform 70ms ease-in-out',
-              '&:hover': { transform: 'translateX(5px)', paddingLeft: 5 },
+              '&:hover': { transform: 'translateX(5px)' },
             }}
             href="https://github.com/atlassian-labs/compiled-css-in-js#installation">
             Get started now <span aria-hidden="true">➡</span>
