@@ -15,14 +15,13 @@ export const Comparison = (props: ComparisonProps) => {
       css={{
         display: 'flex',
         alignItems: 'stretch',
-        pre: {
-          height: '100%',
-        },
         '> *': {
           flexGrow: 1,
+          flexShrink: 1,
         },
       }}>
       <CodeBlock>{props.before}</CodeBlock>
+
       <CodeBlock>{props.after}</CodeBlock>
     </HorizontalStack>
   );

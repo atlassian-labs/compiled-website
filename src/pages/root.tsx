@@ -15,13 +15,13 @@ export const RootLayout = ({ children }: RootProps) => (
         <HorizontalStack gap={2}>
           <a
             title="Github"
-            css={{ display: 'inline-block', ':hover': { fill: '#0052CC' } }}
+            css={{ display: 'inline-block', ':hover': { opacity: 0.5 } }}
             href="https://github.com/atlassian-labs/compiled-css-in-js">
             <Icon name="github" />
           </a>
           <a
             title="Npm"
-            css={{ display: 'inline-block', ':hover': { fill: '#0052CC' } }}
+            css={{ display: 'inline-block', ':hover': { opacity: 0.5 } }}
             href="https://www.npmjs.com/package/@compiled/css-in-js">
             <Icon name="npm" />
           </a>

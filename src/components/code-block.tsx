@@ -17,18 +17,22 @@ export const CodeBlock = ({ children, language = 'tsx', ...props }: CodeBlockPro
     css={{
       fontSize: '2rem',
       backgroundColor: codeBackground,
-      padding: '2rem',
-      overflow: 'hidden',
-      borderRadius: 3,
-      pre: {
-        margin: '0 !important',
-        padding: '0 !important',
-      },
+      boxShadow: 'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
+      borderRadius: 5,
+      opacity: 0.9,
+      overflow: 'auto',
+      display: 'flex',
+      position: 'relative',
     }}
     {...props}>
-    <SyntaxHighlighter language={language} style={okaidia} customStyle={{ opacity: 0.9 }}>
-      {children.replace(/^\n/, '')}
+    <SyntaxHighlighter
+      language={language}
+      style={okaidia}
+      customStyle={{ padding: 0, overflow: 'visible', margin: '2rem' }}>
+      {children.replace(/^\n/, '').replace(/\n$/, '')}
     </SyntaxHighlighter>
+    {/* Add spacing because padding is eliminated with overflow: visible */}
+    <div css={{ width: '1px', flexShrink: 0 }}></div>
   </div>
 );
 

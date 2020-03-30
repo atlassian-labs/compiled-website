@@ -66,7 +66,7 @@ import { jsx } from '@compiled/css-in-js';
 <div css={{ color: 'blue' }}>
   hello, world!
 </div>;
-          `}
+`}
           after={`
 import { ClassNames } from '@compiled/css-in-js';
 
@@ -77,7 +77,7 @@ import { ClassNames } from '@compiled/css-in-js';
     </div>
   )}
 </ClassNames>
-          `}
+`}
         />
       </VerticalStack>
 
