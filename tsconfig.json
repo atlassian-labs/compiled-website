@@ -4,6 +4,6 @@
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "node",
-    "plugins": [{ "transform": "@compiled/css-in-js/dist/ts-transformer" }]
+    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
   }
 }
