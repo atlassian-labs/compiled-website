@@ -32,7 +32,7 @@ export const CodeBlock = ({ children, language = 'tsx', ...props }: CodeBlockPro
       {children.replace(/^\n/, '').replace(/\n$/, '')}
     </SyntaxHighlighter>
     {/* Add spacing because padding is eliminated with overflow: visible */}
-    <div css={{ width: '1px', flexShrink: 0 }}></div>
+    <div css={{ width: '1px', flexShrink: 0 }} />
   </div>
 );
 
@@ -45,7 +45,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
     const timeoutId = setTimeout(() => {
       setInterval(() => {
         if (parsedInput.length !== index) {
-          setIndex(prev => prev + 1);
+          setIndex((prev) => prev + 1);
         }
       }, 40);
     }, 500);
