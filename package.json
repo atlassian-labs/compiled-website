@@ -5,19 +5,22 @@
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "start": "yarn build:examples && parcel src/index.html",
+    "build": "yarn build:examples && parcel build src/index.html",
+    "build:examples": "rm -rf examples/dist && ttsc --build ./examples/tsconfig.json examples && prettier ./examples/dist --write"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.2",
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@compiled/css-in-js": "^0.0.11",
+    "@compiled/css-in-js": "^0.0.12",
     "@svgr/parcel-plugin-svgr": "^5.3.0",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "@types/react-syntax-highlighter": "^11.0.4",
+    "examples": "^0.1.0",
     "parcel-plugin-ttypescript": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

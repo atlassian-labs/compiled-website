@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@compiled/css-in-js';
+import React from 'react';
+import { styled } from '@compiled/css-in-js';
 import { Hero } from '../components/hero';
 import { Heading } from '../components/heading';
 import { Comparison } from '../components/comparison';
@@ -8,7 +8,31 @@ import { Content } from '../components/content';
 import { RootLayout } from './root';
 import { HeaderSpacing } from '../components/header';
 import { VerticalStack } from '../components/stack';
-import { heroBackground } from '../utils/colors';
+// @ts-ignore
+import { readFileSync } from 'fs';
+
+// @ts-ignore
+const styledExampleBefore = readFileSync(__dirname + '../../../examples/styled.tsx', 'utf-8');
+// @ts-ignore
+const styledExampleAfter = readFileSync(__dirname + '../../../examples/dist/styled.jsx', 'utf-8');
+
+const TerminalStripe = styled.div`
+  background-color: rgba(39, 40, 34, 0.2);
+`;
+
+const GetStartedLink = styled.a({
+  background: 'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
+  backgroundSize: '45rem',
+  borderRadius: 44,
+  padding: '1rem 2rem',
+  boxSizing: 'border-box',
+  border: '3px solid rgb(122, 177, 201)',
+  display: 'inline-block',
+  color: 'currentColor',
+  textDecoration: 'none',
+  transition: 'transform 70ms ease-in-out',
+  '&:hover': { transform: 'translateX(5px)' },
+});
 
 export default () => (
   <RootLayout>
@@ -16,35 +40,15 @@ export default () => (
       <Content>
         <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={12} gap={3}>
-          <Heading as="h900">Compile your CSS in JS</Heading>
-          <Comparison
-            before={`
-import { styled } from '@compiled/css-in-js';
-
-const Heading = styled.h1<{ color: string }>\`
-  color: $\{props => props.color};
-  font-size: 52px;
-\`;
-`}
-            after={`
-import React, { Fragment } from 'react';
-import { Style } from '@compiled/css-in-js';
-
-const Heading = props => (
-  <Fragment>
-    <Style>.css-a7988s{color:var(--color-a);font-size:52px;}</Style>
-    <div className="css-a7988s"
-      style={{ '--color-a': props.color }}>
-      {props.children}
-    </div>
-  </Fragment>
-);
-`}
-          />
+          <Heading as="h900">
+            The CSS in JS authoring experience you
+            <br /> love without the runtime cost
+          </Heading>
+          <Comparison before={styledExampleBefore} after={styledExampleAfter} />
         </VerticalStack>
       </Content>
 
-      <div css={{ backgroundColor: 'rgba(39, 40, 34, 0.2)' }}>
+      <TerminalStripe>
         <Content>
           <Terminal language="bash">
             {`
@@ -52,7 +56,7 @@ npm i @compiled/css-in-js
 `}
           </Terminal>
         </Content>
-      </div>
+      </TerminalStripe>
     </Hero>
 
     <Content>
@@ -101,23 +105,9 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <VerticalStack align="right" spacing={10}>
         <Heading as="h800">
-          <a
-            css={{
-              background: heroBackground,
-              backgroundSize: '45rem',
-              borderRadius: 44,
-              padding: '1rem 2rem',
-              boxSizing: 'border-box',
-              border: '3px solid rgb(122, 177, 201)',
-              display: 'inline-block',
-              color: 'currentColor',
-              textDecoration: 'none',
-              transition: 'transform 70ms ease-in-out',
-              '&:hover': { transform: 'translateX(5px)' },
-            }}
-            href="https://github.com/atlassian-labs/compiled-css-in-js#installation">
+          <GetStartedLink href="https://github.com/atlassian-labs/compiled-css-in-js#installation">
             Get started now <span aria-hidden="true">➡</span>
-          </a>
+          </GetStartedLink>
         </Heading>
       </VerticalStack>
     </Content>
