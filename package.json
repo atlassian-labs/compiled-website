@@ -9,6 +9,9 @@
     "start:docs": "yarn build:ui && cd packages/docs && yarn start",
     "start:intro": "yarn build:ui && yarn build:examples && cd packages/introduction && yarn start",
     "help-me": "yarn build:ui -w & cd packages/docs && yarn start",
+    "clean": "rm -rf dist && workspaces-run -- rm -rf dist && rm -rf .cache",
+    "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
+    "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
     "build": "yarn build:ui && yarn build:intro && yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
     "build:intro": "yarn build:examples && cd packages/introduction && yarn build",
@@ -16,7 +19,8 @@
     "build:examples": "cd packages/examples && yarn build"
   },
   "dependencies": {
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.2",
+    "workspaces-run": "^1.0.1"
   },
   "workspaces": {
     "packages": [
