@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@compiled/css-in-js';
+import { Header, HorizontalStack } from '../components';
 import { Icon } from '../icon';
-import { Header } from '../components/header';
-import { HorizontalStack } from '../components/stack';
 
 interface RootProps {
   children: React.ReactNode;

@@ -1,8 +1,9 @@
 {
   "name": "@compiled/website-docs",
+  "private": true,
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel src/index.html --out-dir ../../dist/docs --public-url /docs",
+    "start": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir ../../dist/docs --public-url /docs"
   },
   "dependencies": {
@@ -16,5 +17,10 @@
     "parcel-plugin-babel-typescript": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "workspaces": {
+    "nohoist": [
+      "parcel-bundler"
+    ]
   }
 }

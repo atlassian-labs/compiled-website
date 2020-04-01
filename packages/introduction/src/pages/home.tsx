@@ -1,13 +1,15 @@
 import React from 'react';
 import { styled } from '@compiled/css-in-js';
-import { Hero } from '../components/hero';
-import { Heading } from '../components/heading';
-import { Comparison } from '../components/comparison';
-import { Terminal } from '../components/code-block';
-import { Content } from '../components/content';
-import { RootLayout } from './root';
-import { HeaderSpacing } from '../components/header';
-import { VerticalStack } from '../components/stack';
+import {
+  Hero,
+  Heading,
+  Comparison,
+  Terminal,
+  Content,
+  RootLayout,
+  HeaderSpacing,
+  VerticalStack,
+} from '@compiled/website-ui';
 // @ts-ignore
 import { readFileSync } from 'fs';
 

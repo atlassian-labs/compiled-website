@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "lib": ["ES2015", "DOM"],
+    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
+  }
+}

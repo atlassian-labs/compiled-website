@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@compiled/css-in-js';
-import Github from './github.svg';
-import Npm from './npm.svg';
+import { Github } from './github';
+import { Npm } from './npm';
 
 interface IconProps {
   name: keyof typeof iconMap;

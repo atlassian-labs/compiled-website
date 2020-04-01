@@ -6,11 +6,13 @@
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "start:docs": "cd packages/docs && yarn start",
-    "start:intro": "yarn build:examples && cd packages/introduction && yarn start",
-    "build": "yarn build:intro && yarn build:docs",
+    "start:docs": "yarn build:ui && cd packages/docs && yarn start",
+    "start:intro": "yarn build:ui && yarn build:examples && cd packages/introduction && yarn start",
+    "help-me": "yarn build:ui -w & cd packages/docs && yarn start",
+    "build": "yarn build:ui && yarn build:intro && yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
     "build:intro": "yarn build:examples && cd packages/introduction && yarn build",
+    "build:ui": "cd packages/ui && yarn build",
     "build:examples": "cd packages/examples && yarn build"
   },
   "dependencies": {
@@ -19,9 +21,6 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/**"
     ]
   }
 }

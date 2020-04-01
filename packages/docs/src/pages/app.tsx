@@ -1,16 +1,20 @@
 import React from 'react';
-import { Header } from '../components/header';
+import { Styled } from './styled';
 
-interface AppProps {
-  children: React.ReactNode;
-}
-
-export const App = ({ children }: AppProps) => {
+export const App = () => {
   return (
-    <>
-      <Header />
-      <nav aria-label="side"></nav>
-      <main>{children}</main>
-    </>
+    <div>
+      <header>
+        <span aria-hidden="true">👷‍♀</span> compiled
+        <nav aria-label="main"></nav>
+      </header>
+
+      <nav aria-label="sections"></nav>
+
+      <main>
+        <Styled />
+      </main>
+      <footer></footer>
+    </div>
   );
 };
