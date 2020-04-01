@@ -7,5 +7,6 @@
     "lib": ["ES2015", "DOM"],
     "declaration": true,
     "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
-  }
+  },
+  "exclude": ["dist"]
 }
