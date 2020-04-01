@@ -1,0 +1,20 @@
+{
+  "name": "@compiled/website-docs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir ../../dist/docs"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@compiled/babel-plugin-css-in-js": "^0.1.0",
+    "@compiled/css-in-js": "^0.1.0",
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-babel-typescript": "^1.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
