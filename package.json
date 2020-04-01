@@ -1,32 +1,26 @@
 {
   "name": "@compiled/website",
+  "private": true,
   "version": "1.0.0",
   "main": "index.js",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "start": "yarn build:examples && parcel src/index.html",
-    "build": "yarn build:examples && parcel build src/index.html",
-    "build:examples": "rm -rf examples/dist && ttsc --build ./examples/tsconfig.json examples && prettier ./examples/dist --write"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.2",
-    "typescript": "^3.7.5"
+    "start": "yarn start:intro",
+    "start:intro": "yarn build:examples && cd packages/introduction && yarn start",
+    "build": "yarn build:intro",
+    "build:intro": "yarn build:examples && cd packages/introduction && yarn build",
+    "build:examples": "cd packages/examples && yarn build"
   },
   "dependencies": {
-    "@compiled/css-in-js": "^0.1.0",
-    "@compiled/ts-transform-css-in-js": "^0.1.0",
-    "@svgr/parcel-plugin-svgr": "^5.3.0",
-    "@types/react": "^16.9.25",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-syntax-highlighter": "^11.0.4",
-    "examples": "^0.1.0",
-    "parcel-plugin-ttypescript": "^1.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-syntax-highlighter": "9.0.1",
-    "ts-node": "^8.8.1",
-    "ttypescript": "^1.5.10"
+    "prettier": "^2.0.2"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/**"
+    ]
   }
 }

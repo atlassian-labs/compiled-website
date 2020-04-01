@@ -11,10 +11,16 @@ import { VerticalStack } from '../components/stack';
 // @ts-ignore
 import { readFileSync } from 'fs';
 
-// @ts-ignore
-const styledExampleBefore = readFileSync(__dirname + '../../../examples/styled.tsx', 'utf-8');
-// @ts-ignore
-const styledExampleAfter = readFileSync(__dirname + '../../../examples/dist/styled.jsx', 'utf-8');
+const styledExampleBefore = readFileSync(
+  // @ts-ignore
+  __dirname + '../../../../examples/src/styled.tsx',
+  'utf-8'
+);
+const styledExampleAfter = readFileSync(
+  // @ts-ignore
+  __dirname + '../../../../examples/dist/styled.jsx',
+  'utf-8'
+);
 
 const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.2);
