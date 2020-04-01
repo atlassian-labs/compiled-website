@@ -6,7 +6,6 @@
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "start": "yarn start:intro & yarn start:docs",
     "start:docs": "cd packages/docs && yarn start",
     "start:intro": "yarn build:examples && cd packages/introduction && yarn start",
     "build": "yarn build:intro && yarn build:docs",
