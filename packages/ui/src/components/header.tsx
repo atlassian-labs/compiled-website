@@ -34,7 +34,7 @@ interface HeaderProps {
 
 export const Header = ({ children }: HeaderProps) => (
   <StyledHeader>
-    <Logo aria-hidden="true">👷‍♀ compileasdd</Logo>
+    <Logo aria-hidden="true">👷‍♀ compiled</Logo>
     <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
       Compiled Css in js
     </ScreenReaderText>

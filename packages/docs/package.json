@@ -11,6 +11,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@compiled/babel-plugin-css-in-js": "^0.1.0",
     "@compiled/css-in-js": "^0.1.0",
+    "@compiled/website-ui": "^1.0.0",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "parcel-bundler": "^1.12.4",
@@ -20,7 +21,7 @@
   },
   "workspaces": {
     "nohoist": [
-      "parcel-bundler"
+      "!(react|react-dom)"
     ]
   }
 }

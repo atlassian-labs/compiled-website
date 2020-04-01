@@ -1,20 +1,14 @@
 import React from 'react';
+import { RootLayout, Content, HeaderSpacing } from '@compiled/website-ui';
 import { Styled } from './styled';
 
 export const App = () => {
   return (
-    <div>
-      <header>
-        <span aria-hidden="true">👷‍♀</span> compiled
-        <nav aria-label="main"></nav>
-      </header>
-
-      <nav aria-label="sections"></nav>
-
-      <main>
+    <RootLayout>
+      <HeaderSpacing />
+      <Content>
         <Styled />
-      </main>
-      <footer></footer>
-    </div>
+      </Content>
+    </RootLayout>
   );
 };
