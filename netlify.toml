@@ -5,6 +5,11 @@
   environment = { YARN_VERSION = "1.9.4" }
 
 [[redirects]]
+  from = "/docs/*"
+  to = "/docs/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
