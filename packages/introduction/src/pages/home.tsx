@@ -48,7 +48,7 @@ export default () => (
       <Content>
         <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={12} gap={3}>
-          <Heading as="h900">
+          <Heading look="h100">
             The CSS in JS authoring experience you
             <br /> love without the runtime cost
           </Heading>
@@ -69,7 +69,7 @@ npm i @compiled/css-in-js
 
     <Content>
       <VerticalStack gap={2} spacing={10}>
-        <Heading as="h800">With other familiar apis</Heading>
+        <Heading look="h200">With other familiar apis</Heading>
 
         <Comparison
           before={`
@@ -95,7 +95,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading as="h800">Free consumers config</Heading>
+        <Heading look="h200">Free consumers config</Heading>
         Shipping a component library? You won't have to worry about your consumers needing extra
         setup. All of the <strong>code is compiled into the Javascript</strong> output at build time
         - so your consumers don't need to change their build setup! This includes{' '}
@@ -103,7 +103,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading as="h800">And only a 400b runtime</Heading>
+        <Heading look="h200">And only a 400b runtime</Heading>
         With only a style component needed at runtime to manage moving styles to the head of your
         application, you won't have to worry about bundle size bloat. Watch out for future
         optimizations coming - including a transformer that extracts CSS -{' '}
@@ -112,7 +112,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack align="right" spacing={10}>
-        <Heading as="h800">
+        <Heading look="h200">
           <GetStartedLink href="/docs">
             Get started now <span aria-hidden="true">➡</span>
           </GetStartedLink>

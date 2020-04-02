@@ -41,7 +41,7 @@ export const RootLayout = ({ children, sidenav }: RootProps) => (
 
     {sidenav ? (
       <Content css={{ display: 'flex' }}>
-        <nav aria-label="sidenav" css={{ width: '30rem', flexShrink: 0 }}>
+        <nav aria-label="sidenav" css={{ width: '30rem', marginRight: '2rem', flexShrink: 0 }}>
           <HeaderSpacing />
           {sidenav}
         </nav>
