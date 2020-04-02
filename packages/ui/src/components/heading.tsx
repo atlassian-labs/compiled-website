@@ -1,8 +1,9 @@
 /** @jsx jsx */
-import { ReactNode } from 'react';
+import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
 import { jsx } from '@compiled/css-in-js';
 
-interface HeadingProps {
+interface HeadingProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
   look: 'h500' | 'h400' | 'h300' | 'h200' | 'h100';
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
   children: ReactNode;
@@ -56,7 +57,7 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
         }
 
         [data-look='h400']& {
-          font-weight: 600;
+          font-weight: 500;
           font-size: 14px;
           line-height: 20px;
           text-transform: uppercase;

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, styled } from '@compiled/css-in-js';
-import { Header, HorizontalStack, HeaderSpacing, Content } from '../components';
-import { Icon } from '../icon';
+import { Header, HorizontalStack, HeaderSpacing, Content, VerticalStack } from '../components';
 
 interface RootProps {
   children: React.ReactNode;
@@ -43,11 +42,13 @@ export const RootLayout = ({ children, sidenav }: RootProps) => (
       <Content css={{ display: 'flex' }}>
         <nav aria-label="sidenav" css={{ width: '30rem', marginRight: '2rem', flexShrink: 0 }}>
           <HeaderSpacing />
-          {sidenav}
+          <VerticalStack spacing={6}>{sidenav}</VerticalStack>
         </nav>
-        <main>
-          <HeaderSpacing />
-          {children}
+        <main css={{ width: '100%' }}>
+          <VerticalStack spacing={6}>
+            <HeaderSpacing />
+            {children}
+          </VerticalStack>
         </main>
       </Content>
     ) : (

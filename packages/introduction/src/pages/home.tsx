@@ -10,16 +10,13 @@ import {
   HeaderSpacing,
   VerticalStack,
 } from '@compiled/website-ui';
-// @ts-ignore
 import { readFileSync } from 'fs';
 
 const styledExampleBefore = readFileSync(
-  // @ts-ignore
   __dirname + '../../../../examples/src/styled.tsx',
   'utf-8'
 );
 const styledExampleAfter = readFileSync(
-  // @ts-ignore
   __dirname + '../../../../examples/dist/styled.jsx',
   'utf-8'
 );
