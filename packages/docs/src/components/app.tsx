@@ -1,7 +1,7 @@
 import React from 'react';
 import { RootLayout, VerticalStack, Heading, CodeBlock } from '@compiled/website-ui';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LinkItem, Section } from '../components/side-nav';
 import pages from '../pages/*/*.mdx';
 
@@ -13,9 +13,9 @@ const components: MDXProviderComponentsProp = {
   h5: ({ children }) => <Heading look="h500">{children}</Heading>,
   h6: ({ children }) => <Heading look="h500">{children}</Heading>,
   p: ({ children }) => <VerticalStack spacing={2}>{children}</VerticalStack>,
-  code: ({ children }) => (
+  code: ({ children, className }) => (
     <VerticalStack spacing={8}>
-      <CodeBlock>{children}</CodeBlock>
+      <CodeBlock language={className.split('-')[0]}>{children}</CodeBlock>
     </VerticalStack>
   ),
 };
@@ -45,18 +45,18 @@ export const App = () => {
         <MDXProvider components={components}>
           <Route>
             {({ location }) => {
-              console.log(pages);
               const [section, page] = location.pathname.split('/').filter(Boolean);
-              let Page: React.ComponentType;
+              let element: JSX.Element;
               if (pages[section] && pages[section][page] && pages[section][page].default) {
-                Page = pages[section][page].default;
+                const Page = pages[section][page].default;
+                element = <Page />;
               } else {
                 const defaultSection = Object.keys(pages)[0];
                 const defaultPage = Object.keys(pages[defaultSection])[0];
-                Page = pages[defaultSection][defaultPage].default;
+                element = <Redirect to={`/${defaultSection}/${defaultPage}`} />;
               }
 
-              return <Page />;
+              return element;
             }}
           </Route>
         </MDXProvider>

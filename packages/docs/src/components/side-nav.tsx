@@ -1,7 +1,7 @@
 import React, { cloneElement, Children } from 'react';
 import { styled } from '@compiled/css-in-js';
 import { VerticalStack, Heading, colors } from '@compiled/website-ui';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -41,13 +41,21 @@ const StyledLink = styled.div`
     :active {
       opacity: 0.8;
     }
+
+    &[aria-current='page'] {
+      border-left: 0.375rem solid #7ab2c8;
+      padding-left: 1rem;
+      margin-left: -1.375rem;
+    }
   }
 `;
 
 export const LinkItem = ({ children, href }: { children: React.ReactNode; href: string }) => {
   return (
     <StyledLink>
-      <Link to={href}>{children}</Link>
+      <NavLink activeClassName="" to={href}>
+        {children}
+      </NavLink>
     </StyledLink>
   );
 };
