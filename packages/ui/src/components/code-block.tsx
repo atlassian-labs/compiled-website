@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, CSSProperties } from 'react';
 import { jsx } from '@compiled/css-in-js';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
@@ -10,14 +10,20 @@ interface CodeBlockProps {
   children: string;
   className?: string;
   language?: string;
+  style?: CSSProperties;
 }
 
-export const CodeBlock = ({ children, language = 'tsx', ...props }: CodeBlockProps) => (
+export const CodeBlock = ({
+  children,
+  language = 'tsx',
+  ...props
+}: CodeBlockProps) => (
   <div
     css={{
       fontSize: '2rem',
       backgroundColor: codeBackground,
-      boxShadow: 'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
+      boxShadow:
+        'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
       borderRadius: 5,
       opacity: 0.9,
       overflow: 'auto',

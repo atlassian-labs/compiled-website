@@ -1,5 +1,32 @@
-import { StyledExample } from '../../examples/styled';
+import { StyledExample, StyledInvalidExample } from '../../examples/styled';
 
 # Styled Components
 
+Both template literals and objects are supported with Compiled,
+check out the code that is generated.
+
 <StyledExample />
+
+## Pass down props
+
+Any valid props will be passed down to the underlying DOM node -
+any invalid props will be destructured and won't.
+Because this is all compiled time you don't pay the bundle size cost!
+
+<StyledInvalidExample />
+
+## Prop typing
+
+With TypeScript support baked in you'll have a great time using it,
+any inline interpolation will have access to the props defined in the tagged template generic.
+
+```
+import { styled } from '@compiled/css-in-js';
+
+const BigIfTrue = styled.div<{ big: true }>`
+  font-size: ${props => big ? 100 : 10};
+`;
+
+<BigIfTrue />
+ ^^^^^^^^^ Property 'big' is missing in type [..]
+```

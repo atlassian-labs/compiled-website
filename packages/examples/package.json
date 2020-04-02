@@ -6,7 +6,7 @@
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && ttsc && ttsc --outDir dist/compiled --jsx react && prettier ./dist --write"
+    "build": "ttsc && ttsc --outDir dist/compiled --jsx react && prettier ./dist --write"
   },
   "dependencies": {
     "@compiled/css-in-js": "^0.1.0",
