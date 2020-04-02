@@ -1,1 +1,1 @@
-import './styled';
+export { Heading } from './styled';

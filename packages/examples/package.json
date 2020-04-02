@@ -1,11 +1,12 @@
 {
   "name": "@compiled/website-examples",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/compiled/index.js",
+  "types": "./dist/compiled/index.d.ts",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && ttsc --build . && prettier ./dist --write"
+    "build": "rm -rf dist && ttsc && ttsc --outDir dist/compiled --jsx react && prettier ./dist --write"
   },
   "dependencies": {
     "@compiled/css-in-js": "^0.1.0",

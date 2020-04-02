@@ -38,6 +38,7 @@ const components: MDXProviderComponentsProp = {
   h4: ({ children }) => <Heading look="h400">{children}</Heading>,
   h5: ({ children }) => <Heading look="h500">{children}</Heading>,
   p: ({ children }) => <P>{children}</P>,
+  pre: ({ children }) => children,
   code: ({ children, className }) => (
     <CodeBlock language={className ? className.split('-')[0] : undefined}>{children}</CodeBlock>
   ),
