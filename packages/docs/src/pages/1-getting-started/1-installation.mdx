@@ -1,5 +1,79 @@
 # Installation
 
+There are two avenues you can take to enable Compiled either with the TypeScript compiler or with Babel.
+Both end up using the same transformations under-the-hood,
+so you really don't have any reasons not to give it a try.
+
+We start by installing the primary library made for React -
+this will give you all the APIs you know and love.
+
 ```bash
-npm i @compiled/css-in-js
+npm install @compiled/css-in-js
+```
+
+---
+
+Now it's just a matter of configuring your compiler of choice.
+
+## Babel
+
+You'll need to install the dependency and then wire up the plugin in your `.babelrc` config.
+Make sure the compiled plugin is the **first plugin in the array**.
+
+```bash
+npm install @compiled/babel-plugin-css-in-js
+```
+
+```
+{
+  "plugins": ["@compiled/babel-plugin-css-in-js"]
+}
+```
+
+## TypeScript compiler
+
+A little bit more cumbersome to setup because there isn't any official support for defining plugins in your `tsconfig.json`.
+But it still works great!
+
+```bash
+npm install @compiled/ts-transform-css-in-js ttypescript
+```
+
+```
+{
+  "compilerOptions": {
+    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
+  }
+}
+```
+
+Then it's a matter of changing how you compile your code.
+
+### TypeScript CLI
+
+Run `ttsc` instead of `tsc`.
+
+```diff
+ttsc
+```
+
+### Webpack
+
+Set the compiler option to `ttypescript`.
+
+```
+{
+  loader: require.resolve('ts-loader'),
+  options: {
+    compiler: 'ttypescript',
+  },
+},
+```
+
+### Parcel
+
+Install the plugin and you're done!
+
+```bash
+npm i parcel-plugin-ttypescript
 ```

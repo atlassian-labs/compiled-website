@@ -5,20 +5,16 @@ import { jsx } from '@compiled/css-in-js';
 interface HeadingProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
   look: 'h500' | 'h400' | 'h300' | 'h200' | 'h100';
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span';
   children: ReactNode;
 }
 
 const headingMap = {
-  h900: 'h1',
-  h800: 'h2',
-  h700: 'h3',
-  h600: 'h4',
+  h100: 'h1',
+  h200: 'h2',
+  h300: 'h3',
+  h400: 'h4',
   h500: 'h5',
-  h400: 'h6',
-  h300: 'h6',
-  h200: 'h6',
-  h100: 'h6',
 } as const;
 
 export const Heading = ({ children, ...props }: HeadingProps) => {
@@ -32,6 +28,7 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
         font-weight: 500;
         margin: 0;
         opacity: 0.9;
+        margin-top: 6rem;
 
         [data-look='h100']& {
           font-size: 52px;

@@ -32,6 +32,7 @@ const StyledLink = styled.div`
     user-select: none;
     color: currentColor;
     text-decoration: none;
+    text-transform: capitalize
 
     :hover {
       cursor: pointer;

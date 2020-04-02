@@ -35,7 +35,7 @@ interface HeaderProps {
 export const Header = ({ children, ...props }: HeaderProps) => (
   <StyledHeader {...props}>
     <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
-      <Logo aria-hidden="true">👷‍♀ compiled</Logo>
+      <Logo aria-hidden="true">👷‍♀ Compiled</Logo>
     </a>
     <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
       Compiled Css in js
