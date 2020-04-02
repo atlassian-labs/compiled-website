@@ -113,7 +113,7 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <VerticalStack align="right" spacing={10}>
         <Heading as="h800">
-          <GetStartedLink href="https://github.com/atlassian-labs/compiled-css-in-js#installation">
+          <GetStartedLink href="/docs">
             Get started now <span aria-hidden="true">➡</span>
           </GetStartedLink>
         </Heading>

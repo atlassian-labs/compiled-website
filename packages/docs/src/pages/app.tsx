@@ -4,11 +4,8 @@ import { Styled } from './styled';
 
 export const App = () => {
   return (
-    <RootLayout>
-      <HeaderSpacing />
-      <Content>
-        <Styled />
-      </Content>
+    <RootLayout sidenav={<div>hello</div>}>
+      <Styled />
     </RootLayout>
   );
 };

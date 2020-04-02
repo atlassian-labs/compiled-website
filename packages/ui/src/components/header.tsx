@@ -1,10 +1,10 @@
-import React from 'react';
-import { styled } from '@compiled/css-in-js';
+/** @jsx jsx */
+import { styled, jsx } from '@compiled/css-in-js';
 import { ScreenReaderText } from './helpers';
 
 const height = '10rem';
 
-export const StyledHeader = styled.header`
+const StyledHeader = styled.header`
   height: ${height};
   display: flex;
   align-items: center;
@@ -32,9 +32,11 @@ interface HeaderProps {
   children: React.ReactNode;
 }
 
-export const Header = ({ children }: HeaderProps) => (
-  <StyledHeader>
-    <Logo aria-hidden="true">👷‍♀ compiled</Logo>
+export const Header = ({ children, ...props }: HeaderProps) => (
+  <StyledHeader {...props}>
+    <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
+      <Logo aria-hidden="true">👷‍♀ compiled</Logo>
+    </a>
     <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
       Compiled Css in js
     </ScreenReaderText>
