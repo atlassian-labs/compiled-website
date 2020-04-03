@@ -23,7 +23,7 @@ const Code = styled.code`
   font-weight: 400;
   line-height: 1.7;
   background-color: rgba(117, 63, 131, 0.07);
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 0;
   padding: 0.2rem 0.325rem;
 `;
