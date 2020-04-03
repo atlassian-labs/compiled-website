@@ -61,9 +61,11 @@ const components: MDXProviderComponentsProp = {
   p: ({ children }) => <P>{children}</P>,
   pre: ({ children }) => children,
   code: ({ children, className }) => (
-    <CodeBlock language={className ? className.split('-')[0] : undefined}>
-      {children}
-    </CodeBlock>
+    <VerticalStack spacing={2}>
+      <CodeBlock language={className ? className.split('-')[0] : undefined}>
+        {children}
+      </CodeBlock>
+    </VerticalStack>
   ),
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
