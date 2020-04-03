@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, styled } from '@compiled/css-in-js';
-import { useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import {
   Header,
   HorizontalStack,
@@ -18,7 +18,7 @@ interface RootProps {
 const Link = styled.a<{ href: string; exact?: boolean }>`
   color: currentColor;
   text-decoration: none;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   border-bottom: ${(props) => {
     const active = '0.375rem solid #7ab2c8';
     const inactive = '0.375rem solid transparent';
@@ -54,7 +54,7 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
   }, [isOpen]);
 
   return (
-    <div>
+    <Fragment>
       <Header>
         <nav
           aria-label="main"
@@ -179,6 +179,6 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
       ) : (
         <main>{children}</main>
       )}
-    </div>
+    </Fragment>
   );
 };

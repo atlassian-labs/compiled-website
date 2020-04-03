@@ -1,25 +1,27 @@
 # Installation
 
-There are two avenues you can take to enable Compiled either with the TypeScript compiler or with Babel.
+There are two avenues we can take to enable Compiled either with the TypeScript compiler or with Babel.
 Both end up using the same transformations under-the-hood,
-so you really don't have any reasons not to give it a try.
+so we really don't have any reasons not to give it a try.
 
 We start by installing the primary library made for React -
-this will give you all the APIs you know and love.
+this will give us all the APIs we know and love.
 
 ```bash
 npm install @compiled/css-in-js
 ```
 
----
+> **Note**: It won't work without enabling a transform and will just throw an exception.
+> This is because there [isn't any code there to run](https://github.com/atlassian-labs/compiled-css-in-js/blob/master/packages/css-in-js/src/styled/index.tsx#L26) 😎.
 
-Now it's just a matter of configuring your compiler of choice.
+---
 
 ## Babel
 
 You'll need to install the dependency and then wire up the plugin in your `.babelrc` config.
 Make sure the compiled plugin is the **first plugin in the array**.
-If you want a live example [these docs you're reading are built using
+Need a live example?
+[These docs you're reading are built using
 the Babel plugin!](https://github.com/compiled/website/tree/master/packages/docs)
 
 ```bash
@@ -36,7 +38,8 @@ npm install @compiled/babel-plugin-css-in-js
 
 A little bit more cumbersome to setup because there isn't any official support for defining plugins in your `tsconfig.json`.
 But it still works great!
-If you want a live example [the introduction is built using
+Need a live example?
+[The introduction is built using
 the TypeScript transformer](https://github.com/compiled/website/tree/master/packages/introduction).
 
 ```bash
@@ -51,14 +54,15 @@ npm install @compiled/ts-transform-css-in-js ttypescript
 }
 ```
 
-Then it's a matter of changing how you compile your code.
+Now it's a matter of getting the compiler to pick up plugins for your `tsconfig.json`.
 
 ### TypeScript CLI
 
 Run `ttsc` instead of `tsc`.
 
 ```diff
-ttsc
+-tsc
++ttsc
 ```
 
 ### Webpack

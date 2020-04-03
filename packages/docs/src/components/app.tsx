@@ -18,9 +18,11 @@ const Hr = styled.hr`
 
 const Quote = styled.blockquote`
   padding: 2rem 3rem;
-  margin: 3rem -3rem;
+  margin: 6rem -3rem;
   color: rgba(37, 56, 88, 0.7);
   border-left: 3px solid #7ab2c8;
+  background-color: #7ab2c808;
+  opacity: 0.9;
 
   p {
     margin: 0;
@@ -30,9 +32,8 @@ const Quote = styled.blockquote`
 const Code = styled.code`
   font-size: 0.9em;
   margin-top: 20px;
-  color: #1b1d1d;
+  color: currentColor;
   font-weight: 400;
-  line-height: 1.7;
   background-color: rgba(117, 63, 131, 0.07);
   border-radius: 5px;
   margin: 0;

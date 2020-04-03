@@ -45,8 +45,8 @@ const StyledLink = styled.div`
 
     &[aria-current='page'] {
       border-left: 0.375rem solid #7ab2c8;
-      padding-left: 1rem;
-      margin-left: -1.375rem;
+      padding-left: 2rem;
+      margin-left: -2.375rem;
     }
   }
 `;

@@ -93,19 +93,21 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">Free consumers config</Heading>
-        Shipping a component library? You won't have to worry about your consumers needing extra
-        setup. All of the <strong>code is compiled into the Javascript</strong> output at build time
-        - so your consumers don't need to change their build setup! This includes{' '}
-        <strong>delivering SSR for free out of the box.</strong>
+        Shipping a component library? We don't have to worry about consumers
+        needing extra setup. All of the{' '}
+        <strong>code is compiled into the Javascript</strong> output at build
+        time - so your consumers don't need to change their build setup! This
+        includes <strong>delivering SSR for free out of the box.</strong>
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">And only a 400b runtime</Heading>
-        With only a style component needed at runtime to manage moving styles to the head of your
-        application, you won't have to worry about bundle size bloat. Watch out for future
-        optimizations coming - including a transformer that extracts CSS -{' '}
-        <strong>completely removing the runtime</strong>, and then another to atomic-ify your CSS to
-        reduce the curve of written styles.
+        With only a style component needed at runtime to manage moving styles to
+        the head of your application, we won't have to worry about bundle size
+        bloat. Watch out for future optimizations coming - including a
+        transformer that extracts CSS -{' '}
+        <strong>completely removing the runtime</strong>, and then another to
+        atomic-ify your CSS to reduce the curve of written styles.
       </VerticalStack>
 
       <VerticalStack align="right" spacing={10}>

@@ -2,13 +2,11 @@ import { StyledExample, StyledInvalidExample } from '../../examples/styled';
 
 # Styled Components
 
-The `styled` API that you love from Styled Components is ready for you in Compiled!
+The `styled` API that we love from Styled Components is ready for us in Compiled!
 Both template literals and objects are supported -
 check out the code that is generated below.
 
 <StyledExample />
-
-> **Tip -** Hover over the example rendered component above to see the actual rendered HTML!
 
 ## Dynamic props
 
@@ -22,6 +20,9 @@ else they won't be.
 The following example shows this behavior - note that `massive` is not applied to the `span`.
 
 <StyledInvalidExample />
+
+> **Remember** - Everything is compiled.
+> We don't pay the cost of needing a lookup table to remove these properties at runtime! 😎
 
 ## Prop typing
 
