@@ -1,2 +1,2 @@
-import './styled-invalid';
-export { Heading } from './styled';
+export { ColoredText } from './styled';
+export { EmphasisText } from './styled-invalid';

@@ -31,7 +31,7 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }};
 
   :hover {
-    opacity: 0.5;
+    color: #7ab2c8;
   }
 
   &&:last-child {

@@ -7,11 +7,18 @@ check out the code that is generated.
 
 <StyledExample />
 
-## Pass down props
+> **Tip -** Hover over the example rendered component above to see the actual rendered HTML!
 
-Any valid props will be passed down to the underlying DOM node -
-any invalid props will be destructured and won't.
-Because this is all compiled time you don't pay the bundle size cost!
+## Dynamic props
+
+Dynamic styles are front and center with Compiled.
+If you've used Styled Components or Emotion you'll feel right at home -
+the only constraint is that they can't return any CSS!
+_Simple values are only_.
+
+Any props that are also valid HTML attributes will be passed down to the underlying DOM node -
+else they won't be.
+The following example shows this behavior - note that `massive` is not applied to the `span`.
 
 <StyledInvalidExample />
 

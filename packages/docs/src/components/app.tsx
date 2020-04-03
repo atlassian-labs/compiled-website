@@ -16,6 +16,17 @@ const Hr = styled.hr`
   margin: 6rem 0;
 `;
 
+const Quote = styled.blockquote`
+  padding: 2rem 3rem;
+  margin: 3rem -3rem;
+  color: rgba(37, 56, 88, 0.7);
+  border-left: 3px solid #7ab2c8;
+
+  p {
+    margin: 0;
+  }
+`;
+
 const Code = styled.code`
   font-size: 0.9em;
   margin-top: 20px;
@@ -38,6 +49,7 @@ const P = styled.p`
 
 const Link = styled.a`
   color: #7ab2c8;
+  text-decoration: none;
 `;
 
 const components: MDXProviderComponentsProp = {
@@ -56,6 +68,7 @@ const components: MDXProviderComponentsProp = {
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
   a: (props) => <Link {...props} />,
+  blockquote: (props) => <Quote {...props} />,
 };
 
 const titleCase = (str: string) => {
