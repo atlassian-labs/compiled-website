@@ -32,7 +32,7 @@ const StyledLink = styled.div`
     user-select: none;
     color: currentColor;
     text-decoration: none;
-    text-transform: capitalize
+    text-transform: capitalize;
 
     :hover {
       cursor: pointer;
@@ -51,7 +51,13 @@ const StyledLink = styled.div`
   }
 `;
 
-export const LinkItem = ({ children, href }: { children: React.ReactNode; href: string }) => {
+export const LinkItem = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => {
   return (
     <StyledLink>
       <NavLink activeClassName="" to={href}>

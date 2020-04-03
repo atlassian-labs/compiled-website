@@ -122,6 +122,7 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
                 display: 'block',
               },
               '@media only screen and (min-width: 1220px)': {
+                overflow: 'visible',
                 width: '30rem',
                 marginRight: '2rem',
                 position: 'sticky',
