@@ -26,7 +26,7 @@ the Babel plugin!](https://github.com/compiled/website/tree/master/packages/docs
 npm install @compiled/babel-plugin-css-in-js
 ```
 
-```
+```jsx
 {
   "plugins": ["@compiled/babel-plugin-css-in-js"]
 }
@@ -43,7 +43,7 @@ the TypeScript transformer](https://github.com/compiled/website/tree/master/pack
 npm install @compiled/ts-transform-css-in-js ttypescript
 ```
 
-```
+```jsx
 {
   "compilerOptions": {
     "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
@@ -65,7 +65,7 @@ ttsc
 
 Set the compiler option to `ttypescript`.
 
-```
+```jsx
 {
   loader: require.resolve('ts-loader'),
   options: {

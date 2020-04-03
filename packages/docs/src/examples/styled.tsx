@@ -103,7 +103,7 @@ const Example = ({ before, after, children }: ExampleProps) => {
             style={{
               opacity: htmlShown ? 1 : 0,
               transition: 'opacity 50ms',
-              transitionDelay: htmlShown ? '0ms' : '1000ms',
+              transitionDelay: htmlShown ? '0ms' : '250ms',
               pointerEvents: 'none',
               position: 'absolute',
               top: 'calc(100% + 1rem)',

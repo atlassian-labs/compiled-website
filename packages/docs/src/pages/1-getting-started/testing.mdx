@@ -1,1 +1,59 @@
 # Testing
+
+Testing is super important and something that was developed with in mind.
+There exists a `jest` matcher help!
+First install the dependency.
+
+```bash
+npm i @compiled/jest-css-in-js
+```
+
+And then you need to configure it.
+
+```jsx
+// test/setup.tsx
+import { toHaveCompiledCss } from '@compiled/jest-css-in-js';
+
+expect.extend({
+  toHaveCompiledCss,
+});
+```
+
+```jsx
+// jest.config.js
+module.exports = {
+  setupFilesAfterEnv: ['./test/setup.tsx'],
+};
+```
+
+And then reap your rewards!
+Here we are using `react-testing-library` which we highly recommend.
+
+```jsx
+import { render } from '@testing-library/react';
+import { styled } from '@compiled/css-in/js';
+
+it('should have small font', () => {
+  const SmallText = styled.div({
+    fontSize: '12px',
+  });
+
+  const { getByText } = render(<SmallText>hello world</SmallText>);
+
+  expect(getByText('hello world')).toHaveCompiledCss('font-size', '12px');
+});
+```
+
+We can also go a step further and test dynamic props as well.
+
+```jsx
+it('should appear red', () => {
+  const SmallText = styled.div`
+    color: $\{(props) => props.color}px;
+  `;
+
+  const { getByText } = render(<SmallText color="red">hello world</SmallText>);
+
+  expect(getByText('hello world')).toHaveCompiledCss('color', 'red');
+});
+```
