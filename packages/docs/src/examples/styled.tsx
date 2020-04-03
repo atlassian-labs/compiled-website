@@ -98,20 +98,21 @@ const Example = ({ before, after, children }: ExampleProps) => {
           <span ref={(ref) => (ref ? setHtml(ref.innerHTML) : '')}>
             {children}
           </span>
-          {htmlShown && (
-            <span
-              data-code
-              style={{
-                pointerEvents: 'none',
-                position: 'absolute',
-                top: 'calc(100% + 1rem)',
-                left: 0,
-                right: 0,
-                minHeight: '100%',
-              }}>
-              <CodeBlock>{html}</CodeBlock>
-            </span>
-          )}
+          <span
+            data-code
+            style={{
+              opacity: htmlShown ? 1 : 0,
+              transition: 'opacity 50ms',
+              transitionDelay: htmlShown ? '0ms' : '1000ms',
+              pointerEvents: 'none',
+              position: 'absolute',
+              top: 'calc(100% + 1rem)',
+              left: 0,
+              right: 0,
+              minHeight: '100%',
+            }}>
+            <CodeBlock>{html}</CodeBlock>
+          </span>
         </ExampleContainer>
       </span>
     </ExampleRoot>
