@@ -906,9 +906,9 @@
     parcel-bundler "^1.12.4"
 
 "@mdx-js/react@^1.0.0-rc.5":
-  version "1.0.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.0.0-rc.5.tgz#66771a1703917bf4daf61eca9a65fd1d22cb32ad"
-  integrity sha512-RZT//K1Ufcb1tEkLTXOWoLnm7W3RT2gQJVjHKbkWu6osGDF64HfkOF2LclLPpycP+aVnEPSITPcKXBP233FqVA==
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.5.8.tgz#fc38fe0eb278ae24666b2df3c751e726e33f5fac"
+  integrity sha512-L3rehITVxqDHOPJFGBSHKt3Mv/p3MENYlGIwLNYU89/iVqTLMD/vz8hL9RQtKqRoMbKuWpzzLlKIObqJzthNYg==
 
 "@mdx-js/util@^1.5.8":
   version "1.5.8"

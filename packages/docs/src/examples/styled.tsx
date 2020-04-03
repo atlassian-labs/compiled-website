@@ -1,4 +1,4 @@
-import { styled, ClassNames } from '@compiled/css-in-js';
+import { styled } from '@compiled/css-in-js';
 import React, { useState } from 'react';
 import { readFileSync } from 'fs';
 import { CodeBlock } from '@compiled/website-ui';
@@ -16,6 +16,10 @@ const ExampleSwitcher = styled.div`
   > * {
     width: 100%;
     flex-shrink: 0;
+  }
+
+  > * {
+    border-radius: 0 0 5px 5px;
   }
 
   > :first-child {
@@ -38,12 +42,17 @@ const ExampleSwitcher = styled.div`
 `;
 
 const ExampleButton = styled.button`
+  border-radius: 3px 3px 0 0;
   display: block;
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   border: none;
-  background: blue;
+  background: #7ab2c84f;
   text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(37, 56, 88, 0.9);
 `;
 
 const Example = ({ before, after, children }: ExampleProps) => {
@@ -52,7 +61,7 @@ const Example = ({ before, after, children }: ExampleProps) => {
   return (
     <div>
       <ExampleButton onClick={() => setIsShown((prev) => !prev)}>
-        Move
+        {isShown ? 'Show code' : 'Show compiled'}
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
         <CodeBlock>{before}</CodeBlock>

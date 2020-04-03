@@ -1,6 +1,11 @@
 import { styled } from '@compiled/css-in-js';
 import React from 'react';
-import { RootLayout, VerticalStack, Heading, CodeBlock } from '@compiled/website-ui';
+import {
+  RootLayout,
+  VerticalStack,
+  Heading,
+  CodeBlock,
+} from '@compiled/website-ui';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LinkItem, Section } from '../components/side-nav';
@@ -31,6 +36,10 @@ const P = styled.p`
   }
 `;
 
+const Link = styled.a`
+  color: #7ab2c8;
+`;
+
 const components: MDXProviderComponentsProp = {
   h1: ({ children }) => <Heading look="h100">{children}</Heading>,
   h2: ({ children }) => <Heading look="h200">{children}</Heading>,
@@ -40,15 +49,22 @@ const components: MDXProviderComponentsProp = {
   p: ({ children }) => <P>{children}</P>,
   pre: ({ children }) => children,
   code: ({ children, className }) => (
-    <CodeBlock language={className ? className.split('-')[0] : undefined}>{children}</CodeBlock>
+    <CodeBlock language={className ? className.split('-')[0] : undefined}>
+      {children}
+    </CodeBlock>
   ),
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
+  a: (props) => <Link {...props} />,
 };
 
 const titleCase = (str: string) => {
   const parsedStr = str.replace(/\d+-/, '');
-  return `${parsedStr[0].toUpperCase()}${parsedStr.slice(1).toLowerCase().split('-').join(' ')}`;
+  return `${parsedStr[0].toUpperCase()}${parsedStr
+    .slice(1)
+    .toLowerCase()
+    .split('-')
+    .join(' ')}`;
 };
 
 export const App = () => {
@@ -71,9 +87,15 @@ export const App = () => {
         <MDXProvider components={components}>
           <Route>
             {({ location }) => {
-              const [section, page] = location.pathname.split('/').filter(Boolean);
+              const [section, page] = location.pathname
+                .split('/')
+                .filter(Boolean);
               let element: JSX.Element;
-              if (pages[section] && pages[section][page] && pages[section][page].default) {
+              if (
+                pages[section] &&
+                pages[section][page] &&
+                pages[section][page].default
+              ) {
                 const Page = pages[section][page].default;
                 element = <Page />;
               } else {

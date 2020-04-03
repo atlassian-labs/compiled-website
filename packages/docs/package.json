@@ -11,8 +11,8 @@
     "@babel/preset-typescript": "^7.9.0",
     "@compiled/babel-plugin-css-in-js": "^0.1.0",
     "@compiled/css-in-js": "^0.1.0",
-    "@compiled/website-ui": "^1.0.0",
     "@compiled/website-examples": "^1.0.0",
+    "@compiled/website-ui": "^1.0.0",
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",
     "@mdx-js/react": "^1.0.0-rc.5",
     "@types/mdx-js__react": "^1.5.1",
@@ -30,5 +30,10 @@
     "nohoist": [
       "!(react|react-dom)"
     ]
+  },
+  "devDependencies": {
+    "@mdx-js/parcel-plugin-mdx": "^1.5.8",
+    "@mdx-js/react": "^1.1.6",
+    "react": "^16.9.0"
   }
 }
