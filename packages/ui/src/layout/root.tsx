@@ -130,6 +130,7 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
                 backgroundColor: 'transparent',
                 textAlign: 'left',
                 display: 'block',
+                zIndex: 0,
               },
             }}>
             <HeaderSpacing />
