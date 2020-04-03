@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { jsx, styled } from '@compiled/css-in-js';
+import { useState, useEffect } from 'react';
 import {
   Header,
   HorizontalStack,
   HeaderSpacing,
   Content,
   VerticalStack,
+  ScreenReaderText,
 } from '../components';
 
 interface RootProps {
@@ -39,53 +41,141 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }
 `;
 
-export const RootLayout = ({ children, sidenav }: RootProps) => (
-  <div>
-    <Header css={{ gridArea: 'header' }}>
-      <nav
-        aria-label="main"
-        css={{
-          marginLeft: 'auto',
-        }}>
-        <HorizontalStack
-          gap={2}
-          css={{ display: 'flex', alignItems: 'center' }}>
-          <Link exact href="/">
-            Intro
-          </Link>
-          <Link href="/docs">Docs</Link>
-          <Link
-            title="Github"
-            href="https://github.com/atlassian-labs/compiled-css-in-js">
-            Github
-          </Link>
-        </HorizontalStack>
-      </nav>
-    </Header>
+export const RootLayout = ({ children, sidenav }: RootProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    {sidenav ? (
-      <Content css={{ display: 'flex' }}>
+  // TODO: Move to global style component.
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
+
+  return (
+    <div>
+      <Header>
         <nav
-          aria-label="sidenav"
-          css={{ width: '30rem', marginRight: '2rem', flexShrink: 0 }}>
-          <HeaderSpacing />
-          <VerticalStack spacing={9}>{sidenav}</VerticalStack>
-        </nav>
-        <main
+          aria-label="main"
           css={{
-            flexShrink: 1,
-            padding: '6rem 0',
-            display: 'block',
-            minWidth: 1,
+            marginLeft: 'auto',
           }}>
-          {/* Slightly shorter than header spacing because of the headings have a bit of space. */}
-          {/* Ideally we would use this: https://github.com/seek-oss/braid-design-system/blob/master/lib/hooks/typography/basekick.ts#L34-L51 */}
-          <div css={{ marginBottom: '12rem' }} />
-          {children}
-        </main>
-      </Content>
-    ) : (
-      <main>{children}</main>
-    )}
-  </div>
-);
+          <HorizontalStack
+            gap={2}
+            css={{ display: 'flex', alignItems: 'center' }}>
+            <Link exact href="/">
+              Intro
+            </Link>
+            <Link href="/docs">Docs</Link>
+            <Link
+              title="Github"
+              href="https://github.com/atlassian-labs/compiled-css-in-js">
+              Github
+            </Link>
+          </HorizontalStack>
+        </nav>
+      </Header>
+
+      {sidenav ? (
+        <Content
+          css={{
+            display: 'flex',
+          }}>
+          <input
+            tabIndex={-1}
+            key={`sidenav-toggle-open-${isOpen}`}
+            defaultChecked={isOpen}
+            onClick={() => setIsOpen((prev) => !prev)}
+            id="sidenav-toggle"
+            css={{
+              position: 'absolute',
+              opacity: 0,
+              top: '-9000px',
+              height: 1,
+              width: 1,
+              pointerEvents: 'none',
+            }}
+            type="checkbox"
+          />
+          <nav
+            onClick={(e) => {
+              if ((e.target as HTMLElement).nodeName === 'A') {
+                setIsOpen(false);
+              }
+            }}
+            aria-label="sidenav"
+            css={{
+              flexShrink: 0,
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: '#fff',
+              zIndex: 100,
+              overflow: 'auto',
+              textAlign: 'center',
+              fontSize: '1.5em',
+              display: 'none',
+              'input:checked + &': {
+                display: 'block',
+              },
+              '@media only screen and (min-width: 1220px)': {
+                width: '30rem',
+                marginRight: '2rem',
+                position: 'sticky',
+                fontSize: '1em',
+                backgroundColor: 'transparent',
+                textAlign: 'left',
+                display: 'block',
+              },
+            }}>
+            <HeaderSpacing />
+            <VerticalStack spacing={9}>{sidenav}</VerticalStack>
+          </nav>
+          <label
+            htmlFor="sidenav-toggle"
+            tabIndex={0}
+            css={{
+              position: 'fixed',
+              bottom: '2rem',
+              left: '3rem',
+              width: '10rem',
+              height: '10rem',
+              zIndex: 400,
+              cursor: 'pointer',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '8rem',
+              color: 'black',
+              '@media only screen and (min-width: 1220px)': {
+                display: 'none',
+              },
+            }}>
+            <ScreenReaderText>
+              {isOpen ? 'Close navigation' : 'Open navigation'}+
+            </ScreenReaderText>
+            <span aria-hidden="true">🍔</span>
+          </label>
+          <main
+            css={{
+              flexShrink: 1,
+              padding: '6rem 0',
+              display: 'block',
+              minWidth: 1,
+            }}>
+            {/* Slightly shorter than header spacing because of the headings have a bit of space. */}
+            {/* Ideally we would use this: https://github.com/seek-oss/braid-design-system/blob/master/lib/hooks/typography/basekick.ts#L34-L51 */}
+            <div css={{ marginBottom: '12rem' }} />
+            {children}
+          </main>
+        </Content>
+      ) : (
+        <main>{children}</main>
+      )}
+    </div>
+  );
+};
