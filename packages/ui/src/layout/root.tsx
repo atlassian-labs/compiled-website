@@ -168,6 +168,7 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
               padding: '6rem 0',
               display: 'block',
               minWidth: 1,
+              width: '100%',
             }}>
             {/* Slightly shorter than header spacing because of the headings have a bit of space. */}
             {/* Ideally we would use this: https://github.com/seek-oss/braid-design-system/blob/master/lib/hooks/typography/basekick.ts#L34-L51 */}
