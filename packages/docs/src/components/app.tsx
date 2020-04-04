@@ -21,7 +21,7 @@ const Quote = styled.blockquote`
   margin: 6rem -3rem;
   color: rgba(37, 56, 88, 0.7);
   border-left: 3px solid #7ab2c8;
-  background-color: #7ab2c808;
+  background-color: #7ab2c814;
   opacity: 0.9;
 
   p {

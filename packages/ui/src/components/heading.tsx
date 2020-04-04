@@ -3,7 +3,10 @@ import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
 import { jsx } from '@compiled/css-in-js';
 
 interface HeadingProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLHeadingElement>,
+    HTMLHeadingElement
+  > {
   look: 'h500' | 'h400' | 'h300' | 'h200' | 'h100';
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span';
   children: ReactNode;
@@ -31,8 +34,13 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
         margin-top: 6rem;
 
         [data-look='h100']& {
-          font-size: 52px;
-          line-height: 60px;
+          font-size: 48px;
+          line-height: 56px;
+
+          @media only screen and (min-width: 900px) {
+            font-size: 52px;
+            line-height: 60px;
+          }
         }
 
         [data-look='h200']& {

@@ -1,5 +1,5 @@
-import React from 'react';
-import { styled } from '@compiled/css-in-js';
+/** @jsx jsx */
+import { styled, jsx } from '@compiled/css-in-js';
 import {
   Hero,
   Heading,
@@ -22,7 +22,7 @@ const styledExampleAfter = readFileSync(
 );
 
 const TerminalStripe = styled.div`
-  background-color: rgba(39, 40, 34, 0.2);
+  background-color: rgba(39, 40, 34, 0.08);
 `;
 
 const GetStartedLink = styled.a({
@@ -46,8 +46,10 @@ export default () => (
         <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={12} gap={3}>
           <Heading look="h100">
-            The CSS in JS authoring experience you
-            <br /> love without the runtime cost
+            <span css={{ maxWidth: '75%', display: 'block' }}>
+              The CSS in JS authoring experience we love without the runtime
+              cost
+            </span>
           </Heading>
           <Comparison before={styledExampleBefore} after={styledExampleAfter} />
         </VerticalStack>
@@ -92,7 +94,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading look="h200">Free consumers config</Heading>
+        <Heading look="h200">Free our consumers config</Heading>
         Shipping a component library? We don't have to worry about consumers
         needing extra setup. All of the{' '}
         <strong>code is compiled into the Javascript</strong> output at build
@@ -101,7 +103,7 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading look="h200">And only a 400b runtime</Heading>
+        <Heading look="h200">And only a tiny runtime</Heading>
         With only a style component needed at runtime to manage moving styles to
         the head of your application, we won't have to worry about bundle size
         bloat. Watch out for future optimizations coming - including a

@@ -74,8 +74,23 @@ export const Terminal = ({ children }: CodeBlockProps) => {
       <pre>
         <code
           css={{
+            // @ts-ignore
             position: 'relative',
+            // @ts-ignore
             opacity: 0.9,
+            // @ts-ignore
+            '@keyframes blink': {
+              // @ts-ignore
+              '0%': {
+                opacity: 0,
+              },
+              '40%': {
+                opacity: 1,
+              },
+              '100%': {
+                opacity: 1,
+              },
+            },
             ':before': {
               content: '➜ ',
               color: 'rgba(170, 255, 0, 0.9)',
@@ -91,6 +106,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               top: '-3px',
               right: '-10px ',
               pointerEvents: 'none',
+              animation: 'blink 3s infinite',
             },
           }}>
           <ScreenReaderText>{parsedInput}</ScreenReaderText>
