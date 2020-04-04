@@ -6,7 +6,7 @@
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "start:docs": "yarn build:ui --watch & yarn build:examples --watch & cd packages/docs && yarn start",
+    "start:docs": "yarn build:examples && yarn build:ui --watch & cd packages/docs && yarn start",
     "start:intro": "yarn build:ui && yarn build:examples && cd packages/introduction && yarn start",
     "clean": "rm -rf dist && workspaces-run -- rm -rf dist && rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",

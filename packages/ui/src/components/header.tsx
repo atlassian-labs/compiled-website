@@ -26,6 +26,8 @@ export const HeaderSpacing = styled.div`
 const Logo = styled.span`
   font-size: 4rem;
   font-family: 'Charlie Display';
+  display: flex;
+  align-items: center;
 `;
 
 interface HeaderProps {
@@ -35,10 +37,26 @@ interface HeaderProps {
 export const Header = ({ children, ...props }: HeaderProps) => (
   <StyledHeader {...props}>
     <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
-      <Logo aria-hidden="true">👷‍♀ Compiled</Logo>
+      <Logo>
+        <span aria-hidden="true">👷‍♀</span>
+        <span
+          css={`
+            font-size: 2.5rem;
+            margin-left: 1rem;
+            font-weight: 600;
+            color: rgba(37, 56, 88, 0.9);
+
+            @media only screen and (min-width: 500px) {
+              font-size: 1em;
+              font-weight: 500;
+            }
+          `}>
+          Compiled
+        </span>
+      </Logo>
     </a>
     <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
-      Compiled Css in js
+      Compiled CSS in JS
     </ScreenReaderText>
     {children}
   </StyledHeader>
