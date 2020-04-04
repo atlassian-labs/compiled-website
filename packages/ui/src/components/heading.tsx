@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
-import { jsx } from '@compiled/css-in-js';
+import React, { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
+import '@compiled/css-in-js';
 
 interface HeadingProps
   extends DetailedHTMLProps<

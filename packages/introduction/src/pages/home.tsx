@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { styled, jsx } from '@compiled/css-in-js';
+import React from 'react';
+import { styled } from '@compiled/css-in-js';
 import {
   Hero,
   Heading,
@@ -72,14 +72,15 @@ npm i @compiled/css-in-js
 
         <Comparison
           before={`
-/** @jsx jsx */
-import { jsx } from '@compiled/css-in-js';
+import React from 'react';
+import '@compiled/css-in-js';
 
 <div css={{ color: 'blue' }}>
   hello, world!
 </div>;
 `}
           after={`
+import React from 'react';
 import { ClassNames } from '@compiled/css-in-js';
 
 <ClassNames>

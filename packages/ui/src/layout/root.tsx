@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx, styled } from '@compiled/css-in-js';
-import { Fragment, useState, useEffect } from 'react';
+import { styled } from '@compiled/css-in-js';
+import React, { Fragment, useState, useEffect } from 'react';
 import {
   Header,
   HorizontalStack,

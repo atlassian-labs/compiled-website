@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { styled, jsx } from '@compiled/css-in-js';
+import React from 'react';
+import { styled } from '@compiled/css-in-js';
 import { ScreenReaderText } from './helpers';
 
 const height = '10rem';

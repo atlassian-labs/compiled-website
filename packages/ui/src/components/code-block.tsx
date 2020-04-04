@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { useEffect, useState, CSSProperties } from 'react';
-import { jsx } from '@compiled/css-in-js';
+import React, { useEffect, useState, CSSProperties } from 'react';
+import '@compiled/css-in-js';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
 import { codeBackground } from '../utils/colors';
