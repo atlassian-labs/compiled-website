@@ -45,10 +45,13 @@ const ExampleSwitcher = styled.div`
   }
 `;
 
-const ExampleButton = styled.button`
+const ExampleButton = styled.button<{
+  fullWidth?: boolean;
+  isSelected?: boolean;
+}>`
   border-radius: 5px 5px 0 0;
   display: block;
-  width: 100%;
+  width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   padding: 1.5rem;
   border: none;
   background: #fff;
@@ -56,7 +59,7 @@ const ExampleButton = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(37, 56, 88, 0.9);
+  color: ${(props) => (props.isSelected ? '#7ab2c8' : 'rgba(37, 56, 88, 0.9)')};
 
   :hover {
     color: #7ab2c8;
@@ -69,10 +72,13 @@ const ExampleContainer = styled.div`
   border-radius: 0 0 5px 5px;
   z-index: 1;
   position: relative;
-  padding: 2rem;
+  padding: 0.5rem;
   background: #fff;
-  flex-direction: column;
   position: relative;
+
+  [data-button] {
+    margin-left: auto;
+  }
 `;
 
 export const Example = ({ before, after, children }: ExampleProps) => {
@@ -82,38 +88,40 @@ export const Example = ({ before, after, children }: ExampleProps) => {
 
   return (
     <ExampleRoot>
-      <ExampleButton onClick={() => setIsShown((prev) => !prev)}>
+      <ExampleButton fullWidth onClick={() => setIsShown((prev) => !prev)}>
         {isShown ? 'Show code' : 'Show compiled'}
       </ExampleButton>
-      <span
-        onClick={() => setHtmlShown((prev) => !prev)}
-        onMouseOver={() => setHtmlShown(true)}
-        onMouseOut={() => setHtmlShown(false)}>
-        <ExampleSwitcher data-is-shown={isShown}>
-          <CodeBlock>{before}</CodeBlock>
-          <CodeBlock>{after}</CodeBlock>
-        </ExampleSwitcher>
-        <ExampleContainer>
-          <span ref={(ref) => (ref ? setHtml(ref.innerHTML) : '')}>
-            {children}
-          </span>
-          <span
-            data-code
-            style={{
-              opacity: htmlShown ? 1 : 0,
-              paddingTop: '2rem',
-              transition: 'opacity 50ms',
-              transitionDelay: htmlShown ? '0ms' : '250ms',
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              right: 0,
-              minHeight: '100%',
-            }}>
-            <CodeBlock>{html}</CodeBlock>
-          </span>
-        </ExampleContainer>
-      </span>
+      <ExampleSwitcher data-is-shown={isShown}>
+        <CodeBlock>{before}</CodeBlock>
+        <CodeBlock>{after}</CodeBlock>
+      </ExampleSwitcher>
+      <ExampleContainer>
+        <span
+          style={{ display: 'flex', padding: '1.5rem', alignItems: 'center' }}
+          ref={(ref) => (ref ? setHtml(ref.innerHTML) : '')}>
+          {children}
+        </span>
+        <ExampleButton
+          data-button
+          isSelected={htmlShown}
+          onClick={() => setHtmlShown((prev) => !prev)}>
+          HTML
+        </ExampleButton>
+        <span
+          data-code
+          style={{
+            opacity: htmlShown ? 1 : 0,
+            paddingTop: '2rem',
+            transition: 'opacity 50ms',
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            minHeight: '100%',
+          }}>
+          <CodeBlock>{html}</CodeBlock>
+        </span>
+      </ExampleContainer>
     </ExampleRoot>
   );
 };
