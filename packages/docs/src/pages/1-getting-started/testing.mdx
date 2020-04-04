@@ -49,7 +49,7 @@ We can also go a step further and test dynamic props as well.
 ```jsx
 it('should appear red', () => {
   const SmallText = styled.div`
-    color: $\{(props) => props.color}px;
+    color: ＄{(props) => props.color}px;
   `;
 
   const { getByText } = render(<SmallText color="red">hello world</SmallText>);
@@ -57,3 +57,9 @@ it('should appear red', () => {
   expect(getByText('hello world')).toHaveCompiledCss('color', 'red');
 });
 ```
+
+> **Note** - It might sound tempting to want a snapshot serializer to make assertions against Compiled.
+> We strongly discourage this so we don't supply one.
+> You can get something more valuable with visual regression tests,
+> else assert the specific styles you're interested in -
+> **don't snapshot the world**!

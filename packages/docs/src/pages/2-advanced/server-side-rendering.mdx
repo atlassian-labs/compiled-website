@@ -1,0 +1,17 @@
+# Server Side Rendering
+
+Server side rendering in Compiled works by compiling the CSS next to the element itself.
+This is very similar to how Emotion accomplishes it by default.
+
+This strategy has a few benefits -
+the biggest being when rendering React on the server with the [streaming API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) your component styles are streamed together with your component markup,
+resulting in things being rendered to users faster.
+
+```jsx
+import { renderToNodeStream } from 'react-dom/server';
+import { App } from '@app/code';
+
+renderToNodeStream(<App />);
+```
+
+> **Warning** - This approach can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.

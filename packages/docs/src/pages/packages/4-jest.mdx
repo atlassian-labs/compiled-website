@@ -3,3 +3,15 @@
 ```bash
 npm i @compiled/jest-css-in-js
 ```
+
+## toHaveCompiledCss
+
+Used to enable the compiled CSS matcher in Jest.
+
+```jsx
+import { toHaveCompiledCss } from '@compiled/jest-css-in-js';
+
+expect.extend({
+  toHaveCompiledCss,
+});
+```

@@ -3,3 +3,54 @@
 ```bash
 npm i @compiled/css-in-js
 ```
+
+## styled
+
+Allows us to create Styled Components.
+
+```jsx
+import { styled } from '@compiled/css-in-js';
+
+styled.div`
+  font-size: 12px;
+`;
+```
+
+## jsx
+
+Enables the CSS prop on React elements.
+
+```jsx
+/** @jsx jsx */
+import { jsx } from '@compiled/css-in-js';
+
+<div
+  css={{
+    fontSize: 12,
+  }}
+/>;
+```
+
+## ClassNames
+
+Allows us to generate a `class` without needing to tie it to a specific React element.
+
+```jsx
+import { ClassNames } from '@compiled/css-in-js';
+
+<ClassNames>
+  {({ css }) => <div className={css({ fontSize: 12 })} />}
+</ClassNames>;
+```
+
+## Style
+
+Moves child compiled CSS to the head of the document.
+You shouldn't need to use this directly.
+Each CSS block should an element in the children array.
+
+```jsx
+import { Style } from '@compiled/css-in-js';
+
+<Style hash="css-zd46j1">{['.css-zd46j1{color:#ff5630;}']}</Style>;
+```

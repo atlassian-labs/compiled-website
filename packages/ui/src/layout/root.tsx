@@ -134,7 +134,16 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
               },
             }}>
             <HeaderSpacing />
-            <VerticalStack spacing={9}>{sidenav}</VerticalStack>
+            <VerticalStack
+              css={{
+                '@media only screen and (min-width: 1220px)': {
+                  position: 'sticky',
+                  top: '9rem',
+                },
+              }}
+              spacing={9}>
+              {sidenav}
+            </VerticalStack>
           </nav>
           <label
             htmlFor="sidenav-toggle"

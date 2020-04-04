@@ -31,7 +31,7 @@ const ExampleSwitcher = styled.div`
   }
 
   > :last-child {
-    visibility: hidden;
+    display: none;
   }
 
   &[data-is-shown='true'] {
@@ -40,7 +40,7 @@ const ExampleSwitcher = styled.div`
     }
 
     > :last-child {
-      visibility: visible;
+      display: block;
     }
   }
 `;
