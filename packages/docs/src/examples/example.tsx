@@ -97,7 +97,7 @@ export const Example = ({ before, after, children }: ExampleProps) => {
       </ExampleSwitcher>
       <ExampleContainer>
         <span
-          style={{ display: 'flex', padding: '1.5rem', alignItems: 'center' }}
+          css={{ display: 'flex', padding: '1.5rem', alignItems: 'center' }}
           ref={(ref) => (ref ? setHtml(ref.innerHTML) : '')}>
           {children}
         </span>
@@ -109,7 +109,7 @@ export const Example = ({ before, after, children }: ExampleProps) => {
         </ExampleButton>
         <span
           data-code
-          style={{
+          css={{
             opacity: htmlShown ? 1 : 0,
             paddingTop: '2rem',
             transition: 'opacity 50ms',

@@ -9,8 +9,8 @@
     "build": "ttsc && ttsc --outDir dist/compiled --jsx react && prettier ./dist --write"
   },
   "dependencies": {
-    "@compiled/css-in-js": "^0.2.1",
-    "@compiled/ts-transform-css-in-js": "^0.2.1",
+    "@compiled/css-in-js": "^0.2.2",
+    "@compiled/ts-transform-css-in-js": "^0.2.2",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "ts-node": "^8.8.1",

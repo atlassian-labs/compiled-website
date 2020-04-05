@@ -812,31 +812,31 @@
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-0.4.0.tgz#3413badb2c3904357a36268cb9f8c7e0afc3a804"
 
-"@compiled/babel-plugin-css-in-js@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin-css-in-js/-/babel-plugin-css-in-js-0.2.1.tgz#9bd5673cd41d8a558e7078c7902e8f6f7d3ddf95"
-  integrity sha512-tjhb+LOx/vGsuiwFRbYODDtJaTZzyHPCNn2QpENGZVrEHMQv/9OTXGc9D6jDPZKPr+6HVQLzzlti/Yf3RwQIAQ==
+"@compiled/babel-plugin-css-in-js@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin-css-in-js/-/babel-plugin-css-in-js-0.2.2.tgz#088926cca4f9d3c380c5ff0ea6835605344c6cb4"
+  integrity sha512-Bb4hBLcVP2TgW7RfHyY3hPEhwtEAcsiycFHdHMbegL2SaNgz4gC/v5bfD1BoiuZVDKFWn8zOoAVgSj9Lp6U/zw==
   dependencies:
     "@babel/core" "^7.9.0"
-    "@compiled/ts-transform-css-in-js" "0.2.1"
+    "@compiled/ts-transform-css-in-js" "0.2.2"
     typescript "^3.7.3"
 
-"@compiled/css-in-js@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.2.1.tgz#e8ad8a69b78d11e1d72db4dcb5d743f8cd5218f6"
-  integrity sha512-fN67C0IrGQIAO4lyaFO74gNXIxGUGkZaR6UxSggkEXjXvg3iZZbUFc/nfz946Hock1GXfjuUGBv9L4VYmvb9gQ==
+"@compiled/css-in-js@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.2.2.tgz#ff705edc99b9d9b78a7aa2e065565069e04b40b0"
+  integrity sha512-U17Y+gnc5TubqwJAKIZs0lLs2S8KSFlsMrIEHJpsc8oyL3Emtg/7r5xPlSTWhQ3IkfaoBeHVYFM+cNvJIx338g==
   dependencies:
-    "@compiled/style" "0.2.1"
+    "@compiled/style" "0.2.2"
 
-"@compiled/style@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@compiled/style/-/style-0.2.1.tgz#f4cb5ae14770578fe02eedd02f914b86ee05b490"
-  integrity sha512-H+DhG1pPIPfYBJy7ja4jc9FXPRG3+vfyDJwR0ZwZqTcSZPbYv7HAzpPX1+/L4z548+YB4mbDeVcwH9wNKOqNkg==
+"@compiled/style@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@compiled/style/-/style-0.2.2.tgz#b6918e4bb14618a7d54eadf75787cf61b20d3d2b"
+  integrity sha512-fC3fchIb7tEheojOr6G4Rz51zTX2nm8wMZG5bQONls9np+cJM0ZOsMQyrBsAdugYAgGZ+CjUmVAjbA4jLVbqrQ==
 
-"@compiled/ts-transform-css-in-js@0.2.1", "@compiled/ts-transform-css-in-js@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.2.1.tgz#0e80206dd07f7a47361ed3574486e3060b72edec"
-  integrity sha512-DCVEmqnfk8yY8ncxie9dURPmYBAsHxJT9lOCmDElvLlSTwefFNyy0f3eR/tiMSdm4hEhoJV6MKIibD1v/gqyRQ==
+"@compiled/ts-transform-css-in-js@0.2.2", "@compiled/ts-transform-css-in-js@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.2.2.tgz#ca7498975fe1f4095f4614a088b8f0a3fb767519"
+  integrity sha512-49W/qyJRHd2ewJ+RGeEAk+lium0Nmczp5M2hKaGfmSK54gmVKq9BS6Mv2QRmWnAIgdUN9mUArzmaQRYjtq2XNQ==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.6"
     stylis "^3.5.4"
