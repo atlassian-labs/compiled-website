@@ -3,9 +3,26 @@
 # Css Compiler
 
 Compiled uses [Stylis](https://github.com/thysultan/stylis.js) to compile CSS.
-Because of this the majority of CSS you write can be converted from your previous CSS in JS solutions into Compiled and they'll work great!
+Because of this the majority of CSS we write can be converted from your previous CSS in JS solutions into Compiled and they'll work great!
+Stylis enables some powerful features such as the following.
 
-Stylus enables some powerful things like...
+## Vendor prefixing
+
+This is done automatically for you.
+Simply write your CSS as you would:
+
+```css
+display: flex;
+```
+
+And it gets turned into:
+
+```css
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+```
 
 ## Nested selectors
 
@@ -55,7 +72,7 @@ input:hover {
 <!--
 ## Built-in functions
 
-Stylus comes with a huge amount of functions you can use,
+Stylus comes with a huge amount of functions we can use,
 [check them out over at their docs](https://stylus-lang.com/docs/bifs.html)!
 
 <StylusBuiltInFunctions /> -->

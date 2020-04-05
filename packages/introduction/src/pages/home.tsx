@@ -69,7 +69,11 @@ npm i @compiled/css-in-js
     <Content>
       <VerticalStack gap={2} spacing={10}>
         <Heading look="h200">With other familiar apis</Heading>
-
+        <p>
+          Made for easy migration from your previous CSS in JS library to
+          Compiled - so the css prop and class names component have come along
+          for the ride!
+        </p>
         <Comparison
           before={`
 import React from 'react';
@@ -96,21 +100,22 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">Free our consumers config</Heading>
-        Shipping a component library? We don't have to worry about consumers
-        needing extra setup. All of the{' '}
-        <strong>code is compiled into the Javascript</strong> output at build
-        time - so your consumers don't need to change their build setup! This
-        includes <strong>delivering SSR for free out of the box.</strong>
+        Shipping a component library? Well don't worry about consumers needing
+        extra setup - all of the{' '}
+        <strong>code is compiled into the JavaScript</strong> output at build
+        time so your consumers don't need to change their build setup! This
+        includes <strong>delivering SSR for free out of the box.</strong> Just
+        import a Compiled component and it'll work fantastically.
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">And only a tiny runtime</Heading>
-        With only a style component needed at runtime to manage moving styles to
-        the head of your application, we won't have to worry about bundle size
-        bloat. Watch out for future optimizations coming - including a
-        transformer that extracts CSS -{' '}
-        <strong>completely removing the runtime</strong>, and then another to
-        atomic-ify your CSS to reduce the curve of written styles.
+        With only a single component needed at runtime to manage moving styles
+        to the head of your app, we won't have to worry about bundle size bloat.
+        Watch out for future optimizations coming - including a transformer that
+        extracts CSS - <strong>completely removing the runtime</strong>, and
+        then another to atomic-ify your CSS to{' '}
+        <strong>reduce the curve of written CSS</strong>.
       </VerticalStack>
 
       <VerticalStack align="right" spacing={10}>

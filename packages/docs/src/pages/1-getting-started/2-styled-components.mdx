@@ -3,7 +3,7 @@ import { StyledExample, StyledInvalidExample } from '../../examples/styled';
 # Styled Components
 
 The `styled` API that we love from Styled Components is ready for us in Compiled!
-Both template literals and objects are supported -
+Both strings and objects are supported -
 check out the code that is generated below.
 
 <StyledExample />
@@ -13,11 +13,11 @@ check out the code that is generated below.
 Dynamic styles are front and center with Compiled.
 If you've used Styled Components or Emotion you'll feel right at home -
 the only constraint is that they can't return any CSS!
-_Simple values are only_.
+_Simple values only_.
 
 Any props that are also valid HTML attributes will be passed down to the underlying DOM node -
-else they won't be.
-The following example shows this behavior - note that `massive` is not applied to the `span`.
+else they will be ignored.
+The following example shows this behavior - note that the `massive` prop is not on the `span` (click the HTML button)!
 
 <StyledInvalidExample />
 
@@ -26,7 +26,7 @@ The following example shows this behavior - note that `massive` is not applied t
 
 ## Prop typing
 
-With TypeScript support baked in you'll have a great time using it,
+With type support baked in you'll have a great time using it with TypeScript,
 any inline interpolation will have access to the props defined in the tagged template generic.
 
 ```
