@@ -7,7 +7,7 @@ import {
   CodeBlock,
 } from '@compiled/website-ui';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom';
 import { LinkItem, Section } from '../components/side-nav';
 import pages from '../pages/*/*.mdx';
 
@@ -48,11 +48,6 @@ const P = styled.p`
   }
 `;
 
-const Link = styled.a`
-  color: #7ab2c8;
-  text-decoration: none;
-`;
-
 const components: MDXProviderComponentsProp = {
   h1: ({ children }) => <Heading look="h100">{children}</Heading>,
   h2: ({ children }) => <Heading look="h200">{children}</Heading>,
@@ -70,7 +65,24 @@ const components: MDXProviderComponentsProp = {
   ),
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
-  a: (props) => <Link {...props} />,
+  a: ({ href, children, ...props }) =>
+    href.startsWith('http') ? (
+      <a
+        href={href}
+        css={{ color: '#7ab2c8', textDecoration: 'none' }}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}>
+        {children}
+      </a>
+    ) : (
+      <Link
+        to={props.href}
+        css={{ color: '#7ab2c8', textDecoration: 'none' }}
+        {...props}>
+        {children}
+      </Link>
+    ),
   blockquote: (props) => <Quote {...props} />,
 };
 
