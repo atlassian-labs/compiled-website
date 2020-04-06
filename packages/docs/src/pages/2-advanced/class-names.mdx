@@ -1,8 +1,16 @@
-import { CssPropExample } from '../../examples/class-names';
+import {
+  ClassNamesExample,
+  ClassNamesCafExample,
+} from '../../examples/class-names';
 
 # Class Names
 
-Sometimes we want to pass consumers some styles without forcing them into taking an extra `div` or `span`,
-or if we use a third party component that takes something other than a `className`.
+Sometimes we might be using a third party component that takes something other than a `className`.
+We can use this component to get around that!
 
-<CssPropExample />
+<ClassNamesExample />
+
+We might even want to pass consumers some styles without forcing them into taking an extra `div` or `span`,
+so we can use the children as function pattern as well.
+
+<ClassNamesCafExample />
