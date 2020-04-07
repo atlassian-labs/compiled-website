@@ -43,23 +43,6 @@ export const CodeBlock = ({
 
 export const Terminal = ({ children }: CodeBlockProps) => {
   const parsedInput = children.replace(/^\n/, '');
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    let intervalId;
-    const timeoutId = setTimeout(() => {
-      setInterval(() => {
-        if (parsedInput.length !== index) {
-          setIndex((prev) => prev + 1);
-        }
-      }, 40);
-    }, 500);
-
-    return () => {
-      clearTimeout(timeoutId);
-      clearInterval(intervalId);
-    };
-  }, [parsedInput]);
 
   return (
     <div
@@ -108,8 +91,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               animation: 'blink 3s infinite',
             },
           }}>
-          <ScreenReaderText>{parsedInput}</ScreenReaderText>
-          <span aria-hidden="true">{parsedInput.slice(0, index)}</span>
+          {parsedInput}
         </code>
       </pre>
     </div>
