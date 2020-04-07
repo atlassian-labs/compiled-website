@@ -8,8 +8,9 @@ import {
 } from '@compiled/website-ui';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom';
-import { LinkItem, Section } from '../components/side-nav';
+import { LinkItem, Section } from './side-nav';
 import pages from '../pages/*/*.mdx';
+import { Footer } from './footer';
 
 const Hr = styled.hr`
   color: rgba(0, 0, 0, 0.1);
@@ -99,19 +100,26 @@ export const App = () => {
   return (
     <BrowserRouter basename={'/docs'}>
       <RootLayout
-        sidenav={Object.entries(pages as any)
-          .sort()
-          .map(([sectionName, pages]) => (
-            <Section key={sectionName} title={titleCase(sectionName)}>
-              {Object.entries(pages as any)
-                .sort()
-                .map(([pageName]) => (
-                  <LinkItem href={`/${sectionName}/${pageName}`} key={pageName}>
-                    {titleCase(pageName)}
-                  </LinkItem>
-                ))}
-            </Section>
-          ))}>
+        sidenav={
+          <>
+            {Object.entries(pages as any)
+              .sort()
+              .map(([sectionName, pages]) => (
+                <Section key={sectionName} title={titleCase(sectionName)}>
+                  {Object.entries(pages as any)
+                    .sort()
+                    .map(([pageName]) => (
+                      <LinkItem
+                        href={`/${sectionName}/${pageName}`}
+                        key={pageName}>
+                        {titleCase(pageName)}
+                      </LinkItem>
+                    ))}
+                </Section>
+              ))}
+            <Footer />
+          </>
+        }>
         <MDXProvider components={components}>
           <Route>
             {({ location }) => {

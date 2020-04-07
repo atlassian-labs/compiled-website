@@ -66,6 +66,7 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
           line-height: 20px;
           text-transform: uppercase;
           letter-spacing: 1px;
+          color: #7a869a;
         }
 
         [data-look='h500']& {
@@ -73,6 +74,7 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
           line-height: 18px;
           text-transform: uppercase;
           letter-spacing: 1px;
+          color: #7a869a;
         }
       `}>
       {children}
