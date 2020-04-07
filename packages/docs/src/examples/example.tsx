@@ -108,7 +108,6 @@ export const Example = ({ before, after, children }: ExampleProps) => {
           HTML
         </ExampleButton>
         <span
-          data-code
           css={{
             opacity: htmlShown ? 1 : 0,
             paddingTop: '2rem',
