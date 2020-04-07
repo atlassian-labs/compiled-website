@@ -77,7 +77,7 @@ const components: MDXProviderComponentsProp = {
       </a>
     ) : (
       <Link
-        to={props.href}
+        to={href}
         css={{ color: '#7ab2c8', textDecoration: 'none' }}
         {...props}>
         {children}

@@ -1,0 +1,118 @@
+# Migrating
+
+Migrating to Compiled isn't that hard depending how dynamic your CSS is.
+It's more of a mind shift than anything.
+The single precondition for this page is completing the [installation instructions](/1-getting-started/1-installation),
+so if you haven't already go read that.
+
+## From Styled Components
+
+Just replace the imports and you're done!
+If you have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
+
+```diff
+-import styled from 'styled-components';
++import { styled } from '@compiled/css-in-js';
+
+styled.div`
+  font-size: 12px;
+  color: ${props => props.color};
+`;
+```
+
+```diff
+-import styled from 'styled-components';
++import { styled } from '@compiled/css-in-js';
+
+styled.div({
+  fontSize: 12px,
+  color: props => props.color,
+});
+```
+
+## From Emotion
+
+Just replace the imports,
+if you're using `@emotion/styled` the migration is the same from above.
+
+```diff
+-/** @jsx jsx */
+-import { jsx } from '@emotion/core';
++import '@compiled/css-in-js';
+
+(props) => (
+  <div
+    css={{
+      color: 'red',
+      backgroundColor: props.background,
+    }}
+  />
+)
+```
+
+```diff
+-/** @jsx jsx */
+-import { jsx } from '@emotion/core';
++import '@compiled/css-in-js';
+
+(props) => (
+  <div
+    css={`
+      color: red;
+      background-color: ${props.background}
+    `}
+  />
+)
+```
+
+## Generating CSS at runtime
+
+In a large majority of libraries today you'll see something like this,
+where it returns new CSS based on some props:
+
+```jsx
+import styled from 'styled-components';
+
+const getBackgroundGradient = (color, percent) => ({
+  background: `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
+      ${color}`,
+});
+
+styled.input`
+  ＄{(props) => getBackgroundGradient(props.color, props.percent)}
+`;
+```
+
+Every time `color` or `percent` changes it will recalculate the CSS and then re-render.
+While at a glance this looks okay it's actually quite **dangerous and unperformant**,
+a massive footgun every developer is wielding!
+Especially if `percent` isn't just whole numbers!
+
+In Compiled it's **impossible to generate CSS at runtime**,
+so the above code can't migrate across.
+How might we do it then?
+
+Well the direction we can go in is by statically defining the CSS properties,
+and then assigning function interpolations (the arrow functions inside the styled declaration) to set the values at runtime.
+
+```jsx
+import styled from 'styled-components';
+
+const getBackgroundGradient = (color, percent) => ({
+  `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
+      ${color}`,
+});
+
+styled.input`
+  background: ＄{props => getBackgroundGradient(props.color, props.percent)};
+`;
+```
+
+This accomplishes two things for us:
+
+1. We've **successfully migrated** our runtime CSS over!
+   It turns out it didn't need to be generated at runtime anyway.
+1. We've **fixed our performance problem**!
+   Now it doesn't matter how many ticks `percent` has,
+   it'll be buttery smooth.
+   All because of the constraint of _no runtime CSS_ this footgun has been disarmed.
