@@ -15,7 +15,7 @@ export const ClassNamesExample = () => {
         'utf-8'
       )}>
       <classNames.ZoomOnHover>
-        I Wandered Lonely as a Cloud <i>(hover over me)</i>
+        The Fountain of Bakhchisaray <i>(hover over me)</i>
       </classNames.ZoomOnHover>
     </Example>
   );
@@ -35,10 +35,26 @@ export const ClassNamesCafExample = () => {
       <classNames.ZoomOnHoverCAF>
         {(props) => (
           <div {...props}>
-            I Wandered Lonely as a Cloud <i>(hover over me)</i>
+            The Bronze Horseman <i>(hover over me)</i>
           </div>
         )}
       </classNames.ZoomOnHoverCAF>
+    </Example>
+  );
+};
+
+export const ClassNamesDynamicExample = () => {
+  return (
+    <Example
+      before={readFileSync(
+        __dirname + '../../../../examples/src/class-names-dynamic.tsx',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname + '../../../../examples/dist/class-names-dynamic.jsx',
+        'utf-8'
+      )}>
+      <classNames.Dynamic color="blue">Eugene Onegin</classNames.Dynamic>
     </Example>
   );
 };

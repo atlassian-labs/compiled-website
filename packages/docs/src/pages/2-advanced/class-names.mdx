@@ -1,6 +1,7 @@
 import {
   ClassNamesExample,
   ClassNamesCafExample,
+  ClassNamesDynamicExample,
 } from '../../examples/class-names';
 
 # Class Names
@@ -14,3 +15,7 @@ We might even want to pass consumers some styles without forcing them into takin
 so we can use the children as function pattern as well.
 
 <ClassNamesCafExample />
+
+When using the classnames component dynamically name sure to apply the `style` prop else it won't work.
+
+<ClassNamesDynamicExample />

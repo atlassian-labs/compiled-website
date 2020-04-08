@@ -4,6 +4,7 @@ import { EmphasisText as EmphasisTextCssProp } from './css-prop';
 import { EmphasisText as EmphasisTextCssPropString } from './css-prop-string';
 import { ZoomOnHover } from './class-names';
 import { ZoomOnHoverCAF } from './class-names-caf';
+import { Dynamic } from './class-names-dynamic';
 import { StylusBuiltInFunctions } from './stylus-built-in-functions';
 import { CompositionObject } from './composition-obj';
 import { CompositionOrder } from './composition-order';
@@ -22,6 +23,7 @@ export const cssProp = {
 export const classNames = {
   ZoomOnHover,
   ZoomOnHoverCAF,
+  Dynamic,
 };
 
 export const stylus = {
