@@ -1,0 +1,37 @@
+import {
+  CompositionObject,
+  CompositionOrder,
+  CompositionImports,
+} from '../../examples/composition';
+
+# Composition
+
+Compiled allows you to statically compose your styles together.
+There are a few benefits of composing in this fashion,
+outside of reusability and performance the biggest is that styles get applied in a consistent way.
+The last property defined wins -
+which when used is immediately obvious to the developer.
+
+<CompositionObject />
+
+> **Note** - Make sure to look at the compiled code,
+> `base` has been compiled into the final CSS string.
+> You'll see this for every other example here as well.
+
+When composing depending on the order it will end differently,
+but hopefully you can see when reading the code what will happen.
+Try and guess before looking at the rendered component below!
+
+<CompositionOrder />
+
+Composition wouldn't be complete if you couldn't also compose from module imports.
+It mostly works but there _are_ some cavets right now,
+most importantly:
+
+- `babel` and `tsc` with typechecking turned off breaks this
+- traversing node modules doesn't work
+
+This is something that can and will be fixed.
+[Chime into the issue if you'd like](https://github.com/atlassian-labs/compiled-css-in-js/issues/67).
+
+<CompositionImports />

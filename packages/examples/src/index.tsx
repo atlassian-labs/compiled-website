@@ -5,6 +5,9 @@ import { EmphasisText as EmphasisTextCssPropString } from './css-prop-string';
 import { ZoomOnHover } from './class-names';
 import { ZoomOnHoverCAF } from './class-names-caf';
 import { StylusBuiltInFunctions } from './stylus-built-in-functions';
+import { CompositionObject } from './composition-obj';
+import { CompositionOrder } from './composition-order';
+import { CompositionImports } from './composition-imports';
 
 export const styled = {
   ColoredText,
@@ -23,4 +26,10 @@ export const classNames = {
 
 export const stylus = {
   StylusBuiltInFunctions,
+};
+
+export const composition = {
+  CompositionObject,
+  CompositionOrder,
+  CompositionImports,
 };
