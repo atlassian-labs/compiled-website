@@ -7,14 +7,16 @@ const danger = {
 
 const base = {
   color: 'hotpink',
+  padding: '0.5rem 0',
+  backgroundColor: 'rgba(0, 0, 0, 0.05)',
 };
 
 export const CompositionOrder = () => {
   return (
-    <>
-      <span css={{ ...base }}>This is hot pink.</span>
-      <span css={{ ...danger, ...base }}>This is hot pink.</span>
-      <span css={{ ...base, ...danger }}>This is red.</span>
-    </>
+    <div>
+      <div css={{ ...base }}>This is hot pink.</div>
+      <div css={{ ...danger, ...base }}>This is also hot pink.</div>
+      <div css={{ ...base, ...danger }}>This is red!</div>
+    </div>
   );
 };

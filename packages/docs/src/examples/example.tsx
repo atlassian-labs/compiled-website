@@ -110,6 +110,7 @@ export const Example = ({ before, after, children }: ExampleProps) => {
         <span
           css={{
             opacity: htmlShown ? 1 : 0,
+            pointerEvents: htmlShown ? 'auto' : 'none',
             paddingTop: '2rem',
             transition: 'opacity 50ms',
             position: 'absolute',
