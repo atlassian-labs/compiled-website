@@ -36,3 +36,21 @@ export const StyledInvalidExample = () => {
     </Example>
   );
 };
+
+export const StyledTransientProps = () => {
+  return (
+    <Example
+      before={readFileSync(
+        __dirname + '../../../../examples/src/styled-transient-props.tsx',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname + '../../../../examples/dist/styled-transient-props.jsx',
+        'utf-8'
+      )}>
+      <styled.TransientProps $color="red" color="black">
+        Graf Nulin
+      </styled.TransientProps>
+    </Example>
+  );
+};

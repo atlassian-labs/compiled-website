@@ -1,4 +1,8 @@
-import { StyledExample, StyledInvalidExample } from '../../examples/styled';
+import {
+  StyledExample,
+  StyledInvalidExample,
+  StyledTransientProps,
+} from '../../examples/styled';
 
 # Styled Component
 
@@ -8,7 +12,7 @@ check out the code that is generated below.
 
 <StyledExample />
 
-## Dynamic props
+## Dynamic styles
 
 Dynamic styles are front and center with Compiled.
 If you've used Styled Components or Emotion you'll feel right at home -
@@ -23,6 +27,17 @@ The following example shows this behavior - note that the `massive` prop is not 
 
 > **Remember** - Everything is compiled.
 > We don't pay the cost of needing a lookup table to remove these properties at runtime! 😎
+
+### Transient props
+
+Sometimes we want to use a prop name but we don't want it to appear on the DOM element as an attribute.
+Luckily you can,
+simply prefix the prop with `$` and even if it's a valid HTML attribute it won't be applied.
+
+In the following example see that `color` is applied to the DOM element,
+but `$color` is not.
+
+<StyledTransientProps />
 
 ## Prop typing
 
