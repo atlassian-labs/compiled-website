@@ -6,5 +6,5 @@ const base = {
 };
 
 export const CompositionObject = () => {
-  return <span css={{ ...base }}>This is hot pink.</span>;
+  return <span css={base}>This is hot pink.</span>;
 };
