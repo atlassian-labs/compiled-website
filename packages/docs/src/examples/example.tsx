@@ -22,10 +22,6 @@ const ExampleSwitcher = styled.div`
     flex-shrink: 0;
   }
 
-  > * {
-    border-radius: 0;
-  }
-
   > :first-child {
     display: block;
   }
@@ -92,8 +88,8 @@ export const Example = ({ before, after, children }: ExampleProps) => {
         {isShown ? 'Show code' : 'Show compiled'}
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
-        <CodeBlock>{before}</CodeBlock>
-        <CodeBlock>{after}</CodeBlock>
+        <CodeBlock variant="sharp">{before}</CodeBlock>
+        <CodeBlock variant="sharp">{after}</CodeBlock>
       </ExampleSwitcher>
       <ExampleContainer>
         <span

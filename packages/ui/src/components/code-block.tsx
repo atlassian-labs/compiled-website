@@ -1,20 +1,21 @@
-import React, { useEffect, useState, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import '@compiled/css-in-js';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism-async';
 import okaidia from 'react-syntax-highlighter/styles/prism/okaidia';
 import { codeBackground } from '../utils/colors';
-import { ScreenReaderText } from './helpers';
 
 interface CodeBlockProps {
   children: string;
   className?: string;
   language?: string;
   style?: CSSProperties;
+  variant?: 'sharp' | 'rounded';
 }
 
 export const CodeBlock = ({
   children,
   language = 'tsx',
+  variant = 'rounded',
   ...props
 }: CodeBlockProps) => (
   <div
@@ -24,7 +25,7 @@ export const CodeBlock = ({
       boxShadow:
         'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
       opacity: 0.9,
-      borderRadius: 5,
+      borderRadius: variant === 'sharp' ? 0 : '5px',
       overflow: 'auto',
       display: 'flex',
       position: 'relative',

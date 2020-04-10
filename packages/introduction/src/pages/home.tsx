@@ -31,7 +31,7 @@ const GetStartedLink = styled.a({
   borderRadius: 44,
   padding: '1rem 2rem',
   boxSizing: 'border-box',
-  border: '3px solid rgb(122, 177, 201)',
+  border: '3px solid rgba(122, 177, 201, 0.3)',
   display: 'inline-block',
   color: 'currentColor',
   textDecoration: 'none',
@@ -74,6 +74,7 @@ npm i @compiled/css-in-js
           Compiled - so the css prop and class names component have come along
           for the ride!
         </p>
+
         <Comparison
           before={`
 import React from 'react';
@@ -117,13 +118,32 @@ import { ClassNames } from '@compiled/css-in-js';
         then another to atomic-ify your CSS to{' '}
         <strong>reduce the curve of written CSS</strong>.
       </VerticalStack>
-
       <VerticalStack align="right" spacing={10}>
-        <Heading look="h200">
-          <GetStartedLink href="/docs">
-            Get started now <span aria-hidden="true">➡</span>
-          </GetStartedLink>
-        </Heading>
+        <a
+          href="docs"
+          css={{
+            color: '#7ab2c8',
+            fontSize: '1.25em',
+            textDecoration: 'none',
+            textAlign: 'right',
+          }}>
+          <Heading look="h500" as="span">
+            Get started
+          </Heading>
+          <br />
+          <div
+            css={{
+              textTransform: 'capitalize',
+              position: 'relative',
+              ':after': {
+                content: '›',
+                position: 'absolute',
+                right: '-2rem',
+              },
+            }}>
+            Documentation
+          </div>
+        </a>
       </VerticalStack>
     </Content>
   </RootLayout>

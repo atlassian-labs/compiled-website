@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
 import pages from '../pages/*/*.mdx';
 import { Footer } from './footer';
+import { ScrollTop } from './scroll-top';
 
 const Hr = styled.hr`
   color: rgba(0, 0, 0, 0.1);
@@ -133,7 +134,102 @@ export const App = () => {
                 pages[section][page].default
               ) {
                 const Page = pages[section][page].default;
-                element = <Page />;
+
+                // Code to figure out where we're going next
+                const sectionPages = Object.keys(pages[section]).sort();
+                const sections = Object.keys(pages).sort();
+                const previousSectionKey =
+                  sections[sections.indexOf(section) - 1];
+                const nextSectionKey = sections[sections.indexOf(section) + 1];
+                const previousPageKey =
+                  sectionPages[sectionPages.indexOf(page) - 1];
+                const nextPageKey =
+                  sectionPages[sectionPages.indexOf(page) + 1];
+                const nextSectionFirstPageKey =
+                  pages[nextSectionKey] &&
+                  Object.keys(pages[nextSectionKey]).sort()[0];
+                const previousSectionLastPageKey =
+                  pages[previousSectionKey] &&
+                  Object.keys(pages[previousSectionKey]).sort()[
+                    Object.keys(pages[previousSectionKey]).length - 1
+                  ];
+
+                element = (
+                  <>
+                    <Page />
+                    <ScrollTop key={section + page} />
+
+                    <div
+                      css={{
+                        margin: '12rem 0 9rem',
+                        display: 'flex',
+                        '[data-next]': {
+                          marginLeft: 'auto',
+                        },
+                      }}>
+                      {(previousPageKey || previousSectionLastPageKey) && (
+                        <Link
+                          to={`/${
+                            previousPageKey ? section : previousSectionKey
+                          }/${previousPageKey || previousSectionLastPageKey}`}
+                          css={{
+                            color: '#7ab2c8',
+                            fontSize: '1.25em',
+                            textDecoration: 'none',
+                          }}>
+                          <Heading look="h500" as="span">
+                            Previous
+                          </Heading>
+                          <div
+                            css={{
+                              textTransform: 'capitalize',
+                              position: 'relative',
+                              ':before': {
+                                content: '‹',
+                                position: 'absolute',
+                                left: '-2rem',
+                              },
+                            }}>
+                            {titleCase(
+                              previousPageKey || previousSectionLastPageKey
+                            )}
+                          </div>
+                        </Link>
+                      )}
+
+                      {(nextPageKey || nextSectionFirstPageKey) && (
+                        <Link
+                          data-next
+                          to={`/${nextPageKey ? section : nextSectionKey}/${
+                            nextPageKey || nextSectionFirstPageKey
+                          }`}
+                          css={{
+                            color: '#7ab2c8',
+                            fontSize: '1.25em',
+                            textDecoration: 'none',
+                            textAlign: 'right',
+                          }}>
+                          <Heading look="h500" as="span">
+                            Next
+                          </Heading>
+                          <br />
+                          <div
+                            css={{
+                              textTransform: 'capitalize',
+                              position: 'relative',
+                              ':after': {
+                                content: '›',
+                                position: 'absolute',
+                                right: '-2rem',
+                              },
+                            }}>
+                            {titleCase(nextPageKey || nextSectionFirstPageKey)}
+                          </div>
+                        </Link>
+                      )}
+                    </div>
+                  </>
+                );
               } else {
                 const defaultSection = Object.keys(pages)[0];
                 const defaultPage = Object.keys(pages[defaultSection])[0];

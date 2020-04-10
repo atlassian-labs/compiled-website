@@ -21,7 +21,6 @@ export const Comparison = (props: ComparisonProps) => {
         },
       }}>
       <CodeBlock>{props.before}</CodeBlock>
-
       <CodeBlock>{props.after}</CodeBlock>
     </HorizontalStack>
   );
