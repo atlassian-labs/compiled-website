@@ -10,7 +10,7 @@
     "build": "parcel build src/index.html --out-dir ../../dist"
   },
   "dependencies": {
-    "@compiled/css-in-js": "^0.2.8",
+    "@compiled/css-in-js": "^0.2.10",
     "@compiled/website-ui": "^1.0.0",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
