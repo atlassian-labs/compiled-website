@@ -128,7 +128,7 @@ import { ClassNames } from '@compiled/css-in-js';
             textAlign: 'right',
           }}>
           <Heading look="h500" as="span">
-            Get started
+            Getting started
           </Heading>
           <br />
           <div
@@ -141,7 +141,7 @@ import { ClassNames } from '@compiled/css-in-js';
                 right: '-2rem',
               },
             }}>
-            Documentation
+            Installation
           </div>
         </a>
       </VerticalStack>

@@ -178,7 +178,9 @@ export const App = () => {
                             textDecoration: 'none',
                           }}>
                           <Heading look="h500" as="span">
-                            Previous
+                            {titleCase(
+                              previousPageKey ? 'Previous' : previousSectionKey
+                            )}
                           </Heading>
                           <div
                             css={{
@@ -210,7 +212,7 @@ export const App = () => {
                             textAlign: 'right',
                           }}>
                           <Heading look="h500" as="span">
-                            Next
+                            {titleCase(nextPageKey ? 'Next' : nextSectionKey)}
                           </Heading>
                           <br />
                           <div
