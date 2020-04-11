@@ -15,7 +15,7 @@ export const CompositionOrder = () => {
   return (
     <div>
       <div css={base}>This is hot pink.</div>
-      <div css={{ ...danger, ...base }}>This is also hot pink.</div>
+      <div css={[danger, base]}>This is also hot pink.</div>
       <div css={{ ...base, ...danger }}>This is red!</div>
     </div>
   );
