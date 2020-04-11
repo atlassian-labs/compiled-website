@@ -11,6 +11,11 @@ check out the code that is generated below.
 
 <CssPropExample />
 
+Using `css` prop is easy but powerful,
+it's useful when you want to choose your own destiny and other APIs,
+like `styled`,
+are missing that one thing you need.
+
 ## Css strings
 
 A common theme of Compiled is to enable us to quickly and easily convert our previous CSS in JS solution over.
@@ -26,6 +31,8 @@ we need to be explicit.
 
 ### Works
 
+Class name and style are both picked up as expected because we can statically analyze their usage.
+
 ```jsx
 <div
   style={{ display: 'block' }}
@@ -35,6 +42,8 @@ we need to be explicit.
 ```
 
 ### Doesn't work
+
+Since we can't statically analyze either ones usage it doesn't work.
 
 ```jsx
 <div {...props} css={{ fontSize: 12 }} />

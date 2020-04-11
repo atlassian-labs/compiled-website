@@ -42,7 +42,7 @@ but `$color` is not.
 ## `As` prop
 
 Created a styled component but want it to have different markup?
-This prop has you convered.
+This prop has you covered.
 
 ```tsx
 import { styled } from '@compiled/css-in-js';
@@ -56,12 +56,27 @@ const H100 = styled.h1({
 
 Here we render a `h1` element as a `span`.
 
+## Composing components
+
+Sometimes you'll want to add styles to a component that already exists.
+If we invoke the styled function we can do just that!
+
+```jsx
+import { styled } from '@compiled/css-in-js';
+import { Link } from 'react-router-dom';
+
+const StyledLink = styled(Link)`
+  color: blue;
+`;
+```
+
 ## Prop typing
 
 With type support baked in you'll have a great time using it with TypeScript,
 any inline interpolation will have access to the props defined in the tagged template generic.
+Typing from composed components is also inherited.
 
-```
+```jsx
 import { styled } from '@compiled/css-in-js';
 
 const BigIfTrue = styled.div<{ big: true }>`
