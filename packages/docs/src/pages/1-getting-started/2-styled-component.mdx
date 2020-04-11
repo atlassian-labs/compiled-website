@@ -39,6 +39,23 @@ but `$color` is not.
 
 <StyledTransientProps />
 
+## `As` prop
+
+Created a styled component but want it to have different markup?
+This prop has you convered.
+
+```tsx
+import { styled } from '@compiled/css-in-js';
+
+const H100 = styled.h1({
+  fontSize: 12,
+});
+
+<H100 as="span" />;
+```
+
+Here we render a `h1` element as a `span`.
+
 ## Prop typing
 
 With type support baked in you'll have a great time using it with TypeScript,
