@@ -53,10 +53,14 @@ const P = styled.p`
 
 const Anchor = ({ children }: { children: string | string[] }) => {
   const id = (typeof children === 'string'
-    ? [children.split(' ').join('-')]
-    : children
+    ? [children.trim().split(' ').join('-')]
+    : // Somehow children arrays could END with a space.
+      children.filter(
+        (text, index) => !(index === children.length - 1 && text === ' ')
+      )
   )
     .filter((child) => typeof child === 'string')
+    .map((child) => child.trim().split(' ').join('-'))
     .join('-')
     .toLowerCase();
 
@@ -78,6 +82,10 @@ const Anchor = ({ children }: { children: string | string[] }) => {
           transform: 'translateX(1rem)',
           transition: 'opacity 100ms, transform 100ms',
           paddingRight: '5rem',
+          top: 2,
+          bottom: 0,
+          display: 'flex',
+          alignItems: 'center',
         },
         ':hover': {
           ':before': {
@@ -259,6 +267,7 @@ export const App = () => {
                       <a
                         css={{ color: '#7ab2c8', textDecoration: 'none' }}
                         href={`#${heading.text
+                          .trim()
                           .split(' ')
                           .join('-')
                           .toLowerCase()}`}>
