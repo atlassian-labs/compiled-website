@@ -154,6 +154,8 @@ export const App = () => {
                     Object.keys(pages[previousSectionKey]).length - 1
                   ];
 
+                console.log(pages[section][page]);
+
                 element = (
                   <>
                     <Page />
