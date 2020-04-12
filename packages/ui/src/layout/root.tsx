@@ -126,7 +126,7 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
                 overflow: 'visible',
                 width: '30rem',
                 marginRight: '2rem',
-                position: 'sticky',
+                position: 'static',
                 fontSize: '1em',
                 backgroundColor: 'transparent',
                 textAlign: 'left',
