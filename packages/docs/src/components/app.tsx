@@ -1,5 +1,5 @@
 import { styled } from '@compiled/css-in-js';
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   RootLayout,
   VerticalStack,
@@ -11,6 +11,8 @@ import { useLocation, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
 import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
+import { PageTitle } from './page-title';
+import { titleCase } from '../utils/string';
 
 const Hr = styled.hr`
   color: rgba(0, 0, 0, 0.1);
@@ -147,15 +149,6 @@ const components: MDXProviderComponentsProp = {
   blockquote: (props) => <Quote {...props} />,
 };
 
-const titleCase = (str: string) => {
-  const parsedStr = str.replace(/\d+-/, '');
-  return `${parsedStr[0].toUpperCase()}${parsedStr
-    .slice(1)
-    .toLowerCase()
-    .split('-')
-    .join(' ')}`;
-};
-
 interface Page {
   default: React.ComponentType<{}>;
   data: {
@@ -227,6 +220,7 @@ const getPage = (slug: string) => {
   const previousPage = section.pages[pageIndex - 1];
 
   return {
+    name,
     Component: page.default,
     data: page.data,
     next: (nextPage || nextSection) && {
@@ -305,6 +299,7 @@ export const App = () => {
       }>
       <MDXProvider components={components}>
         <ScrollTop key={pageSlug} />
+        <PageTitle title={page && page.name} />
 
         {page && (
           <>
