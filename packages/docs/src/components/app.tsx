@@ -9,7 +9,6 @@ import {
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
-import pages from '../pages/*/*.mdx';
 import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
 
@@ -97,150 +96,182 @@ const titleCase = (str: string) => {
     .join(' ')}`;
 };
 
+interface Page {
+  default: React.ComponentType<{}>;
+  data: {
+    headings: {
+      depth: number;
+      text: string;
+    }[];
+    order?: number;
+    section: string;
+  };
+}
+
+const getSections = () => {
+  const pages: Record<string, Page> = require('../pages/*.mdx');
+  const sections: Record<string, (Page & { name: string })[]> = {};
+
+  Object.entries(pages)
+    .sort(
+      (page1, page2) =>
+        (page1[1].data.order || 100) - (page2[1].data.order || 100)
+    )
+    .forEach(([pageName, page]) => {
+      const section = page.data.section;
+      if (!section) {
+        throw new Error(`
+Put ${pageName}.mdx in a section! E.g:
+---
+section: My section
+---
+      `);
+      }
+
+      sections[section] = sections[section] || [];
+      sections[section].push({
+        ...page,
+        name: pageName,
+      });
+    });
+
+  return Object.entries(sections).map(([name, pages]) => ({
+    name,
+    pages,
+  }));
+};
+
+const getPage = (slug: string) => {
+  const name = slug.slice(1);
+  const sections = getSections();
+  const pages: Record<string, Page> = require('../pages/*.mdx');
+  const page = name === '' ? sections[0].pages[0] : pages[name];
+  if (!page) {
+    return null;
+  }
+
+  const sectionIndex = sections.findIndex(
+    (section) => section.name === page.data.section
+  );
+  const previousSection = sections[sectionIndex - 1];
+  const nextSection = sections[sectionIndex + 1];
+  const section = sections[sectionIndex];
+  const pageIndex = section.pages.findIndex((page) => page.name === name);
+  const nextPage = section.pages[pageIndex + 1];
+  const previousPage = section.pages[pageIndex - 1];
+
+  return {
+    Component: page.default,
+    data: page.data,
+    next: (nextPage || nextSection) && {
+      cta: nextPage ? 'Next' : nextSection.name,
+      name: nextPage ? nextPage.name : nextSection.pages[0].name,
+    },
+    previous: (previousPage || previousSection) && {
+      cta: previousPage ? 'Previous' : previousSection.name,
+      name: previousPage
+        ? previousPage.name
+        : previousSection.pages[previousSection.pages.length - 1].name,
+    },
+  };
+};
+
 export const App = () => {
   return (
-    <BrowserRouter basename={'/docs'}>
+    <BrowserRouter basename="/docs">
       <RootLayout
         sidenav={
           <>
-            {Object.entries(pages as any)
-              .sort()
-              .map(([sectionName, pages]) => (
-                <Section key={sectionName} title={titleCase(sectionName)}>
-                  {Object.entries(pages as any)
-                    .sort()
-                    .map(([pageName]) => (
-                      <LinkItem
-                        href={`/${sectionName}/${pageName}`}
-                        key={pageName}>
-                        {titleCase(pageName)}
-                      </LinkItem>
-                    ))}
-                </Section>
-              ))}
+            {getSections().map((section) => (
+              <Section key={section.name} title={section.name}>
+                {section.pages.map((page) => (
+                  <LinkItem href={`/${page.name}`} key={page.name}>
+                    {titleCase(page.name)}
+                  </LinkItem>
+                ))}
+              </Section>
+            ))}
             <Footer />
           </>
         }>
         <MDXProvider components={components}>
           <Route>
             {({ location }) => {
-              const [section, page] = location.pathname
-                .split('/')
-                .filter(Boolean);
-              let element: JSX.Element;
-              if (
-                pages[section] &&
-                pages[section][page] &&
-                pages[section][page].default
-              ) {
-                const Page = pages[section][page].default;
-
-                // Code to figure out where we're going next
-                const sectionPages = Object.keys(pages[section]).sort();
-                const sections = Object.keys(pages).sort();
-                const previousSectionKey =
-                  sections[sections.indexOf(section) - 1];
-                const nextSectionKey = sections[sections.indexOf(section) + 1];
-                const previousPageKey =
-                  sectionPages[sectionPages.indexOf(page) - 1];
-                const nextPageKey =
-                  sectionPages[sectionPages.indexOf(page) + 1];
-                const nextSectionFirstPageKey =
-                  pages[nextSectionKey] &&
-                  Object.keys(pages[nextSectionKey]).sort()[0];
-                const previousSectionLastPageKey =
-                  pages[previousSectionKey] &&
-                  Object.keys(pages[previousSectionKey]).sort()[
-                    Object.keys(pages[previousSectionKey]).length - 1
-                  ];
-
-                console.log(pages[section][page]);
-
-                element = (
-                  <>
-                    <Page />
-                    <ScrollTop key={section + page} />
-
-                    <div
-                      css={{
-                        margin: '12rem 0 9rem',
-                        display: 'flex',
-                        '[data-next]': {
-                          marginLeft: 'auto',
-                        },
-                      }}>
-                      {(previousPageKey || previousSectionLastPageKey) && (
-                        <Link
-                          to={`/${
-                            previousPageKey ? section : previousSectionKey
-                          }/${previousPageKey || previousSectionLastPageKey}`}
-                          css={{
-                            color: '#7ab2c8',
-                            fontSize: '1.25em',
-                            textDecoration: 'none',
-                          }}>
-                          <Heading look="h500" as="span">
-                            {titleCase(
-                              previousPageKey ? 'Previous' : previousSectionKey
-                            )}
-                          </Heading>
-                          <div
-                            css={{
-                              textTransform: 'capitalize',
-                              position: 'relative',
-                              ':before': {
-                                content: '‹',
-                                position: 'absolute',
-                                left: '-2rem',
-                              },
-                            }}>
-                            {titleCase(
-                              previousPageKey || previousSectionLastPageKey
-                            )}
-                          </div>
-                        </Link>
-                      )}
-
-                      {(nextPageKey || nextSectionFirstPageKey) && (
-                        <Link
-                          data-next
-                          to={`/${nextPageKey ? section : nextSectionKey}/${
-                            nextPageKey || nextSectionFirstPageKey
-                          }`}
-                          css={{
-                            color: '#7ab2c8',
-                            fontSize: '1.25em',
-                            textDecoration: 'none',
-                            textAlign: 'right',
-                          }}>
-                          <Heading look="h500" as="span">
-                            {titleCase(nextPageKey ? 'Next' : nextSectionKey)}
-                          </Heading>
-                          <br />
-                          <div
-                            css={{
-                              textTransform: 'capitalize',
-                              position: 'relative',
-                              ':after': {
-                                content: '›',
-                                position: 'absolute',
-                                right: '-2rem',
-                              },
-                            }}>
-                            {titleCase(nextPageKey || nextSectionFirstPageKey)}
-                          </div>
-                        </Link>
-                      )}
-                    </div>
-                  </>
-                );
-              } else {
-                const defaultSection = Object.keys(pages)[0];
-                const defaultPage = Object.keys(pages[defaultSection])[0];
-                element = <Redirect to={`/${defaultSection}/${defaultPage}`} />;
+              const pageSlug = location.pathname;
+              const page = getPage(pageSlug);
+              if (!page) {
+                return null;
               }
 
-              return element;
+              return (
+                <>
+                  <page.Component />
+                  <ScrollTop key={pageSlug} />
+
+                  <div
+                    css={{
+                      margin: '12rem 0 9rem',
+                      display: 'flex',
+                      '[data-next]': {
+                        marginLeft: 'auto',
+                      },
+                    }}>
+                    {page.previous && (
+                      <Link
+                        to={`/${page.previous.name}`}
+                        css={{
+                          color: '#7ab2c8',
+                          fontSize: '1.25em',
+                          textDecoration: 'none',
+                        }}>
+                        <Heading look="h500" as="span">
+                          {page.previous.cta}
+                        </Heading>
+                        <div
+                          css={{
+                            textTransform: 'capitalize',
+                            position: 'relative',
+                            ':before': {
+                              content: '‹',
+                              position: 'absolute',
+                              left: '-2rem',
+                            },
+                          }}>
+                          {titleCase(page.previous.name)}
+                        </div>
+                      </Link>
+                    )}
+
+                    {page.next && (
+                      <Link
+                        data-next
+                        to={`/${page.next.name}`}
+                        css={{
+                          color: '#7ab2c8',
+                          fontSize: '1.25em',
+                          textDecoration: 'none',
+                          textAlign: 'right',
+                        }}>
+                        <Heading look="h500" as="span">
+                          Next
+                        </Heading>
+                        <div
+                          css={{
+                            textTransform: 'capitalize',
+                            position: 'relative',
+                            ':after': {
+                              content: '›',
+                              position: 'absolute',
+                              right: '-2rem',
+                            },
+                          }}>
+                          {titleCase(page.next.name)}
+                        </div>
+                      </Link>
+                    )}
+                  </div>
+                </>
+              );
             }}
           </Route>
         </MDXProvider>
