@@ -1,7 +1,7 @@
 import React, { cloneElement, Children } from 'react';
 import { styled } from '@compiled/css-in-js';
 import { VerticalStack, Heading, colors } from '@compiled/website-ui';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -24,45 +24,42 @@ export const Section = ({ children, title }: SectionProps) => {
 };
 
 // TODO: Change this to either compposed styled or css prop when transformer supports it.
-const StyledLink = styled.div`
-  > a {
-    display: block;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    user-select: none;
-    color: currentColor;
-    text-decoration: none;
-    text-transform: capitalize;
+const StyledLink = styled(Link)`
+  display: block;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  user-select: none;
+  color: currentColor;
+  text-decoration: none;
+  text-transform: capitalize;
 
-    :hover {
-      cursor: pointer;
-      color: ${() => colors.primary};
-    }
+  :hover {
+    cursor: pointer;
+    color: ${() => colors.primary};
+  }
 
-    :active {
-      opacity: 0.8;
-    }
+  :active {
+    opacity: 0.8;
+  }
 
-    &[aria-current='page'] {
-      border-left: 0.375rem solid #7ab2c8;
-      padding-left: 2rem;
-      margin-left: -2.375rem;
-    }
+  &[aria-current='page'] {
+    border-left: 0.375rem solid #7ab2c8;
+    padding-left: 2rem;
+    margin-left: -2.375rem;
   }
 `;
 
 export const LinkItem = ({
   children,
   href,
+  ...props
 }: {
   children: React.ReactNode;
   href: string;
 }) => {
   return (
-    <StyledLink>
-      <NavLink activeClassName="" to={href}>
-        {children}
-      </NavLink>
+    <StyledLink {...props} to={href}>
+      {children}
     </StyledLink>
   );
 };

@@ -208,10 +208,10 @@ section: My section
 };
 
 const getPage = (slug: string) => {
-  const name = slug.slice(1);
   const sections = getSections();
+  const name = slug === '/' ? sections[0].pages[0].name : slug.slice(1);
   const pages: Record<string, Page> = require('../pages/*.mdx');
-  const page = name === '' ? sections[0].pages[0] : pages[name];
+  const page = pages[name];
   if (!page) {
     return null;
   }
@@ -258,8 +258,10 @@ export const App = () => {
               {page.data.headings
                 .filter((heading) => heading.depth < 4)
                 .map((heading) => (
-                  <div style={{ marginLeft: `${heading.depth}rem` }}>
-                    <Heading look="h500" key={heading.text}>
+                  <div
+                    style={{ marginLeft: `${heading.depth}rem` }}
+                    key={heading.text}>
+                    <Heading look="h500">
                       <a
                         css={{ color: '#7ab2c8', textDecoration: 'none' }}
                         href={`#${heading.text
@@ -277,12 +279,22 @@ export const App = () => {
       }
       sidenav={
         <>
-          {getSections().map((section) => (
+          {getSections().map((section, sectionIndex) => (
             <Section
               key={section.name}
               title={section.name.replace(/^\d+-/, '')}>
-              {section.pages.map((page) => (
-                <LinkItem href={`/${page.name}`} key={page.name}>
+              {section.pages.map((page, pageIndex) => (
+                <LinkItem
+                  aria-current={
+                    location.pathname === `/${page.name}` ||
+                    (location.pathname === '/' &&
+                      sectionIndex === 0 &&
+                      pageIndex === 0)
+                      ? 'page'
+                      : undefined
+                  }
+                  href={`/${page.name}`}
+                  key={page.name}>
                   {titleCase(page.name)}
                 </LinkItem>
               ))}
