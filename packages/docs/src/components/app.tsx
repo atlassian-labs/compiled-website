@@ -1,5 +1,5 @@
 import { styled } from '@compiled/css-in-js';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   RootLayout,
   VerticalStack,

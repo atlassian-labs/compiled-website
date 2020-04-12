@@ -22,11 +22,12 @@ which when used is immediately obvious to the developer.
 > `base` has been compiled into the final CSS string.
 > You'll see this for every other example here as well.
 
-When composing depending on the order it will end differently,
-but hopefully you can see when reading the code what will happen.
-Try and guess before looking at the rendered component below!
+When composing it's important to remember that the last defined style will win.
+In the next example you can see that in action.
 
 <CompositionOrder />
+
+## Composing from modules
 
 Composition wouldn't be complete if you couldn't also compose from module imports.
 It mostly works but there _are_ some cavets right now,

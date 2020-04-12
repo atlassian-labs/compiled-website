@@ -44,10 +44,12 @@ but `$color` is not.
 
 <StyledTransientProps />
 
-## `As` prop
+## The as prop
 
-Created a styled component but want it to have different markup?
-This prop has you covered.
+Sometimes you'll want to keep using the same styled component but want to change the rendered markup to something else.
+Maybe you want to change the heading level,
+or the markup rendered in a specific context doesn't make sense as the original one anymore.
+The `as` prop allows you to change it at runtime.
 
 ```tsx
 import { styled } from '@compiled/css-in-js';
@@ -75,7 +77,7 @@ const StyledLink = styled(Link)`
 `;
 ```
 
-## Prop typing
+## Types
 
 With type support baked in you'll have a great time using it with TypeScript,
 any inline interpolation will have access to the props defined in the tagged template generic.
