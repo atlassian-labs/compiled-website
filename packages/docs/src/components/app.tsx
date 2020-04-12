@@ -135,10 +135,17 @@ section: My section
       });
     });
 
-  return Object.entries(sections).map(([name, pages]) => ({
-    name,
-    pages,
-  }));
+  return Object.entries(sections)
+    .sort(([a], [b]) => {
+      const aOrder = Number(a.match(/^(\d+)-/)[1] || 100);
+      const bOrder = Number(b.match(/^(\d+)-/)[1] || 100);
+
+      return aOrder - bOrder;
+    })
+    .map(([name, pages]) => ({
+      name: name,
+      pages,
+    }));
 };
 
 const getPage = (slug: string) => {
@@ -164,11 +171,13 @@ const getPage = (slug: string) => {
     Component: page.default,
     data: page.data,
     next: (nextPage || nextSection) && {
-      cta: nextPage ? 'Next' : nextSection.name,
+      cta: nextPage ? 'Next' : nextSection.name.replace(/^\d+-/, ''),
       name: nextPage ? nextPage.name : nextSection.pages[0].name,
     },
     previous: (previousPage || previousSection) && {
-      cta: previousPage ? 'Previous' : previousSection.name,
+      cta: previousPage
+        ? 'Previous'
+        : previousSection.name.replace(/^\d+-/, ''),
       name: previousPage
         ? previousPage.name
         : previousSection.pages[previousSection.pages.length - 1].name,
@@ -183,7 +192,9 @@ export const App = () => {
         sidenav={
           <>
             {getSections().map((section) => (
-              <Section key={section.name} title={section.name}>
+              <Section
+                key={section.name}
+                title={section.name.replace(/^\d+-/, '')}>
                 {section.pages.map((page) => (
                   <LinkItem href={`/${page.name}`} key={page.name}>
                     {titleCase(page.name)}
@@ -253,7 +264,7 @@ export const App = () => {
                           textAlign: 'right',
                         }}>
                         <Heading look="h500" as="span">
-                          Next
+                          {page.next.cta}
                         </Heading>
                         <div
                           css={{
