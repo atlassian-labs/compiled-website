@@ -12,6 +12,7 @@ import {
 interface RootProps {
   children: React.ReactNode;
   sidenav?: React.ReactNode;
+  aside?: React.ReactNode;
 }
 
 const Link = styled.a<{ href: string; exact?: boolean }>`
@@ -40,7 +41,7 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }
 `;
 
-export const RootLayout = ({ children, sidenav }: RootProps) => {
+export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: Move to global style component.
@@ -76,10 +77,11 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
         </nav>
       </Header>
 
-      {sidenav ? (
+      {sidenav || aside ? (
         <Content
           css={{
             display: 'flex',
+            position: 'relative',
           }}>
           <input
             tabIndex={-1}
@@ -183,6 +185,34 @@ export const RootLayout = ({ children, sidenav }: RootProps) => {
             <div css={{ marginBottom: '12rem' }} />
             {children}
           </main>
+
+          {aside && (
+            <aside
+              css={{
+                display: 'none',
+                '@media only screen and (min-width: 1668px)': {
+                  width: '30rem',
+                  textAlign: 'left',
+                  display: 'block',
+                  position: 'absolute',
+                  paddingLeft: '2rem',
+                  left: '100%',
+                  height: '100%',
+                },
+              }}>
+              <HeaderSpacing />
+              <VerticalStack
+                css={{
+                  '@media only screen and (min-width: 1668px)': {
+                    position: 'sticky',
+                    top: '9rem',
+                  },
+                }}
+                spacing={9}>
+                {aside}
+              </VerticalStack>
+            </aside>
+          )}
         </Content>
       ) : (
         <main>{children}</main>

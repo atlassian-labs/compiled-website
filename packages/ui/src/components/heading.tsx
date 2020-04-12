@@ -25,6 +25,8 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
   return (
     <As
       data-look={props.look}
+      className={props.className}
+      style={props.style}
       css={`
         font-family: 'Charlie Display';
         font-weight: 500;
@@ -75,6 +77,7 @@ export const Heading = ({ children, ...props }: HeadingProps) => {
           text-transform: uppercase;
           letter-spacing: 1px;
           color: #7a869a;
+          margin-top: 0;
         }
       `}>
       {children}

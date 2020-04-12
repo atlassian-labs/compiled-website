@@ -7,7 +7,7 @@ import {
   CodeBlock,
 } from '@compiled/website-ui';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
-import { BrowserRouter, Route, Redirect, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
 import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
@@ -49,12 +49,72 @@ const P = styled.p`
   }
 `;
 
+const Anchor = ({ children }: { children: string | string[] }) => {
+  const id = (typeof children === 'string'
+    ? [children.split(' ').join('-')]
+    : children
+  )
+    .filter((child) => typeof child === 'string')
+    .join('-')
+    .toLowerCase();
+
+  return (
+    <a
+      href={`#${id}`}
+      id={id}
+      // @ts-ignore
+      css={{
+        color: 'currentColor',
+        textDecoration: 'none',
+        position: 'relative',
+        ':before': {
+          opacity: 0,
+          content: '🔗',
+          position: 'absolute',
+          left: '-4rem',
+          fontSize: '3rem',
+          transform: 'translateX(1rem)',
+          transition: 'opacity 100ms, transform 100ms',
+          paddingRight: '5rem',
+        },
+        ':hover': {
+          ':before': {
+            opacity: 1,
+            transform: 'none',
+          },
+        },
+      }}>
+      {children}
+    </a>
+  );
+};
+
 const components: MDXProviderComponentsProp = {
-  h1: ({ children }) => <Heading look="h100">{children}</Heading>,
-  h2: ({ children }) => <Heading look="h200">{children}</Heading>,
-  h3: ({ children }) => <Heading look="h300">{children}</Heading>,
-  h4: ({ children }) => <Heading look="h400">{children}</Heading>,
-  h5: ({ children }) => <Heading look="h500">{children}</Heading>,
+  h1: ({ children }) => (
+    <Heading look="h100">
+      <Anchor>{children}</Anchor>
+    </Heading>
+  ),
+  h2: ({ children }) => (
+    <Heading look="h200">
+      <Anchor>{children}</Anchor>
+    </Heading>
+  ),
+  h3: ({ children }) => (
+    <Heading look="h300">
+      <Anchor>{children} </Anchor>
+    </Heading>
+  ),
+  h4: ({ children }) => (
+    <Heading look="h400">
+      <Anchor>{children}</Anchor>
+    </Heading>
+  ),
+  h5: ({ children }) => (
+    <Heading look="h500">
+      <Anchor>{children} </Anchor>
+    </Heading>
+  ),
   p: ({ children }) => <P>{children}</P>,
   pre: ({ children }) => children,
   code: ({ children, className }) => (
@@ -139,7 +199,6 @@ section: My section
     .sort(([a], [b]) => {
       const aOrder = Number(a.match(/^(\d+)-/)[1] || 100);
       const bOrder = Number(b.match(/^(\d+)-/)[1] || 100);
-
       return aOrder - bOrder;
     })
     .map(([name, pages]) => ({
@@ -186,107 +245,124 @@ const getPage = (slug: string) => {
 };
 
 export const App = () => {
+  const location = useLocation();
+  const pageSlug = location.pathname;
+  const page = getPage(pageSlug);
+
   return (
-    <BrowserRouter basename="/docs">
-      <RootLayout
-        sidenav={
-          <>
-            {getSections().map((section) => (
-              <Section
-                key={section.name}
-                title={section.name.replace(/^\d+-/, '')}>
-                {section.pages.map((page) => (
-                  <LinkItem href={`/${page.name}`} key={page.name}>
-                    {titleCase(page.name)}
-                  </LinkItem>
+    <RootLayout
+      aside={
+        page && (
+          <nav aria-label="page">
+            <VerticalStack gap={0.5}>
+              {page.data.headings
+                .filter((heading) => heading.depth < 4)
+                .map((heading) => (
+                  <div style={{ marginLeft: `${heading.depth}rem` }}>
+                    <Heading look="h500" key={heading.text}>
+                      <a
+                        css={{ color: '#7ab2c8', textDecoration: 'none' }}
+                        href={`#${heading.text
+                          .split(' ')
+                          .join('-')
+                          .toLowerCase()}`}>
+                        {heading.text}
+                      </a>
+                    </Heading>
+                  </div>
                 ))}
-              </Section>
-            ))}
-            <Footer />
-          </>
-        }>
-        <MDXProvider components={components}>
-          <Route>
-            {({ location }) => {
-              const pageSlug = location.pathname;
-              const page = getPage(pageSlug);
-              if (!page) {
-                return null;
-              }
+            </VerticalStack>
+          </nav>
+        )
+      }
+      sidenav={
+        <>
+          {getSections().map((section) => (
+            <Section
+              key={section.name}
+              title={section.name.replace(/^\d+-/, '')}>
+              {section.pages.map((page) => (
+                <LinkItem href={`/${page.name}`} key={page.name}>
+                  {titleCase(page.name)}
+                </LinkItem>
+              ))}
+            </Section>
+          ))}
+          <Footer />
+        </>
+      }>
+      <MDXProvider components={components}>
+        <ScrollTop key={pageSlug} />
 
-              return (
-                <>
-                  <page.Component />
-                  <ScrollTop key={pageSlug} />
+        {page && (
+          <>
+            <page.Component />
 
+            <div
+              css={{
+                margin: '12rem 0 9rem',
+                display: 'flex',
+                '[data-next]': {
+                  marginLeft: 'auto',
+                },
+              }}>
+              {page.previous && (
+                <Link
+                  to={`/${page.previous.name}`}
+                  css={{
+                    color: '#7ab2c8',
+                    fontSize: '1.25em',
+                    textDecoration: 'none',
+                  }}>
+                  <Heading look="h500" as="span">
+                    {page.previous.cta}
+                  </Heading>
                   <div
                     css={{
-                      margin: '12rem 0 9rem',
-                      display: 'flex',
-                      '[data-next]': {
-                        marginLeft: 'auto',
+                      textTransform: 'capitalize',
+                      position: 'relative',
+                      ':before': {
+                        content: '‹',
+                        position: 'absolute',
+                        left: '-2rem',
                       },
                     }}>
-                    {page.previous && (
-                      <Link
-                        to={`/${page.previous.name}`}
-                        css={{
-                          color: '#7ab2c8',
-                          fontSize: '1.25em',
-                          textDecoration: 'none',
-                        }}>
-                        <Heading look="h500" as="span">
-                          {page.previous.cta}
-                        </Heading>
-                        <div
-                          css={{
-                            textTransform: 'capitalize',
-                            position: 'relative',
-                            ':before': {
-                              content: '‹',
-                              position: 'absolute',
-                              left: '-2rem',
-                            },
-                          }}>
-                          {titleCase(page.previous.name)}
-                        </div>
-                      </Link>
-                    )}
-
-                    {page.next && (
-                      <Link
-                        data-next
-                        to={`/${page.next.name}`}
-                        css={{
-                          color: '#7ab2c8',
-                          fontSize: '1.25em',
-                          textDecoration: 'none',
-                          textAlign: 'right',
-                        }}>
-                        <Heading look="h500" as="span">
-                          {page.next.cta}
-                        </Heading>
-                        <div
-                          css={{
-                            textTransform: 'capitalize',
-                            position: 'relative',
-                            ':after': {
-                              content: '›',
-                              position: 'absolute',
-                              right: '-2rem',
-                            },
-                          }}>
-                          {titleCase(page.next.name)}
-                        </div>
-                      </Link>
-                    )}
+                    {titleCase(page.previous.name)}
                   </div>
-                </>
-              );
-            }}
-          </Route>
-        </MDXProvider>
-      </RootLayout>
-    </BrowserRouter>
+                </Link>
+              )}
+
+              {page.next && (
+                <Link
+                  data-next
+                  to={`/${page.next.name}`}
+                  css={{
+                    color: '#7ab2c8',
+                    fontSize: '1.25em',
+                    textDecoration: 'none',
+                    textAlign: 'right',
+                  }}>
+                  <Heading look="h500" as="span">
+                    {page.next.cta}
+                  </Heading>
+                  <div
+                    css={{
+                      textTransform: 'capitalize',
+                      position: 'relative',
+                      ':after': {
+                        content: '›',
+                        position: 'absolute',
+                        right: '-2rem',
+                      },
+                    }}>
+                    {titleCase(page.next.name)}
+                  </div>
+                </Link>
+              )}
+            </div>
+          </>
+        )}
+      </MDXProvider>
+    </RootLayout>
   );
 };
