@@ -234,13 +234,17 @@ const getPage = (slug: string) => {
     data: page.data,
     next: (nextPage || nextSection) && {
       cta: nextPage ? 'Next' : nextSection.name.replace(/^\d+-/, ''),
-      name: nextPage ? nextPage.name : nextSection.pages[0].name,
+      name: nextPage ? nextPage.data.name : nextSection.pages[0].data.name,
+      slug: nextPage ? nextPage.name : nextSection.pages[0].name,
     },
     previous: (previousPage || previousSection) && {
       cta: previousPage
         ? 'Previous'
         : previousSection.name.replace(/^\d+-/, ''),
       name: previousPage
+        ? previousPage.data.name
+        : previousSection.pages[previousSection.pages.length - 1].data.name,
+      slug: previousPage
         ? previousPage.name
         : previousSection.pages[previousSection.pages.length - 1].name,
     },
@@ -325,7 +329,7 @@ export const App = () => {
               }}>
               {page.previous && (
                 <Link
-                  to={`/${page.previous.name}`}
+                  to={`/${page.previous.slug}`}
                   css={{
                     color: '#7ab2c8',
                     fontSize: '1.25em',
@@ -336,7 +340,6 @@ export const App = () => {
                   </Heading>
                   <div
                     css={{
-                      textTransform: 'capitalize',
                       position: 'relative',
                       ':before': {
                         content: '‹',
@@ -344,7 +347,7 @@ export const App = () => {
                         left: '-2rem',
                       },
                     }}>
-                    {titleCase(page.previous.name)}
+                    {page.previous.name || titleCase(page.previous.slug)}
                   </div>
                 </Link>
               )}
@@ -352,7 +355,7 @@ export const App = () => {
               {page.next && (
                 <Link
                   data-next
-                  to={`/${page.next.name}`}
+                  to={`/${page.next.slug}`}
                   css={{
                     color: '#7ab2c8',
                     fontSize: '1.25em',
@@ -364,7 +367,6 @@ export const App = () => {
                   </Heading>
                   <div
                     css={{
-                      textTransform: 'capitalize',
                       position: 'relative',
                       ':after': {
                         content: '›',
@@ -372,7 +374,7 @@ export const App = () => {
                         right: '-2rem',
                       },
                     }}>
-                    {titleCase(page.next.name)}
+                    {page.next.name || titleCase(page.next.slug)}
                   </div>
                 </Link>
               )}
