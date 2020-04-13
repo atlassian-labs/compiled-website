@@ -19,20 +19,21 @@ const headingMap = {
   h500: 'h5',
 } as const;
 
-export const Heading = ({ children, ...props }: HeadingProps) => {
+export const Heading = ({ children, style, ...props }: HeadingProps) => {
   const As = props.as || headingMap[props.look];
 
   return (
     <As
       data-look={props.look}
       className={props.className}
-      style={props.style}
+      style={style}
       css={`
         font-family: 'Charlie Display';
         font-weight: 500;
         margin: 0;
         opacity: 0.9;
         margin-top: 6rem;
+        test: ok;
 
         [data-look='h100']& {
           font-size: 48px;

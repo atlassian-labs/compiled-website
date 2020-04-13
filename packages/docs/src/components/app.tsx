@@ -265,21 +265,20 @@ export const App = () => {
               {page.data.headings
                 .filter((heading) => heading.depth < 4)
                 .map((heading, index) => (
-                  <div
+                  <Heading
+                    key={`${heading.text}-${index}`}
                     style={{ marginLeft: `${heading.depth}rem` }}
-                    key={`${heading.text}-${index}`}>
-                    <Heading look="h500">
-                      <a
-                        css={{ color: '#7ab2c8', textDecoration: 'none' }}
-                        href={`#${heading.text
-                          .trim()
-                          .split(' ')
-                          .join('-')
-                          .toLowerCase()}`}>
-                        {heading.text}
-                      </a>
-                    </Heading>
-                  </div>
+                    look="h500">
+                    <a
+                      css={{ color: '#7ab2c8', textDecoration: 'none' }}
+                      href={`#${heading.text
+                        .trim()
+                        .split(' ')
+                        .join('-')
+                        .toLowerCase()}`}>
+                      {heading.text}
+                    </a>
+                  </Heading>
                 ))}
             </VerticalStack>
           </nav>
