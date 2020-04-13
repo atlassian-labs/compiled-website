@@ -165,6 +165,7 @@ interface Page {
       text: string;
     }[];
     order?: number;
+    name?: string;
     section: string;
   };
 }
@@ -259,10 +260,10 @@ export const App = () => {
             <VerticalStack gap={0.5}>
               {page.data.headings
                 .filter((heading) => heading.depth < 4)
-                .map((heading) => (
+                .map((heading, index) => (
                   <div
                     style={{ marginLeft: `${heading.depth}rem` }}
-                    key={heading.text}>
+                    key={`${heading.text}-${index}`}>
                     <Heading look="h500">
                       <a
                         css={{ color: '#7ab2c8', textDecoration: 'none' }}
@@ -298,7 +299,7 @@ export const App = () => {
                   }
                   href={`/${page.name}`}
                   key={page.name}>
-                  {titleCase(page.name)}
+                  {page.data.name || titleCase(page.name)}
                 </LinkItem>
               ))}
             </Section>

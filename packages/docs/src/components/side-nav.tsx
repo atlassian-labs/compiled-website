@@ -23,7 +23,6 @@ export const Section = ({ children, title }: SectionProps) => {
   );
 };
 
-// TODO: Change this to either compposed styled or css prop when transformer supports it.
 const StyledLink = styled(Link)`
   display: block;
   font-weight: 500;
@@ -31,7 +30,6 @@ const StyledLink = styled(Link)`
   user-select: none;
   color: currentColor;
   text-decoration: none;
-  text-transform: capitalize;
 
   :hover {
     cursor: pointer;

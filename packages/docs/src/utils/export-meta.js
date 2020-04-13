@@ -7,17 +7,17 @@ const exportMetaPlugin = function () {
       headings: [],
     };
 
-    visit(ast, 'yaml', (node) => {
-      const parsedYaml = YAML.parse(node.value);
-      Object.assign(data, parsedYaml);
-    });
-
     visit(ast, 'heading', (node) => {
       const text = node.children.reduce((str, node) => str + node.value, '');
       data.headings.push({
         depth: node.depth,
         text,
       });
+    });
+
+    visit(ast, 'yaml', (node) => {
+      const parsedYaml = YAML.parse(node.value);
+      Object.assign(data, parsedYaml);
     });
 
     ast.children = [
