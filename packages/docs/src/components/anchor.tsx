@@ -1,8 +1,32 @@
-import React from 'react';
+import React, {
+  createContext,
+  useContext,
+  useRef,
+  useMemo,
+  useEffect,
+  useCallback,
+  useState,
+  Ref,
+} from 'react';
 import '@compiled/css-in-js';
 import { Heading } from '@compiled/website-ui';
 
+interface AnchorContextData {
+  listen: (element: HTMLElement) => void;
+  unlisten: (element: HTMLElement) => void;
+  selected: string;
+}
+
+const AnchorContext = createContext<AnchorContextData>({
+  listen: () => {},
+  unlisten: () => {},
+  selected: '',
+});
+
 export const Anchor = ({ children }: { children: string | string[] }) => {
+  const context = useContext(AnchorContext);
+  const ref = useRef<HTMLElement | null>(null);
+
   const id = (typeof children === 'string'
     ? [children.trim().split(' ').join('-')]
     : // Somehow children arrays could END with a space.
@@ -15,8 +39,17 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
     .join('-')
     .toLowerCase();
 
+  useEffect(() => {
+    context.listen(ref.current);
+
+    return () => {
+      context.unlisten(ref.current);
+    };
+  }, [context, id]);
+
   return (
     <a
+      ref={ref as Ref<HTMLAnchorElement>}
       href={`#${id}`}
       id={id}
       // @ts-ignore
@@ -57,11 +90,22 @@ export const ToAnchor = ({
   children: string;
   depth: number;
 }) => {
+  const id = children.trim().split(' ').join('-').toLowerCase();
+  const context = useContext(AnchorContext);
+
   return (
     <Heading style={{ marginLeft: `${depth}rem` }} look="h500">
       <a
-        css={{ color: '#7ab2c8', textDecoration: 'none' }}
-        href={`#${children.trim().split(' ').join('-').toLowerCase()}`}>
+        css={{
+          color: '#7ab2c8',
+          textDecoration: 'none',
+          // padding: '0 0.75rem',
+          // borderLeft:
+          //   context.selected === id
+          //     ? '0.25rem solid #7ab2c86e'
+          //     : '0.25rem solid transparent',
+        }}
+        href={`#${id}`}>
         {children}
       </a>
     </Heading>
@@ -73,5 +117,51 @@ export const AnchorProvider = ({
 }: {
   children: JSX.Element | JSX.Element[];
 }) => {
-  return children as JSX.Element;
+  const observer = useRef<IntersectionObserver>();
+  const [selected, setSelected] = useState('');
+
+  const listen = useCallback((element: HTMLElement) => {
+    if (!observer.current) {
+      observer.current = new IntersectionObserver(
+        (entries) => {
+          let target: Element;
+
+          entries
+            .filter((entry) => entry.intersectionRatio === 1)
+            .forEach((entry) => {
+              if (!target) {
+                target = entry.target;
+              }
+            });
+
+          if (target) {
+            setSelected(target.id);
+          }
+        },
+        { rootMargin: '-100px', threshold: 1 }
+      );
+    }
+
+    observer.current.observe(element);
+  }, []);
+
+  const unlisten = useCallback((element: HTMLElement) => {
+    observer.current.unobserve(element);
+  }, []);
+
+  const value = useMemo(() => ({ listen, unlisten, selected }), [
+    listen,
+    unlisten,
+    selected,
+  ]);
+
+  useEffect(() => {
+    return () => {
+      observer.current.disconnect();
+    };
+  }, []);
+
+  return (
+    <AnchorContext.Provider value={value}>{children}</AnchorContext.Provider>
+  );
 };

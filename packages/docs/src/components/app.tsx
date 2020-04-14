@@ -1,4 +1,5 @@
 import React from 'react';
+import '@compiled/css-in-js';
 import { RootLayout, VerticalStack, Heading } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
@@ -110,52 +111,52 @@ export const App = () => {
   const page = getPage(pageSlug);
 
   return (
-    <RootLayout
-      aside={
-        page && (
-          <nav aria-label="page">
-            <VerticalStack gap={0.5}>
-              {page.data.headings
-                .filter((heading) => heading.depth < 4)
-                .map((heading, index) => (
-                  <ToAnchor
-                    depth={heading.depth}
-                    key={`${heading.text}-${index}`}>
-                    {heading.text}
-                  </ToAnchor>
+    <AnchorProvider>
+      <RootLayout
+        aside={
+          page && (
+            <nav aria-label="page">
+              <VerticalStack gap={0.5}>
+                {page.data.headings
+                  .filter((heading) => heading.depth < 4)
+                  .map((heading, index) => (
+                    <ToAnchor
+                      depth={heading.depth}
+                      key={`${heading.text}-${index}`}>
+                      {heading.text}
+                    </ToAnchor>
+                  ))}
+              </VerticalStack>
+            </nav>
+          )
+        }
+        sidenav={
+          <>
+            {getSections().map((section, sectionIndex) => (
+              <Section
+                key={section.name}
+                title={section.name.replace(/^\d+-/, '')}>
+                {section.pages.map((page, pageIndex) => (
+                  <LinkItem
+                    aria-current={
+                      location.pathname === `/${page.name}` ||
+                      (location.pathname === '/' &&
+                        sectionIndex === 0 &&
+                        pageIndex === 0)
+                        ? 'page'
+                        : undefined
+                    }
+                    href={`/${page.name}`}
+                    key={page.name}>
+                    {page.data.name || titleCase(page.name)}
+                  </LinkItem>
                 ))}
-            </VerticalStack>
-          </nav>
-        )
-      }
-      sidenav={
-        <>
-          {getSections().map((section, sectionIndex) => (
-            <Section
-              key={section.name}
-              title={section.name.replace(/^\d+-/, '')}>
-              {section.pages.map((page, pageIndex) => (
-                <LinkItem
-                  aria-current={
-                    location.pathname === `/${page.name}` ||
-                    (location.pathname === '/' &&
-                      sectionIndex === 0 &&
-                      pageIndex === 0)
-                      ? 'page'
-                      : undefined
-                  }
-                  href={`/${page.name}`}
-                  key={page.name}>
-                  {page.data.name || titleCase(page.name)}
-                </LinkItem>
-              ))}
-            </Section>
-          ))}
-          <Footer />
-        </>
-      }>
-      <MDXProvider components={components}>
-        <AnchorProvider>
+              </Section>
+            ))}
+            <Footer />
+          </>
+        }>
+        <MDXProvider components={components}>
           <ScrollTop key={pageSlug} />
           <PageTitle title={page && page.name} />
 
@@ -225,8 +226,8 @@ export const App = () => {
               </div>
             </>
           )}
-        </AnchorProvider>
-      </MDXProvider>
-    </RootLayout>
+        </MDXProvider>
+      </RootLayout>
+    </AnchorProvider>
   );
 };
