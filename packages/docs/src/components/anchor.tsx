@@ -67,3 +67,11 @@ export const ToAnchor = ({
     </Heading>
   );
 };
+
+export const AnchorProvider = ({
+  children,
+}: {
+  children: JSX.Element | JSX.Element[];
+}) => {
+  return children as JSX.Element;
+};

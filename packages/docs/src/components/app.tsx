@@ -7,7 +7,7 @@ import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
 import { PageTitle } from './page-title';
 import { titleCase } from '../utils/string';
-import { ToAnchor } from './anchor';
+import { ToAnchor, AnchorProvider } from './anchor';
 import { components } from './mdx-components';
 
 interface Page {
@@ -155,75 +155,77 @@ export const App = () => {
         </>
       }>
       <MDXProvider components={components}>
-        <ScrollTop key={pageSlug} />
-        <PageTitle title={page && page.name} />
+        <AnchorProvider>
+          <ScrollTop key={pageSlug} />
+          <PageTitle title={page && page.name} />
 
-        {page && (
-          <>
-            <page.Component />
+          {page && (
+            <>
+              <page.Component />
 
-            <div
-              css={{
-                margin: '12rem 0 9rem',
-                display: 'flex',
-                '[data-next]': {
-                  marginLeft: 'auto',
-                },
-              }}>
-              {page.previous && (
-                <Link
-                  to={`/${page.previous.slug}`}
-                  css={{
-                    color: '#7ab2c8',
-                    fontSize: '1.25em',
-                    textDecoration: 'none',
-                  }}>
-                  <Heading look="h500" as="span">
-                    {page.previous.cta}
-                  </Heading>
-                  <div
+              <div
+                css={{
+                  margin: '12rem 0 9rem',
+                  display: 'flex',
+                  '[data-next]': {
+                    marginLeft: 'auto',
+                  },
+                }}>
+                {page.previous && (
+                  <Link
+                    to={`/${page.previous.slug}`}
                     css={{
-                      position: 'relative',
-                      ':before': {
-                        content: '‹',
-                        position: 'absolute',
-                        left: '-2rem',
-                      },
+                      color: '#7ab2c8',
+                      fontSize: '1.25em',
+                      textDecoration: 'none',
                     }}>
-                    {page.previous.name || titleCase(page.previous.slug)}
-                  </div>
-                </Link>
-              )}
+                    <Heading look="h500" as="span">
+                      {page.previous.cta}
+                    </Heading>
+                    <div
+                      css={{
+                        position: 'relative',
+                        ':before': {
+                          content: '‹',
+                          position: 'absolute',
+                          left: '-2rem',
+                        },
+                      }}>
+                      {page.previous.name || titleCase(page.previous.slug)}
+                    </div>
+                  </Link>
+                )}
 
-              {page.next && (
-                <Link
-                  data-next
-                  to={`/${page.next.slug}`}
-                  css={{
-                    color: '#7ab2c8',
-                    fontSize: '1.25em',
-                    textDecoration: 'none',
-                    textAlign: 'right',
-                  }}>
-                  <Heading look="h500" as="span">
-                    {page.next.cta}
-                  </Heading>
-                  <div
+                {page.next && (
+                  <Link
+                    data-next
+                    to={`/${page.next.slug}`}
                     css={{
-                      position: 'relative',
-                      ':after': {
-                        content: '›',
-                        position: 'absolute',
-                        right: '-2rem',
-                      },
+                      color: '#7ab2c8',
+                      fontSize: '1.25em',
+                      textDecoration: 'none',
+                      textAlign: 'right',
                     }}>
-                    {page.next.name || titleCase(page.next.slug)}
-                  </div>
-                </Link>
-              )}
-            </div>
-          </>
-        )}
+                    <Heading look="h500" as="span">
+                      {page.next.cta}
+                    </Heading>
+                    <div
+                      css={{
+                        position: 'relative',
+                        ':after': {
+                          content: '›',
+                          position: 'absolute',
+                          right: '-2rem',
+                        },
+                      }}>
+                      {page.next.name || titleCase(page.next.slug)}
+                    </div>
+                  </Link>
+                )}
+              </div>
+            </>
+          )}
+        </AnchorProvider>
       </MDXProvider>
     </RootLayout>
   );

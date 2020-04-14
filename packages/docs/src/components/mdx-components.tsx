@@ -1,10 +1,7 @@
 import React from 'react';
 import { styled } from '@compiled/css-in-js';
-import {
-  VerticalStack,
-  Heading,
-  CodeBlock,
-} from '@compiled/website-ui';
+import { VerticalStack, Heading, CodeBlock } from '@compiled/website-ui';
+import { Link } from 'react-router-dom';
 import { MDXProviderComponentsProp } from '@mdx-js/react';
 import { Anchor } from './anchor';
 
