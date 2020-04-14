@@ -1,161 +1,14 @@
-import { styled } from '@compiled/css-in-js';
 import React from 'react';
-import {
-  RootLayout,
-  VerticalStack,
-  Heading,
-  CodeBlock,
-} from '@compiled/website-ui';
-import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
+import { RootLayout, VerticalStack, Heading } from '@compiled/website-ui';
+import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
 import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
 import { PageTitle } from './page-title';
 import { titleCase } from '../utils/string';
-
-const Hr = styled.hr`
-  color: rgba(0, 0, 0, 0.1);
-  margin: 6rem 0;
-`;
-
-const Quote = styled.blockquote`
-  padding: 2rem 3rem;
-  margin: 6rem -3rem;
-  color: rgba(37, 56, 88, 0.7);
-  border-left: 3px solid #7ab2c8;
-  background-color: #7ab2c814;
-  opacity: 0.9;
-
-  p {
-    margin: 0;
-  }
-`;
-
-const Code = styled.code`
-  font-size: 0.9em;
-  margin-top: 20px;
-  color: currentColor;
-  font-weight: 400;
-  background-color: rgba(117, 63, 131, 0.07);
-  border-radius: 5px;
-  margin: 0;
-  padding: 0.2rem 0.325rem;
-`;
-
-const P = styled.p`
-  margin: 3rem 0;
-
-  & + h2 {
-    margin-top: 6rem;
-  }
-`;
-
-const Anchor = ({ children }: { children: string | string[] }) => {
-  const id = (typeof children === 'string'
-    ? [children.trim().split(' ').join('-')]
-    : // Somehow children arrays could END with a space.
-      children.filter(
-        (text, index) => !(index === children.length - 1 && text === ' ')
-      )
-  )
-    .filter((child) => typeof child === 'string')
-    .map((child) => child.trim().split(' ').join('-'))
-    .join('-')
-    .toLowerCase();
-
-  return (
-    <a
-      href={`#${id}`}
-      id={id}
-      // @ts-ignore
-      css={{
-        color: 'currentColor',
-        textDecoration: 'none',
-        position: 'relative',
-        ':before': {
-          opacity: 0,
-          content: '🔗',
-          position: 'absolute',
-          left: '-4rem',
-          fontSize: '3rem',
-          transform: 'translateX(1rem)',
-          transition: 'opacity 100ms, transform 100ms',
-          paddingRight: '5rem',
-          top: 2,
-          bottom: 0,
-          display: 'flex',
-          alignItems: 'center',
-        },
-        ':hover': {
-          ':before': {
-            opacity: 1,
-            transform: 'none',
-          },
-        },
-      }}>
-      {children}
-    </a>
-  );
-};
-
-const components: MDXProviderComponentsProp = {
-  h1: ({ children }) => (
-    <Heading look="h100">
-      <Anchor>{children}</Anchor>
-    </Heading>
-  ),
-  h2: ({ children }) => (
-    <Heading look="h200">
-      <Anchor>{children}</Anchor>
-    </Heading>
-  ),
-  h3: ({ children }) => (
-    <Heading look="h300">
-      <Anchor>{children} </Anchor>
-    </Heading>
-  ),
-  h4: ({ children }) => (
-    <Heading look="h400">
-      <Anchor>{children}</Anchor>
-    </Heading>
-  ),
-  h5: ({ children }) => (
-    <Heading look="h500">
-      <Anchor>{children} </Anchor>
-    </Heading>
-  ),
-  p: ({ children }) => <P>{children}</P>,
-  pre: ({ children }) => children,
-  code: ({ children, className }) => (
-    <VerticalStack spacing={2}>
-      <CodeBlock language={className ? className.split('-')[1] : undefined}>
-        {children}
-      </CodeBlock>
-    </VerticalStack>
-  ),
-  hr: () => <Hr />,
-  inlineCode: ({ children }) => <Code>{children}</Code>,
-  a: ({ href, children, ...props }) =>
-    href.startsWith('http') ? (
-      <a
-        href={href}
-        css={{ color: '#7ab2c8', textDecoration: 'none' }}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...props}>
-        {children}
-      </a>
-    ) : (
-      <Link
-        to={href}
-        css={{ color: '#7ab2c8', textDecoration: 'none' }}
-        {...props}>
-        {children}
-      </Link>
-    ),
-  blockquote: (props) => <Quote {...props} />,
-};
+import { ToAnchor } from './anchor';
+import { components } from './mdx-components';
 
 interface Page {
   default: React.ComponentType<{}>;
@@ -265,20 +118,11 @@ export const App = () => {
               {page.data.headings
                 .filter((heading) => heading.depth < 4)
                 .map((heading, index) => (
-                  <Heading
-                    key={`${heading.text}-${index}`}
-                    style={{ marginLeft: `${heading.depth}rem` }}
-                    look="h500">
-                    <a
-                      css={{ color: '#7ab2c8', textDecoration: 'none' }}
-                      href={`#${heading.text
-                        .trim()
-                        .split(' ')
-                        .join('-')
-                        .toLowerCase()}`}>
-                      {heading.text}
-                    </a>
-                  </Heading>
+                  <ToAnchor
+                    depth={heading.depth}
+                    key={`${heading.text}-${index}`}>
+                    {heading.text}
+                  </ToAnchor>
                 ))}
             </VerticalStack>
           </nav>
