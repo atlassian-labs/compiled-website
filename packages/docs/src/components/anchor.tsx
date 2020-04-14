@@ -69,7 +69,7 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
           top: 2,
           bottom: 0,
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-end',
         },
         ':hover': {
           ':before': {
@@ -97,13 +97,9 @@ export const ToAnchor = ({
     <Heading style={{ marginLeft: `${depth}rem` }} look="h500">
       <a
         css={{
-          color: '#7ab2c8',
+          color: context.selected === id ? '#7ab2c8' : 'currentColor',
+          transition: 'color 100ms',
           textDecoration: 'none',
-          // padding: '0 0.75rem',
-          // borderLeft:
-          //   context.selected === id
-          //     ? '0.25rem solid #7ab2c86e'
-          //     : '0.25rem solid transparent',
         }}
         href={`#${id}`}>
         {children}
@@ -127,18 +123,16 @@ export const AnchorProvider = ({
           let target: Element;
 
           entries
-            .filter((entry) => entry.intersectionRatio === 1)
+            .filter((entry) => entry.intersectionRatio >= 1)
             .forEach((entry) => {
-              if (!target) {
-                target = entry.target;
-              }
+              target = entry.target;
             });
 
           if (target) {
             setSelected(target.id);
           }
         },
-        { rootMargin: '-100px', threshold: 1 }
+        { rootMargin: '0px 0px -60% 0px', threshold: [1] }
       );
     }
 
