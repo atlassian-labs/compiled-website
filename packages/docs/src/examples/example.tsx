@@ -1,5 +1,5 @@
 import { styled } from '@compiled/css-in-js';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { CodeBlock } from '@compiled/website-ui';
 
 interface ExampleProps {
@@ -50,7 +50,7 @@ const ExampleButton = styled.button<{
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   padding: 1.5rem;
   border: none;
-  background: #fff;
+  background: transparent;
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
@@ -69,8 +69,12 @@ const ExampleContainer = styled.div`
   z-index: 1;
   position: relative;
   padding: 0.5rem;
-  background: #fff;
-  position: relative;
+  background-image: linear-gradient(45deg, #f4f5f7 25%, transparent 25%),
+    linear-gradient(-45deg, #f4f5f7 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f4f5f7 75%),
+    linear-gradient(-45deg, transparent 75%, #f4f5f7 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 
   [data-button] {
     margin-left: auto;
