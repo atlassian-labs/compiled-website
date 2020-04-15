@@ -5,7 +5,7 @@ section: 1-Getting started
 
 # Background
 
-For us CSS in JS solutions has provided a fantastic developer experience,
+For us CSS in JS solutions have provided a fantastic developer experience,
 deep integrations with JavaScript by design,
 and the delivery mechanism of said libraries make it super easy for consumers to consume our components.
 Just import and use them -
@@ -17,13 +17,20 @@ Death by a thousand cuts.
 
 If we could re-imagine CSS in JS - what would it look like?
 
-- Not need any upfront configuration for our consumers
-- Not need any configuration for server-side rendering
-- Be impossible to have unperformant styling
-- Be extensible for more advanced optimization
+- Performant styling with no footguns
+- Hassle free dynamic styling at runtime
 - Zero re-renders when theme changes
-- Minimal to no runtime
-- Be impossible to have multiple versions of the library clash
+- Extensible for more advanced optimization later in time
+
+And what could it look like for consumers of our components?
+
+- Zero config to get started
+- Zero config for server-side rendering
+- Impossible to have multiple versions of the library clash against each other
+- No impact on bundle size
+- Opt-in CSS extraction with added setup
 
 This is the benchmark for which Compiled is being written against,
-with the extra constraint of not costing too much to migrate to.
+with the added constraint of not costing much to migrate to.
+
+> We choose to take on constraints to make the software we write _as good as it can be_.

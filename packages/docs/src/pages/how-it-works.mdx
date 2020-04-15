@@ -6,26 +6,51 @@ section: 2-Advanced
 # How It Works
 
 Compiled compiles your CSS in JS at build time by statically analyzing your code and then transforming it into Compiled Components.
-This is different to how other compile time libraries operate -
-extracting to CSS is **not the first destination** for Compiled.
+Everything you need to use the component is included along side it.
 
-But it is the final destination -
-more about this soon.
-
-## Authored code
-
-We take your original code in all its glory.
+We take your initial code in all its glory:
 
 ```jsx
 import { styled } from 'styled-components';
 
-styled.div`
-  font-size: 12px;
+styled.span`
+  color: #ff5630;
 `;
 ```
 
-## What is a compiled component
+And then transform it into a Compiled Component:
 
-## What happens at runtime
+```jsx
+import React from 'react';
+import { Style } from '@compiled/css-in-js';
 
-## What's next
+React.forwardRef(({ as: C = 'span', ...props }, ref) => (
+  <>
+    <Style hash="css-zd46j1">{['.css-zd46j1{color:#ff5630;}']}</Style>
+    <C
+      {...props}
+      ref={ref}
+      className={'css-zd46j1' + (props.className ? ' ' + props.className : '')}
+    />
+  </>
+));
+```
+
+This kind of transformation allows you to deliver your component to any consumer,
+and without needing them to setup anything they can use it as is.
+This is powerful,
+and more importantly exactly the same as current CSS in JS libraries work -
+with one catch.
+
+_CSS can't be generated at runtime._
+
+This single constraint opens a lot of doors for us.
+Build time optimizations.
+Runtime guarantees.
+Performance bottlenecks gone.
+
+While Compiled currently only targets inline Compiled Components,
+we'll eventually get to more exciting grounds -
+optional CSS extraction.
+It'll be super exciting to make work,
+come [chime into the RFC](https://github.com/atlassian-labs/compiled-css-in-js/issues/36) if you're interested.
