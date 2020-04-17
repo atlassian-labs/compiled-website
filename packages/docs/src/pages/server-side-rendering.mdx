@@ -4,7 +4,7 @@ section: 2-Advanced
 
 # Server Side Rendering
 
-Server side rendering in Compiled works by compiling the CSS next to the element itself.
+Server side rendering (SSR) in Compiled works by compiling the CSS next to the element itself.
 This is very similar to how Emotion accomplishes it by default.
 
 This strategy has a few benefits -
@@ -20,3 +20,77 @@ renderToNodeStream(<App />);
 
 > **Warning** - This approach can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
 > We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled-css-in-js/issues/31) - please join the conversation!
+
+## Selector workarounds
+
+So you've seen the error message in dev and you're supporting SSR so you can't let this message go.
+Let's go into a few _workarounds_.
+
+### First child
+
+Luckily this one is easy.
+Let's say you're targetting the `:first-child` child.
+
+```jsx
+<div css={`
+  > :first-child {
+    color: red;
+  }
+`}>
+  <div /> <-- text will be red, after JavaScript executes
+  <div />
+</div>
+```
+
+But the text isn't red before the JavaScript has executed!
+What can we do?
+
+Use a different selector.
+
+```jsx
+<div css={`
+  > [data-first-child] {
+    color: red;
+  }
+`}>
+  <div data-first-child /> <-- text will be red, always
+  <div />
+</div>
+```
+
+Right now this is really the only sure fire way of getting what we want.
+
+## Nth-child
+
+This also applies to `:nth-child` as well,
+where `style` elements can appear and ruin our day before JavaScript has executed.
+
+```jsx
+<div css={`
+  > :nth-child(even) {
+    color: red;
+  }
+
+  > :nth-child(odd) {
+    color: blue;
+  }
+`}>
+  <div /> <-- text will be red, after JavaScript executes
+  <div /> <-- text will be blue, after JavaScript executes
+</div>
+```
+
+```jsx
+<div css={`
+  > [data-even] {
+    color: red;
+  }
+
+  > [data-odd] {
+    color: blue;
+  }
+`}>
+  <div data-even /> <-- text will be red, always
+  <div data-odd /> <-- text will be blue, always
+</div>
+```

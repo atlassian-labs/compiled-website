@@ -25,7 +25,6 @@ export const Section = ({ children, title }: SectionProps) => {
 
 const StyledLink = styled(Link)`
   display: block;
-  font-weight: 500;
   padding: 0.5rem 0;
   user-select: none;
   color: currentColor;
