@@ -1,0 +1,97 @@
+---
+section: 2-Advanced
+---
+
+# Security
+
+## Content security policy
+
+> **Note** - Not sure what CSP is?
+> Have a read here: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP.
+> It allows us to be explicit about what can and can't run -
+> JavaScript,
+> styles,
+> images even!
+
+Compiled supports this using the `nonce` option,
+where `nonce` is some identifier for your bundler to replace.
+If you're using Webpack they [handle nonce quite easily too](https://webpack.js.org/guides/csp/).
+The main principle is `nonce` should resolve to a **unique** secret that the server generates **every page load**!
+
+You can enable it in both Babel and the TypeScript transformer,
+these examples using what Webpack would want.
+
+```json
+{
+  "plugins": [
+    ["@compiled/babel-plugin-css-in-js", { "nonce": "__webpack_nonce__" }]
+  ]
+}
+```
+
+```json
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "@compiled/ts-transform-css-in-js",
+        "options": {
+          "nonce": "__webpack_nonce_"
+        }
+      }
+    ]
+  }
+}
+```
+
+When setting Compiled with a `nonce` we then use it to declare our `style` elements.
+Let's say `__webpack_nonce__` gets transformed to a secret method at build time which will return the `nonce`.
+
+```diff
+-__webpack_nonce__
++uniqueNonceOncePerServerLoad() // returns "k0Mp1lEd" this run
+```
+
+And then on the server we ensure that a `meta` tag is set using this value:
+
+```html
+<meta
+  http-equiv="Content-Security-Policy"
+  content=" object-src 'none'; style-src 'nonce-k0Mp1lEd' <--- nonce used here
+'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:; base-uri 'none';"
+/>
+```
+
+And finally our Compiled Component renders:
+
+```jsx
+<style nonce="k0Mp1lEd">.cc-1234 { color: red; }</style>
+<div class="cc-1234">hello world</div>
+```
+
+Success!
+The browser allowed our styles to be used.
+
+But if our nonce did not match,
+or were just missing...
+
+```jsx
+<style>.cc-1234 { color: red; }</style>
+<div class="cc-1234">hello world</div>
+```
+
+Oh no!
+The browser blocks them from being used and logs an error to the console.
+
+## User input
+
+Because of the static nature of Compiled,
+we can't re-generate CSS at runtime which means as a developer you're now just a little bit safer.
+If you take user input and use it to do dynamic styling it's also pumped through React,
+so you get their sanitization for free.
+
+All this to say -
+you probably don't have to worry about much.
+
+But make sure you sanitize user inputs regardless,
+especially on the server.

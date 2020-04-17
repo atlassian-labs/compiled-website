@@ -1,12 +1,12 @@
 ---
-order: 1
-section: 2-Advanced
+order: 2
+section: 1-Getting started
 ---
 
 # How It Works
 
 Compiled compiles your CSS in JS at build time by statically analyzing your code and then transforming it into Compiled Components.
-Everything you need to use the component is included along side it.
+Everything you need to use the component is included along side it in the JavaScript bundle.
 
 We take your initial code in all its glory:
 
@@ -26,18 +26,21 @@ import { Style } from '@compiled/css-in-js';
 
 React.forwardRef(({ as: C = 'span', ...props }, ref) => (
   <>
-    <Style hash="css-zd46j1">{['.css-zd46j1{color:#ff5630;}']}</Style>
+    <Style hash="zd46j1">{['.cc-zd46j1{color:#ff5630;}']}</Style>
     <C
       {...props}
       ref={ref}
-      className={'css-zd46j1' + (props.className ? ' ' + props.className : '')}
+      className={'cc-zd46j1' + (props.className ? ' ' + props.className : '')}
     />
   </>
 ));
 ```
 
+Which then at runtime will move the styles to the head of the document.
+
 This kind of transformation allows you to deliver your component to any consumer,
-and without needing them to setup anything they can use it as is.
+without needing them to configure/setup their tooling.
+Just import and go.
 This is powerful,
 and more importantly exactly the same as current CSS in JS libraries work -
 with one catch.
