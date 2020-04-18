@@ -37,6 +37,7 @@
   "devDependencies": {
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",
     "@mdx-js/react": "^1.1.6",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "react": "^16.9.0"
   }
 }
