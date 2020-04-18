@@ -124,7 +124,7 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
               },
               '@media only screen and (min-width: 1220px)': {
                 overflow: 'visible',
-                width: '30rem',
+                width: '27rem',
                 marginRight: '2rem',
                 position: 'static',
                 fontSize: '1em',
@@ -190,20 +190,17 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
             <aside
               css={{
                 display: 'none',
-                '@media only screen and (min-width: 1650px)': {
-                  width: '25rem',
-                  textAlign: 'left',
+                '@media only screen and (min-width: 1220px)': {
+                  width: '22rem',
                   display: 'block',
-                  position: 'absolute',
-                  paddingLeft: '2rem',
-                  left: '100%',
-                  height: '100%',
+                  paddingLeft: '4rem',
+                  flexShrink: 0,
                 },
               }}>
               <HeaderSpacing />
               <VerticalStack
                 css={{
-                  '@media only screen and (min-width: 1650px)': {
+                  '@media only screen and (min-width: 1220px)': {
                     position: 'sticky',
                     top: '9rem',
                   },
