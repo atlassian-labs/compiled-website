@@ -835,22 +835,32 @@
     typescript "^3.7.3"
 
 "@compiled/css-in-js@^0.2.12":
-  version "0.2.15"
-  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.2.15.tgz#261a0eb98fc60726f801f3db5aec0792c349bc71"
-  integrity sha512-v5EOQC2bqGXTEgf53gQmtp2clo8C5EA/w+q93+8puc2mrYHrMoJYGy9L7tE9rQoa2bmn1P0IzW84a06D7YYJew==
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/@compiled/css-in-js/-/css-in-js-0.2.16.tgz#537c09a07028a785f90f6626d12c31f5054da326"
+  integrity sha512-qsdrFxCznV2ev5Bhx0eFSm4q7dCgxJGdLpelv+5lDYf4aGhPh+0pIfs8YdLJ5EZ6Js2lux/ga3bYoxMq9BxIig==
   dependencies:
-    "@compiled/style" "0.2.15"
+    "@compiled/style" "0.2.16"
     csstype "^2.0.0"
 
-"@compiled/style@0.2.15":
-  version "0.2.15"
-  resolved "https://registry.yarnpkg.com/@compiled/style/-/style-0.2.15.tgz#e8a1d8ac00dd2409ec2d51e2537b7327f32f2fb3"
-  integrity sha512-Jq2M2G3jE2SMbYNfrmDjHhACH4rZvi5r9HB2Mm38jcU1NQhB5Mw/8a/jvgr6E+2GdYl/gtgpcgbxZZ8WbXUvfA==
+"@compiled/style@0.2.16":
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/@compiled/style/-/style-0.2.16.tgz#abe0b8c2592f8ac05432a3f629be93391b872c53"
+  integrity sha512-Yo99UuNRSBuXzCbL702szRttqMq2yQoExt7ovAoW0rv29zTHqsJWBiqFFx/5SugwtrP560nQKb6TToy17LN8wg==
 
-"@compiled/ts-transform-css-in-js@0.2.15", "@compiled/ts-transform-css-in-js@^0.2.12":
+"@compiled/ts-transform-css-in-js@0.2.15":
   version "0.2.15"
   resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.2.15.tgz#2913778198c546289060dbcb59231d9fc089058b"
   integrity sha512-uNa2PdQ5nGGsDzHmk3J26rCJnA6gJfNqH+8sZR13ykTWEsFFuqxCFBH5m4WByW9cDNlrlaMlLYmP2aYJRBEwQg==
+  dependencies:
+    "@emotion/is-prop-valid" "^0.8.6"
+    stylis "^3.5.4"
+    stylis-rule-sheet "^0.0.10"
+    typescript "^3.7.3"
+
+"@compiled/ts-transform-css-in-js@^0.2.12":
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/@compiled/ts-transform-css-in-js/-/ts-transform-css-in-js-0.2.16.tgz#9b3d2d614cc061db4a6af019ad340089a747ae5f"
+  integrity sha512-mySGhZl7Uep7IBPM2093Wq1BhI3RSpfl8JB9RKL4UWeVNRb3uuT8seasau1CV76DTL2mGLZ/8uZacdLjNyRUZw==
   dependencies:
     "@emotion/is-prop-valid" "^0.8.6"
     stylis "^3.5.4"
