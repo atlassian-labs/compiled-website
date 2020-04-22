@@ -15,10 +15,25 @@ npm i @compiled/babel-plugin-css-in-js
 Exports a Babel plugin to enabled Compiled in Babel environments.
 See [Installation](/installation) for setup information.
 
-## Options
+### Options
 
-### Nonce
+```json
+{
+  "plugins": [
+    [
+      "@compiled/babel-plugin-css-in-js",
+      { "nonce": "__webpack_nonce__", "sourceMap": true }
+    ]
+  ]
+}
+```
+
+#### Nonce
 
 Enables CSP support,
 read [Security](/security) for more information.
 
+#### Source map
+
+Turns on source maps.
+Don't use this in production else your bundles will blow out!

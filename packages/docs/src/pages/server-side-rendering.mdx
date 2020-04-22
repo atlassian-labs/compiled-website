@@ -21,6 +21,55 @@ renderToNodeStream(<App />);
 > **Warning** - This approach can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
 > We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled-css-in-js/issues/31) - please join the conversation!
 
+## How it works
+
+So you keep hearing "SSR is 0 config" - but what does that actually mean?
+It means that you -
+or more explicitly consumers of your components -
+don't have to do anything to make SSR work.
+Just import a Compiled Component and go.
+
+It accomplishes this by inlining `style` elements in the server rendered markup,
+like so:
+
+<!-- prettier-ignore -->
+```html
+<style>.cc-10mivee{display:flex;}</style>
+<div class="cc-10mivee">
+  <style>.cc-1610nsm{font-size:12px;}</style>
+  <div class="cc-1610nsm">hello world</div>
+</div>
+```
+
+And then on the client when the JavaScript initializes they get moved to the head of the document,
+so we end up with this on the client:
+
+```html
+<div class="cc-10mivee">
+  <div class="cc-1610nsm">hello world</div>
+</div>
+```
+
+The magic sauce though -
+is that if any of the same component is rendered multiple times only the _first_ element will have a matching `style` element.
+The rest won't need it because it's already there!
+Saving precious Kb.
+
+<!-- prettier-ignore -->
+```html
+<style>.cc-10mivee{display:flex;}</style>
+<div class="cc-10mivee">
+  <style>.cc-1610nsm{font-size:12px;}</style>
+  <div class="cc-1610nsm">hello world</div>
+  <div class="cc-1610nsm">hello world</div>
+  <div class="cc-1610nsm">hello world</div>
+  <div class="cc-1610nsm">hello world</div>
+  <div class="cc-1610nsm">hello world</div>
+</div>
+```
+
+Fantastic.
+
 ## Selector workarounds
 
 So you've seen the error message in dev and you're supporting SSR so you can't let this message go.
@@ -60,7 +109,7 @@ Use a different selector.
 
 Right now this is really the only sure fire way of getting what we want.
 
-## Nth-child
+### Nth-child
 
 This also applies to `:nth-child` as well,
 where `style` elements can appear and ruin our day before JavaScript has executed.
