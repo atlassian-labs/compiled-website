@@ -25,20 +25,6 @@ const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.08);
 `;
 
-const GetStartedLink = styled.a({
-  background: 'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
-  backgroundSize: '45rem',
-  borderRadius: 44,
-  padding: '1rem 2rem',
-  boxSizing: 'border-box',
-  border: '3px solid rgba(122, 177, 201, 0.3)',
-  display: 'inline-block',
-  color: 'currentColor',
-  textDecoration: 'none',
-  transition: 'transform 70ms ease-in-out',
-  '&:hover': { transform: 'translateX(5px)' },
-});
-
 export default () => (
   <RootLayout>
     <Hero>
@@ -67,12 +53,22 @@ npm i @compiled/css-in-js
     </Hero>
 
     <Content>
+      <VerticalStack spacing={10} gap={2}>
+        <Heading look="h200">Best-in-class performance</Heading>
+        CSS is created at build time which unlocks massive optimizations for us.
+        No longer do we have to worry about the initial rendering speed, or
+        re-rendering costing us precious ms at scale. Write the same CSS in JS
+        we're used too without the performance implications.
+      </VerticalStack>
+
       <VerticalStack gap={2} spacing={10}>
-        <Heading look="h200">With other familiar apis</Heading>
+        <Heading look="h200">Migrate to a zero config reality</Heading>
         <p>
-          Made for easy migration from your previous CSS in JS library to
-          Compiled - so the css prop and class names component have come along
-          for the ride!
+          The APIs we love are all here for the ride - CSS prop and class names
+          component too! Our consumers don't even need to change how they
+          consume our components, continuing the zero config story they don't
+          need to configure their bundler, nor do they need to setup any
+          specific things for server side rendering. It just works.
         </p>
 
         <Comparison
@@ -100,24 +96,14 @@ import { ClassNames } from '@compiled/css-in-js';
       </VerticalStack>
 
       <VerticalStack spacing={10} gap={2}>
-        <Heading look="h200">Free our consumers config</Heading>
-        Shipping a component library? Well don't worry about consumers needing
-        extra setup - all of the{' '}
-        <strong>code is compiled into the JavaScript</strong> output at build
-        time so your consumers don't need to change their build setup! This
-        includes <strong>delivering SSR for free out of the box.</strong> Just
-        import a Compiled component and it'll work fantastically.
+        <Heading look="h200">Just the beginning</Heading>
+        With zero config out-of-the-box today, we're not forgetting what
+        tomorrow could look like. With the possibility for optional CSS
+        extraction, transforming the CSS to an Atomic form, and even being able
+        to use the CSS data for analysis across our code base, we're thinking up
+        an exciting tomorrow.
       </VerticalStack>
 
-      <VerticalStack spacing={10} gap={2}>
-        <Heading look="h200">And only a tiny runtime</Heading>
-        With only a single component needed at runtime to manage moving styles
-        to the head of your app, we won't have to worry about bundle size bloat.
-        Watch out for future optimizations coming - including a transformer that
-        extracts CSS - <strong>completely removing the runtime</strong>, and
-        then another to atomic-ify your CSS to{' '}
-        <strong>reduce the curve of written CSS</strong>.
-      </VerticalStack>
       <VerticalStack align="right" spacing={10}>
         <a
           href="docs"
@@ -131,7 +117,7 @@ import { ClassNames } from '@compiled/css-in-js';
             Getting started
           </Heading>
           <br />
-          <div
+          <span
             css={{
               textTransform: 'capitalize',
               position: 'relative',
@@ -142,7 +128,7 @@ import { ClassNames } from '@compiled/css-in-js';
               },
             }}>
             Installation
-          </div>
+          </span>
         </a>
       </VerticalStack>
     </Content>
