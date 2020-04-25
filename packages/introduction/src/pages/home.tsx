@@ -55,10 +55,12 @@ npm i @compiled/css-in-js
     <Content>
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">Best-in-class performance</Heading>
-        CSS is created at build time which unlocks massive optimizations for us.
-        No longer do we have to worry about the initial rendering speed, or
-        re-rendering costing us precious ms at scale. Write the same CSS in JS
-        we're used too without the performance implications.
+        <p>
+          CSS is created at build time which unlocks massive optimizations for
+          us. No longer do we have to worry about the initial rendering speed,
+          or re-rendering costing us precious ms at scale. Write the same CSS in
+          JS we're used too without the performance implications.
+        </p>
       </VerticalStack>
 
       <VerticalStack gap={2} spacing={10}>
@@ -97,11 +99,13 @@ import { ClassNames } from '@compiled/css-in-js';
 
       <VerticalStack spacing={10} gap={2}>
         <Heading look="h200">Just the beginning</Heading>
-        With zero config out-of-the-box today, we're not forgetting what
-        tomorrow could look like. With the possibility for optional CSS
-        extraction, transforming the CSS to an Atomic form, and even being able
-        to use the CSS data for analysis across our code base, we're thinking up
-        an exciting tomorrow.
+        <p>
+          With zero config out-of-the-box today, we're not forgetting what
+          tomorrow could look like. With the possibility for optional CSS
+          extraction, transforming the CSS to an Atomic form, and even being
+          able to use the CSS data for analysis across our code base, we're
+          thinking up an exciting tomorrow.
+        </p>
       </VerticalStack>
 
       <VerticalStack align="right" spacing={10}>
