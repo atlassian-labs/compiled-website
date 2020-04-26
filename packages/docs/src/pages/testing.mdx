@@ -48,6 +48,26 @@ it('should have small font', () => {
 });
 ```
 
+## Multi match
+
+You can assert multiple values at once if you pass in an object instead.
+
+```jsx
+it('should have small bold font', () => {
+  const SmallText = styled.div({
+    fontSize: '12px',
+    fontWeight: 'bold',
+  });
+
+  const { getByText } = render(<SmallText>hello world</SmallText>);
+
+  expect(getByText('hello world')).toHaveCompiledCss({
+    fontSize: '12px',
+    fontWeight: 'bold',
+  });
+});
+```
+
 ## Dynamic props
 
 We can also go a step further and test dynamic props as well.
@@ -69,3 +89,48 @@ it('should appear red', () => {
 > We can get something more valuable with visual regression tests,
 > else assert the specific styles you're interested in -
 > **don't snapshot the world**!
+
+## Selectors
+
+You can assert against any CSS selectors,
+such as `:hover`,
+`:active`,
+and so on by passing in a config object.
+
+```jsx
+it('should change background color to blue on hover', () => {
+  const Hoverable = styled.div({
+    '&:hover': {
+      backgroundColor: 'blue',
+    },
+  });
+
+  const { getByText } = render(<Hoverable>hello world</Hoverable>);
+
+  expect(getByText('hello world')).toHaveCompiledCss(
+    'background-color',
+    'blue',
+    { target: '&:hover' }
+  );
+});
+```
+
+## Media queries
+
+You can also assert against specific media queries using the same config object.
+
+```jsx
+it('should have big padding when viewed on a tablet', () => {
+  const Card = styled.div({
+    '@media screen and (min-width: 1220px)': {
+      padding: '8rem',
+    },
+  });
+
+  const { getByText } = render(<Card>hello world</Card>);
+
+  expect(getByText('hello world')).toHaveCompiledCss('padding', '8rem', {
+    media: 'screen and (min-width: 1220px)',
+  });
+});
+```

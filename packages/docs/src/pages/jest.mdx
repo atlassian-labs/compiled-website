@@ -21,3 +21,25 @@ expect.extend({
   toHaveCompiledCss,
 });
 ```
+
+```tsx
+expect(element).toHaveCompiledCss(property-name, value, ?options);
+expect(element).toHaveCompiledCss({ [propertyName]: value }, ?options);
+```
+
+### Options
+
+```jsx
+{
+  media: 'screen',
+  target: ':hover'
+}
+```
+
+#### Media
+
+Narrows the assertion down to any valid media query - with `@media` ommitted.
+
+#### Target
+
+Narrows the assertion down to any valid CSS selector.

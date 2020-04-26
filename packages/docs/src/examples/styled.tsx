@@ -37,6 +37,22 @@ export const StyledInvalidExample = () => {
   );
 };
 
+export const StyledObjectExample = () => {
+  return (
+    <Example
+      before={readFileSync(
+        __dirname + '../../../../examples/src/styled-object.tsx',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname + '../../../../examples/dist/styled-object.jsx',
+        'utf-8'
+      )}>
+      <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
+    </Example>
+  );
+};
+
 export const StyledTransientProps = () => {
   return (
     <Example
