@@ -12,8 +12,8 @@ so if you haven't already go read that.
 
 ## From Styled Components
 
-Just replace the imports and you're done!
-If you have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
+Just replace the imports and we're done!
+If we have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
 
 ```diff
 -import styled from 'styled-components';
@@ -62,7 +62,8 @@ if you're using `@emotion/styled` the migration is the same from above.
 
 (props) => (
   <div
-    css={`
+-    css={css`
++    css={
       color: red;
       background-color: ${props.background}
     `}

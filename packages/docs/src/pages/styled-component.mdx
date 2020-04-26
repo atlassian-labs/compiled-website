@@ -41,7 +41,7 @@ And here is the same using the object API.
 ### Transient props
 
 Sometimes we want to use a prop name but we don't want it to appear on the DOM element as an attribute.
-Luckily you can,
+Luckily we can,
 simply prefix the prop with `$` and even if it's a valid HTML attribute it won't be applied.
 
 In the following example see that `color` is applied to the DOM element,
@@ -51,10 +51,10 @@ but `$color` is not.
 
 ## The as prop
 
-Sometimes you'll want to keep using the same styled component but want to change the rendered markup to something else.
-Maybe you want to change the heading level,
+Sometimes we'll want to keep using the same styled component but want to change the rendered markup to something else.
+Maybe we want to change the heading level,
 or the markup rendered in a specific context doesn't make sense as the original one anymore.
-The `as` prop allows you to change it at runtime.
+The `as` prop allows us to change it at runtime.
 
 ```tsx
 import { styled } from '@compiled/css-in-js';
