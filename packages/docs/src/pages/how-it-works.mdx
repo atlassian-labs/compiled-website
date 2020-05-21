@@ -22,18 +22,22 @@ And then transform it into a Compiled Component:
 
 ```jsx
 import React from 'react';
-import { Style } from '@compiled/css-in-js';
-
-React.forwardRef(({ as: C = 'span', ...props }, ref) => (
-  <>
-    <Style hash="zd46j1">{['.cc-zd46j1{color:#ff5630;}']}</Style>
-    <C
-      {...props}
-      ref={ref}
-      className={'cc-zd46j1' + (props.className ? ' ' + props.className : '')}
-    />
-  </>
-));
+import { CC, CS } from '@compiled/css-in-js';
+export const ColoredText = /*#__PURE__*/ React.forwardRef(
+  ({ as: C = 'span', ...props }, ref) => (
+    <CC>
+      <CS hash="zd46j1">{['.cc-zd46j1{color:#ff5630}']}</CS>
+      <C
+        {...props}
+        ref={ref}
+        className={'cc-zd46j1' + (props.className ? ' ' + props.className : '')}
+      />
+    </CC>
+  )
+);
+if (process.env.NODE_ENV === 'development') {
+  ColoredText.displayName = 'ColoredText';
+}
 ```
 
 Which then at runtime will move the styles to the head of the document.
