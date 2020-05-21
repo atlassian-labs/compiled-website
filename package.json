@@ -27,8 +27,8 @@
     ]
   },
   "resolutions": {
-    "**/@compiled/css-in-js": "0.3.3-3261f8a00c62a5aec92d29e755409b7d6bce7e23.0",
-    "**/@compiled/ts-transform-css-in-js": "0.3.3-3261f8a00c62a5aec92d29e755409b7d6bce7e23.0",
-    "**/@compiled/babel-plugin-css-in-js": "0.3.3-3261f8a00c62a5aec92d29e755409b7d6bce7e23.0"
+    "**/@compiled/css-in-js": "0.3.3-dcfe4f5eb8078837100056f341cb97cc14cb3e8e.0",
+    "**/@compiled/ts-transform-css-in-js": "0.3.3-dcfe4f5eb8078837100056f341cb97cc14cb3e8e.0",
+    "**/@compiled/babel-plugin-css-in-js": "0.3.3-dcfe4f5eb8078837100056f341cb97cc14cb3e8e.0"
   }
 }
