@@ -4,9 +4,9 @@ section: 2-Advanced
 
 # Css Compiler
 
-Compiled uses [Stylis](https://github.com/thysultan/stylis.js) to compile CSS.
-Because of this the majority of CSS we write can be converted from your previous CSS in JS solutions into Compiled and they'll work great!
-Stylis enables some powerful features such as the following.
+Compiled uses [PostCSS](https://postcss.org/) to compile our CSS.
+This makes a wide ecosystem of plugins available for use,
+as well as nice optimizations like minification while not paying any runtime cost which you can't get with other CSS in JS solutions.
 
 ## Vendor prefixing
 
@@ -14,35 +14,66 @@ This is done automatically for you.
 Simply write our CSS as we would usually:
 
 ```css
-display: flex;
+user-select: none;
 ```
 
 And it gets turned into:
 
 ```css
-display: -webkit-box;
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 ```
+
+Interestingly because the oldest browser we target is IE11 you don't need much vendor prefixing done.
 
 ## Nested selectors
 
 ```jsx
 <div
   css={`
-    a {
+    div {
       color: red;
       font-size: 12px;
+
+      a {
+        text-decoration: none;
+      }
     }
   `}
 />
 ```
 
+## Dangling pseudos
+
+When there are dangling pseudos found in your CSS they will automatically be transformed to take the parents selector.
+For example:
+
+```jsx
+<div
+  css={`
+    :before {
+      content: 'Hello';
+    }
+  `}
+/>
+```
+
+Actually becomes:
+
+```css
+&:before {
+  content: 'Hello';
+}
+```
+
+Which then is used to reference the _parent_ selector as described next.
+
 ## Parent reference
 
 The `&` character references the parent selector(s).
-In the example below our two selectors (textarea and input) both alter the color on the :hover pseudo selector.
+In the example below our two selectors (textarea and input) both alter the color on the `:hover` pseudo selector.
 
 ```jsx
 <div
@@ -58,7 +89,7 @@ In the example below our two selectors (textarea and input) both alter the color
 />
 ```
 
-Compiles to (note how both `textarea` and `input` both have a hover selector!):
+Compiles to:
 
 ```css
 textarea,
@@ -70,3 +101,5 @@ input:hover {
   color: #000;
 }
 ```
+
+Note how both `textarea` and `input` both have a hover selector!

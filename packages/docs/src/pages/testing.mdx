@@ -100,7 +100,7 @@ and so on by passing in a config object.
 ```jsx
 it('should change background color to blue on hover', () => {
   const Hoverable = styled.div({
-    '&:hover': {
+    ':hover': {
       backgroundColor: 'blue',
     },
   });
@@ -110,7 +110,7 @@ it('should change background color to blue on hover', () => {
   expect(getByText('hello world')).toHaveCompiledCss(
     'background-color',
     'blue',
-    { target: '&:hover' }
+    { target: ':hover' }
   );
 });
 ```
