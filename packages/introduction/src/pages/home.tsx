@@ -9,7 +9,6 @@ import {
   RootLayout,
   HeaderSpacing,
   VerticalStack,
-  HorizontalStack,
 } from '@compiled/website-ui';
 import { readFileSync } from 'fs';
 
@@ -49,17 +48,22 @@ const Button = (props: any) => {
     <button
       {...props}
       css={{
-        padding: '8px 0',
+        padding: '8px 12px',
+        margin: 0,
         cursor: 'pointer',
+        opacity: props['aria-selected'] ? 0.9 : 0.5,
+        borderTopLeftRadius: 6,
+        borderTopRightRadius: 6,
         ':hover, :focus': {
-          opacity: 0.8,
           outline: 'none',
         },
-        backgroundColor: 'transparent',
+        backgroundColor: props['aria-selected'] ? '#272822' : 'transparent',
         border: 'none',
-        color: props['aria-selected'] ? 'red!important' : undefined,
+        '&&& *': {
+          color: props['aria-selected'] ? '#fff' : '#272822',
+        },
       }}>
-      <Heading as="span" look="h400">
+      <Heading as="span" look="h500">
         {props.children}
       </Heading>
     </button>
@@ -71,7 +75,7 @@ const CodeExamples = () => {
 
   return (
     <div>
-      <HorizontalStack gap={2}>
+      <div css={{ marginLeft: 8 }}>
         <Button aria-selected={shown === 'css'} onClick={() => setShown('css')}>
           Css prop
         </Button>
@@ -85,7 +89,7 @@ const CodeExamples = () => {
           onClick={() => setShown('class')}>
           Class names
         </Button>
-      </HorizontalStack>
+      </div>
       {shown === 'css' && (
         <Comparison before={cssPropBefore} after={cssPropAfter} />
       )}

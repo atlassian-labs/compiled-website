@@ -57,13 +57,9 @@ export const Terminal = ({ children }: CodeBlockProps) => {
       <pre>
         <code
           css={{
-            // @ts-ignore
             position: 'relative',
-            // @ts-ignore
             opacity: 0.9,
-            // @ts-ignore
             '@keyframes blink': {
-              // @ts-ignore
               '0%': {
                 opacity: 0,
               },

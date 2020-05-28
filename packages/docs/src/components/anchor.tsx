@@ -52,7 +52,6 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
       ref={ref as Ref<HTMLAnchorElement>}
       href={`#${id}`}
       id={id}
-      // @ts-ignore
       css={{
         color: 'currentColor',
         textDecoration: 'none',
