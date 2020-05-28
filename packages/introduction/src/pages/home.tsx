@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@compiled/css-in-js';
 import {
   Hero,
@@ -9,21 +9,95 @@ import {
   RootLayout,
   HeaderSpacing,
   VerticalStack,
+  HorizontalStack,
 } from '@compiled/website-ui';
 import { readFileSync } from 'fs';
 
-const styledExampleBefore = readFileSync(
-  __dirname + '../../../../examples/src/styled.tsx',
+const cssPropBefore = readFileSync(
+  __dirname + '../../../../examples/src/css-prop.tsx',
   'utf-8'
 );
-const styledExampleAfter = readFileSync(
-  __dirname + '../../../../examples/dist/styled.jsx',
+const cssPropAfter = readFileSync(
+  __dirname + '../../../../examples/dist/css-prop.jsx',
+  'utf-8'
+);
+
+const styledBefore = readFileSync(
+  __dirname + '../../../../examples/src/styled-invalid.tsx',
+  'utf-8'
+);
+const styledAfter = readFileSync(
+  __dirname + '../../../../examples/dist/styled-invalid.jsx',
+  'utf-8'
+);
+
+const classNamesBefore = readFileSync(
+  __dirname + '../../../../examples/src/class-names-dynamic.tsx',
+  'utf-8'
+);
+const classNamesAfter = readFileSync(
+  __dirname + '../../../../examples/dist/class-names-dynamic.jsx',
   'utf-8'
 );
 
 const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.08);
 `;
+
+const Button = (props: any) => {
+  return (
+    <button
+      {...props}
+      css={{
+        padding: '8px 0',
+        cursor: 'pointer',
+        ':hover, :focus': {
+          opacity: 0.8,
+          outline: 'none',
+        },
+        backgroundColor: 'transparent',
+        border: 'none',
+        color: props['aria-selected'] ? 'red!important' : undefined,
+      }}>
+      <Heading as="span" look="h400">
+        {props.children}
+      </Heading>
+    </button>
+  );
+};
+
+const CodeExamples = () => {
+  const [shown, setShown] = useState<'css' | 'styled' | 'class'>('css');
+
+  return (
+    <div>
+      <HorizontalStack gap={2}>
+        <Button aria-selected={shown === 'css'} onClick={() => setShown('css')}>
+          Css prop
+        </Button>
+        <Button
+          aria-selected={shown === 'styled'}
+          onClick={() => setShown('styled')}>
+          Styled
+        </Button>
+        <Button
+          aria-selected={shown === 'class'}
+          onClick={() => setShown('class')}>
+          Class names
+        </Button>
+      </HorizontalStack>
+      {shown === 'css' && (
+        <Comparison before={cssPropBefore} after={cssPropAfter} />
+      )}
+      {shown === 'styled' && (
+        <Comparison before={styledBefore} after={styledAfter} />
+      )}
+      {shown === 'class' && (
+        <Comparison before={classNamesBefore} after={classNamesAfter} />
+      )}
+    </div>
+  );
+};
 
 export default () => (
   <RootLayout>
@@ -37,7 +111,7 @@ export default () => (
               cost
             </span>
           </Heading>
-          <Comparison before={styledExampleBefore} after={styledExampleAfter} />
+          <CodeExamples />
         </VerticalStack>
       </Content>
 
