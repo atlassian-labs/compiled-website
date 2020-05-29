@@ -25,7 +25,8 @@ See [Installation](/installation) for setup information.
         "transform": "@compiled/ts-transform-css-in-js",
         "options": {
           "nonce": "__webpack_nonce__",
-          "sourceMap": true
+          "sourceMap": true,
+          "minify": true
         }
       }
     ]
@@ -33,12 +34,16 @@ See [Installation](/installation) for setup information.
 }
 ```
 
-#### Nonce
+#### nonce: string
 
 Enables CSP support,
 read [Security](/security) for more information.
 
-#### Source map
+#### sourceMap: boolean
 
 Turns on source maps.
 Don't use this in production else your bundles will blow out!
+
+#### minify: boolean
+
+Will minify your CSS - will cause builds to be slower but result in smaller bundles.
