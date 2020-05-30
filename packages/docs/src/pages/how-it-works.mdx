@@ -3,6 +3,8 @@ order: 2
 section: 1-Getting started
 ---
 
+import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
+
 # How It Works
 
 Compiled compiles your CSS in JS at build time by statically analyzing your code and then transforming it into Compiled Components.
@@ -10,35 +12,11 @@ Everything we need to use the component is included along side it in the JavaScr
 
 We take your initial code in all its glory:
 
-```jsx
-import { styled } from 'styled-components';
-
-styled.span`
-  color: #ff5630;
-`;
-```
+<BeforeHowItWorks />
 
 And then transform it into a Compiled Component:
 
-```jsx
-import React from 'react';
-import { CC, CS } from '@compiled/css-in-js';
-export const ColoredText = /*#__PURE__*/ React.forwardRef(
-  ({ as: C = 'span', ...props }, ref) => (
-    <CC>
-      <CS hash="zd46j1">{['.cc-zd46j1{color:#ff5630}']}</CS>
-      <C
-        {...props}
-        ref={ref}
-        className={'cc-zd46j1' + (props.className ? ' ' + props.className : '')}
-      />
-    </CC>
-  )
-);
-if (process.env.NODE_ENV === 'development') {
-  ColoredText.displayName = 'ColoredText';
-}
-```
+<AfterHowItWorks />
 
 Which then at runtime will move the styles to the head of the document.
 
