@@ -137,7 +137,7 @@ npm i @compiled/css-in-js
           CSS is created at build time which unlocks massive optimizations for
           us. No longer do we have to worry about the initial rendering speed,
           or re-rendering costing us precious ms at scale. Write the same CSS in
-          JS we're used too without the performance implications.
+          JS we're used to without the performance implications.
         </p>
       </VerticalStack>
 
