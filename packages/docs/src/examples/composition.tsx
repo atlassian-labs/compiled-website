@@ -11,7 +11,7 @@ export const CompositionObject = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-obj.jsx',
+        __dirname + '../../../../examples/dist/jsx/composition-obj.js',
         'utf-8'
       )}>
       <composition.CompositionObject />
@@ -27,7 +27,7 @@ export const CompositionOrder = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-order.jsx',
+        __dirname + '../../../../examples/dist/jsx/composition-order.js',
         'utf-8'
       )}>
       <composition.CompositionOrder />
@@ -43,7 +43,7 @@ export const CompositionImports = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-imports.jsx',
+        __dirname + '../../../../examples/dist/jsx/composition-imports.js',
         'utf-8'
       )}>
       <composition.CompositionImports />

@@ -7,7 +7,7 @@ const before = readFileSync(
   'utf-8'
 );
 const after = readFileSync(
-  __dirname + '../../../../examples/dist/styled.jsx',
+  __dirname + '../../../../examples/dist/jsx/styled.js',
   'utf-8'
 );
 

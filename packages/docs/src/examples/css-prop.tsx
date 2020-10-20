@@ -11,7 +11,7 @@ export const CssPropExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/css-prop.jsx',
+        __dirname + '../../../../examples/dist/jsx/css-prop.js',
         'utf-8'
       )}>
       <cssProp.EmphasisText color="#FF5630">Paradise Lost</cssProp.EmphasisText>
@@ -27,7 +27,7 @@ export const CssPropTemplateLiteralExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/css-prop-string.jsx',
+        __dirname + '../../../../examples/dist/jsx/css-prop-string.js',
         'utf-8'
       )}>
       <cssProp.EmphasisTextString color="#FF5630">

@@ -11,7 +11,7 @@ export const ClassNamesExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names.jsx',
+        __dirname + '../../../../examples/dist/jsx/class-names.js',
         'utf-8'
       )}>
       <classNames.ZoomOnHover>
@@ -29,7 +29,7 @@ export const ClassNamesCafExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names-caf.jsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-caf.js',
         'utf-8'
       )}>
       <classNames.ZoomOnHoverCAF>
@@ -51,7 +51,7 @@ export const ClassNamesDynamicExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names-dynamic.jsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
         'utf-8'
       )}>
       <classNames.Dynamic color="blue">Eugene Onegin</classNames.Dynamic>

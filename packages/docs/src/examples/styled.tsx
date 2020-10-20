@@ -11,7 +11,7 @@ export const StyledExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/styled.jsx',
+        __dirname + '../../../../examples/dist/jsx/styled.js',
         'utf-8'
       )}>
       <styled.ColoredText color="#FF5630">
@@ -29,7 +29,7 @@ export const StyledInvalidExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/styled-invalid.jsx',
+        __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
         'utf-8'
       )}>
       <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
@@ -45,7 +45,7 @@ export const StyledObjectExample = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/styled-object.jsx',
+        __dirname + '../../../../examples/dist/jsx/styled-object.js',
         'utf-8'
       )}>
       <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
@@ -61,7 +61,7 @@ export const StyledTransientProps = () => {
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/styled-transient-props.jsx',
+        __dirname + '../../../../examples/dist/jsx/styled-transient-props.js',
         'utf-8'
       )}>
       <styled.TransientProps $color="red" color="black">

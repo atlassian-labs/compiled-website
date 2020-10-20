@@ -17,7 +17,7 @@ const cssPropBefore = readFileSync(
   'utf-8'
 );
 const cssPropAfter = readFileSync(
-  __dirname + '../../../../examples/dist/css-prop.jsx',
+  __dirname + '../../../../examples/dist/jsx/css-prop.js',
   'utf-8'
 );
 
@@ -26,7 +26,7 @@ const styledBefore = readFileSync(
   'utf-8'
 );
 const styledAfter = readFileSync(
-  __dirname + '../../../../examples/dist/styled-invalid.jsx',
+  __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
   'utf-8'
 );
 
@@ -35,7 +35,7 @@ const classNamesBefore = readFileSync(
   'utf-8'
 );
 const classNamesAfter = readFileSync(
-  __dirname + '../../../../examples/dist/class-names-dynamic.jsx',
+  __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
   'utf-8'
 );
 
