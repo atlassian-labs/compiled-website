@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 export const HorizontalStack = styled.div<{ spacing?: number; gap?: number }>`
   margin-top: ${(props) => props.spacing}rem;

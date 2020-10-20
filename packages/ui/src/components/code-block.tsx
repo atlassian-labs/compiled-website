@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism-async';
 import okaidia from 'react-syntax-highlighter/styles/prism/okaidia';
 import { codeBackground } from '../utils/colors';

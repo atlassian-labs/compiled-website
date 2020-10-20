@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "ttsc --outDir dist"
+    "build": "babel src --extensions .tsx --out-dir dist"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",

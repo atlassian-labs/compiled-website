@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 import React, { Fragment, useState, useEffect } from 'react';
 import {
   Header,

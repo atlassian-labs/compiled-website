@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 import { heroBackground } from '../utils/colors';
 
 export const Hero = ({ children }: { children: React.ReactNode }) => {

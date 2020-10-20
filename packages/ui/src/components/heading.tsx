@@ -1,5 +1,5 @@
 import React, { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 
 interface HeadingProps
   extends DetailedHTMLProps<

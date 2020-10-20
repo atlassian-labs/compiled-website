@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 export const ScreenReaderText = styled.span`
   position: absolute;
