@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClassNames } from '@compiled/css-in-js';
+import { ClassNames } from '@compiled/core';
 
 export const ZoomOnHoverCAF = ({ children }) => (
   <ClassNames>

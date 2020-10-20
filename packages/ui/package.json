@@ -7,14 +7,14 @@
     "build": "ttsc --outDir dist"
   },
   "dependencies": {
-    "@compiled/css-in-js": "0.4.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@compiled/core": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
     "@svgr/parcel-plugin-svgr": "^5.3.0",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
     "@types/react-syntax-highlighter": "^11.0.4",
     "react-syntax-highlighter": "9.0.1",
-    "ts-node": "^8.8.2",
-    "ttypescript": "^1.5.10",
     "typescript": "^3.7.5"
   },
   "peerDependencies": {

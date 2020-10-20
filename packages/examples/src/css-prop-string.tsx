@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 
 export const EmphasisText = (props) => (
   <span

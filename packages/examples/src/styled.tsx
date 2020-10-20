@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 export const ColoredText = styled.span`
   color: #ff5630;

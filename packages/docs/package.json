@@ -9,8 +9,8 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@compiled/babel-plugin-css-in-js": "0.4.4",
-    "@compiled/css-in-js": "0.4.4",
+    "@compiled/babel-plugin": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
+    "@compiled/core": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",
@@ -29,15 +29,15 @@
     "unist-util-visit": "^2.0.2",
     "yaml": "^1.8.3"
   },
-  "workspaces": {
-    "nohoist": [
-      "!(react|react-dom)"
-    ]
-  },
   "devDependencies": {
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",
     "@mdx-js/react": "^1.1.6",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "react": "^16.9.0"
+  },
+  "workspaces": {
+    "nohoist": [
+      "!(react|react-dom)"
+    ]
   }
 }

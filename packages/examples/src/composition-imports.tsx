@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 import { base } from './mixins';
 
 export const CompositionImports = () => {
