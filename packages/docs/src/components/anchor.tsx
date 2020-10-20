@@ -8,7 +8,7 @@ import React, {
   useState,
   Ref,
 } from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 import { Heading } from '@compiled/website-ui';
 
 interface AnchorContextData {

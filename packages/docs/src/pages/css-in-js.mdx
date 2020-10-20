@@ -1,13 +1,13 @@
 ---
 order: 1
 section: 99-Packages
-name: @compiled/css-in-js
+name: @compiled/core
 ---
 
-# @compiled/css-in-js
+# @compiled/core
 
 ```bash
-npm i @compiled/css-in-js
+npm i @compiled/core
 ```
 
 ## styled
@@ -15,7 +15,7 @@ npm i @compiled/css-in-js
 Allows us to create Styled Components.
 
 ```jsx
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 styled.div`
   font-size: 12px;
@@ -27,7 +27,7 @@ styled.div`
 Enables the CSS prop on React elements.
 
 ```jsx
-import '@compiled/css-in-js';
+import '@compiled/core';
 
 <div
   css={{
@@ -41,7 +41,7 @@ import '@compiled/css-in-js';
 Allows us to generate a `className` without needing to tie it to a specific React element.
 
 ```jsx
-import { ClassNames } from '@compiled/css-in-js';
+import { ClassNames } from '@compiled/core';
 
 <ClassNames>
   {({ css }) => <div className={css({ fontSize: 12 })} />}

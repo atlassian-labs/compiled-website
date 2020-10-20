@@ -815,7 +815,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-react@^7.9.1":
+"@babel/preset-react@^7.9.0", "@babel/preset-react@^7.9.1":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.12.1.tgz#7f022b13f55b6dd82f00f16d1c599ae62985358c"
   integrity sha512-euCExymHCi0qB9u5fKw7rvlw7AZSjw/NaB9h7EkdTt5+yHRrXdiRTh7fkG3uBPpJg82CqLfp1LHLqWGSCrab+g==
@@ -4303,6 +4303,7 @@ parcel-bundler@^1.11.0, parcel-bundler@^1.12.4:
 parcel-plugin-babel-typescript@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parcel-plugin-babel-typescript/-/parcel-plugin-babel-typescript-1.0.1.tgz#2500a81668fa1907e80edb067876a566027a0b78"
+  integrity sha512-U/koGxpVDmcQckJ+UTC04E0k/F3QngXRBu4dKed0YmaRpA6OvRrnK9AIrIibwqrDdi6YImoPwQ7y9qUJiw42VA==
   dependencies:
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
     "@babel/plugin-transform-typescript" "^7.2.0"
@@ -4985,9 +4986,10 @@ react-syntax-highlighter@9.0.1:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
-react@^16.13.1:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+react@^16.12.0, react@^16.13.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

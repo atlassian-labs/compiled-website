@@ -57,7 +57,7 @@ or the markup rendered in a specific context doesn't make sense as the original 
 The `as` prop allows us to change it at runtime.
 
 ```tsx
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 const H100 = styled.h1({
   fontSize: 12,
@@ -74,7 +74,7 @@ Sometimes you'll want to add styles to a component that already exists.
 If we invoke the styled function we can do just that!
 
 ```jsx
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
@@ -89,7 +89,7 @@ any inline interpolation will have access to the props defined in the tagged tem
 Typing from composed components is also inherited.
 
 ```jsx
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 
 const BigIfTrue = styled.div<{ big: true }>`
   font-size: ${props => big ? 100 : 10};

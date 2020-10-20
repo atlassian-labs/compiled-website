@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/core';
 import {
   Hero,
   Heading,
@@ -123,7 +123,7 @@ export default () => (
         <Content>
           <Terminal language="bash">
             {`
-npm i @compiled/css-in-js
+npm i @compiled/core
 `}
           </Terminal>
         </Content>
@@ -154,7 +154,7 @@ npm i @compiled/css-in-js
         <Comparison
           before={`
 import React from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 
 <div css={{ color: 'blue' }}>
   hello, world!
@@ -162,7 +162,7 @@ import '@compiled/css-in-js';
 `}
           after={`
 import React from 'react';
-import { ClassNames } from '@compiled/css-in-js';
+import { ClassNames } from '@compiled/core';
 
 <ClassNames>
   {({ css }) => (

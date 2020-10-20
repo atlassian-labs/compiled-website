@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/css-in-js';
+import '@compiled/core';
 import { RootLayout, VerticalStack, Heading } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';

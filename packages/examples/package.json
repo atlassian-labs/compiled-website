@@ -1,19 +1,20 @@
 {
   "name": "@compiled/website-examples",
   "version": "1.0.0",
-  "main": "./dist/compiled/index.js",
-  "types": "./dist/compiled/index.d.ts",
+  "main": "./dist/js/index.js",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:src && yarn build:dist",
-    "build:src": "babel src --no-babelrc --presets=@babel/preset-typescript --out-dir dist --extensions .tsx",
-    "build:dist": "babel src --extensions .tsx --out-dir dist/compiled && prettier ./dist --write"
+    "build": "yarn clean && yarn build:src && yarn build:dist && prettier ./dist --write",
+    "build:src": "babel src --no-babelrc --presets=@babel/preset-typescript --out-dir dist/jsx --extensions .tsx",
+    "build:dist": "babel src --extensions .tsx --out-dir dist/js",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/cli": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
+    "@babel/preset-react": "^7.9.0",
     "@compiled/core": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
     "@compiled/babel-plugin": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
     "@types/react": "^16.9.32",
