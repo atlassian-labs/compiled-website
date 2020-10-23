@@ -9,8 +9,8 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@compiled/babel-plugin": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
-    "@compiled/core": "0.4.8-c09953040abbb97a224d681f69a8e6e55d5ad57f.0",
+    "@compiled/babel-plugin": "0.4.8-1cc849c3ada6df3321c486ac4db92a9e6f0638a0.0",
+    "@compiled/core": "0.4.8-1cc849c3ada6df3321c486ac4db92a9e6f0638a0.0",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",
