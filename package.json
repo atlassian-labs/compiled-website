@@ -7,7 +7,7 @@
   "scripts": {
     "start:docs": "cd packages/docs && yarn start",
     "start:intro": "cd packages/landing && yarn start",
-    "clean": "rm -rf dist && workspaces-run -- rm -rf dist && rm -rf .cache",
+    "clean": "rm -rf dist && workspaces-run -- rm -rf dist && workspaces-run -- rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
     "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
     "build": "yarn build:examples && yarn build:intro && yarn build:docs",

@@ -13,6 +13,7 @@ interface RootProps {
   children: React.ReactNode;
   sidenav?: React.ReactNode;
   aside?: React.ReactNode;
+  footer?: React.ReactNode;
 }
 
 const Link = styled.a<{ href: string; exact?: boolean }>`
@@ -41,7 +42,7 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }
 `;
 
-export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
+export const RootLayout = ({ children, sidenav, aside, footer }: RootProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: Move to global style component.
@@ -214,6 +215,8 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
       ) : (
         <main>{children}</main>
       )}
+
+      {footer}
     </Fragment>
   );
 };

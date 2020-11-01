@@ -1,16 +1,16 @@
 ---
-order: 4
-section: 1-Getting started
+section: 1-Guides
+name: Migrating From Other Libraries
 ---
 
-# Migrating
+# Migrating from other libraries
 
 Migrating to Compiled isn't that hard depending how dynamic your CSS is.
 It's more of a mind shift than anything.
 The single precondition for this page is completing the [installation instructions](/1-getting-started/1-installation),
 so if you haven't already go read that.
 
-## From Styled Components
+## Styled Components
 
 Just replace the imports and we're done!
 If we have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
@@ -35,7 +35,9 @@ styled.div({
 });
 ```
 
-## From Emotion
+## Emotion
+
+### Jsx pragma
 
 Just replace the imports,
 if you're using `@emotion/styled` the migration is the same from above.
@@ -70,6 +72,10 @@ if you're using `@emotion/styled` the migration is the same from above.
   />
 )
 ```
+
+### Babel plugin
+
+If you're using the uhh
 
 ## Generating CSS at runtime
 

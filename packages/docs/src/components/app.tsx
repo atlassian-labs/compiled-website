@@ -153,12 +153,12 @@ export const App = () => {
                 ))}
               </Section>
             ))}
-            <Footer />
           </>
-        }>
+        }
+        footer={<Footer />}>
         <MDXProvider components={components}>
           <ScrollTop key={pageSlug} />
-          <PageTitle title={page && page.name} />
+          <PageTitle title={(page && page.data.name) || (page && page.name)} />
 
           {page && (
             <>
