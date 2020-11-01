@@ -7,11 +7,11 @@ export const StyledExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/styled.tsx',
+        __dirname + '../../../../examples/dist/jsx/styled.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled.js',
+        __dirname + '../../../../examples/dist/js/styled.js',
         'utf-8'
       )}>
       <styled.ColoredText color="#FF5630">
@@ -25,11 +25,11 @@ export const StyledInvalidExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/styled-invalid.tsx',
+        __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
+        __dirname + '../../../../examples/dist/js/styled-invalid.js',
         'utf-8'
       )}>
       <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
@@ -41,11 +41,11 @@ export const StyledObjectExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/styled-object.tsx',
+        __dirname + '../../../../examples/dist/jsx/styled-object.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled-object.js',
+        __dirname + '../../../../examples/dist/js/styled-object.js',
         'utf-8'
       )}>
       <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
@@ -57,11 +57,11 @@ export const StyledTransientProps = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/styled-transient-props.tsx',
+        __dirname + '../../../../examples/dist/jsx/styled-transient-props.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled-transient-props.js',
+        __dirname + '../../../../examples/dist/js/styled-transient-props.js',
         'utf-8'
       )}>
       <styled.TransientProps $color="red" color="black">

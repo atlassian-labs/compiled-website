@@ -7,11 +7,11 @@ export const ClassNamesExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/class-names.js',
+        __dirname + '../../../../examples/dist/js/class-names.js',
         'utf-8'
       )}>
       <classNames.ZoomOnHover>
@@ -25,11 +25,11 @@ export const ClassNamesCafExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names-caf.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-caf.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/class-names-caf.js',
+        __dirname + '../../../../examples/dist/js/class-names-caf.js',
         'utf-8'
       )}>
       <classNames.ZoomOnHoverCAF>
@@ -47,11 +47,11 @@ export const ClassNamesDynamicExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names-dynamic.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
+        __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
         'utf-8'
       )}>
       <classNames.Dynamic color="blue">Eugene Onegin</classNames.Dynamic>

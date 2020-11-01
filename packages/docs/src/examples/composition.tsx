@@ -7,11 +7,11 @@ export const CompositionObject = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/composition-obj.tsx',
+        __dirname + '../../../../examples/dist/jsx/composition-obj.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/composition-obj.js',
+        __dirname + '../../../../examples/dist/js/composition-obj.js',
         'utf-8'
       )}>
       <composition.CompositionObject />
@@ -23,11 +23,11 @@ export const CompositionOrder = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/composition-order.tsx',
+        __dirname + '../../../../examples/dist/jsx/composition-order.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/composition-order.js',
+        __dirname + '../../../../examples/dist/js/composition-order.js',
         'utf-8'
       )}>
       <composition.CompositionOrder />
@@ -39,11 +39,11 @@ export const CompositionImports = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/composition-imports.tsx',
+        __dirname + '../../../../examples/dist/jsx/composition-imports.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/composition-imports.js',
+        __dirname + '../../../../examples/dist/js/composition-imports.js',
         'utf-8'
       )}>
       <composition.CompositionImports />

@@ -7,11 +7,11 @@ export const CssPropExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/css-prop.tsx',
+        __dirname + '../../../../examples/dist/jsx/css-prop.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/css-prop.js',
+        __dirname + '../../../../examples/dist/js/css-prop.js',
         'utf-8'
       )}>
       <cssProp.EmphasisText color="#FF5630">Paradise Lost</cssProp.EmphasisText>
@@ -23,11 +23,11 @@ export const CssPropTemplateLiteralExample = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/css-prop-string.tsx',
+        __dirname + '../../../../examples/dist/jsx/css-prop-string.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/css-prop-string.js',
+        __dirname + '../../../../examples/dist/js/css-prop-string.js',
         'utf-8'
       )}>
       <cssProp.EmphasisTextString color="#FF5630">

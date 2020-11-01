@@ -1,4 +1,7 @@
 {
-  "presets": ["@babel/preset-react", "@babel/preset-typescript"],
+  "presets": [
+    ["@babel/preset-react", { "useSpread": true }],
+    "@babel/preset-typescript"
+  ],
   "plugins": ["@compiled/babel-plugin"]
 }

@@ -13,29 +13,29 @@ import {
 import { readFileSync } from 'fs';
 
 const cssPropBefore = readFileSync(
-  __dirname + '../../../../examples/src/css-prop.tsx',
+  __dirname + '../../../../examples/dist/jsx/css-prop.js',
   'utf-8'
 );
 const cssPropAfter = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/css-prop.js',
+  __dirname + '../../../../examples/dist/js/css-prop.js',
   'utf-8'
 );
 
 const styledBefore = readFileSync(
-  __dirname + '../../../../examples/src/styled-invalid.tsx',
+  __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
   'utf-8'
 );
 const styledAfter = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
+  __dirname + '../../../../examples/dist/js/styled-invalid.js',
   'utf-8'
 );
 
 const classNamesBefore = readFileSync(
-  __dirname + '../../../../examples/src/class-names-dynamic.tsx',
+  __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
   'utf-8'
 );
 const classNamesAfter = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
+  __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
   'utf-8'
 );
 
