@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@compiled/core';
 import { ScreenReaderText } from './helpers';
 
-const height = '10rem';
+const height = '9rem';
 
 const StyledHeader = styled.header`
   height: ${height};

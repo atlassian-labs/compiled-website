@@ -6,13 +6,13 @@
   "license": "MIT",
   "scripts": {
     "start:docs": "cd packages/docs && yarn start",
-    "start:intro": "cd packages/landing && yarn start",
+    "start:landing": "cd packages/landing && yarn start",
     "clean": "rm -rf dist && workspaces-run -- rm -rf dist && workspaces-run -- rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
     "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
-    "build": "yarn build:examples && yarn build:intro && yarn build:docs",
+    "build": "yarn build:examples && yarn build:landing && yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
-    "build:intro": "cd packages/landing && yarn build",
+    "build:landing": "cd packages/landing && yarn build",
     "build:ui": "cd packages/ui && yarn build",
     "build:examples": "cd packages/examples && yarn build"
   },

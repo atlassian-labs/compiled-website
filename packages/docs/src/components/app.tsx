@@ -158,7 +158,9 @@ export const App = () => {
         footer={<Footer />}>
         <MDXProvider components={components}>
           <ScrollTop key={pageSlug} />
-          <PageTitle title={(page && page.data.name) || (page && page.name)} />
+          <PageTitle
+            title={(page && page.data.headings[0].text) || (page && page.name)}
+          />
 
           {page && (
             <>

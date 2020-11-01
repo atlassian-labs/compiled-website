@@ -9,6 +9,7 @@ import {
   RootLayout,
   HeaderSpacing,
   VerticalStack,
+  HideSmall,
 } from '@compiled/website-ui';
 import { readFileSync } from 'fs';
 
@@ -30,14 +31,14 @@ const styledAfter = readFileSync(
   'utf-8'
 );
 
-const classNamesBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
-  'utf-8'
-);
-const classNamesAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
-  'utf-8'
-);
+// const classNamesBefore = readFileSync(
+//   __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
+//   'utf-8'
+// );
+// const classNamesAfter = readFileSync(
+//   __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
+//   'utf-8'
+// );
 
 const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.8);
@@ -96,10 +97,18 @@ const CodeExamples = () => {
         </TabButton> */}
       </div>
       {shown === 'css' && (
-        <Comparison before={cssPropBefore} after={cssPropAfter} />
+        <Comparison
+          maxHeight="400px"
+          before={cssPropBefore}
+          after={cssPropAfter}
+        />
       )}
       {shown === 'styled' && (
-        <Comparison before={styledBefore} after={styledAfter} />
+        <Comparison
+          maxHeight="400px"
+          before={styledBefore}
+          after={styledAfter}
+        />
       )}
       {/* {shown === 'class' && (
         <Comparison before={classNamesBefore} after={classNamesAfter} />
@@ -116,8 +125,10 @@ export default () => (
         <VerticalStack spacing={12} gap={3}>
           <Heading look="h100">
             <span css={{ maxWidth: '75%', display: 'block' }}>
-              Build time atomic CSS in JS without the runtime cost. Bake,
-              consume, extract. Everywhere.
+              <HideSmall>
+                Build time atomic CSS in JS without the runtime cost.{' '}
+              </HideSmall>
+              Bake, consume, extract. Everywhere.
             </span>
           </Heading>
           <CodeExamples />

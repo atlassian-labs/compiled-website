@@ -10,6 +10,7 @@ export {
   Comparison,
   Content,
   Terminal,
+  HideSmall,
 } from './components';
 export { RootLayout } from './layout';
 export { Icon } from './icon';

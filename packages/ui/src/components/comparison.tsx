@@ -6,6 +6,7 @@ import { CodeBlock } from './code-block';
 interface ComparisonProps {
   before: string;
   after: string;
+  maxHeight?: string;
 }
 
 export const Comparison = (props: ComparisonProps) => {
@@ -18,6 +19,7 @@ export const Comparison = (props: ComparisonProps) => {
         '> *': {
           flexGrow: 1,
           flexShrink: 1,
+          maxHeight: props.maxHeight,
         },
       }}>
       <CodeBlock>{props.before}</CodeBlock>
