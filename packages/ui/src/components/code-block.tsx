@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import '@compiled/core';
-import SyntaxHighlighter from 'react-syntax-highlighter/prism-async';
-import okaidia from 'react-syntax-highlighter/styles/prism/okaidia';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
+import okaidia from 'react-syntax-highlighter/dist/esm/styles/prism/okaidia';
 import { codeBackground } from '../utils/colors';
 
 interface CodeBlockProps {
@@ -14,7 +14,7 @@ interface CodeBlockProps {
 
 export const CodeBlock = ({
   children,
-  language = 'tsx',
+  language = 'jsx',
   variant = 'rounded',
   ...props
 }: CodeBlockProps) => (

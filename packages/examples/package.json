@@ -2,6 +2,7 @@
   "name": "@compiled/website-examples",
   "version": "1.0.0",
   "main": "./dist/js/index.js",
+  "source": "./src/index.tsx",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {

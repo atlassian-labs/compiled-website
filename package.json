@@ -2,7 +2,6 @@
   "name": "@compiled/website",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
@@ -11,7 +10,7 @@
     "clean": "rm -rf dist && workspaces-run -- rm -rf dist && rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
     "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
-    "build": "yarn build:ui && yarn build:examples && yarn build:intro && yarn build:docs",
+    "build": "yarn build:examples && yarn build:intro && yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
     "build:intro": "cd packages/introduction && yarn build",
     "build:ui": "cd packages/ui && yarn build",
