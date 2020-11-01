@@ -48,7 +48,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
   return (
     <div
       css={{
-        padding: '3rem 0',
+        padding: '2.5rem 0',
         pre: {
           margin: '0 !important',
           padding: '0 !important',
@@ -57,23 +57,25 @@ export const Terminal = ({ children }: CodeBlockProps) => {
       <pre>
         <code
           css={{
+            color: '#FAFBFC',
+            fontSize: '16px',
+            fontFamily: `'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`,
             position: 'relative',
             opacity: 0.9,
             '@keyframes blink': {
               '0%': {
-                opacity: 0,
-              },
-              '40%': {
                 opacity: 1,
               },
               '100%': {
-                opacity: 1,
+                opacity: 0,
               },
             },
             ':before': {
-              content: '➜ ',
-              color: 'rgba(170, 255, 0, 0.9)',
+              content: '➜  ~ ',
+              color: '#79F2C0',
               pointerEvents: 'none',
+              position: 'absolute',
+              left: -50,
             },
             ':after': {
               content: '',
@@ -83,9 +85,9 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               width: 12,
               height: 28,
               top: '-3px',
-              right: '-10px ',
+              right: '-13px ',
               pointerEvents: 'none',
-              animation: 'blink 3s infinite',
+              animation: 'blink 2s steps(2, end) infinite',
             },
           }}>
           {parsedInput}

@@ -1,6 +1,7 @@
 {
   "name": "@compiled/website-ui",
   "version": "1.0.0",
+  "main": "./src/index.tsx",
   "source": "./src/index.tsx",
   "scripts": {},
   "dependencies": {

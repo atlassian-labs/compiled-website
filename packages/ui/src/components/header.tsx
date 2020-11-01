@@ -38,11 +38,9 @@ export const Header = ({ children, ...props }: HeaderProps) => (
   <StyledHeader {...props}>
     <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
       <Logo>
-        <span aria-hidden="true">👷‍♀</span>
         <span
           css={`
             font-size: 2.5rem;
-            margin-left: 1rem;
             font-weight: 600;
             color: rgba(37, 56, 88, 0.9);
 

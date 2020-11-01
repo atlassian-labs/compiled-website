@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn clean && yarn build:src && yarn build:dist && prettier ./dist --write",
-    "build:src": "babel src --no-babelrc --presets=@babel/preset-typescript --out-dir dist/jsx --extensions .tsx",
-    "build:dist": "babel src --extensions .tsx --out-dir dist/js",
+    "build:src": "babel src --retain-lines --no-babelrc --presets=@babel/preset-typescript --out-dir dist/jsx --extensions .tsx",
+    "build:dist": "babel src --retain-lines --extensions .tsx --out-dir dist/js",
     "clean": "rm -rf dist"
   },
   "dependencies": {
