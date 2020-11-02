@@ -1,7 +1,7 @@
 import React from 'react';
 import { readFileSync } from 'fs';
 import { cssProp } from '@compiled/website-examples';
-import { Example } from './example';
+import { Example } from '@compiled/website-ui';
 
 export const CssPropExample = () => {
   return (

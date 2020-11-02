@@ -3,14 +3,15 @@ import { styled } from '@compiled/core';
 import {
   Hero,
   Heading,
-  Comparison,
   Terminal,
   Content,
   RootLayout,
   HeaderSpacing,
   VerticalStack,
   HideSmall,
+  Example,
 } from '@compiled/website-ui';
+import { cssProp, styled as styledExamples } from '@compiled/website-examples';
 import { readFileSync } from 'fs';
 
 const cssPropBefore = readFileSync(
@@ -31,20 +32,11 @@ const styledAfter = readFileSync(
   'utf-8'
 );
 
-// const classNamesBefore = readFileSync(
-//   __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
-//   'utf-8'
-// );
-// const classNamesAfter = readFileSync(
-//   __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
-//   'utf-8'
-// );
-
 const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.8);
 `;
 
-const TabButton = (props: any) => {
+const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
   return (
     <button
       {...props}
@@ -58,10 +50,10 @@ const TabButton = (props: any) => {
         ':hover, :focus': {
           outline: 'none',
         },
-        backgroundColor: props['aria-selected'] ? '#272822' : 'transparent',
+        backgroundColor: 'transparent',
         border: 'none',
         '&&& *': {
-          color: props['aria-selected'] ? '#fff' : '#272822',
+          color: props['aria-selected'] ? 'inherit' : '#272822',
         },
         ':disabled': {
           cursor: 'not-allowed',
@@ -79,40 +71,29 @@ const CodeExamples = () => {
 
   return (
     <div>
-      <div css={{ marginLeft: 8 }}>
-        <TabButton
-          aria-selected={shown === 'css'}
-          onClick={() => setShown('css')}>
-          Css prop
-        </TabButton>
-        <TabButton
-          aria-selected={shown === 'styled'}
-          onClick={() => setShown('styled')}>
-          Styled component
-        </TabButton>
-        {/* <TabButton
-          aria-selected={shown === 'class'}
-          onClick={() => setShown('class')}>
-          Class names
-        </TabButton> */}
-      </div>
+      <TabButton
+        aria-selected={shown === 'css'}
+        onClick={() => setShown('css')}>
+        Css prop
+      </TabButton>
+      <TabButton
+        aria-selected={shown === 'styled'}
+        onClick={() => setShown('styled')}>
+        Styled component
+      </TabButton>
+
       {shown === 'css' && (
-        <Comparison
-          maxHeight="400px"
-          before={cssPropBefore}
-          after={cssPropAfter}
-        />
+        <Example variant="fixed" before={cssPropBefore} after={cssPropAfter}>
+          <cssProp.EmphasisText massive>Hello world</cssProp.EmphasisText>
+        </Example>
       )}
       {shown === 'styled' && (
-        <Comparison
-          maxHeight="400px"
-          before={styledBefore}
-          after={styledAfter}
-        />
+        <Example variant="fixed" before={styledBefore} after={styledAfter}>
+          <styledExamples.ColoredText color="#FF5630">
+            Hello world
+          </styledExamples.ColoredText>
+        </Example>
       )}
-      {/* {shown === 'class' && (
-        <Comparison before={classNamesBefore} after={classNamesAfter} />
-      )} */}
     </div>
   );
 };

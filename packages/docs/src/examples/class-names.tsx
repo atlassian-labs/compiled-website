@@ -1,7 +1,7 @@
 import React from 'react';
 import { readFileSync } from 'fs';
 import { classNames } from '@compiled/website-examples';
-import { Example } from './example';
+import { Example } from '@compiled/website-ui';
 
 export const ClassNamesExample = () => {
   return (

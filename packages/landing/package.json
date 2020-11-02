@@ -13,6 +13,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@compiled/core": "0.4.8-1cc849c3ada6df3321c486ac4db92a9e6f0638a0.0",
     "@compiled/website-ui": "^1.0.0",
+    "@compiled/website-examples": "^1.0.0",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",

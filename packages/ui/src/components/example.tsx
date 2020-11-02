@@ -6,6 +6,7 @@ interface ExampleProps {
   before: string;
   after: string;
   children: JSX.Element;
+  variant?: 'fixed' | 'fluid';
 }
 
 const ExampleRoot = styled.div`
@@ -50,7 +51,7 @@ const ExampleButton = styled.button<{
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   padding: 1.5rem;
   border: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.4);
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
@@ -81,7 +82,12 @@ const ExampleContainer = styled.div`
   }
 `;
 
-export const Example = ({ before, after, children }: ExampleProps) => {
+export const Example = ({
+  before,
+  after,
+  children,
+  variant = 'fluid',
+}: ExampleProps) => {
   const [isShown, setIsShown] = useState(false);
   const [htmlShown, setHtmlShown] = useState(false);
   const [html, setHtml] = useState('');
@@ -92,8 +98,16 @@ export const Example = ({ before, after, children }: ExampleProps) => {
         {isShown ? 'Show code' : 'Show compiled'}
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
-        <CodeBlock variant="sharp">{before}</CodeBlock>
-        <CodeBlock variant="sharp">{after}</CodeBlock>
+        <CodeBlock
+          css={{ height: variant === 'fixed' ? '400px' : 'auto' }}
+          variant="sharp">
+          {before}
+        </CodeBlock>
+        <CodeBlock
+          css={{ height: variant === 'fixed' ? '400px' : 'auto' }}
+          variant="sharp">
+          {after}
+        </CodeBlock>
       </ExampleSwitcher>
       <ExampleContainer>
         <span

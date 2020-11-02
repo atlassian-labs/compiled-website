@@ -16,6 +16,8 @@ export const CodeBlock = ({
   children,
   language = 'jsx',
   variant = 'rounded',
+  className,
+  style,
   ...props
 }: CodeBlockProps) => (
   <div
@@ -30,6 +32,8 @@ export const CodeBlock = ({
       display: 'flex',
       position: 'relative',
     }}
+    className={className}
+    style={style}
     {...props}>
     <SyntaxHighlighter
       language={language}

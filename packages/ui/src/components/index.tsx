@@ -7,3 +7,4 @@ export { ScreenReaderText } from './helpers';
 export { Hero } from './hero';
 export { HorizontalStack, VerticalStack } from './stack';
 export { HideSmall } from './hide-small';
+export { Example } from './example';
