@@ -3,5 +3,5 @@
     ["@babel/preset-react", { "useSpread": true }],
     "@babel/preset-typescript"
   ],
-  "plugins": ["@compiled/babel-plugin"]
+  "plugins": ["@compiled/core/babel-plugin"]
 }
