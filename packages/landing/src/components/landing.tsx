@@ -10,9 +10,11 @@ import {
   VerticalStack,
   HideSmall,
   Example,
+  mdxComponents,
 } from '@compiled/website-ui';
 import { cssProp, styled as styledExamples } from '@compiled/website-examples';
 import { readFileSync } from 'fs';
+import { MDXProvider } from '@mdx-js/react';
 
 const cssPropBefore = readFileSync(
   __dirname + '../../../../examples/dist/jsx/css-prop.js',
@@ -31,6 +33,7 @@ const styledAfter = readFileSync(
   __dirname + '../../../../examples/dist/js/styled-invalid.js',
   'utf-8'
 );
+const LandingPageContent = require('../pages/landing-content.mdx').default;
 
 const TerminalStripe = styled.div`
   background-color: rgba(39, 40, 34, 0.8);
@@ -120,7 +123,7 @@ export default () => (
         <Content>
           <Terminal language="bash">
             {`
-npm i @compiled/core @compiled/babel-plugin
+npm i @compiled/core
 `}
           </Terminal>
         </Content>
@@ -128,6 +131,10 @@ npm i @compiled/core @compiled/babel-plugin
     </Hero>
 
     <Content>
+      <MDXProvider components={mdxComponents}>
+        <LandingPageContent />
+      </MDXProvider>
+
       <VerticalStack align="left" spacing={10}>
         <a
           href="docs"

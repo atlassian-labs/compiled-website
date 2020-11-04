@@ -1,10 +1,10 @@
 import { render } from 'react-dom';
 import React from 'react';
-import Home from './pages/home';
+import LandingPage from './components/landing';
 
 render(
   <React.StrictMode>
-    <Home />
+    <LandingPage />
   </React.StrictMode>,
   document.getElementById('app')
 );

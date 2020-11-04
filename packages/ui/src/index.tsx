@@ -12,6 +12,11 @@ export {
   Terminal,
   HideSmall,
   Example,
+  mdxComponents,
+  Anchor,
+  AnchorProvider,
+  Footer,
+  ToAnchor,
 } from './components';
 export { RootLayout } from './layout';
 export { Icon } from './icon';

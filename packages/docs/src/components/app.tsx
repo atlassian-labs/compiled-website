@@ -1,15 +1,19 @@
 import React from 'react';
 import '@compiled/core';
-import { RootLayout, VerticalStack, Heading } from '@compiled/website-ui';
+import {
+  RootLayout,
+  VerticalStack,
+  Heading,
+  mdxComponents,
+  ToAnchor,
+  AnchorProvider,
+} from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
-import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
 import { PageTitle } from './page-title';
 import { titleCase } from '../utils/string';
-import { ToAnchor, AnchorProvider } from './anchor';
-import { components } from './mdx-components';
 
 interface Page {
   default: React.ComponentType<{}>;
@@ -154,9 +158,8 @@ export const App = () => {
               </Section>
             ))}
           </>
-        }
-        footer={<Footer />}>
-        <MDXProvider components={components}>
+        }>
+        <MDXProvider components={mdxComponents}>
           <ScrollTop key={pageSlug} />
           <PageTitle
             title={(page && page.data.headings[0].text) || (page && page.name)}

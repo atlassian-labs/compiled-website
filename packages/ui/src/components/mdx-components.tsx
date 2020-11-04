@@ -42,7 +42,7 @@ const P = styled.p`
   }
 `;
 
-export const components: MDXProviderComponentsProp = {
+export const mdxComponents: MDXProviderComponentsProp = {
   h1: ({ children }) => (
     <Heading look="h100">
       <Anchor>{children}</Anchor>
