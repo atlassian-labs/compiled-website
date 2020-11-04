@@ -29,6 +29,7 @@ const StyledLink = styled(Link)`
   user-select: none;
   color: currentColor;
   text-decoration: none;
+  font-size: 16px;
 
   :hover {
     cursor: pointer;

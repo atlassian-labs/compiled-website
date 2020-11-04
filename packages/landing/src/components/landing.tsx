@@ -56,7 +56,9 @@ const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
         backgroundColor: 'transparent',
         border: 'none',
         '&&& *': {
-          color: props['aria-selected'] ? 'inherit' : '#272822',
+          color: props['aria-selected']
+            ? 'rgba(255, 255, 255, 0.99)'
+            : 'rgba(255, 255, 255, 0.75)',
         },
         ':disabled': {
           cursor: 'not-allowed',
@@ -102,13 +104,18 @@ const CodeExamples = () => {
 };
 
 export default () => (
-  <RootLayout>
+  <RootLayout invertHeader>
     <Hero>
       <Content>
         <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={12} gap={3}>
           <Heading look="h100">
-            <span css={{ maxWidth: '75%', display: 'block' }}>
+            <span
+              css={{
+                color: 'rgba(255, 255, 255, 0.75)',
+                maxWidth: '75%',
+                display: 'block',
+              }}>
               <HideSmall>
                 Build time atomic CSS in JS without the runtime cost.{' '}
               </HideSmall>

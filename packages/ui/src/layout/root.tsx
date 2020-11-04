@@ -14,12 +14,14 @@ interface RootProps {
   children: React.ReactNode;
   sidenav?: React.ReactNode;
   aside?: React.ReactNode;
+  invertHeader?: boolean;
 }
 
 const Link = styled.a<{ href: string; exact?: boolean }>`
   color: currentColor;
   text-decoration: none;
   padding: 1rem 0.5rem;
+  font-size: 16px;
 
   :hover {
     color: #7ab2c8;
@@ -30,7 +32,12 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }
 `;
 
-export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
+export const RootLayout = ({
+  children,
+  sidenav,
+  aside,
+  invertHeader,
+}: RootProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: Move to global style component.
@@ -44,7 +51,7 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
 
   return (
     <Fragment>
-      <Header>
+      <Header variant={invertHeader ? 'invert' : 'default'}>
         <nav
           aria-label="main"
           css={{
@@ -52,8 +59,11 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
           }}>
           <HorizontalStack
             gap={2}
-            css={{ display: 'flex', alignItems: 'center' }}>
-            <Link href="/docs">Docs</Link>
+            css={{
+              display: 'flex',
+              alignItems: 'center',
+            }}>
+            <Link href="/docs">Documentation</Link>
             <Link
               title="Github"
               href="https://github.com/atlassian-labs/compiled">

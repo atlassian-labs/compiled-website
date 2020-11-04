@@ -5,8 +5,8 @@ import { Content } from '@compiled/website-ui';
 export const Footer = () => (
   <footer
     css={{
-      marginTop: '6rem',
       padding: '10rem',
+      fontSize: 16,
       background: '#FAFBFC',
     }}>
     <Content>Copyright © 2020 Atlassian</Content>
