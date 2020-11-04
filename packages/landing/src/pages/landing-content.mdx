@@ -1,5 +1,103 @@
-## Write your styles
+## Bake
 
-## Build your code
+Don't change a thing.
+Style the same way you currently do,
+except now it's way faster at runtime with no footguns.
 
-## we
+```jsx
+import { styled } from '@compiled/core';
+
+export const Button = styled.button`
+  font-weight: 500;
+  color: ${(props) => props.color};
+`;
+```
+
+Configure [Babel](https://babeljs.io/) and build your component using its [CLI](https://babeljs.io/docs/en/babel-cli),
+[Webpack](https://webpack.js.org/),
+[Parcel](https://parceljs.org/),
+or any bundler that supports Babel.
+You now have a component that can be used _anywhere_,
+without needing any bundler configuration.
+
+```json
+{
+  "plugins": ["@compiled/core/babel-plugin"]
+}
+```
+
+```bash
+$ babel src
+Successfully compiled 1 file with Babel (9ms)
+```
+
+## Consume
+
+Import and go!
+It could be published to [NPM](https://npmjs.com/),
+in your application,
+or even in a rogue Github repo.
+Wherever it is -
+you can use it without needing to configure your bundler.
+[Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
+
+```jsx
+import Button from '@atlaskit/button';
+
+const Issue = () => {
+  return <Button>Create</Button>;
+};
+```
+
+## Extract
+
+Turn on the bundler plugin,
+and when bundling your app it will find every component styled with Compiled,
+from [NPM](https://npmjs.com/),
+in your application,
+or anywhere else,
+and extract all of their styles to a single,
+[atomic style sheet](https://css-tricks.com/lets-define-exactly-atomic-css/#longhand-shorthand).
+
+```bash
+$ npm i @compiled/parcel-plugin
+$ parcel build
+✨  Built in 0.83s.
+```
+
+Atomic style sheet generated.
+
+```css
+._k48pni7l {
+  font-weight: 600;
+}
+._1p1dangw {
+  text-transform: uppercase;
+}
+._syaz1aj3 {
+  color: var(--_1ylxx6h);
+}
+```
+
+Style declarations,
+`<CC>`, and
+`<CS>` are all removed from your source code.
+
+```jsx
+import React from 'react';
+
+export const EmphasisText = (props) => {
+  const color = props.massive ? '#00B8D9' : '#36B37E';
+
+  return React.createElement(
+    'span',
+    {
+      className: ax(['_syaz1aj3', '_1p1dangw', '_k48pni7l']),
+      style: { '--_1ylxx6h': color },
+    },
+    props.children
+  );
+};
+```
+
+Available first half of 2021.

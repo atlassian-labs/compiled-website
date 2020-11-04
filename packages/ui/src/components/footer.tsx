@@ -1,14 +1,22 @@
 import React from 'react';
 import '@compiled/core';
-import { Content } from '@compiled/website-ui';
+import { Content, HorizontalStack } from '@compiled/website-ui';
 
 export const Footer = () => (
   <footer
     css={{
-      padding: '10rem',
-      fontSize: 16,
+      padding: '4rem',
+      fontSize: 12,
       background: '#FAFBFC',
     }}>
-    <Content>Copyright © 2020 Atlassian</Content>
+    <Content>
+      <HorizontalStack css={{ textAlign: 'center' }} gap={4}>
+        <span>© {new Date().getFullYear()} Atlassian</span>
+        <span>Careers</span>
+        <span>Trademark</span>
+        <span>Privacy</span>
+        <span>License</span>
+      </HorizontalStack>
+    </Content>
   </footer>
 );

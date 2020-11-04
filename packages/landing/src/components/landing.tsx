@@ -142,7 +142,7 @@ npm i @compiled/core
         <LandingPageContent />
       </MDXProvider>
 
-      <VerticalStack align="left" spacing={10}>
+      <VerticalStack align="right" spacing={10}>
         <a
           href="docs"
           css={{

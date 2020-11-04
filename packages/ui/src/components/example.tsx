@@ -56,7 +56,7 @@ const ExampleButton = styled.button<{
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
-  color: ${(props) => (props.isSelected ? '#7ab2c8' : 'rgba(37, 56, 88, 0.9)')};
+  color: ${(props) => (props.isSelected ? '#7ab2c8' : 'rgba(37, 56, 88, 0.8)')};
 
   :hover {
     color: #7ab2c8;
