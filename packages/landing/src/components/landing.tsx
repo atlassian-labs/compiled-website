@@ -36,7 +36,7 @@ const styledAfter = readFileSync(
 const LandingPageContent = require('../pages/landing-content.mdx').default;
 
 const TerminalStripe = styled.div`
-  background-color: rgba(39, 40, 34, 0.8);
+  background-color: rgba(64, 50, 148, 0.1);
 `;
 
 const TabButton = (props: { children: React.ReactNode; onClick: any }) => {

@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import '@compiled/core';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
-import okaidia from 'react-syntax-highlighter/dist/esm/styles/prism/okaidia';
+import codeTheme from 'react-syntax-highlighter/dist/esm/styles/prism/tomorrow';
 import { codeBackground } from '../utils/colors';
 
 interface CodeBlockProps {
@@ -23,7 +23,7 @@ export const CodeBlock = ({
   <div
     css={{
       fontSize: '2rem',
-      backgroundColor: codeBackground,
+      backgroundColor: 'rgb(45, 45, 45)',
       boxShadow:
         'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
       opacity: 0.9,
@@ -37,7 +37,7 @@ export const CodeBlock = ({
     {...props}>
     <SyntaxHighlighter
       language={language}
-      style={okaidia}
+      style={codeTheme}
       customStyle={{ padding: 0, overflow: 'visible', margin: '2rem' }}>
       {children.replace(/^\n/, '').replace(/\n$/, '')}
     </SyntaxHighlighter>
@@ -61,7 +61,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
       <pre>
         <code
           css={{
-            color: '#FAFBFC',
+            color: 'rgba(255, 255, 255, 0.99)',
             fontSize: '16px',
             fontFamily: `'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`,
             position: 'relative',
