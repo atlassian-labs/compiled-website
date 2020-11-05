@@ -89,7 +89,7 @@ const CodeExamples = () => {
 
       {shown === 'css' && (
         <Example variant="fixed" before={cssPropBefore} after={cssPropAfter}>
-          <cssProp.EmphasisText massive>Hello world</cssProp.EmphasisText>
+          <cssProp.EmphasisText variant="primary">Compile</cssProp.EmphasisText>
         </Example>
       )}
       {shown === 'styled' && (

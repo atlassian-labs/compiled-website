@@ -4,12 +4,20 @@ Don't change a thing -
 style the same way you currently do except now it's way faster at runtime!
 
 ```jsx
-import { styled } from '@compiled/core';
+import '@compiled/core';
 
-export const Button = styled.button`
-  font-weight: 500;
-  color: ${(props) => props.color};
-`;
+export const Button = ({ children, variant }) => {
+  const bgColor = variant === 'primary' ? '#0052cc' : '#dfe1e6';
+  const fontColor = variant === 'primary' ? '#fff' : '#172b4d';
+
+  return (
+    <button
+      type="button"
+      css={{ backgroundColor: bgColor, color: fontColor, fontWeight: 500 }}>
+      {children}
+    </button>
+  );
+};
 ```
 
 [Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
@@ -41,16 +49,16 @@ you can use it without needing to configure your bundler.
 [Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
 
 ```jsx
-import { Button } from '@atlaskit/button';
+import { Button } from '@catlaskit/button';
 
 const Issue = () => {
-  return <Button>Create</Button>;
+  return <Button variant="primary">Create</Button>;
 };
 ```
 
 ## Extract
 
-Turn on the bundler plugin,
+Turn on a bundler plugin,
 and when bundling your app it will find every component styled with Compiled,
 from [NPM](https://npmjs.com/),
 in your application,
@@ -64,17 +72,47 @@ $ parcel build
 ✨  Built in 0.83s.
 ```
 
-Atomic style sheet generated.
+Atomic style sheet is generated.
 
 ```css
-._k48pni7l {
-  font-weight: 600;
+._1wybdlk8 {
+  font-size: 14px;
 }
-._1p1dangw {
-  text-transform: uppercase;
+._ect41kw7 {
+  font-family: inherit;
 }
-._syaz1aj3 {
-  color: var(--_1ylxx6h);
+._k48p1nn1 {
+  font-weight: 400;
+}
+._syaz1mor {
+  color: var(--_x01hj3);
+}
+._bfhkbs0x {
+  background-color: var(--_1w9snyi);
+}
+._19bv19bv {
+  padding-left: 10px;
+}
+._u5f319bv {
+  padding-right: 10px;
+}
+._2rko1l7b {
+  border-radius: 3px;
+}
+._19itglyw {
+  border: none;
+}
+._n3tdftgi {
+  padding-bottom: 8px;
+}
+._ca0qftgi {
+  padding-top: 8px;
+}
+._irr310iv:hover {
+  background-color: var(--_cnrjhi);
+}
+._1di65ltx:active {
+  background-color: var(--_1w4xv83);
 }
 ```
 
@@ -85,18 +123,28 @@ Style declarations,
 ```jsx
 import React from 'react';
 
-export const EmphasisText = (props) => {
-  const color = props.massive ? '#00B8D9' : '#36B37E';
+export const Button = ({ children, variant }) => {
+  const bgColor = variant === 'primary' ? '#6554C0' : '#DFE1E6';
+  const activeBgColor = variant === 'primary' ? '#5243AA' : '#DFE1E6';
+  const hoverBgColor = variant === 'primary' ? '#8777D9' : '#DFE1E6';
+  const fontColor = variant === 'primary' ? '#fff' : '#DFE1E6';
 
   return React.createElement(
-    'span',
+    'button',
     {
-      className: ax(['_syaz1aj3', '_1p1dangw', '_k48pni7l']),
-      style: { '--_1ylxx6h': color },
+      type: 'button',
+      className:
+        '_19itglyw _2rko1l7b _ca0qftgi _u5f319bv _n3tdftgi _19bv19bv _bfhkbs0x _syaz1mor _k48p1nn1 _ect41kw7 _1wybdlk8 _irr310iv _1di65ltx',
+      style: {
+        '--_1w9snyi': bgColor,
+        '--_x01hj3': fontColor,
+        '--_cnrjhi': hoverBgColor,
+        '--_1w4xv83': activeBgColor,
+      },
     },
-    props.children
+    children
   );
 };
 ```
 
-[Coming soon 2021](https://github.com/atlassian-labs/compiled/issues/58).
+[Shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

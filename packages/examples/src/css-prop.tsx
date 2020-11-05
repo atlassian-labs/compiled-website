@@ -1,16 +1,32 @@
 import React from 'react';
 import '@compiled/core';
 
-export const EmphasisText = (props) => {
-  const color = props.massive ? '#00B8D9' : '#36B37E';
+export const Button = ({ children, variant }) => {
+  const bgColor = variant === 'primary' ? '#6554C0' : '#DFE1E6';
+  const activeBgColor = variant === 'primary' ? '#5243AA' : '#DFE1E6';
+  const hoverBgColor = variant === 'primary' ? '#8777D9' : '#DFE1E6';
+  const fontColor = variant === 'primary' ? '#fff' : '#DFE1E6';
+
   return (
-    <span
+    <button
+      type="button"
       css={{
-        color,
-        textTransform: 'uppercase',
-        fontWeight: 600,
+        border: 'none',
+        borderRadius: 3,
+        padding: '8px 10px',
+        backgroundColor: bgColor,
+        color: fontColor,
+        fontWeight: 400,
+        fontFamily: 'inherit',
+        fontSize: 14,
+        ':hover': {
+          backgroundColor: hoverBgColor,
+        },
+        ':active': {
+          backgroundColor: activeBgColor,
+        },
       }}>
-      {props.children}
-    </span>
+      {children}
+    </button>
   );
 };
