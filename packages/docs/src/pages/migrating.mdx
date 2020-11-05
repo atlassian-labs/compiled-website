@@ -1,19 +1,15 @@
 ---
-section: 1-Guides
-name: Migrating From Other Libraries
+section: 1-Getting started
+name: Migrating to Compiled
 ---
 
-# Migrating from other libraries
+# Migrating to Compiled
 
-Migrating to Compiled isn't that hard depending how dynamic your CSS is.
-It's more of a mind shift than anything.
-The single precondition for this page is completing the [installation instructions](/1-getting-started/1-installation),
-so if you haven't already go read that.
+Make sure to follow [installation](/installation) first.
 
 ## Styled Components
 
-Just replace the imports and we're done!
-If we have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
+eplace the imports with `@compiled/core`.
 
 ```diff
 -import styled from 'styled-components';
@@ -23,11 +19,6 @@ styled.div`
   font-size: 12px;
   color: ${props => props.color};
 `;
-```
-
-```diff
--import styled from 'styled-components';
-+import { styled } from '@compiled/core';
 
 styled.div({
   fontSize: 12px,
@@ -35,11 +26,18 @@ styled.div({
 });
 ```
 
+There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
+
+```bash
+npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/styled-components-to-compiled <path>
+```
+
+Where `<path>` is the path to your source code.
+If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` call.
+
 ## Emotion
 
-### Jsx pragma
-
-Just replace the imports,
+Replace the imports with `@compiled/core`,
 if you're using `@emotion/styled` the migration is the same from above.
 
 ```diff
@@ -55,17 +53,11 @@ if you're using `@emotion/styled` the migration is the same from above.
     }}
   />
 )
-```
-
-```diff
--/** @jsx jsx */
--import { jsx } from '@emotion/core';
-+import '@compiled/core';
 
 (props) => (
   <div
--    css={css`
-+    css={`
+-   css={css`
++   css={`
       color: red;
       background-color: ${props.background}
     `}
@@ -73,58 +65,24 @@ if you're using `@emotion/styled` the migration is the same from above.
 )
 ```
 
-### Babel plugin
+There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
 
-If you're using the uhh
-
-## Generating CSS at runtime
-
-In a large majority of libraries today you'll see something like this,
-where it returns new CSS based on some props:
-
-```jsx
-import styled from 'styled-components';
-
-const getBackgroundGradient = (color, percent) => ({
-  background: `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
-      ${color}`,
-});
-
-styled.input`
-  ＄{(props) => getBackgroundGradient(props.color, props.percent)}
-`;
+```bash
+npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/emotion-to-compiled <path>
 ```
 
-Every time `color` or `percent` changes it will recalculate the CSS and then re-render.
-While at a glance this looks okay it's actually quite **dangerous and unperformant**,
-a massive footgun every developer is wielding!
-Especially if `percent` isn't just whole numbers!
+Where `<path>` is the path to your source code.
+If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` call.
 
-In Compiled it's **impossible to generate CSS at runtime**,
-so the above code can't migrate across.
-How might we do it then?
+## Current limitations
 
-Well the direction we can go in is by statically defining the CSS properties,
-and then assigning function interpolations (the arrow functions inside the styled declaration) to set the values at runtime.
+Conditionally declared CSS rules are not able to be defined at this time but will be [supported in the future](https://github.com/atlassian-labs/compiled/issues/278).
 
 ```jsx
-import styled from 'styled-components';
-
-const getBackgroundGradient = (color, percent) => ({
-  `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
-      ${color}`,
-});
-
-styled.input`
-  background: ＄{props => getBackgroundGradient(props.color, props.percent)};
-`;
+<div
+  css={{
+    color: 'blue',
+    ...(props.isPrimary && { fontSize: 15, fontWeight: bold }),
+  }}
+/>
 ```
-
-This accomplishes two things for us:
-
-1. We've **successfully migrated** our runtime CSS over!
-   It turns out it didn't need to be generated at runtime anyway.
-1. We've **fixed our performance problem**!
-   Now it doesn't matter how many ticks `percent` has,
-   it'll be buttery smooth.
-   All because of the constraint of _no runtime CSS_ this footgun has been disarmed.

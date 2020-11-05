@@ -1,0 +1,85 @@
+---
+order: 3
+section: 1-Getting started
+---
+
+import {
+  StyledExample,
+  StyledInvalidExample,
+  StyledTransientProps,
+  StyledObjectExample,
+} from '../examples/styled';
+
+# Styled
+
+Useful when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
+[CSS prop](/css-prop) can be used when wanting more control over your component.
+
+<StyledExample />
+
+<br />
+
+<StyledObjectExample />
+
+## Dynamic rules
+
+Powered behind the scenes by CSS variables.
+Any props that are valid HTML attributes will be passed down to the underlying DOM node -
+otherwise they will be ignored.
+
+This example shows that behavior -
+if you click on the `HTML` button you will see the `isActive` prop has not been passed through.
+
+<StyledInvalidExample />
+
+> **Remember** - It's all done at build time.
+> No cost is paid at runtime to check if the prop is a valid HTML attribute.
+
+### Transient props
+
+If you want to use a specific prop name but don't want it to appear on the element,
+prefix the prop with `$` and it won't be applied.
+
+This example shows that `color` is on the element,
+but `$color` is not.
+
+<StyledTransientProps />
+
+## The as prop
+
+Changing the markup to something else such as a `h1` to a `span` can be useful.
+The `as` prop can be used to change it at runtime.
+
+This example shows a `h1` element being set to a `span`.
+
+```tsx
+better example here
+```
+
+## Composing components
+
+Wrap an already defined component to define extra styles onto it.
+Parent styles will override child styles,
+assuming they're both styled with Compiled.
+
+```jsx
+better example here
+```
+
+## Types
+
+Type support is baked so you'll have a great time using Compiled with TypeScript,
+any interpolation will have access to the props defined in the tagged template generic.
+
+```jsx
+import { styled } from '@compiled/core';
+
+const BigIfTrue = styled.div<{ big: true }>`
+  font-size: ${props => big ? 100 : 10};
+`;
+
+<BigIfTrue />
+ ^^^^^^^^^ Property 'big' is missing in type [..]
+```
+
+> **Note** - Typing of composed components is also inherited.

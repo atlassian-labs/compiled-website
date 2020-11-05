@@ -144,7 +144,7 @@ npm i @compiled/core
 
       <VerticalStack align="right" spacing={10}>
         <a
-          href="docs"
+          href="docs/installation"
           css={{
             color: '#7ab2c8',
             fontSize: '1.25em',

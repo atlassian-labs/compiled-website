@@ -1,6 +1,6 @@
 ---
 order: 1
-section: 1-Guides
+section: 1-Getting started
 name: What is Compiled?
 ---
 
@@ -8,48 +8,34 @@ import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
 
 # What is Compiled?
 
-Compiled is a _build time_ CSS in JS library.
-For us at Atlassian CSS in JS solutions have provided a fantastic developer experience,
+Compiled is a build time CSS in JS library.
+For us at [Atlassian](https://atlassian.com) CSS in JS has provided a fantastic developer experience,
 deep integrations with JavaScript by design,
-and the delivery mechanism of the libraries we've used make it super easy for consumers to consume our components.
-Just import and use them -
-and you're good to go!
+and the delivery mechanism made it super easy for consumers to use our components.
+Just import and go!
 
-But at the same time we've seen scaling problems.
-Unintended performance gotchas.
-Death by a thousand cuts.
+However we've seen scaling problems,
+multiple usages of runtime CSS in JS libraries,
+and unintended performance gotchas -
+death by a thousand cuts.
+
+We want more from our styling library.
 
 ## How it works
 
-Compiled compiles your CSS in JS at build time by statically analyzing your code and then transforming it into Compiled Components.
-Everything we need to use the component is included along side it in the JavaScript bundle.
+Compiled transforms your components you've styled.
+Everything the component needs is baked into the resulting JavaScript bundle.
 
-We take your initial code in all its glory:
+It takes your initial code in all its glory:
 
 <BeforeHowItWorks />
 
-And then transform it into a Compiled Component:
+And then bakes everything in:
 
 <AfterHowItWorks />
 
-Which then at runtime will move the styles to the head of the document.
-
-This kind of transformation allows us to deliver your component to any consumer,
-without needing them to configure/setup their tooling.
+Which enables you to ship components to any consumer,
+without them needing to configure their tooling.
 Just import and go.
 This is powerful,
-and more importantly exactly the same as current CSS in JS libraries work -
-with one catch.
-
-_CSS can't be generated at runtime._
-
-This single constraint opens a lot of doors for us.
-Performance gotchas no longer possible.
-Build time optimizations.
-Runtime guarantees.
-
-While Compiled currently only targets inline Compiled Components,
-we'll eventually get to more exciting grounds -
-optional CSS extraction for bundlers.
-It'll be super exciting to make work,
-come [chime into the RFC](https://github.com/atlassian-labs/compiled-css-in-js/issues/36) if you're interested.
+and more importantly the same as how runtime CSS in JS libraries work!

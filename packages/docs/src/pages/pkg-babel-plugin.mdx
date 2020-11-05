@@ -6,23 +6,24 @@ name: babel-plugin
 
 # @compiled/babel-plugin
 
-```bash
-npm i @compiled/babel-plugin
-```
-
-## default
-
 Exports a Babel plugin to enabled Compiled in Babel environments.
 See [Installation](/installation) for setup information.
+Generally you would not install this directly as it is installed with the core library.
 
-### Options
+```bash
+npm install @compiled/babel-plugin --save-dev
+```
+
+## Options
 
 ```json
 {
   "plugins": [
     [
       "@compiled/babel-plugin",
-      { "nonce": "__webpack_nonce__", "sourceMap": true, "minify": true }
+      {
+        "nonce": "__webpack_nonce__"
+      }
     ]
   ]
 }
@@ -32,12 +33,3 @@ See [Installation](/installation) for setup information.
 
 Enables CSP support,
 read [Security](/security) for more information.
-
-#### sourceMap: boolean
-
-Turns on source maps.
-Don't use this in production else your bundles will blow out!
-
-#### minify: boolean
-
-Will minify your CSS - will cause builds to be slower but result in smaller bundles.

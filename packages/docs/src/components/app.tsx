@@ -162,7 +162,10 @@ export const App = () => {
         <MDXProvider components={mdxComponents}>
           <ScrollTop key={pageSlug} />
           <PageTitle
-            title={(page && page.data.headings[0].text) || (page && page.name)}
+            title={
+              (page && page.data.headings[0].text) ||
+              (page && titleCase(page.name))
+            }
           />
 
           {page && (

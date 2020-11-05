@@ -1,0 +1,34 @@
+---
+order: 2
+section: 1-Getting started
+---
+
+# Installation
+
+Setup is required.
+Install the core library with `npm` or `yarn`,
+currently only using Compiled with [React](https://reactjs.org) is supported.
+
+```bash
+npm install @compiled/core --save
+```
+
+Compiled uses Babel to transform your code,
+so you'll need to either [use its CLI](https://babeljs.io/docs/en/babel-cli),
+[Webpack](https://webpack.js.org/),
+[Parcel](https://parceljs.org/),
+or any other bundler that supports Babel.
+
+## Babel setup
+
+Wire up the plugin in your [Babel config](https://babeljs.io/docs/en/configuration).
+It's best if the plugin is defined first in the plugins array.
+
+```json
+{
+  "plugins": ["@compiled/core/babel-plugin"]
+}
+```
+
+Now you're ready to style your first component!
+If you're looking for advanced configuration [look at the package documentation](/pkg-babel-plugin).

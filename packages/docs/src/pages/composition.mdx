@@ -1,5 +1,5 @@
 ---
-section: 1-Guides
+section: 2-Advanced
 ---
 
 import {
@@ -10,33 +10,18 @@ import {
 
 # Composition
 
-Compiled allows us to statically compose your styles together.
-There are a few benefits of composing in this fashion,
-outside of reusability and performance the biggest is that styles get applied in a consistent way.
-The last property defined wins -
-which when used is immediately obvious to the developer.
+Composing styles together enables powerful patterns.
+Traditionally when defining CSS it is not the `class` order that ensures style get applie,
+but the the order of CSS rules.
+This is a common cause for developer confusion.
 
-<CompositionObject />
-
-> **Note** - Make sure to look at the compiled code,
-> `base` has been compiled into the final CSS string.
-> You'll see this for every other example here as well.
-
-When composing it's important to remember that the last defined style will win.
-In the next example we can see that in action.
-
-<CompositionOrder />
-
-## Composing from modules
-
-Composition wouldn't be complete if we couldn't also compose from module imports.
-It mostly works but there _are_ some cavets right now,
-most importantly:
-
-- `babel` and `tsc` with typechecking turned off breaks this
-- traversing node modules doesn't work
-
-This is something that can and will be fixed.
-[Chime into the issue if you'd like](https://github.com/atlassian-labs/compiled-css-in-js/issues/67).
+Compiled eliminates cascade gotchas.
+Regardless of composing from a parent or child component,
+the last CSS property defined wins.
 
 <CompositionImports />
+
+When composing styles together it's important to remember that the last defined style will win.
+In this example we can see that in action.
+
+<CompositionOrder />

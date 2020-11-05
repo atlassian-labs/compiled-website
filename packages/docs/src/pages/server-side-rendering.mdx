@@ -4,40 +4,19 @@ section: 2-Advanced
 
 # Server Side Rendering
 
-Server side rendering (SSR) in Compiled works by compiling the CSS next to the element itself.
-This is very similar to how Emotion accomplishes it by default.
+So you keep hearing "SSR is 0 config" - but what does that actually mean?
+Consumers of our components don't have to do anything to make it work.
+Just import and go.
 
-This strategy has a few benefits -
-the biggest being when rendering React on the server with the [streaming API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) your component styles are streamed together with your component markup,
-resulting in things being rendered to users faster.
-
-```jsx
-import { renderToNodeStream } from 'react-dom/server';
-import { App } from '@app/code';
-
-renderToNodeStream(<App />);
-```
-
-> **Warning** - This approach can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
-> We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled-css-in-js/issues/31) - please join the conversation!
-
-## How it works
-
-So we keep hearing "SSR is 0 config" - but what does that actually mean?
-It means that we -
-or more explicitly consumers of our components -
-don't have to do anything to make SSR work.
-Just import a Compiled Component and go.
-
-It accomplishes this by inlining `style` elements in the server rendered markup,
+This is accomplished by inlining `style` elements in the server rendered markup,
 like so:
 
 <!-- prettier-ignore -->
 ```html
-<style>.cc-10mivee{display:flex;}</style>
-<div class="cc-10mivee">
-  <style>.cc-1610nsm{font-size:12px;}</style>
-  <div class="cc-1610nsm">hello world</div>
+<style>._k48pni7l{font-weight:600}</style>
+<div class="_k48pni7l">
+  <style>._syaz18rw{color:#ff5630}</style>
+  <div class="_syaz18rw">hello world</div>
 </div>
 ```
 
@@ -45,30 +24,33 @@ And then on the client when the JavaScript initializes they get moved to the hea
 so we end up with this on the client:
 
 ```html
-<div class="cc-10mivee">
-  <div class="cc-1610nsm">hello world</div>
+<div class="_k48pni7l">
+  <div class="_syaz18rw">hello world</div>
 </div>
 ```
 
 The magic sauce though -
 is that if any of the same component is rendered multiple times only the _first_ element will have a matching `style` element.
-The rest won't need it because it's already there!
 Saving precious Kb.
 
 <!-- prettier-ignore -->
 ```html
-<style>.cc-10mivee{display:flex;}</style>
-<div class="cc-10mivee">
-  <style>.cc-1610nsm{font-size:12px;}</style>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
+<style>._k48pni7l{font-weight:600}</style>
+<div class="_k48pni7l">
+  <style>._syaz18rw{color:#ff5630}</style>
+  <div class="_syaz18rw">hello world</div>
+  <div class="_syaz18rw">hello world</div>
+  <div class="_syaz18rw">hello world</div>
+  <div class="_syaz18rw">hello world</div>
 </div>
 ```
 
-Fantastic.
+This strategy has a few benefits -
+the biggest being when rendering with the [streaming API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) your component styles are streamed together with your component markup,
+resulting in content being rendered to users faster.
+
+> **Warning** - This can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
+> We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled/issues/31) - please join the conversation!
 
 ## Selector workarounds
 

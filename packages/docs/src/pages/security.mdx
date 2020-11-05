@@ -6,53 +6,30 @@ section: 2-Advanced
 
 ## Content security policy
 
-> **Note** - Not sure what CSP is?
-> Have a read here: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP.
-> It allows us to be explicit about what can and can't run -
-> JavaScript,
-> styles,
-> images even!
+A [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows us to be explicit about what can and can't run in our apps -
+JavaScript,
+styles,
+images even!
 
-Compiled supports this using the `nonce` option,
-where `nonce` is some identifier for your bundler to replace.
-If you're using Webpack they [handle nonce quite easily too](https://webpack.js.org/guides/csp/).
-The main principle is `nonce` should resolve to a **unique** secret that the server generates **every page load**!
-
-We can enable it in both Babel and the TypeScript transformer,
-these examples using what Webpack would want.
+Supporting a CSP works by setting `nonce` in the Babel plugin config,
+where `nonce` is an identifier your bundler can replace at build time.
+If you're bundling with Webpack they [have support for this](https://webpack.js.org/guides/csp/).
+A `nonce` should resolve to a _unique_ secret that the server generates _every page load_.
 
 ```json
 {
-  "plugins": [
-    ["@compiled/babel-plugin-css-in-js", { "nonce": "__webpack_nonce__" }]
-  ]
+  "plugins": [["@compiled/core/babel-plugin", { "nonce": "__webpack_nonce__" }]]
 }
 ```
 
-```json
-{
-  "compilerOptions": {
-    "plugins": [
-      {
-        "transform": "@compiled/ts-transform-css-in-js",
-        "options": {
-          "nonce": "__webpack_nonce_"
-        }
-      }
-    ]
-  }
-}
-```
-
-When setting Compiled with a `nonce` we then use it to declare our `style` elements.
-Let's say `__webpack_nonce__` gets transformed to a secret method at build time which will return the `nonce`.
+Here `__webpack_nonce__` gets transformed to a function at build time which will return a unique `nonce` every invocation.
 
 ```diff
 -__webpack_nonce__
 +uniqueNonceOncePerServerLoad() // returns "k0Mp1lEd" this run
 ```
 
-And then on the server we ensure that a `meta` tag is set using this value:
+On the server we need ensure that a `meta` tag in the `head` is set using the same value:
 
 ```html
 <meta
@@ -62,22 +39,20 @@ And then on the server we ensure that a `meta` tag is set using this value:
 />
 ```
 
-And finally our Compiled Component renders:
+Finally when rendering a component on the client...
 
 ```jsx
-<style nonce="k0Mp1lEd">.cc-1234 { color: red; }</style>
-<div class="cc-1234">hello world</div>
+<style nonce="k0Mp1lEd">._syaz1mor { color: red; }</style>
+<div class="_syaz1mor">hello world</div>
 ```
 
 Success!
 The browser allowed our styles to be used.
-
-But if our nonce did not match,
-or were just missing...
+However if the nonce did not match or was missing:
 
 ```jsx
-<style>.cc-1234 { color: red; }</style>
-<div class="cc-1234">hello world</div>
+<style>._syaz1mor { color: red; }</style>
+<div class="_syaz1mor">hello world</div>
 ```
 
 Oh no!
@@ -91,7 +66,6 @@ If we take user input and use it to do dynamic styling it's also pumped through 
 so we get their sanitization for free.
 
 All this to say -
-we probably don't have to worry about much.
-
+we don't have to worry about much.
 But make sure to sanitize user inputs regardless,
 especially on the server!

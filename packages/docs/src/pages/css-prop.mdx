@@ -1,6 +1,6 @@
 ---
 order: 4
-section: 1-Guides
+section: 1-Getting started
 name: CSS Prop
 ---
 
@@ -11,41 +11,39 @@ import {
 
 # CSS Prop
 
-The `css` prop made famous by Emotion is available in Compiled!
-Both strings and objects are supported -
-check out the code that is generated below.
+Useful when wanting more control over your component.
+[Styled](/styled) can be used when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
 
 <CssPropExample />
 
-Using `css` prop is easy but powerful,
-it's useful when we want to choose your own destiny and other APIs,
-like `styled`,
-are missing that one thing we need.
+<br />
 
 <CssPropTemplateLiteralExample />
 
-## Pass through class and style
+## Composition gotchas
 
-When passing either `className` or `style` you'll need to statically define it.
-Since Compiled can't statically know where either prop will be if we're spreading it,
-we need to be explicit.
+When composing styles from a parent component passed down as a `className` make sure to also define a `style` prop so dynamic rules work.
 
-### Works
+### Correct props
 
-Class name and style are both picked up as expected because we can statically analyze their usage.
+The `className` and `style` props are explicitly defined so dynamic rules work.
 
 ```jsx
-<div
-  style={{ display: 'block' }}
-  className="my class name"
-  css={{ fontSize: 12 }}
-/>
+live example here
 ```
 
-### Doesn't work
+### Spread pops
 
-Since we can't statically analyze either ones usage it doesn't work.
+The overflow `props` are spread onto the element so the composed styles are not applied.
 
 ```jsx
-<div {...props} css={{ fontSize: 12 }} />
+live example here
+```
+
+### Missing style
+
+The `style` prop is missing so dynamic rules don't work.
+
+```jsx
+live example here
 ```

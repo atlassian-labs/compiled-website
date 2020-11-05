@@ -6,25 +6,15 @@ name: core
 
 # @compiled/core
 
+The primary entrypoint package for Compiled.
+
 ```bash
-npm i @compiled/core
+npm install @compiled/core --save
 ```
 
-## styled
+## CSS prop
 
-Allows us to create Styled Components.
-
-```jsx
-import { styled } from '@compiled/core';
-
-styled.div`
-  font-size: 12px;
-`;
-```
-
-## jsx
-
-Enables the CSS prop on React elements.
+When the `@compiled/core` module is found CSS prop can be used on React elements.
 
 ```jsx
 import '@compiled/core';
@@ -36,14 +26,14 @@ import '@compiled/core';
 />;
 ```
 
-## ClassNames
+## styled
 
-Allows us to generate a `className` without needing to tie it to a specific React element.
+Creates a Styled Component.
 
 ```jsx
-import { ClassNames } from '@compiled/core';
+import { styled } from '@compiled/core';
 
-<ClassNames>
-  {({ css }) => <div className={css({ fontSize: 12 })} />}
-</ClassNames>;
+styled.div`
+  font-size: 12px;
+`;
 ```
