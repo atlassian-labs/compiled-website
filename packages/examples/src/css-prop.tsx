@@ -2,10 +2,12 @@ import React from 'react';
 import '@compiled/core';
 
 export const Button = ({ children, variant }) => {
-  const bgColor = variant === 'primary' ? '#6554C0' : '#DFE1E6';
-  const activeBgColor = variant === 'primary' ? '#5243AA' : '#DFE1E6';
-  const hoverBgColor = variant === 'primary' ? '#8777D9' : '#DFE1E6';
-  const fontColor = variant === 'primary' ? '#fff' : '#DFE1E6';
+  const bgColor = variant === 'primary' ? '#6554C0' : 'rgba(9, 30, 66, 0.04)';
+  const activeBgColor =
+    variant === 'primary' ? '#5243AA' : 'rgba(179, 212, 255, 0.6)';
+  const hoverBgColor =
+    variant === 'primary' ? '#8777D9' : 'rgba(9, 30, 66, 0.08)';
+  const fontColor = variant === 'primary' ? '#fff' : 'rgb(66, 82, 110)';
 
   return (
     <button

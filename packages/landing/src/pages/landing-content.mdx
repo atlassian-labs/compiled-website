@@ -7,13 +7,25 @@ style the same way you currently do except now it's way faster at runtime!
 import '@compiled/core';
 
 export const Button = ({ children, variant }) => {
-  const bgColor = variant === 'primary' ? '#0052cc' : '#dfe1e6';
-  const fontColor = variant === 'primary' ? '#fff' : '#172b4d';
+  const bgColor = variant === 'primary' ? '#6554C0' : 'rgba(9, 30, 66, 0.04)';
+  const hoverBgColor =
+    variant === 'primary' ? '#8777D9' : 'rgba(9, 30, 66, 0.08)';
+  const fontColor = variant === 'primary' ? '#fff' : 'rgb(66, 82, 110)';
 
   return (
     <button
       type="button"
-      css={{ backgroundColor: bgColor, color: fontColor, fontWeight: 500 }}>
+      css={{
+        borderRadius: 3,
+        padding: '8px 10px',
+        backgroundColor: bgColor,
+        color: fontColor,
+        fontSize: 14,
+        fontWeight: 400,
+        ':hover': {
+          backgroundColor: hoverBgColor,
+        },
+      }}>
       {children}
     </button>
   );
@@ -78,9 +90,6 @@ Atomic style sheet is generated.
 ._1wybdlk8 {
   font-size: 14px;
 }
-._ect41kw7 {
-  font-family: inherit;
-}
 ._k48p1nn1 {
   font-weight: 400;
 }
@@ -99,9 +108,6 @@ Atomic style sheet is generated.
 ._2rko1l7b {
   border-radius: 3px;
 }
-._19itglyw {
-  border: none;
-}
 ._n3tdftgi {
   padding-bottom: 8px;
 }
@@ -110,9 +116,6 @@ Atomic style sheet is generated.
 }
 ._irr310iv:hover {
   background-color: var(--_cnrjhi);
-}
-._1di65ltx:active {
-  background-color: var(--_1w4xv83);
 }
 ```
 
@@ -134,12 +137,11 @@ export const Button = ({ children, variant }) => {
     {
       type: 'button',
       className:
-        '_19itglyw _2rko1l7b _ca0qftgi _u5f319bv _n3tdftgi _19bv19bv _bfhkbs0x _syaz1mor _k48p1nn1 _ect41kw7 _1wybdlk8 _irr310iv _1di65ltx',
+        '_2rko1l7b _ca0qftgi _n3tdftgi _19bv19bv _bfhkbs0x _syaz1mor _k48p1nn1 _1wybdlk8 _irr310iv',
       style: {
         '--_1w9snyi': bgColor,
         '--_x01hj3': fontColor,
         '--_cnrjhi': hoverBgColor,
-        '--_1w4xv83': activeBgColor,
       },
     },
     children

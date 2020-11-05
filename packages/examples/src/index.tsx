@@ -1,5 +1,5 @@
 import { ColoredText } from './styled';
-import { EmphasisText } from './styled-invalid';
+import { Button as EmphasisText } from './styled-invalid';
 import { EmphasisText as EmphasisTextObject } from './styled-object';
 import { TransientProps } from './styled-transient-props';
 import { Button as EmphasisTextCssProp } from './css-prop';

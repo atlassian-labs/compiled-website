@@ -94,9 +94,9 @@ const CodeExamples = () => {
       )}
       {shown === 'styled' && (
         <Example variant="fixed" before={styledBefore} after={styledAfter}>
-          <styledExamples.ColoredText color="#FF5630">
-            Hello world
-          </styledExamples.ColoredText>
+          <styledExamples.EmphasisText variant="default">
+            Compile
+          </styledExamples.EmphasisText>
         </Example>
       )}
     </div>
