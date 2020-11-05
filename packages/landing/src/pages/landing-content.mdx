@@ -1,8 +1,7 @@
 ## Bake
 
-Don't change a thing.
-Style the same way you currently do,
-except now it's way faster at runtime with no footguns.
+Don't change a thing -
+style the same way you currently do except now it's way faster at runtime!
 
 ```jsx
 import { styled } from '@compiled/core';
@@ -13,12 +12,10 @@ export const Button = styled.button`
 `;
 ```
 
-Configure [Babel](https://babeljs.io/) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
+[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
 [Webpack](https://webpack.js.org/),
 [Parcel](https://parceljs.org/),
-or any bundler that supports Babel.
-You now have a component that can be used _anywhere_,
-without needing any bundler configuration.
+or any other bundler that supports Babel.
 
 ```json
 {
@@ -31,18 +28,20 @@ $ babel src
 Successfully compiled 1 file with Babel (9ms)
 ```
 
+You now have a component that can be used by anyone without needing to configure a bundler.
+
 ## Consume
 
 Import and go!
 It could be published to [NPM](https://npmjs.com/),
-in your application,
+defined in your application,
 or even in a rogue Github repo.
 Wherever it is -
 you can use it without needing to configure your bundler.
 [Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
 
 ```jsx
-import Button from '@atlaskit/button';
+import { Button } from '@atlaskit/button';
 
 const Issue = () => {
   return <Button>Create</Button>;
@@ -81,7 +80,7 @@ Atomic style sheet generated.
 
 Style declarations,
 `<CC>`, and
-`<CS>` are all removed from your source code.
+`<CS>` components are all removed from your source code.
 
 ```jsx
 import React from 'react';
@@ -100,4 +99,4 @@ export const EmphasisText = (props) => {
 };
 ```
 
-Available first half of 2021.
+[Coming soon 2021](https://github.com/atlassian-labs/compiled/issues/58).

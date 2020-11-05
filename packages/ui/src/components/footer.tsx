@@ -6,16 +6,22 @@ export const Footer = () => (
   <footer
     css={{
       padding: '4rem',
-      fontSize: 12,
+      fontSize: 11,
       background: '#FAFBFC',
+      a: {
+        color: 'currentColor',
+        textDecoration: 'none',
+      },
     }}>
     <Content>
-      <HorizontalStack css={{ textAlign: 'center' }} gap={4}>
+      <HorizontalStack css={{ textAlign: 'center' }} gap={3}>
         <span>© {new Date().getFullYear()} Atlassian</span>
-        <span>Careers</span>
-        <span>Trademark</span>
-        <span>Privacy</span>
-        <span>License</span>
+        <a href="https://www.atlassian.com/company/careers">Careers</a>
+        <a href="https://www.atlassian.com/legal/trademark">Trademark</a>
+        <a href="https://www.atlassian.com/legal/privacy-policy">Privacy</a>
+        <a href="https://github.com/atlassian-labs/compiled/blob/master/LICENSE">
+          License
+        </a>
       </HorizontalStack>
     </Content>
   </footer>
