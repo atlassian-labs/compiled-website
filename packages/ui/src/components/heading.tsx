@@ -28,7 +28,7 @@ export const Heading = ({ children, style, ...props }: HeadingProps) => {
       className={props.className}
       style={style}
       css={`
-        font-family: 'Charlie Display';
+        font-family: 'Noto Sans', sans-serif;
         font-weight: 500;
         margin: 0;
         opacity: 0.9;

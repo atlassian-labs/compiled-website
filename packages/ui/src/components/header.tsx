@@ -25,7 +25,7 @@ export const HeaderSpacing = styled.div`
 
 const Logo = styled.span`
   font-size: 4rem;
-  font-family: 'Charlie Display';
+  font-family: 'Noto Sans', sans-serif;
   display: flex;
   align-items: center;
 `;
