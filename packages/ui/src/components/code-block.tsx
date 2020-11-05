@@ -2,7 +2,6 @@ import React, { CSSProperties } from 'react';
 import '@compiled/core';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
 import codeTheme from 'react-syntax-highlighter/dist/esm/styles/prism/tomorrow';
-import { codeBackground } from '../utils/colors';
 
 interface CodeBlockProps {
   children: string;
@@ -23,10 +22,9 @@ export const CodeBlock = ({
   <div
     css={{
       fontSize: '2rem',
-      backgroundColor: 'rgb(45, 45, 45)',
+      backgroundColor: 'rgb(37, 56, 88)',
       boxShadow:
         'rgba(9, 30, 66, 0.25) 0px 12px 24px -6px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
-      opacity: 0.9,
       borderRadius: variant === 'sharp' ? 0 : '5px',
       overflow: 'auto',
       display: 'flex',
@@ -38,7 +36,12 @@ export const CodeBlock = ({
     <SyntaxHighlighter
       language={language}
       style={codeTheme}
-      customStyle={{ padding: 0, overflow: 'visible', margin: '2rem' }}>
+      customStyle={{
+        padding: 0,
+        overflow: 'visible',
+        margin: '2rem',
+        background: 'transparent',
+      }}>
       {children.replace(/^\n/, '').replace(/\n$/, '')}
     </SyntaxHighlighter>
     {/* Add spacing because padding is eliminated with overflow: visible */}

@@ -35,8 +35,10 @@ const styledAfter = readFileSync(
 );
 const LandingPageContent = require('../pages/landing-content.mdx').default;
 
+const codeBackground = 'rgba(23, 43, 77, 0.7)';
+
 const TerminalStripe = styled.div`
-  background-color: rgb(45, 45, 45);
+  background-color: ${codeBackground};
 `;
 
 const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
@@ -88,12 +90,20 @@ const CodeExamples = () => {
       </TabButton>
 
       {shown === 'css' && (
-        <Example variant="fixed" before={cssPropBefore} after={cssPropAfter}>
+        <Example
+          codeBackground={codeBackground}
+          variant="fixed"
+          before={cssPropBefore}
+          after={cssPropAfter}>
           <cssProp.EmphasisText variant="primary">Compile</cssProp.EmphasisText>
         </Example>
       )}
       {shown === 'styled' && (
-        <Example variant="fixed" before={styledBefore} after={styledAfter}>
+        <Example
+          codeBackground={codeBackground}
+          variant="fixed"
+          before={styledBefore}
+          after={styledAfter}>
           <styledExamples.EmphasisText variant="default">
             Compile
           </styledExamples.EmphasisText>

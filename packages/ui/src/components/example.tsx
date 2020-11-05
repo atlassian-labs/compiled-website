@@ -7,6 +7,7 @@ interface ExampleProps {
   after: string;
   children: JSX.Element;
   variant?: 'fixed' | 'fluid';
+  codeBackground?: string;
 }
 
 const ExampleRoot = styled.div`
@@ -87,6 +88,7 @@ export const Example = ({
   before,
   after,
   children,
+  codeBackground,
   variant = 'fluid',
 }: ExampleProps) => {
   const [isShown, setIsShown] = useState(false);
@@ -100,12 +102,18 @@ export const Example = ({
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
         <CodeBlock
-          css={{ height: variant === 'fixed' ? '400px' : 'auto' }}
+          css={{
+            backgroundColor: codeBackground,
+            height: variant === 'fixed' ? '400px' : 'auto',
+          }}
           variant="sharp">
           {before}
         </CodeBlock>
         <CodeBlock
-          css={{ height: variant === 'fixed' ? '400px' : 'auto' }}
+          css={{
+            backgroundColor: codeBackground,
+            height: variant === 'fixed' ? '400px' : 'auto',
+          }}
           variant="sharp">
           {after}
         </CodeBlock>
