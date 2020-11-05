@@ -51,7 +51,7 @@ const ExampleButton = styled.button<{
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   padding: 1.5rem;
   border: none;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.75);
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
