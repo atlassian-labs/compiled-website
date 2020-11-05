@@ -61,7 +61,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
       <pre>
         <code
           css={{
-            color: 'rgba(255, 255, 255, 0.99)',
+            color: 'rgb(204, 204, 204)',
             fontSize: '16px',
             fontFamily: `'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`,
             position: 'relative',
