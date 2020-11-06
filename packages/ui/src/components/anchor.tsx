@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import '@compiled/core';
 import { Heading } from '@compiled/website-ui';
+import { colors } from '../utils';
 
 interface AnchorContextData {
   listen: (element: HTMLElement) => void;
@@ -96,7 +97,7 @@ export const ToAnchor = ({
     <Heading style={{ marginLeft: `${depth}rem` }} look="h500">
       <a
         css={{
-          color: context.selected === id ? '#7ab2c8' : 'currentColor',
+          color: context.selected === id ? colors.primary : 'currentColor',
           transition: 'color 100ms',
           textDecoration: 'none',
         }}

@@ -9,6 +9,7 @@ import {
   ScreenReaderText,
   Footer,
 } from '../components';
+import { primary } from '../utils/colors';
 
 interface RootProps {
   children: React.ReactNode;
@@ -24,7 +25,7 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   font-size: 16px;
 
   :hover {
-    color: #7ab2c8;
+    color: ${primary};
   }
 
   &&:last-child {

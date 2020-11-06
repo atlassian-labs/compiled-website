@@ -19,9 +19,9 @@ const StyledHeader = styled.header<{
   right: 0;
   margin: 0 auto;
   max-width: 140rem;
-  border-bottom: 2px solid
+  border-bottom: 1px solid
     ${(props) =>
-      props.variant === 'default' ? 'rgba(0, 0, 0, 0.1)' : 'transparent'};
+      props.variant === 'default' ? 'rgba(135, 119, 217, 0.2)' : 'transparent'};
   color: ${(props) => props.color};
 `;
 

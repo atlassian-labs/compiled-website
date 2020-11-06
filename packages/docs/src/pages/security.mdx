@@ -18,7 +18,14 @@ A `nonce` should resolve to a _unique_ secret that the server generates _every p
 
 ```json
 {
-  "plugins": [["@compiled/core/babel-plugin", { "nonce": "__webpack_nonce__" }]]
+  "plugins": [
+    [
+      "@compiled/core/babel-plugin",
+      {
+        "nonce": "__webpack_nonce__"
+      }
+    ]
+  ]
 }
 ```
 
@@ -34,7 +41,7 @@ On the server we need ensure that a `meta` tag in the `head` is set using the sa
 ```html
 <meta
   http-equiv="Content-Security-Policy"
-  content=" object-src 'none'; style-src 'nonce-k0Mp1lEd' <--- nonce used here
+  content="object-src 'none'; style-src 'nonce-k0Mp1lEd' <--- nonce used here
 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:; base-uri 'none';"
 />
 ```
@@ -61,7 +68,7 @@ The browser blocks them from being used and logs an error to the console.
 ## User input
 
 Because of the static nature of Compiled,
-we can't re-generate CSS at runtime which means as developers we're now just a little bit safer.
+we can't create CSS at runtime which means as developers we're now just a little bit safer.
 If we take user input and use it to do dynamic styling it's also pumped through React,
 so we get their sanitization for free.
 

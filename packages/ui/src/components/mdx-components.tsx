@@ -1,6 +1,11 @@
 import React from 'react';
 import { styled } from '@compiled/core';
-import { VerticalStack, Heading, CodeBlock } from '@compiled/website-ui';
+import {
+  VerticalStack,
+  Heading,
+  CodeBlock,
+  colors,
+} from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 import { MDXProviderComponentsProp } from '@mdx-js/react';
 import { Anchor } from './anchor';
@@ -14,7 +19,7 @@ const Quote = styled.blockquote`
   padding: 2rem 3rem;
   margin: 6rem -3rem;
   color: rgba(37, 56, 88, 0.7);
-  border-left: 3px solid #7ab2c8;
+  border-left: 3px solid ${colors.primary};
   background-color: #7ab2c814;
   opacity: 0.9;
 
@@ -85,7 +90,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
     href.startsWith('http') ? (
       <a
         href={href}
-        css={{ color: '#7ab2c8', textDecoration: 'none' }}
+        css={{ color: colors.primary, textDecoration: 'none' }}
         target="_blank"
         rel="noopener noreferrer"
         {...props}>
@@ -94,7 +99,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
     ) : (
       <Link
         to={href}
-        css={{ color: '#7ab2c8', textDecoration: 'none' }}
+        css={{ color: colors.primary, textDecoration: 'none' }}
         {...props}>
         {children}
       </Link>

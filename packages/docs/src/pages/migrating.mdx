@@ -5,11 +5,11 @@ name: Migrating to Compiled
 
 # Migrating to Compiled
 
-Make sure to follow [installation](/installation) first.
+Follow [installation](/installation) instructions before continuing.
 
 ## Styled Components
 
-eplace the imports with `@compiled/core`.
+Replace the imports with `@compiled/core`.
 
 ```diff
 -import styled from 'styled-components';
@@ -33,12 +33,11 @@ npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/styled-com
 ```
 
 Where `<path>` is the path to your source code.
-If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` call.
+If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` command.
 
 ## Emotion
 
-Replace the imports with `@compiled/core`,
-if you're using `@emotion/styled` the migration is the same from above.
+Replace the imports with `@compiled/core`.
 
 ```diff
 -/** @jsx jsx */
@@ -65,6 +64,21 @@ if you're using `@emotion/styled` the migration is the same from above.
 )
 ```
 
+```diff
+-import styled from '@emotion/styled';
++import { styled } from '@compiled/core';
+
+styled.div`
+  font-size: 12px;
+  color: ${props => props.color};
+`;
+
+styled.div({
+  fontSize: 12px,
+  color: props => props.color,
+});
+```
+
 There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
 
 ```bash
@@ -72,7 +86,7 @@ npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/emotion-to
 ```
 
 Where `<path>` is the path to your source code.
-If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` call.
+If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` command.
 
 ## Current limitations
 

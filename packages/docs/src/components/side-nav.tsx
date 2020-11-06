@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
 
   :hover {
     cursor: pointer;
-    color: ${() => colors.primary};
+    color: ${colors.primary};
   }
 
   :active {
@@ -41,9 +41,9 @@ const StyledLink = styled(Link)`
   }
 
   &[aria-current='page'] {
-    border-left: 0.375rem solid #7ab2c8;
-    padding-left: 2rem;
-    margin-left: -2.375rem;
+    border-left: 2px solid ${colors.primary};
+    padding-left: 10px;
+    margin-left: -12px;
   }
 `;
 

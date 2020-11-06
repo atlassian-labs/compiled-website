@@ -1,8 +1,108 @@
 ---
-section: 1-Getting started
+section: 2-Advanced
 name: Atomic CSS
 ---
 
 # Atomic CSS
 
-hello world
+If you're just getting started with Compiled you don't need to worry too much about how this all works.
+
+## What is it
+
+It is a method of writing CSS to reduce the total amount of defined styles by creating a single rule for every declaration.
+Typical CSS would look like:
+
+```css
+.button {
+  border: none;
+  font-size: 14px;
+  background-color: purple;
+  border-radius: 3px;
+}
+```
+
+When applied to a button:
+
+```html
+<button class="button">Hello world</button>
+```
+
+However when products scale to hundreds,
+even thousands of developers,
+defined styles can get wild,
+and very duplicated.
+
+If we take the same rule and change it to be atomic CSS:
+
+```css
+.b-none {
+  border: none;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.bgc-purple {
+  background-color: purple;
+}
+
+.br-3 {
+  border-radius: 3px;
+}
+```
+
+When applied to the same button:
+
+```html
+<button class="b-none fs-14 bgc-purple br-3">Hello world</button>
+```
+
+So then when other components end up defining similar styles,
+they end up using the same rules.
+
+```html
+<span class="fs-14">Text</span>
+```
+
+## Why is it useful
+
+The obvious benefit that atomic CSS enables is to re-use CSS rules and keep the total amount of defined CSS as small as possible.
+Interestingly it has also empowered Compiled to do more than just re-use CSS rules.
+
+### CSS cascade
+
+It turns out when every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
+you can instead encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade.
+
+If these two atomic rules:
+
+```css
+.color-blue {
+  color: blue;
+}
+.color-red {
+  color: red;
+}
+```
+
+There are two pieces of information we can use.
+
+1. The atomic group - in this case `color`
+1. The atomic value - in this case `blue` and `red`
+
+So it's just as simple as ensuing that only one atomic group can exists in an elements class name.
+We introduce a small utility to help with that,
+say a function called `ax`:
+
+```jsx
+<div className={ax(['color-blue color-red'] />
+```
+
+And then the final result becomes:
+
+```jsx
+<div class="color-red" />
+```
+
+The last atomic group defined wins.

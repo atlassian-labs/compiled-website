@@ -4,8 +4,10 @@ section: 2-Advanced
 
 # Server Side Rendering
 
-So you keep hearing "SSR is 0 config" - but what does that actually mean?
-Consumers of our components don't have to do anything to make it work.
+So you keep hearing "SSR is zero config" -
+but what does that actually mean?
+Put short -
+consumers of your components don't have to do anything to make it work.
 Just import and go.
 
 This is accomplished by inlining `style` elements in the server rendered markup,
@@ -31,7 +33,6 @@ so we end up with this on the client:
 
 The magic sauce though -
 is that if any of the same component is rendered multiple times only the _first_ element will have a matching `style` element.
-Saving precious Kb.
 
 <!-- prettier-ignore -->
 ```html
@@ -54,10 +55,10 @@ resulting in content being rendered to users faster.
 
 ## Selector workarounds
 
-So you've seen the error message in dev and you're supporting SSR so you can't let this message go.
-Let's go into a few _workarounds_.
+There are a few workarounds for the nth child type selector problems.
 
-> **Note** - Try to only use these workarounds if you can't think of an alternate implementation.
+> **Note** - Try to only use these workarounds if you can't think of an alternate implementation,
+> such as applying styles directly to the element you're interested in.
 
 ### First child
 

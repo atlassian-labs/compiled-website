@@ -11,6 +11,7 @@ import {
   HideSmall,
   Example,
   mdxComponents,
+  colors,
 } from '@compiled/website-ui';
 import { cssProp, styled as styledExamples } from '@compiled/website-examples';
 import { readFileSync } from 'fs';
@@ -156,7 +157,7 @@ npm i @compiled/core
         <a
           href="docs/installation"
           css={{
-            color: '#7ab2c8',
+            color: colors.primary,
             fontSize: '1.25em',
             textDecoration: 'none',
             textAlign: 'right',

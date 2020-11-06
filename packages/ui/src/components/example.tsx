@@ -1,6 +1,6 @@
 import { styled } from '@compiled/core';
 import React, { useState } from 'react';
-import { CodeBlock } from '@compiled/website-ui';
+import { CodeBlock, colors } from '@compiled/website-ui';
 
 interface ExampleProps {
   before: string;
@@ -58,10 +58,11 @@ const ExampleButton = styled.button<{
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
-  color: ${(props) => (props.isSelected ? '#7ab2c8' : 'rgba(37, 56, 88, 0.8)')};
+  color: ${(props) =>
+    props.isSelected ? colors.primary : 'rgba(37, 56, 88, 0.8)'};
 
   :hover {
-    color: #7ab2c8;
+    color: ${colors.primary};
   }
 `;
 
@@ -88,7 +89,7 @@ export const Example = ({
   before,
   after,
   children,
-  codeBackground,
+  codeBackground = 'rgb(37, 56, 88)',
   variant = 'fluid',
 }: ExampleProps) => {
   const [isShown, setIsShown] = useState(false);
@@ -128,7 +129,7 @@ export const Example = ({
           data-button
           isSelected={htmlShown}
           onClick={() => setHtmlShown((prev) => !prev)}>
-          HTML
+          View HTML
         </ExampleButton>
         <span
           css={{

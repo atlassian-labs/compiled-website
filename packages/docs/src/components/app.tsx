@@ -7,6 +7,7 @@ import {
   mdxComponents,
   ToAnchor,
   AnchorProvider,
+  colors,
 } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
@@ -184,7 +185,7 @@ export const App = () => {
                   <Link
                     to={`/${page.previous.slug}`}
                     css={{
-                      color: '#7ab2c8',
+                      color: colors.primary,
                       fontSize: '1.25em',
                       textDecoration: 'none',
                     }}>
@@ -210,7 +211,7 @@ export const App = () => {
                     data-next
                     to={`/${page.next.slug}`}
                     css={{
-                      color: '#7ab2c8',
+                      color: colors.primary,
                       fontSize: '1.25em',
                       textDecoration: 'none',
                       textAlign: 'right',
