@@ -14,7 +14,7 @@ export const CssPropObj = () => {
         __dirname + '../../../../examples/dist/js/css-prop-obj.js',
         'utf-8'
       )}>
-      <cssProp.CssPropObj color="#FF5630">Assemble</cssProp.CssPropObj>
+      <cssProp.CssPropObj color="#FF5630">Arrange</cssProp.CssPropObj>
     </Example>
   );
 };
@@ -30,9 +30,7 @@ export const CssPropString = () => {
         __dirname + '../../../../examples/dist/js/css-prop-string.js',
         'utf-8'
       )}>
-      <cssProp.CssPropString color="#FF5630">
-        Put together
-      </cssProp.CssPropString>
+      <cssProp.CssPropString color="#FF5630">Sort out</cssProp.CssPropString>
     </Example>
   );
 };
@@ -48,7 +46,7 @@ export const CssPropDynamic = () => {
         __dirname + '../../../../examples/dist/js/css-prop-dynamic-decl.js',
         'utf-8'
       )}>
-      <cssProp.CssPropDynamic primary>Make up</cssProp.CssPropDynamic>
+      <cssProp.CssPropDynamic primary>Systematize</cssProp.CssPropDynamic>
     </Example>
   );
 };
@@ -67,7 +65,7 @@ export const CssPropCompositionCorrect = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionCorrect color="pink">
-        Pink text
+        This text is pink
       </cssProp.CssPropCompositionCorrect>
     </Example>
   );
@@ -87,7 +85,7 @@ export const CssPropCompositionIncorrect = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionIncorrect color="pink">
-        Will be incorrectly blue
+        This text is incorrectly blue
       </cssProp.CssPropCompositionIncorrect>
     </Example>
   );
@@ -107,7 +105,7 @@ export const CssPropCompositionNoStyle = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionNoStyle color="pink">
-        CSS variable value will not be set
+        CSS variable value not be set as falls back to body color
       </cssProp.CssPropCompositionNoStyle>
     </Example>
   );

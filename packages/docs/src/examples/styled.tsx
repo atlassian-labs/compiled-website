@@ -63,7 +63,7 @@ export const StyledTransientProps = () => {
         'utf-8'
       )}>
       <styled.TransientProps $color="red" color="black">
-        Organize
+        Collate
       </styled.TransientProps>
     </Example>
   );
@@ -80,7 +80,7 @@ export const StyledAsProp = () => {
         __dirname + '../../../../examples/dist/js/styled-as-prop.js',
         'utf-8'
       )}>
-      <styled.StyledAsProp as="span">Organize</styled.StyledAsProp>
+      <styled.StyledAsProp as="span">Marshal</styled.StyledAsProp>
     </Example>
   );
 };
