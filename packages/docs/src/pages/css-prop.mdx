@@ -5,8 +5,12 @@ name: CSS Prop
 ---
 
 import {
-  CssPropExample,
-  CssPropTemplateLiteralExample,
+  CssPropObj,
+  CssPropString,
+  CssPropDynamic,
+  CssPropCompositionCorrect,
+  CssPropCompositionIncorrect,
+  CssPropCompositionNoStyle,
 } from '../examples/css-prop';
 
 # CSS Prop
@@ -14,11 +18,17 @@ import {
 Useful when wanting more control over your component.
 [Styled](/styled) can be used when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
 
-<CssPropExample />
+<CssPropObj />
 
 <br />
 
-<CssPropTemplateLiteralExample />
+<CssPropString />
+
+## Dynamic rules
+
+Powered behind the scenes by CSS variables.
+
+<CssPropDynamic />
 
 ## Composition gotchas
 
@@ -28,22 +38,19 @@ When composing styles from a parent component passed down as a `className` make 
 
 The `className` and `style` props are explicitly defined so dynamic rules work.
 
-```jsx
-live example here
-```
+<CssPropCompositionCorrect />
 
 ### Spread pops
 
 The overflow `props` are spread onto the element so the composed styles are not applied.
 
-```jsx
-live example here
-```
+<CssPropCompositionIncorrect />
 
 ### Missing style
 
 The `style` prop is missing so dynamic rules don't work.
+The color declaration has been set but the CSS variable has not,
+so it falls back to `--_kmurgp has not been set` and then looks for the closest parent `color`.
+In this case it receives the `body` color value.
 
-```jsx
-live example here
-```
+<CssPropCompositionNoStyle />

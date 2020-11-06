@@ -3,9 +3,8 @@ section: 2-Advanced
 ---
 
 import {
-  CompositionObject,
-  CompositionOrder,
-  CompositionImports,
+  CompositionIdentifier,
+  CompositionMultiple,
 } from '../examples/composition';
 
 # Composition
@@ -19,9 +18,9 @@ Compiled eliminates cascade gotchas.
 Regardless of composing from a parent or child component,
 the last CSS property defined wins.
 
-<CompositionImports />
+<CompositionIdentifier />
 
 When composing styles together it's important to remember that the last defined style will win.
 In this example we can see that in action.
 
-<CompositionOrder />
+<CompositionMultiple />

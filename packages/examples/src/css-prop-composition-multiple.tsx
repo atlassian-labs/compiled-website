@@ -1,5 +1,6 @@
 import React from 'react';
 import '@compiled/core';
+import { basebase } from './mixins';
 
 const danger = {
   color: 'red',
@@ -11,7 +12,7 @@ const base = {
   backgroundColor: 'rgba(0, 0, 0, 0.05)',
 };
 
-export const CompositionOrder = () => {
+export const CompositionMultiple = () => {
   return (
     <div>
       <div css={base}>This is hot pink.</div>

@@ -4,10 +4,12 @@ section: 1-Getting started
 ---
 
 import {
-  StyledExample,
-  StyledInvalidExample,
+  StyledString,
+  StyledObj,
   StyledTransientProps,
-  StyledObjectExample,
+  StyledDynamic,
+  StyledAsProp,
+  StyledComposition,
 } from '../examples/styled';
 
 # Styled
@@ -15,11 +17,7 @@ import {
 Useful when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
 [CSS prop](/css-prop) can be used when wanting more control over your component.
 
-<StyledExample />
-
-<br />
-
-<StyledObjectExample />
+<StyledString />
 
 ## Dynamic rules
 
@@ -28,9 +26,9 @@ Any props that are valid HTML attributes will be passed down to the underlying D
 otherwise they will be ignored.
 
 This example shows that behavior -
-if you click on the `HTML` button you will see the `isActive` prop has not been passed through.
+if you click on the `HTML` button you will see the `primary` prop has not been passed through.
 
-<StyledInvalidExample />
+<StyledDynamic />
 
 > **Remember** - It's all done at build time.
 > No cost is paid at runtime to check if the prop is a valid HTML attribute.
@@ -52,9 +50,7 @@ The `as` prop can be used to change it at runtime.
 
 This example shows a `h1` element being set to a `span`.
 
-```tsx
-better example here
-```
+<StyledAsProp />
 
 ## Composing components
 
@@ -62,9 +58,7 @@ Wrap an already defined component to define extra styles onto it.
 Parent styles will override child styles,
 assuming they're both styled with Compiled.
 
-```jsx
-better example here
-```
+<StyledComposition />
 
 ## Types
 

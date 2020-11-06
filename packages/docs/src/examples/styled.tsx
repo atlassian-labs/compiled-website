@@ -3,52 +3,50 @@ import { readFileSync } from 'fs';
 import { styled } from '@compiled/website-examples';
 import { Example } from '@compiled/website-ui';
 
-export const StyledExample = () => {
+export const StyledObj = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled.js',
+        __dirname + '../../../../examples/dist/jsx/styled-obj.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/js/styled.js',
+        __dirname + '../../../../examples/dist/js/styled-obj.js',
         'utf-8'
       )}>
-      <styled.ColoredText color="#FF5630">
-        The Road Not Taken
-      </styled.ColoredText>
+      <styled.StyledObj>Assemble</styled.StyledObj>
     </Example>
   );
 };
 
-export const StyledInvalidExample = () => {
+export const StyledString = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
+        __dirname + '../../../../examples/dist/jsx/styled-string.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/js/styled-invalid.js',
+        __dirname + '../../../../examples/dist/js/styled-string.js',
         'utf-8'
       )}>
-      <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
+      <styled.StyledString>Put together</styled.StyledString>
     </Example>
   );
 };
 
-export const StyledObjectExample = () => {
+export const StyledDynamic = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/styled-object.js',
+        __dirname + '../../../../examples/dist/jsx/css-prop-dynamic-decl.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/js/styled-object.js',
+        __dirname + '../../../../examples/dist/js/css-prop-dynamic-decl.js',
         'utf-8'
       )}>
-      <styled.EmphasisText massive>Ode to a Nightingale</styled.EmphasisText>
+      <styled.StyledDynamic primary>Make up</styled.StyledDynamic>
     </Example>
   );
 };
@@ -65,8 +63,40 @@ export const StyledTransientProps = () => {
         'utf-8'
       )}>
       <styled.TransientProps $color="red" color="black">
-        Graf Nulin
+        Organize
       </styled.TransientProps>
+    </Example>
+  );
+};
+
+export const StyledAsProp = () => {
+  return (
+    <Example
+      before={readFileSync(
+        __dirname + '../../../../examples/dist/jsx/styled-as-prop.js',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname + '../../../../examples/dist/js/styled-as-prop.js',
+        'utf-8'
+      )}>
+      <styled.StyledAsProp as="span">Organize</styled.StyledAsProp>
+    </Example>
+  );
+};
+
+export const StyledComposition = () => {
+  return (
+    <Example
+      before={readFileSync(
+        __dirname + '../../../../examples/dist/jsx/styled-composition.js',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname + '../../../../examples/dist/js/styled-composition.js',
+        'utf-8'
+      )}>
+      <styled.StyledComposition>Organize</styled.StyledComposition>
     </Example>
   );
 };

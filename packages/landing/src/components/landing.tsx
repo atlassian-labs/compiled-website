@@ -18,20 +18,20 @@ import { readFileSync } from 'fs';
 import { MDXProvider } from '@mdx-js/react';
 
 const cssPropBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/css-prop.js',
+  __dirname + '../../../../examples/dist/jsx/css-prop-button.js',
   'utf-8'
 );
 const cssPropAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/css-prop.js',
+  __dirname + '../../../../examples/dist/js/css-prop-button.js',
   'utf-8'
 );
 
 const styledBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/styled-invalid.js',
+  __dirname + '../../../../examples/dist/jsx/styled-button.js',
   'utf-8'
 );
 const styledAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/styled-invalid.js',
+  __dirname + '../../../../examples/dist/js/styled-button.js',
   'utf-8'
 );
 const LandingPageContent = require('../pages/landing-content.mdx').default;
@@ -96,7 +96,7 @@ const CodeExamples = () => {
           variant="fixed"
           before={cssPropBefore}
           after={cssPropAfter}>
-          <cssProp.EmphasisText variant="primary">Compile</cssProp.EmphasisText>
+          <cssProp.Button variant="primary">Compile</cssProp.Button>
         </Example>
       )}
       {shown === 'styled' && (
@@ -105,9 +105,9 @@ const CodeExamples = () => {
           variant="fixed"
           before={styledBefore}
           after={styledAfter}>
-          <styledExamples.EmphasisText variant="default">
+          <styledExamples.Button variant="default">
             Compile
-          </styledExamples.EmphasisText>
+          </styledExamples.Button>
         </Example>
       )}
     </div>
