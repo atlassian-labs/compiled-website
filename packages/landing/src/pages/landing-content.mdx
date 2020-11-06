@@ -6,30 +6,15 @@ style the same way you currently do except now it's faster at runtime.
 ```jsx
 import '@compiled/core';
 
-export const Button = ({ children, variant }) => {
-  const bgColor = variant === 'primary' ? '#6554C0' : 'rgba(9, 30, 66, 0.04)';
-  const hoverBgColor =
-    variant === 'primary' ? '#8777D9' : 'rgba(9, 30, 66, 0.08)';
-  const fontColor = variant === 'primary' ? '#fff' : 'rgb(66, 82, 110)';
-
-  return (
-    <button
-      type="button"
-      css={{
-        borderRadius: 3,
-        padding: '8px 10px',
-        backgroundColor: bgColor,
-        color: fontColor,
-        fontSize: 14,
-        fontWeight: 400,
-        ':hover': {
-          backgroundColor: hoverBgColor,
-        },
-      }}>
-      {children}
-    </button>
-  );
-};
+export const LargeHotPinkText = ({ children }) => (
+  <span
+    css={{
+      color: 'red',
+      fontSize: 48,
+    }}>
+    {children}
+  </span>
+);
 ```
 
 [Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
@@ -61,11 +46,9 @@ you can use it without needing to configure your bundler.
 [Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
 
 ```jsx
-import { Button } from '@catlaskit/button';
+import { LargeHotPinkText } from '@text/components';
 
-const Issue = () => {
-  return <Button variant="primary">Create</Button>;
-};
+<LargeHotPinkText>Hello world</LargeHotPinkText>;
 ```
 
 ## Extract
@@ -87,35 +70,11 @@ $ parcel build
 Atomic style sheet is generated.
 
 ```css
-._1wybdlk8 {
-  font-size: 14px;
+._1wybfyhu {
+  font-size: 48px;
 }
-._k48p1nn1 {
-  font-weight: 400;
-}
-._syaz1mor {
-  color: var(--_x01hj3);
-}
-._bfhkbs0x {
-  background-color: var(--_1w9snyi);
-}
-._19bv19bv {
-  padding-left: 10px;
-}
-._u5f319bv {
-  padding-right: 10px;
-}
-._2rko1l7b {
-  border-radius: 3px;
-}
-._n3tdftgi {
-  padding-bottom: 8px;
-}
-._ca0qftgi {
-  padding-top: 8px;
-}
-._irr310iv:hover {
-  background-color: var(--_cnrjhi);
+._syaz1q9v {
+  color: hotpink;
 }
 ```
 
@@ -126,27 +85,14 @@ Style declarations,
 ```jsx
 import React from 'react';
 
-export const Button = ({ children, variant }) => {
-  const bgColor = variant === 'primary' ? '#6554C0' : '#DFE1E6';
-  const activeBgColor = variant === 'primary' ? '#5243AA' : '#DFE1E6';
-  const hoverBgColor = variant === 'primary' ? '#8777D9' : '#DFE1E6';
-  const fontColor = variant === 'primary' ? '#fff' : '#DFE1E6';
-
-  return React.createElement(
-    'button',
+export const LargeHotPinkText = ({ children }) =>
+  React.createElement(
+    'span',
     {
-      type: 'button',
-      className:
-        '_2rko1l7b _ca0qftgi _n3tdftgi _19bv19bv _bfhkbs0x _syaz1mor _k48p1nn1 _1wybdlk8 _irr310iv',
-      style: {
-        '--_1w9snyi': bgColor,
-        '--_x01hj3': fontColor,
-        '--_cnrjhi': hoverBgColor,
-      },
+      className: '_1wybfyhu _syaz1q9v',
     },
     children
   );
-};
 ```
 
 Extract to atomic CSS will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

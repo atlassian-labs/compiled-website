@@ -127,9 +127,7 @@ export default () => (
                 maxWidth: '75%',
                 display: 'block',
               }}>
-              <HideSmall>
-                Build time atomic CSS in JS without the runtime cost.{' '}
-              </HideSmall>
+              <HideSmall>Build time atomic CSS in JS. </HideSmall>
               Bake, consume, extract. Everywhere.
             </span>
           </Heading>
