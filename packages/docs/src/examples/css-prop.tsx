@@ -105,7 +105,7 @@ export const CssPropCompositionNoStyle = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionNoStyle color="pink">
-        CSS variable value not be set as falls back to body color
+        CSS variable value not be set, fall back to body color
       </cssProp.CssPropCompositionNoStyle>
     </Example>
   );

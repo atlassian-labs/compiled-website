@@ -60,6 +60,8 @@ const ExampleButton = styled.button<{
   font-weight: 600;
   color: ${(props) =>
     props.isSelected ? colors.primary : 'rgba(37, 56, 88, 0.8)'};
+  margin: 0;
+  outline: none;
 
   :hover {
     color: ${colors.primary};
