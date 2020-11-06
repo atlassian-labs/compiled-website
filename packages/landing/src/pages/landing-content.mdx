@@ -1,7 +1,6 @@
 ## Bake
 
-Write your styles in JavaScript,
-next to where they're needed most.
+Write your styles in JavaScript next to where they're needed most.
 
 ```jsx
 import '@compiled/core';
@@ -20,7 +19,7 @@ export const LargeHotPinkText = ({ children }) => (
 [Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
 [Webpack](https://webpack.js.org/),
 [Parcel](https://parceljs.org/),
-or any other bundler that supports Babel.
+or any other tool that supports Babel.
 
 ```json
 {
@@ -39,11 +38,8 @@ everything is _baked in_.
 ## Consume
 
 Import and go!
-It could be published to [NPM](https://npmjs.com/),
-defined in your application,
-or even in a rogue Github repo.
-Wherever it is -
-anyone can use it without needing to configure their bundler.
+It could be published to [NPM](https://npmjs.com/) or defined in your application.
+Wherever it is anyone can use it without needing to configure their bundler.
 [Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
 
 ```jsx
@@ -54,12 +50,11 @@ import { LargeHotPinkText } from '@text/components';
 
 ## Extract
 
-Turn on a bundler plugin,
-and when bundling your app it will find every component styled with Compiled,
+Turn on a bundler plugin and when bundling your app it will find every component styled with Compiled,
 from [NPM](https://npmjs.com/),
-in your application,
-or anywhere else,
-and extract all of their styles to a single,
+in your app,
+or elsewhere,
+and extract all of found styles to a single,
 [atomic style sheet](https://css-tricks.com/lets-define-exactly-atomic-css/#longhand-shorthand).
 
 ```bash
@@ -79,9 +74,9 @@ $ parcel build
 }
 ```
 
-2. All style declarations,
+2. All style rules,
    `<CC>`, and
-   `<CS>` components are removed from your source code
+   `<CS>` components are removed from your JavaScript bundle.
 
 ```jsx
 import React from 'react';
@@ -96,4 +91,6 @@ export const LargeHotPinkText = ({ children }) =>
   );
 ```
 
-Extract to atomic CSS will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
+It's time to empower our entire ecosystem to extract!
+Not just focus on a single app.
+Extracting to an atomic style sheet will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

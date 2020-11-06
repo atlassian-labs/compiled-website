@@ -130,6 +130,7 @@ export const Example = ({
         <ExampleButton
           data-button
           isSelected={htmlShown}
+          aria-pressed={htmlShown}
           onClick={() => setHtmlShown((prev) => !prev)}>
           View HTML
         </ExampleButton>

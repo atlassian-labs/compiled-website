@@ -50,7 +50,7 @@ const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
         padding: '8px 12px',
         margin: 0,
         cursor: 'pointer',
-        opacity: props['aria-selected'] ? 0.9 : 0.5,
+        opacity: props['aria-pressed'] ? 0.9 : 0.5,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
         ':hover, :focus': {
@@ -59,7 +59,7 @@ const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
         backgroundColor: 'transparent',
         border: 'none',
         '&&& *': {
-          color: props['aria-selected']
+          color: props['aria-pressed']
             ? 'rgba(255, 255, 255, 0.99)'
             : 'rgba(255, 255, 255, 0.75)',
         },
@@ -79,13 +79,11 @@ const CodeExamples = () => {
 
   return (
     <div>
-      <TabButton
-        aria-selected={shown === 'css'}
-        onClick={() => setShown('css')}>
+      <TabButton aria-pressed={shown === 'css'} onClick={() => setShown('css')}>
         Css prop
       </TabButton>
       <TabButton
-        aria-selected={shown === 'styled'}
+        aria-pressed={shown === 'styled'}
         onClick={() => setShown('styled')}>
         Styled component
       </TabButton>
@@ -139,7 +137,7 @@ export default () => (
         <Content>
           <Terminal language="bash">
             {`
-npm i @compiled/core
+npm install @compiled/core --save
 `}
           </Terminal>
         </Content>

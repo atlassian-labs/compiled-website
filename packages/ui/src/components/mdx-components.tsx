@@ -90,7 +90,11 @@ export const mdxComponents: MDXProviderComponentsProp = {
     href.startsWith('http') ? (
       <a
         href={href}
-        css={{ color: colors.primary, textDecoration: 'none' }}
+        css={{
+          color: colors.primary,
+          textDecoration: 'none',
+          ':hover': { textDecoration: 'underline' },
+        }}
         target="_blank"
         rel="noopener noreferrer"
         {...props}>
@@ -99,7 +103,11 @@ export const mdxComponents: MDXProviderComponentsProp = {
     ) : (
       <Link
         to={href}
-        css={{ color: colors.primary, textDecoration: 'none' }}
+        css={{
+          color: colors.primary,
+          textDecoration: 'none',
+          ':hover': { textDecoration: 'underline' },
+        }}
         {...props}>
         {children}
       </Link>
