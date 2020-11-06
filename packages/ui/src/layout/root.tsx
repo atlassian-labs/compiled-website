@@ -25,7 +25,7 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   font-size: 16px;
 
   :hover {
-    text-decoration: underline;
+    text-decoration: underline currentColor;
   }
 
   &&:last-child {
