@@ -77,6 +77,7 @@ const ExampleContainer = styled.div`
   z-index: 1;
   position: relative;
   padding: 0.5rem;
+  min-height: 65px;
   background-image: linear-gradient(45deg, #f4f5f7 25%, transparent 25%),
     linear-gradient(-45deg, #f4f5f7 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #f4f5f7 75%),
@@ -146,10 +147,9 @@ export const Example = ({
               pointerEvents: htmlShown ? 'auto' : 'none',
               transition: 'opacity 50ms',
               position: 'absolute',
-              top: 10,
-              left: 10,
+              top: 5,
+              left: 5,
               maxWidth: 'calc(100% - 140px)',
-              minHeight: '100%',
             }}>
             <CodeBlock>{exampleCode}</CodeBlock>
           </span>
