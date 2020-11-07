@@ -6,6 +6,7 @@ import { Example } from '@compiled/website-ui';
 export const CssPropObj = () => {
   return (
     <Example
+      exampleCode="<EmphasisText>Arrange</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/css-prop-obj.js',
         'utf-8'
@@ -14,7 +15,7 @@ export const CssPropObj = () => {
         __dirname + '../../../../examples/dist/js/css-prop-obj.js',
         'utf-8'
       )}>
-      <cssProp.CssPropObj color="#FF5630">Arrange</cssProp.CssPropObj>
+      <cssProp.CssPropObj>Arrange</cssProp.CssPropObj>
     </Example>
   );
 };
@@ -22,6 +23,7 @@ export const CssPropObj = () => {
 export const CssPropString = () => {
   return (
     <Example
+      exampleCode="<EmphasisText>Sort out</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/css-prop-string.js',
         'utf-8'
@@ -30,7 +32,7 @@ export const CssPropString = () => {
         __dirname + '../../../../examples/dist/js/css-prop-string.js',
         'utf-8'
       )}>
-      <cssProp.CssPropString color="#FF5630">Sort out</cssProp.CssPropString>
+      <cssProp.CssPropString>Sort out</cssProp.CssPropString>
     </Example>
   );
 };
@@ -38,6 +40,7 @@ export const CssPropString = () => {
 export const CssPropDynamic = () => {
   return (
     <Example
+      exampleCode="<EmphasisText primary>Systematize</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/css-prop-dynamic-decl.js',
         'utf-8'
@@ -54,6 +57,9 @@ export const CssPropDynamic = () => {
 export const CssPropCompositionCorrect = () => {
   return (
     <Example
+      exampleCode={
+        '<CustomColorText color="pink">This text is pink</CustomColorText>'
+      }
       before={readFileSync(
         __dirname +
           '../../../../examples/dist/jsx/css-prop-composition-correct.js',
@@ -74,6 +80,9 @@ export const CssPropCompositionCorrect = () => {
 export const CssPropCompositionIncorrect = () => {
   return (
     <Example
+      exampleCode={
+        '<CustomColorText color="pink">This text should be pink</CustomColorText>'
+      }
       before={readFileSync(
         __dirname +
           '../../../../examples/dist/jsx/css-prop-composition-incorrect.js',
@@ -85,7 +94,7 @@ export const CssPropCompositionIncorrect = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionIncorrect color="pink">
-        This text is incorrectly blue
+        This text should be pink
       </cssProp.CssPropCompositionIncorrect>
     </Example>
   );
@@ -94,6 +103,9 @@ export const CssPropCompositionIncorrect = () => {
 export const CssPropCompositionNoStyle = () => {
   return (
     <Example
+      exampleCode={
+        '<CustomColorText color="pink">This text should be pink</CustomColorText>'
+      }
       before={readFileSync(
         __dirname +
           '../../../../examples/dist/jsx/css-prop-composition-no-style.js',
@@ -105,7 +117,7 @@ export const CssPropCompositionNoStyle = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionNoStyle color="pink">
-        CSS variable value not be set, fall back to body color
+        This text should be pink
       </cssProp.CssPropCompositionNoStyle>
     </Example>
   );

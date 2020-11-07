@@ -6,6 +6,7 @@ import { Example } from '@compiled/website-ui';
 export const StyledObj = () => {
   return (
     <Example
+      exampleCode="<ColoredText>Assemble</ColoredText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/styled-obj.js',
         'utf-8'
@@ -22,6 +23,7 @@ export const StyledObj = () => {
 export const StyledString = () => {
   return (
     <Example
+      exampleCode="<ColoredText>Put together</ColoredText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/styled-string.js',
         'utf-8'
@@ -38,12 +40,13 @@ export const StyledString = () => {
 export const StyledDynamic = () => {
   return (
     <Example
+      exampleCode="<EmphasisText primary>Make up</EmphasisText>"
       before={readFileSync(
-        __dirname + '../../../../examples/dist/jsx/css-prop-dynamic-decl.js',
+        __dirname + '../../../../examples/dist/jsx/styled-dynamic-decl.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/js/css-prop-dynamic-decl.js',
+        __dirname + '../../../../examples/dist/js/styled-dynamic-decl.js',
         'utf-8'
       )}>
       <styled.StyledDynamic primary>Make up</styled.StyledDynamic>
@@ -54,6 +57,9 @@ export const StyledDynamic = () => {
 export const StyledTransientProps = () => {
   return (
     <Example
+      exampleCode={
+        '<TransientProps $color="red" color="black">Collate</TransientProps>'
+      }
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/styled-transient-props.js',
         'utf-8'
@@ -72,6 +78,7 @@ export const StyledTransientProps = () => {
 export const StyledAsProp = () => {
   return (
     <Example
+      exampleCode={'<Heading as="span">Marshal</Heading>'}
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/styled-as-prop.js',
         'utf-8'
@@ -88,6 +95,7 @@ export const StyledAsProp = () => {
 export const StyledComposition = () => {
   return (
     <Example
+      exampleCode={'<BlueText>This text is blue</BlueText>'}
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/styled-composition.js',
         'utf-8'
@@ -96,7 +104,7 @@ export const StyledComposition = () => {
         __dirname + '../../../../examples/dist/js/styled-composition.js',
         'utf-8'
       )}>
-      <styled.StyledComposition>Organize</styled.StyledComposition>
+      <styled.StyledComposition>This text is blue</styled.StyledComposition>
     </Example>
   );
 };

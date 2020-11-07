@@ -42,15 +42,22 @@ const TerminalStripe = styled.div`
   background-color: ${codeBackground};
 `;
 
-const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
+const TabButton = (props: {
+  children: React.ReactNode;
+  onClick: any;
+  isSelected: boolean;
+  id: string;
+}) => {
   return (
     <button
       {...props}
+      aria-selected={props.isSelected}
+      role="tab"
       css={{
         padding: '8px 12px',
         margin: 0,
         cursor: 'pointer',
-        opacity: props['aria-pressed'] ? 0.9 : 0.5,
+        opacity: props.isSelected ? 0.9 : 0.5,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
         ':hover, :focus': {
@@ -59,7 +66,7 @@ const TabButton = (props: { children: React.ReactNode; onClick: any }) => {
         backgroundColor: 'transparent',
         border: 'none',
         '&&& *': {
-          color: props['aria-pressed']
+          color: props.isSelected
             ? 'rgba(255, 255, 255, 0.99)'
             : 'rgba(255, 255, 255, 0.75)',
         },
@@ -79,34 +86,44 @@ const CodeExamples = () => {
 
   return (
     <div>
-      <TabButton aria-pressed={shown === 'css'} onClick={() => setShown('css')}>
+      <TabButton
+        id="css-tab"
+        aria-controls="css-example"
+        isSelected={shown === 'css'}
+        onClick={() => setShown('css')}>
         Css prop
       </TabButton>
       <TabButton
-        aria-pressed={shown === 'styled'}
+        id="styled-tab"
+        aria-controls="styled-example"
+        isSelected={shown === 'styled'}
         onClick={() => setShown('styled')}>
         Styled component
       </TabButton>
 
       {shown === 'css' && (
-        <Example
-          codeBackground={codeBackground}
-          variant="fixed"
-          before={cssPropBefore}
-          after={cssPropAfter}>
-          <cssProp.Button variant="primary">Compile</cssProp.Button>
-        </Example>
+        <div id="css-example" role="tabpanel" aria-labelledby="css-tab">
+          <Example
+            codeBackground={codeBackground}
+            variant="fixed"
+            exampleCode="<Button>Button</Button>"
+            before={cssPropBefore}
+            after={cssPropAfter}>
+            <cssProp.Button>Button</cssProp.Button>
+          </Example>
+        </div>
       )}
       {shown === 'styled' && (
-        <Example
-          codeBackground={codeBackground}
-          variant="fixed"
-          before={styledBefore}
-          after={styledAfter}>
-          <styledExamples.Button variant="default">
-            Compile
-          </styledExamples.Button>
-        </Example>
+        <div id="styled-example" role="tabpanel" aria-labelledby="styled-tab">
+          <Example
+            codeBackground={codeBackground}
+            variant="fixed"
+            exampleCode="<Button>Button</Button>"
+            before={styledBefore}
+            after={styledAfter}>
+            <styledExamples.Button>Button</styledExamples.Button>
+          </Example>
+        </div>
       )}
     </div>
   );
@@ -117,7 +134,7 @@ export default () => (
     <Hero>
       <Content>
         <HeaderSpacing aria-hidden="true" />
-        <VerticalStack spacing={12} gap={3}>
+        <VerticalStack gap={3}>
           <Heading look="h100">
             <span
               css={{
@@ -133,7 +150,7 @@ export default () => (
         </VerticalStack>
       </Content>
 
-      <TerminalStripe>
+      <TerminalStripe css={{ marginTop: '10rem' }}>
         <Content>
           <Terminal language="bash">
             {`

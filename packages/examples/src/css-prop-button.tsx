@@ -1,14 +1,7 @@
 import React from 'react';
 import '@compiled/core';
 
-export const Button = ({ children, variant }) => {
-  const bgColor = variant === 'primary' ? '#6554C0' : 'rgba(9, 30, 66, 0.04)';
-  const activeBgColor =
-    variant === 'primary' ? '#5243AA' : 'rgba(179, 212, 255, 0.6)';
-  const hoverBgColor =
-    variant === 'primary' ? '#8777D9' : 'rgba(9, 30, 66, 0.08)';
-  const fontColor = variant === 'primary' ? '#fff' : 'rgb(66, 82, 110)';
-
+export const Button = ({ children }) => {
   return (
     <button
       type="button"
@@ -16,16 +9,16 @@ export const Button = ({ children, variant }) => {
         border: 'none',
         borderRadius: 3,
         padding: '8px 10px',
-        backgroundColor: bgColor,
-        color: fontColor,
+        backgroundColor: '#6554C0',
+        color: '#fff',
         fontWeight: 400,
         fontFamily: 'inherit',
         fontSize: 14,
         ':hover': {
-          backgroundColor: hoverBgColor,
+          backgroundColor: '#8777D9',
         },
         ':active': {
-          backgroundColor: activeBgColor,
+          backgroundColor: '#5243AA',
         },
       }}>
       {children}

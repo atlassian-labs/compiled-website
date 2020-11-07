@@ -8,7 +8,7 @@ import '@compiled/core';
 export const LargeHotPinkText = ({ children }) => (
   <span
     css={{
-      color: 'red',
+      color: 'hotpink',
       fontSize: 48,
     }}>
     {children}
@@ -32,6 +32,21 @@ $ babel src
 Successfully compiled 1 file with Babel (9ms)
 ```
 
+```jsx
+import { CC, CS } from '@compiled/core';
+
+const _2 = '._syaz1q9v{color: hotpink}';
+const _ = '._1wybfyhu{font-size: 48px;}';
+
+export const LargeHotPinkText = ({ children }) =>
+  React.createElement(
+    CC,
+    null,
+    React.createElement(CS, null, [_, _2]),
+    React.createElement('span', { className: '_syaz1q9v _1wybfyhu' }, children)
+  );
+```
+
 You now have a component that can be used by anyone without needing to configure their bundler,
 everything is _baked in_.
 
@@ -39,8 +54,8 @@ everything is _baked in_.
 
 Import and go!
 It could be published to [NPM](https://npmjs.com/) or defined in your application.
-Wherever it is anyone can use it without needing to configure their bundler.
-[Server side rendering](https://reactjs.org/docs/react-dom-server.html) included!
+No matter how its used because everything is baked no bundler configuration is needed,
+[server side rendering](https://reactjs.org/docs/react-dom-server.html) included.
 
 ```jsx
 import { LargeHotPinkText } from '@text/components';
@@ -91,6 +106,11 @@ export const LargeHotPinkText = ({ children }) =>
   );
 ```
 
-It's time to empower our entire ecosystem to extract!
-Not just focus on a single app.
+> It's recommended to only extract to CSS in applications.
+> Shipping a component library or design system?
+> Keep it baked in and then get your consumers to extract!
+
+Let's empower the JavaScript community to extract all styles!
+No longer just focusing on our single app,
+but the entire ecosystem.
 Extracting to an atomic style sheet will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

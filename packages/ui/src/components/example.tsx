@@ -8,6 +8,7 @@ interface ExampleProps {
   children: JSX.Element;
   variant?: 'fixed' | 'fluid';
   codeBackground?: string;
+  exampleCode?: string;
 }
 
 const ExampleRoot = styled.div`
@@ -47,6 +48,7 @@ const ExampleButton = styled.button<{
   fullWidth?: boolean;
   isSelected?: boolean;
 }>`
+  flex-shrink: 0;
   border-radius: 5px 5px 0 0;
   display: block;
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
@@ -93,10 +95,10 @@ export const Example = ({
   children,
   codeBackground = 'rgb(37, 56, 88)',
   variant = 'fluid',
+  exampleCode,
 }: ExampleProps) => {
   const [isShown, setIsShown] = useState(false);
   const [htmlShown, setHtmlShown] = useState(false);
-  const [html, setHtml] = useState('');
 
   return (
     <ExampleRoot>
@@ -121,33 +123,37 @@ export const Example = ({
           {after}
         </CodeBlock>
       </ExampleSwitcher>
+
       <ExampleContainer>
         <span
-          css={{ display: 'flex', padding: '1.5rem', alignItems: 'center' }}
-          ref={(ref) => (ref ? setHtml(ref.innerHTML) : '')}>
+          css={{ display: 'flex', padding: '1.5rem', alignItems: 'center' }}>
           {children}
         </span>
-        <ExampleButton
-          data-button
-          isSelected={htmlShown}
-          aria-pressed={htmlShown}
-          onClick={() => setHtmlShown((prev) => !prev)}>
-          View HTML
-        </ExampleButton>
-        <span
-          css={{
-            opacity: htmlShown ? 1 : 0,
-            pointerEvents: htmlShown ? 'auto' : 'none',
-            paddingTop: '2rem',
-            transition: 'opacity 50ms',
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            minHeight: '100%',
-          }}>
-          <CodeBlock>{html}</CodeBlock>
-        </span>
+        {exampleCode && (
+          <ExampleButton
+            data-button
+            isSelected={htmlShown}
+            aria-pressed={htmlShown}
+            onClick={() => setHtmlShown((prev) => !prev)}>
+            View JSX Markup
+          </ExampleButton>
+        )}
+
+        {exampleCode && (
+          <span
+            css={{
+              opacity: htmlShown ? 1 : 0,
+              pointerEvents: htmlShown ? 'auto' : 'none',
+              transition: 'opacity 50ms',
+              position: 'absolute',
+              top: 10,
+              left: 10,
+              maxWidth: 'calc(100% - 140px)',
+              minHeight: '100%',
+            }}>
+            <CodeBlock>{exampleCode}</CodeBlock>
+          </span>
+        )}
       </ExampleContainer>
     </ExampleRoot>
   );

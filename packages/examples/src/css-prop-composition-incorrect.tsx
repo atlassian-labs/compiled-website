@@ -3,7 +3,8 @@ import '@compiled/core';
 
 const EmphasisText = (props) => (
   <span
-    {...props} // <-- className and style not statically defined - bug!
+    {...props}
+    // ^--- className and style not statically defined - bug!
     css={{
       color: '#00b8d9',
       textTransform: 'uppercase',

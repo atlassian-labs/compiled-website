@@ -18,13 +18,9 @@ import {
 Useful when wanting more control over your component.
 [Styled](/styled) can be used when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
 
-<CssPropObj />
-
-<br />
-
 <CssPropString />
 
-## Dynamic rules
+## Dynamic declarations
 
 Powered behind the scenes by CSS variables.
 
@@ -32,13 +28,12 @@ Powered behind the scenes by CSS variables.
 
 ## Composition gotchas
 
-When composing styles from a parent component passed down as a `className` make sure to also define a `style` prop so dynamic rules work.
+To ensure only the minimal amount of code is generated Compiled will only enable setting style from a parent component when you've explicitly defined `className` and `style` props.
 
-### Correct props
+When composing styles from a parent component passing down `className` make sure to also define a `style` prop so dynamic declarations work.
+They are powered by CSS variables present in the `style` prop.
 
-The `className` and `style` props are explicitly defined so dynamic rules work.
-
-<CssPropCompositionCorrect />
+The next few example show what happens if you don't do this.
 
 ### Spread pops
 
@@ -48,9 +43,13 @@ The overflow `props` are spread onto the element so the composed styles are not 
 
 ### Missing style
 
-The `style` prop is missing so dynamic rules don't work.
-The color declaration has been set but the CSS variable has not,
-so it falls back to `--_kmurgp has not been set` and then looks for the closest parent `color`.
-In this case it receives the `body` color value.
+The `style` prop is missing so the CSS variables used to power dynamic declarations aren't set.
+In this case instead it receives the `body` color value.
 
 <CssPropCompositionNoStyle />
+
+### Props correctly defined
+
+The `className` and `style` props are explicitly defined so dynamic declarations work.
+
+<CssPropCompositionCorrect />
