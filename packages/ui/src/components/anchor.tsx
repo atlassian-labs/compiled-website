@@ -94,17 +94,18 @@ export const ToAnchor = ({
   const context = useContext(AnchorContext);
 
   return (
-    <Heading style={{ marginLeft: `${depth}rem` }} look="h500">
-      <a
-        css={{
-          color: context.selected === id ? colors.primary : 'currentColor',
-          transition: 'color 100ms',
-          textDecoration: 'none',
-        }}
-        href={`#${id}`}>
-        {children}
-      </a>
-    </Heading>
+    <a
+      css={{
+        display: 'block',
+        fontSize: 12,
+        marginLeft: `${depth - 1}rem`,
+        color: context.selected === id ? colors.primary : 'currentColor',
+        transition: 'color 100ms',
+        textDecoration: 'none',
+      }}
+      href={`#${id}`}>
+      {children}
+    </a>
   );
 };
 

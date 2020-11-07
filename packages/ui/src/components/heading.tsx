@@ -7,7 +7,7 @@ interface HeadingProps
     HTMLHeadingElement
   > {
   look: 'h500' | 'h400' | 'h300' | 'h200' | 'h100';
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span' | 'div';
   children: ReactNode;
 }
 

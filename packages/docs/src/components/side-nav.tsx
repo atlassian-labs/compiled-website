@@ -13,7 +13,7 @@ export const Section = ({ children, title }: SectionProps) => {
 
   return (
     <VerticalStack spacing={6}>
-      <Heading id={id} as="span" look="h400">
+      <Heading id={id} as="span" look="h500">
         {title}
       </Heading>
       {Children.map(children, (child) =>
@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
   user-select: none;
   color: currentColor;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
 
   :hover {
     cursor: pointer;
