@@ -151,7 +151,7 @@ export default () => (
                       color: 'rgba(255, 255, 255, 0.9)',
                     },
                   }}
-                  href="/atomic-css">
+                  href="/docs/atomic-css">
                   atomic CSS
                 </a>{' '}
                 in JS.{' '}
