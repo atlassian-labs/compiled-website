@@ -82,23 +82,23 @@ const TabButton = (props: {
 };
 
 const CodeExamples = () => {
-  const [shown, setShown] = useState<'css' | 'styled' | 'class'>('css');
+  const [shown, setShown] = useState<'css' | 'styled' | 'class'>('styled');
 
   return (
     <div>
-      <TabButton
-        id="css-tab"
-        aria-controls="css-example"
-        isSelected={shown === 'css'}
-        onClick={() => setShown('css')}>
-        Css prop
-      </TabButton>
       <TabButton
         id="styled-tab"
         aria-controls="styled-example"
         isSelected={shown === 'styled'}
         onClick={() => setShown('styled')}>
         Styled
+      </TabButton>
+      <TabButton
+        id="css-tab"
+        aria-controls="css-example"
+        isSelected={shown === 'css'}
+        onClick={() => setShown('css')}>
+        Css prop
       </TabButton>
 
       {shown === 'css' && (
