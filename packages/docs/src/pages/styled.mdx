@@ -62,7 +62,7 @@ assuming they're both styled with Compiled.
 
 ## Types
 
-Type support is baked so you'll have a great time using Compiled with TypeScript,
+Type support comes out of the box so you'll have a great time using Compiled with TypeScript,
 any interpolation will have access to the props defined in the tagged template generic.
 
 ```jsx
@@ -76,4 +76,5 @@ const BigIfTrue = styled.div<{ big: true }>`
  ^^^^^^^^^ Property 'big' is missing in type [..]
 ```
 
-> **Note** - Typing of composed components is also inherited.
+> **Note** - Typing of composed components are inherited,
+> which means their props will be available as props as well.
