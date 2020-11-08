@@ -172,7 +172,7 @@ export const RootLayout = ({
           <main
             css={{
               flexShrink: 1,
-              padding: '6rem 0',
+              paddingTop: '6rem',
               display: 'block',
               minWidth: 1,
               width: '100%',

@@ -90,6 +90,12 @@ If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to y
 
 ## Current limitations
 
+The following are defined areas that are planned to be implemented in the future.
+When migrating over you may find code paths that aren't working as expected -
+in that case please [raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Bug:&labels=bug%20%F0%9F%90%9B) and we'll look into it.
+
+### Conditional rules
+
 Conditionally declared CSS rules are not able to be defined at this time but will be [supported in the future](https://github.com/atlassian-labs/compiled/issues/278).
 
 ```jsx
@@ -100,3 +106,14 @@ Conditionally declared CSS rules are not able to be defined at this time but wil
   }}
 />
 ```
+
+### Missing APIs
+
+There is work planned to flesh out the remainder APIs.
+
+- [Global component](https://github.com/atlassian-labs/compiled/issues/62)
+- [ClassNames component](https://github.com/atlassian-labs/compiled/issues/342)
+- [Animation keyframes](https://github.com/atlassian-labs/compiled/issues/14)
+- [Theming](https://github.com/atlassian-labs/compiled/issues/18)
+
+Follow the issues to stay updated.
