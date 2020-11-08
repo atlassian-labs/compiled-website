@@ -1,4 +1,4 @@
-import '@compiled/core';
+import * as React from 'react';
 
 export const EmphasisText = (props) => (
   <span

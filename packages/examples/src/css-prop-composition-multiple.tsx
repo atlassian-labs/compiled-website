@@ -1,6 +1,5 @@
-import React from 'react';
+import * as React from 'react';
 import '@compiled/core';
-import { basebase } from './mixins';
 
 const danger = {
   color: 'red',

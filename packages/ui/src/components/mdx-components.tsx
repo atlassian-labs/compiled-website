@@ -20,7 +20,7 @@ const Quote = styled.blockquote`
   margin: 6rem -3rem;
   color: rgba(37, 56, 88, 0.7);
   border-left: 3px solid ${colors.primary};
-  background-color: #7ab2c814;
+  background-color: #8777d926;
   opacity: 0.9;
 
   p {
