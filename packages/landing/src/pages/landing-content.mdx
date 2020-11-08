@@ -39,13 +39,12 @@ import { CC, CS } from '@compiled/core';
 const _2 = '._syaz1q9v{color: hotpink}';
 const _ = '._1wybfyhu{font-size: 48px;}';
 
-export const LargeHotPinkText = ({ children }) =>
-  React.createElement(
-    CC,
-    null,
-    React.createElement(CS, null, [_, _2]),
-    React.createElement('span', { className: '_syaz1q9v _1wybfyhu' }, children)
-  );
+export const LargeHotPinkText = ({ children }) => (
+  <CC>
+    <CS>{[_, _2]}</CS>
+    <span className="_syaz1q9v _1wybfyhu">{children}</span>
+  </CC>
+);
 ```
 
 A component that can be used by anyone without needing to configure a bundler has now been built,
@@ -91,16 +90,9 @@ $ parcel build
 2. An atomic style sheet is generated
 
 ```jsx
-import React from 'react';
-
-export const LargeHotPinkText = ({ children }) =>
-  React.createElement(
-    'span',
-    {
-      className: '_1wybfyhu _syaz1q9v',
-    },
-    children
-  );
+export const LargeHotPinkText = ({ children }) => (
+  <span className="_syaz1q9v _1wybfyhu">{children}</span>
+);
 ```
 
 3. All style rules,
