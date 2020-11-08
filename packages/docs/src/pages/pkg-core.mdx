@@ -7,6 +7,7 @@ name: core
 # @compiled/core
 
 The primary entrypoint package for Compiled.
+This package follows semver.
 
 ```bash
 npm install @compiled/core --save
@@ -14,7 +15,7 @@ npm install @compiled/core --save
 
 ## CSS prop
 
-When the `@compiled/core` module is found CSS prop can be used on React elements.
+When the `@compiled/core` module is found [CSS prop](/css-prop) can be used on React elements.
 
 ```jsx
 import '@compiled/core';
@@ -28,7 +29,7 @@ import '@compiled/core';
 
 ## styled
 
-Creates a Styled Component.
+Creates a [Styled Component](/styled).
 
 ```jsx
 import { styled } from '@compiled/core';
@@ -37,3 +38,13 @@ styled.div`
   font-size: 12px;
 `;
 ```
+
+## Re-exports
+
+### Runtime
+
+The [runtime](/pkg-runtime) and all its exports are re-exported through the core primary entry point.
+
+### Babel plugin
+
+The [babel-plugin](/pkg-babel-plugin) is re-exported through the `./babel-plugin` entry point.

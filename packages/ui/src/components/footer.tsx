@@ -15,7 +15,9 @@ export const Footer = () => (
     }}>
     <Content>
       <HorizontalStack css={{ textAlign: 'center' }} gap={3}>
-        <span>© {new Date().getFullYear()} Atlassian</span>
+        <a href="https://atlassian.com">
+          © {new Date().getFullYear()} Atlassian
+        </a>
         <a href="https://www.atlassian.com/company/careers">Careers</a>
         <a href="https://www.atlassian.com/legal/trademark">Trademark</a>
         <a href="https://www.atlassian.com/legal/privacy-policy">Privacy</a>
