@@ -107,7 +107,7 @@ And then the final result becomes:
 
 The last atomic group defined wins.
 
-## Ordered pseudos
+### Ordered pseudos
 
 When defining pseudo classes atomic CSS imposes some restrictions.
 Remember,
@@ -147,7 +147,7 @@ The simple answer is it depends which component renders first!
 Which is inconsistent at best,
 and just plain wrong at worse.
 
-To ensure we have a stable experience Compiled enforces a specific ordering of pseudo classes using LVFHA:
+To ensure we have a stable experience enforcement of a specific ordering of pseudo classes is done using LVFHA:
 
 - Link
 - Visited
@@ -156,6 +156,6 @@ To ensure we have a stable experience Compiled enforces a specific ordering of p
 - Active
 
 The last defined pseudo wins.
-For the example above here active state would take priority over hover state.
+For the list above active state would take priority over hover state.
 This ordering ensures a stable,
 consistent experience.
