@@ -66,12 +66,10 @@ import { LargeHotPinkText } from '@text/components';
 
 ## Extract
 
-Turn on a bundler plugin and when bundling your app it will find all components styled with Compiled,
-from [NPM](https://npmjs.com/),
-in your app,
-everywhere,
-and extract all found styles to a single,
-[atomic style sheet](./docs/atomic-css).
+Turn on the [Parcel](https://parceljs.org/) or [Webpack](https://webpack.js.org/) plugin and all components styled with Compiled in your app,
+sourced from [NPM](https://npmjs.com/),
+and everywhere else,
+will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
 
 ```bash
 $ npm i @compiled/parcel-plugin
@@ -79,7 +77,7 @@ $ parcel build
 ✨  Built in 0.83s.
 ```
 
-1. An atomic style sheet is generated
+1. Your app is built
 
 ```css
 ._1wybfyhu {
@@ -90,9 +88,7 @@ $ parcel build
 }
 ```
 
-2. All style rules,
-   `<CC>`, and
-   `<CS>` components are removed from your JavaScript bundle
+2. An atomic style sheet is generated
 
 ```jsx
 import React from 'react';
@@ -107,11 +103,15 @@ export const LargeHotPinkText = ({ children }) =>
   );
 ```
 
+3. All style rules,
+   `<CC>`, and
+   `<CS>` components are removed from your JavaScript bundle
+
 > It's recommended to only extract in apps.
 > Shipping a component library or design system?
 > Keep styles baked in and then get your consumers to extract.
 
-Let's empower the JavaScript community to extract all styles!
-No longer just focusing on our single app,
+We're empowering the JavaScript community to extract all styles!
+No longer just focusing on a single app,
 but the entire ecosystem.
 Extracting to an atomic style sheet will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
