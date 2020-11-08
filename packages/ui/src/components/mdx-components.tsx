@@ -87,7 +87,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
   a: ({ href, children, ...props }) =>
-    href.startsWith('http') ? (
+    href.startsWith('http') || href.startsWith('./') ? (
       <a
         href={href}
         css={{

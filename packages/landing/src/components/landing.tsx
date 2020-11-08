@@ -57,7 +57,7 @@ const TabButton = (props: {
         padding: '8px 12px',
         margin: 0,
         cursor: 'pointer',
-        opacity: props.isSelected ? 0.9 : 0.5,
+        opacity: props.isSelected ? 0.99 : 0.7,
         borderTopLeftRadius: 6,
         borderTopRightRadius: 6,
         ':hover, :focus': {
@@ -142,7 +142,20 @@ export default () => (
                 maxWidth: '75%',
                 display: 'block',
               }}>
-              <HideSmall>Build time atomic CSS in JS. </HideSmall>
+              <HideSmall>
+                Build time{' '}
+                <a
+                  css={{
+                    color: 'rgba(255, 255, 255, 0.75)',
+                    ':hover': {
+                      color: 'rgba(255, 255, 255, 0.9)',
+                    },
+                  }}
+                  href="/atomic-css">
+                  atomic CSS
+                </a>{' '}
+                in JS.{' '}
+              </HideSmall>
               Bake, consume, extract. Everywhere.
             </span>
           </Heading>

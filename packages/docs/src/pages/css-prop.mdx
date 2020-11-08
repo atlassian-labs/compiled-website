@@ -18,6 +18,10 @@ import {
 Useful when wanting more control over your component.
 [Styled](/styled) can be used when wanting to create components that have associated styles which come with behaviour such as `ref` and `as` prop support.
 
+CSS prop is enabled when any import of the `@compiled/core` module is found,
+so for example when using the `styled` API via `import { styled } from '@compiled/core'`
+CSS prop will be enabled as well.
+
 <CssPropString />
 
 ## Dynamic declarations
@@ -33,6 +37,10 @@ To ensure only the minimal amount of code is generated Compiled will only enable
 When composing styles from a parent component passing down `className` make sure to also define a `style` prop so dynamic declarations work.
 They are powered by CSS variables present in the `style` prop.
 
+Here the `className` and `style` props are explicitly defined so styling works correctly.
+
+<CssPropCompositionCorrect />
+
 The next few example show what happens if you don't do this.
 
 ### Spread pops
@@ -47,9 +55,3 @@ The `style` prop is missing so the CSS variables used to power dynamic declarati
 In this case instead it receives the `body` color value.
 
 <CssPropCompositionNoStyle />
-
-### Props correctly defined
-
-The `className` and `style` props are explicitly defined so dynamic declarations work.
-
-<CssPropCompositionCorrect />

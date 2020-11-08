@@ -68,14 +68,14 @@ they end up using the same rules.
 ## Why is it useful
 
 The obvious benefit that atomic CSS enables is to re-use CSS rules and keep the total amount of defined CSS as small as possible.
-Interestingly it has also empowered Compiled to do more than just re-use CSS rules.
+However during development of Compiled atomic CSS has also shown other opportunities over just re-using CSS rules.
 
 ### CSS cascade
 
-It turns out when every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
-you can instead encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade.
+When every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
+you can instead encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade ordering.
 
-If these two atomic rules:
+Take these two atomic rules:
 
 ```css
 .color-blue {
@@ -91,9 +91,9 @@ There are two pieces of information we can use.
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
 
-So it's just as simple as ensuing that only one atomic group can exists in an elements class name.
+It ends up simply ensuring that only one atomic group can exists in an elements class name.
 We introduce a small utility to help with that,
-say a function called `ax`:
+a function called `ax`:
 
 ```jsx
 <div className={ax(['color-blue color-red'] />

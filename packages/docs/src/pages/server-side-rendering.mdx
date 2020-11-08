@@ -4,9 +4,11 @@ section: 2-Advanced
 
 # Server Side Rendering
 
-So you keep hearing "SSR is zero config" -
-but what does that actually mean?
-Put short -
+[Server side rendering](https://reactjs.org/docs/react-dom-server.html) (SSR) is an important tool used to show your app faster to your users.
+
+Have you heard "SSR is zero config" before?
+What does that actually mean?
+In the context of Compiled -
 consumers of your components don't have to do anything to make it work.
 Just import and go.
 
@@ -46,9 +48,11 @@ is that if any of the same component is rendered multiple times only the _first_
 </div>
 ```
 
-This strategy has a few benefits -
-the biggest being when rendering with the [streaming API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) your component styles are streamed together with your component markup,
-resulting in content being rendered to users faster.
+This strategy of rendering `style` elements next to their pairing component has two main benefits:
+
+1. Consumers of your components don't need to configure anything
+1. When using the [streaming server API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) component styles are streamed together with your component markup,
+   resulting in content being rendered to users faster
 
 > **Warning** - This can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
 > We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled/issues/31) - please join the conversation!

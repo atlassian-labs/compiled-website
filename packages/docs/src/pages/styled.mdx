@@ -26,7 +26,7 @@ Any props that are valid HTML attributes will be passed down to the underlying D
 otherwise they will be ignored.
 
 This example shows that behavior -
-if you click on the `HTML` button you will see the `primary` prop has not been passed through.
+if you view inspect the example element in dev tools you'll see the `primary` prop has not been passed through.
 
 <StyledDynamic />
 
@@ -35,7 +35,7 @@ if you click on the `HTML` button you will see the `primary` prop has not been p
 
 ### Transient props
 
-If you want to use a specific prop name but don't want it to appear on the element,
+If you want to use a prop name that is also a valid HTML attribute but don't want it to appear on the element,
 prefix the prop with `$` and it won't be applied.
 
 This example shows that `color` is on the element,
@@ -54,8 +54,8 @@ This example shows a `h1` element being set to a `span`.
 
 ## Composing components
 
-Wrap an already defined component to define extra styles onto it.
-Parent styles will override child styles,
+Wrap an already defined component to pass extra styles to it (under the hood it does this via the `className` prop).
+The composing components styles will take precedence over the composed components styles,
 assuming they're both styled with Compiled.
 
 <StyledComposition />

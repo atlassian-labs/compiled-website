@@ -1,6 +1,7 @@
 ## Bake
 
-Write your styles in JavaScript next to where they're needed most.
+Write your styles in JavaScript leveraging the language to create expressive,
+dynamic experiences.
 
 ```jsx
 import '@compiled/core';
@@ -47,15 +48,15 @@ export const LargeHotPinkText = ({ children }) =>
   );
 ```
 
-You now have a component that can be used by anyone without needing to configure their bundler,
-everything is _baked in_.
+A component that can be used by anyone without needing to configure a bundler has now been built,
+everything is _baked in_ and ready to go.
 
 ## Consume
 
 Import and go!
-It could be published to [NPM](https://npmjs.com/) or defined in your application.
-No matter how its used because everything is baked no bundler configuration is needed,
-[server side rendering](https://reactjs.org/docs/react-dom-server.html) included.
+It could be a component published to [NPM](https://npmjs.com/) or defined in your app,
+no matter where or how its used because everything is baked in no bundler configuration is needed,
+[server side rendering](./docs/server-side-rendering) included.
 
 ```jsx
 import { LargeHotPinkText } from '@text/components';
@@ -65,12 +66,12 @@ import { LargeHotPinkText } from '@text/components';
 
 ## Extract
 
-Turn on a bundler plugin and when bundling your app it will find every component styled with Compiled,
+Turn on a bundler plugin and when bundling your app it will find all components styled with Compiled,
 from [NPM](https://npmjs.com/),
 in your app,
-or elsewhere,
-and extract all of found styles to a single,
-[atomic style sheet](https://css-tricks.com/lets-define-exactly-atomic-css/#longhand-shorthand).
+everywhere,
+and extract all found styles to a single,
+[atomic style sheet](./docs/atomic-css).
 
 ```bash
 $ npm i @compiled/parcel-plugin
@@ -91,7 +92,7 @@ $ parcel build
 
 2. All style rules,
    `<CC>`, and
-   `<CS>` components are removed from your JavaScript bundle.
+   `<CS>` components are removed from your JavaScript bundle
 
 ```jsx
 import React from 'react';
@@ -106,9 +107,9 @@ export const LargeHotPinkText = ({ children }) =>
   );
 ```
 
-> It's recommended to only extract to CSS in applications.
+> It's recommended to only extract in apps.
 > Shipping a component library or design system?
-> Keep it baked in and then get your consumers to extract!
+> Keep styles baked in and then get your consumers to extract.
 
 Let's empower the JavaScript community to extract all styles!
 No longer just focusing on our single app,

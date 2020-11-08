@@ -9,7 +9,7 @@ section: 2-Advanced
 A [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows us to be explicit about what can and can't run in our apps -
 JavaScript,
 styles,
-images even!
+images even.
 
 Supporting a CSP works by setting `nonce` in the Babel plugin config,
 where `nonce` is an identifier your bundler can replace at build time.
@@ -62,8 +62,8 @@ However if the nonce did not match or was missing:
 <div class="_syaz1mor">hello world</div>
 ```
 
-Oh no!
-The browser blocks them from being used and logs an error to the console.
+Uh oh,
+the browser blocks them from being used and logs an error to the console.
 
 ## User input
 
@@ -75,4 +75,4 @@ so we get their sanitization for free.
 All this to say -
 we don't have to worry about much.
 But make sure to sanitize user inputs regardless,
-especially on the server!
+especially on the server.
