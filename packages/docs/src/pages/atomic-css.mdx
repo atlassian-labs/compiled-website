@@ -74,13 +74,13 @@ However there are other benefits over and beyond just re-using CSS rules.
 ### CSS cascade
 
 When every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
-encouraging [composition of styles](/composition) can seem out of impossible.
+encouraging [composition of styles](/composition) can seem impossible.
 If nothing was done depending on the order of rendered components you'd get different results.
 Not good.
 
 Luckily there is a solution.
-If we encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade ordering,
-doors open for us.
+We can encode all the data needed to ensure developers can combine property values,
+without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
 
 Take these two atomic rules:
 
@@ -93,7 +93,7 @@ Take these two atomic rules:
 }
 ```
 
-There are two pieces of information that can be used in the class names.
+There are two pieces of data that can be used in the class names.
 
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
