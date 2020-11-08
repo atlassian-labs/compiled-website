@@ -74,7 +74,13 @@ However there are other benefits over and beyond just re-using CSS rules.
 ### CSS cascade
 
 When every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
-you can instead encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade ordering.
+encouraging [composition of styles](/composition) can seem out of impossible.
+If nothing was done depending on the order of rendered components you'd get different results.
+Not good.
+
+Luckily there is a solution.
+If we encode all the information needed to ensure developers can combine property values without the gotchas of CSS cascade ordering,
+doors open for us.
 
 Take these two atomic rules:
 
@@ -87,12 +93,12 @@ Take these two atomic rules:
 }
 ```
 
-There are two pieces of information we can use.
+There are two pieces of information we can use in the class names.
 
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
 
-It ends up simply ensuring that only one atomic group can exists in an elements class name.
+Using them we ensure that only one atomic group can exist in an elements class name.
 We introduce a small utility to help with that,
 a function called `ax`:
 
@@ -100,7 +106,7 @@ a function called `ax`:
 <div className={ax(['color-blue color-red'] />
 ```
 
-And then the final result becomes:
+Then the final result becomes:
 
 ```jsx
 <div class="color-red" />
@@ -114,7 +120,7 @@ When defining pseudo classes atomic CSS imposes some restrictions.
 Remember,
 only one CSS rule per declaration can exist!
 
-If we have these two examples which order `hover` and `active` pseudo classes differently,
+Take these two examples which order `hover` and `active` pseudo classes differently,
 but they share the same atomic rule,
 what happens?
 
@@ -148,15 +154,16 @@ The simple answer is it depends which component renders first!
 Which is inconsistent at best,
 and just plain wrong at worse.
 
-To ensure we have a stable experience enforcement of a specific ordering of pseudo classes is done using LVFHA:
+To ensure we have a stable experience enforcement of a specific ordering of pseudo classes is done using **LVFHA**:
 
-- Link
-- Visited
-- Focus
-- Hover
-- Active
+- **L**ink
+- **V**isited
+- **F**ocus
+- **H**over
+- **A**ctive
 
 The last defined pseudo wins.
-For the list above active state would take priority over hover state.
+For the list above,
+active state would take priority over hover state.
 This ordering ensures a stable,
 consistent experience.

@@ -98,7 +98,7 @@ const CodeExamples = () => {
         aria-controls="styled-example"
         isSelected={shown === 'styled'}
         onClick={() => setShown('styled')}>
-        Styled component
+        Styled
       </TabButton>
 
       {shown === 'css' && (
