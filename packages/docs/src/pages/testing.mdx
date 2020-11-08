@@ -5,15 +5,15 @@ section: 1-Getting started
 # Testing
 
 Testing is important and something that was developed with in mind.
-Using the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests works well.
+Using the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests works well for asserting style behaviour over state changes.
 
-Install the matcher first.
+Install the matcher.
 
 ```bash
 npm install @compiled/jest --save-dev
 ```
 
-Then configure it.
+Then configure it in Jest.
 
 ```jsx
 // test/setup.js
@@ -48,9 +48,15 @@ it('should have small font', () => {
 });
 ```
 
+When writing tests in TypeScript you will probably need to create a `global.d.ts` file and import the jest matcher to enable types.
+
+```tsx
+import '@compiled/jest-matcher';
+```
+
 ## Multi match
 
-We can assert multiple values at once if we pass in an object instead.
+Assert multiple values at once if we pass in an object instead.
 
 ```jsx
 it('should have small bold font', () => {
@@ -70,7 +76,7 @@ it('should have small bold font', () => {
 
 ## Dynamic props
 
-We can also go a step further and test dynamic props as well.
+Assert dynamic interpolations.
 
 ```jsx
 it('should appear red', () => {
@@ -86,10 +92,10 @@ it('should appear red', () => {
 
 ## Selectors
 
-We can assert against any CSS selectors,
+Assert against any CSS selectors and pseudo classes,
 such as `:hover`,
 `:active`,
-and so on by passing in a config object.
+by passing in a config object.
 
 ```jsx
 it('should change background color to blue on hover', () => {
@@ -111,7 +117,7 @@ it('should change background color to blue on hover', () => {
 
 ## Media queries
 
-We can also assert against specific media queries using the same config object.
+Assert against media queries using the config object.
 
 ```jsx
 it('should have big padding when viewed on a tablet', () => {
