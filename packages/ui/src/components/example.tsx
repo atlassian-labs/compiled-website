@@ -104,7 +104,7 @@ export const Example = ({
   return (
     <ExampleRoot>
       <ExampleButton fullWidth onClick={() => setIsShown((prev) => !prev)}>
-        {isShown ? 'Show source code' : 'Show transformed code'}
+        {isShown ? 'View source code' : 'View transformed code'}
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
         <CodeBlock
@@ -136,7 +136,7 @@ export const Example = ({
             isSelected={htmlShown}
             aria-pressed={htmlShown}
             onClick={() => setHtmlShown((prev) => !prev)}>
-            Show JSX Markup
+            {htmlShown ? 'Hide' : 'Show'} JSX Markup
           </ExampleButton>
         )}
 
