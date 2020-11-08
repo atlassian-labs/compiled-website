@@ -32,9 +32,9 @@ Powered behind the scenes by CSS variables.
 
 ## Composition gotchas
 
-To ensure only the minimal amount of code is generated Compiled will only enable setting style from a parent component when you've explicitly defined `className` and `style` props.
+To ensure the smallest amount of code is generated Compiled will only enable setting styles through props when the element has explicitly defined `className` and `style` props.
 
-When composing styles from a parent component passing down `className` make sure to also define a `style` prop so dynamic declarations work.
+When composing styles from props with `className` make sure to also define a `style` prop so dynamic declarations work.
 They are powered by CSS variables present in the `style` prop.
 
 Here the `className` and `style` props are explicitly defined so styling works correctly.
