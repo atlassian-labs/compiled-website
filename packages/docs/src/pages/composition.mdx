@@ -14,9 +14,7 @@ Traditionally when defining CSS it is not the `class` order that ensures style g
 but the the [order of CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
 This is a common cause for developer confusion.
 
-Compiled eliminates cascade gotchas.
-Regardless of composing from a parent or child component,
-the last CSS property defined wins.
+Compiled eliminates cascade gotchas by ensuring the last CSS property defined always wins.
 
 <CompositionIdentifier />
 
@@ -26,4 +24,4 @@ In this example it can be seen in action.
 <CompositionMultiple />
 
 Composition works with all APIs found in Compiled.
-Read [more about atomic CSS](/atomic-css#css-cascade) to understanding how this was implemented.
+Read [more about atomic CSS](/atomic-css#css-cascade) to understanding how this works under the hood.
