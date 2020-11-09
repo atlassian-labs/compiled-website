@@ -25,6 +25,14 @@ import '@compiled/core';
     fontSize: 12,
   }}
 />;
+
+<div
+  css={`
+    font-size: 12px;
+  `}
+/>;
+
+<div css={[`font-size: 12px;`, { color: 'blue' }]} />;
 ```
 
 ## styled
@@ -36,10 +44,25 @@ import { styled } from '@compiled/core';
 
 styled.div`
   font-size: 12px;
+  color: ${(props) => props.color};
 `;
+
+styled.div({
+  fontSize: 12,
+  color: (props) => props.color,
+});
+
+styled.div([
+  `
+  font-size: 12px;
+`,
+  { color: (props) => props.color },
+]);
 ```
 
 ## Re-exports
+
+To simplify usage some packages are re-exported through the core package.
 
 ### Runtime
 
