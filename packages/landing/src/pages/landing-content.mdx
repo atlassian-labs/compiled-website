@@ -70,13 +70,15 @@ sourced from [NPM](https://npmjs.com/),
 and everywhere else,
 will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
 
+1. Build your app
+
 ```bash
 $ npm i @compiled/parcel-plugin
 $ parcel build
 ✨  Built in 0.83s.
 ```
 
-1. Your app is built
+2. An atomic style sheet is generated
 
 ```css
 ._1wybfyhu {
@@ -87,17 +89,15 @@ $ parcel build
 }
 ```
 
-2. An atomic style sheet is generated
+3. All style rules,
+   `<CC>`, and
+   `<CS>` components are removed from your JavaScript bundle
 
 ```jsx
 export const LargeHotPinkText = ({ children }) => (
   <span className="_syaz1q9v _1wybfyhu">{children}</span>
 );
 ```
-
-3. All style rules,
-   `<CC>`, and
-   `<CS>` components are removed from your JavaScript bundle
 
 > It's recommended to only extract in apps.
 > Shipping a component library or design system?
