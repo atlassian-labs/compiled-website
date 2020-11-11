@@ -168,3 +168,17 @@ For the list above,
 active state would take priority over hover state.
 This ordering ensures a stable,
 consistent experience.
+
+## Pitfalls
+
+There are trade-offs for everything.
+Atomic CSS while dramatically reducing the total amount of defined CSS,
+increases HTML markup from the addition of added classes to elements.
+
+Every CSS declaration will add another class to the element,
+scaling linearly,
+you can see this on the first example on this page.
+However at scale this can prove to be worth it.
+
+There _are_ ways to improve this,
+when we have [completed the CSS extraction story](https://github.com/atlassian-labs/compiled/issues/58) we have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335).
