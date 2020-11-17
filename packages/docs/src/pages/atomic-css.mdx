@@ -6,13 +6,11 @@ order: 99
 
 # Atomic CSS
 
-If you're just getting started with Compiled you don't need to worry too much about how this all works,
-but keep reading if you're interested understanding more!
+Atomic CSS reduces the total amount of defined styles by creating a single rule for every style declaration -
+this results in the large majority of your styles being re-used,
+instead of duplicated.
 
-## What is it
-
-It is a pattern of writing CSS to reduce the total amount of defined styles by creating a single rule for every declaration.
-Typical CSS would look like:
+Typically CSS is defined like so:
 
 ```css
 .button {
@@ -23,15 +21,13 @@ Typical CSS would look like:
 }
 ```
 
-When applied to a button:
-
 ```html
-<button class="button">Hello world</button>
+<button className="button">Hello world</button>
 ```
 
 However when products scale to hundreds,
 even thousands of developers,
-defined styles can get wild,
+defined styles can get messy,
 and very duplicated.
 
 If we take the same rule and change it to be atomic CSS:
@@ -54,33 +50,28 @@ If we take the same rule and change it to be atomic CSS:
 }
 ```
 
-When applied to the same button:
-
 ```html
-<button class="b-none fs-14 bgc-purple br-3">Hello world</button>
+<button className="b-none fs-14 bgc-purple br-3">Hello world</button>
 ```
 
 When other components end up defining similar styles,
 they end up using the same rules.
 
 ```html
-<span class="fs-14">Text</span>
+<span className="fs-14">Text</span>
 ```
 
-## Why is it useful
+## Other benefits
 
-The obvious benefit is for re-use of CSS rules and reducing the total amount of defined CSS.
-However there are other benefits over and beyond just re-using CSS rules.
+There are other benefits over and beyond just re-using CSS rules.
 
-### CSS cascade
+### Overriding through composition
 
-When every declaration is defined as an atomic rule _and_ you can't create CSS at runtime,
-encouraging [composition of styles](/composition) can seem impossible.
+When you can't create CSS at runtime enabling [composition of styles](/composition) can seem impossible.
 If nothing was done depending on the order of rendered components you'd get different results.
-Not good.
 
 Luckily there is a solution.
-We can encode all the data needed to ensure developers can combine property values,
+Using atomic CSS we can encode all the data needed to ensure developers can combine property values,
 without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
 
 Take these two atomic rules:
@@ -104,13 +95,13 @@ We introduce a small utility to help with that,
 a function called `ax`:
 
 ```jsx
-<div className={ax(['color-blue color-red'])} />
+<div className={ax(['color-blue', 'color-red'])} />
 ```
 
 Then the final result becomes:
 
 ```jsx
-<div class="color-red" />
+<div className="color-red" />
 ```
 
 The last atomic group defined wins.
@@ -165,7 +156,7 @@ To ensure we have a stable experience enforcement of a specific ordering of pseu
 
 The last defined pseudo wins.
 For the list above,
-active state would take priority over hover state.
+active state would take precedence over hover state.
 This ordering ensures a stable,
 consistent experience.
 

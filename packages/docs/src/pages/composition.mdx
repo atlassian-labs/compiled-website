@@ -10,17 +10,17 @@ import {
 
 # Composition
 
-Composing styles together enables powerful patterns.
+Composing styles together enables style reuse and flexibility.
 Traditionally when defining CSS it is not the `class` order that ensures style get applied,
-but the the [order of CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
+but the the [order of CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) in the DOM.
 This is a common cause for developer confusion.
 
-Compiled eliminates cascade gotchas by ensuring the last CSS property defined always wins.
+Compiled eliminates these cascade gotchas by ensuring the last CSS property defined always wins.
 
 <CompositionIdentifier />
 
 When composing styles together it's important to remember that the last defined style will win.
-In this example it can be seen in action.
+In this example we can see that red overrides the pink color.
 
 <CompositionMultiple />
 
@@ -28,4 +28,4 @@ In this example it can be seen in action.
 > like the example above.
 
 Composition works with all APIs found in Compiled.
-Read [more about atomic CSS](/atomic-css#css-cascade) to understanding how this works under the hood.
+Read [more about atomic CSS](/atomic-css#overriding-through-composition) to understanding how this works under the hood.

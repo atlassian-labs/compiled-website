@@ -25,7 +25,7 @@ like so:
 </div>
 ```
 
-And then on the web browser when the JavaScript initializes they get moved to the head of the document we end up with this:
+And then on the web browser when the JavaScript initializes they get moved to the head of the document:
 
 ```html
 <div class="_k48pni7l">
@@ -34,17 +34,17 @@ And then on the web browser when the JavaScript initializes they get moved to th
 ```
 
 The magic sauce though -
-is that if any of the same component is rendered multiple times only the _first_ element will have a matching `style` element.
+if any atomic CSS is used multiple times only the first atomic rule will render:
 
 <!-- prettier-ignore -->
 ```html
-<style>._k48pni7l{font-weight:600}</style>
+<style>._k48pni7l{margin-top:24px}</style>
 <div class="_k48pni7l">
   <style>._syaz18rw{color:#ff5630}</style>
-  <div class="_syaz18rw">hello world</div>
-  <div class="_syaz18rw">hello world</div>
-  <div class="_syaz18rw">hello world</div>
-  <div class="_syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
 </div>
 ```
 
@@ -60,9 +60,8 @@ This strategy of rendering `style` elements next to their pairing component has 
 ## Selector workarounds
 
 There are a few workarounds for the nth child type selector problems.
-
-> **Note** - Try to only use these workarounds if you can't think of an alternate implementation,
-> such as applying styles directly to the element you're interested in.
+Try to only use these workarounds if you can't think of an alternate implementation,
+such as applying styles directly to the element you're interested in.
 
 ### First child
 
@@ -98,7 +97,7 @@ Use a different selector.
 
 Right now this is really the only sure fire way of getting what we want.
 
-### Nth-child
+### Nth child
 
 This also applies to `:nth-child` as well,
 where `style` elements can appear and complicate things before JavaScript has executed.
