@@ -1,0 +1,104 @@
+---
+order: 1
+section: 99-Packages
+name: react
+---
+
+# @compiled/react
+
+The primary entrypoint package for Compiled.
+This package follows semver.
+
+```bash
+npm install @compiled/react
+```
+
+## CSS prop
+
+When the `@compiled/react` module is found the [CSS prop](/css-prop) can be used on React elements.
+
+```jsx
+import '@compiled/react';
+
+<div
+  css={{
+    fontSize: 12,
+  }}
+/>;
+
+<div
+  css={`
+    font-size: 12px;
+  `}
+/>;
+
+<div css={[`font-size: 12px;`, { color: 'blue' }]} />;
+```
+
+## styled
+
+Creates a [Styled Component](/styled).
+
+```jsx
+import { styled } from '@compiled/react';
+
+styled.div`
+  font-size: 12px;
+  color: ${(props) => props.color};
+`;
+
+styled.div({
+  fontSize: 12,
+  color: (props) => props.color,
+});
+
+styled.div([
+  `
+  font-size: 12px;
+`,
+  { color: (props) => props.color },
+]);
+```
+
+## Runtime
+
+### CC
+
+Used to ensure only the minimum amount of styles are rendered on the server,
+when rendered on the web browser it's [replaced with a fragment](https://reactjs.org/docs/fragments.html).
+
+For more information have a read of [Server Side Rendering](/server-side-rendering#how-it-works) to understand how it works.
+
+```jsx
+import { CC } from '@compiled/react/runtime';
+
+<CC></CC>;
+```
+
+### CS
+
+Moves child CSS to the head of the document in web browsers,
+and renders an inline `style` element on the server.
+
+```jsx
+import { CS } from '@compiled/react/runtime';
+
+<CS>{['.foo{color:#ff5630;}']}</CS>;
+```
+
+### ax
+
+Similar in functionality to the `cx` function from the [`classnames`](https://github.com/JedWatson/classnames) package,
+however it is optimized for atomic CSS grouping.
+Will concat class names together and ensure uniqueness of atomic groups.
+
+```tsx
+import { ax } from '@compiled/react/runtime';
+
+ax(['_k48pni7l _syaz18rw', '_syazff21']);
+// > "_k48pni7l _syazff21"
+```
+
+## Babel plugin
+
+The [babel-plugin](/pkg-babel-plugin) is re-exported through the `@compiled/react/babel-plugin` entry point.

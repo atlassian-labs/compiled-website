@@ -9,7 +9,7 @@ Follow [installation](/installation) instructions before continuing.
 
 ## Styled Components
 
-Replace the imports with `@compiled/core`.
+Replace the imports with `@compiled/react`.
 
 ```diff
 -import styled from 'styled-components';
@@ -29,7 +29,7 @@ styled.div({
 There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
 
 ```bash
-npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/styled-components-to-compiled <path>
+npx jscodeshift --transform node_modules/@compiled/react/dist/codemods/styled-components-to-compiled <path>
 ```
 
 Where `<path>` is the path to your source code.
@@ -37,7 +37,7 @@ If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to y
 
 ## Emotion
 
-Replace the imports with `@compiled/core`.
+Replace the imports with `@compiled/react`.
 
 ```diff
 -/** @jsx jsx */
@@ -82,7 +82,7 @@ styled.div({
 There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
 
 ```bash
-npx jscodeshift --transform node_modules/@compiled/core/dist/codemods/emotion-to-compiled <path>
+npx jscodeshift --transform node_modules/@compiled/react/dist/codemods/emotion-to-compiled <path>
 ```
 
 Where `<path>` is the path to your source code.

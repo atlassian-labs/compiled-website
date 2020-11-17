@@ -164,7 +164,7 @@ export default () => (
         <Content>
           <Terminal language="bash">
             {`
-npm install @compiled/core --save
+npm install @compiled/react
 `}
           </Terminal>
         </Content>
