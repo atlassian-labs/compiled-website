@@ -8,7 +8,7 @@ import React, {
   useState,
   Ref,
 } from 'react';
-import '@compiled/core';
+import '@compiled/react';
 import { Heading } from '@compiled/website-ui';
 import { colors } from '../utils';
 

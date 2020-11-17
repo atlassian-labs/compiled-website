@@ -1,4 +1,4 @@
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 
 const RedText = styled.span`
   color: red;

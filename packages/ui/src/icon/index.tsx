@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 import { Github } from './github';
 import { Npm } from './npm';
 

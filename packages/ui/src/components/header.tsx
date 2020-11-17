@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 import { ScreenReaderText } from './helpers';
 
 const height = '9rem';
@@ -70,7 +70,7 @@ export const Header = ({
         </Logo>
       </a>
       <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
-        Compiled CSS in JS
+        Compiled CSS-in-JS
       </ScreenReaderText>
       {children}
     </StyledHeader>

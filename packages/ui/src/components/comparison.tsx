@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 import { HorizontalStack } from './stack';
 import { CodeBlock } from './code-block';
 

@@ -1,4 +1,4 @@
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 
 export const HideSmall = styled.span`
   display: none;

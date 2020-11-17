@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 
 export const Button = ({ children }) => {
   return (

@@ -1,4 +1,4 @@
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 
 export const Heading = styled.h1`
   font-weight: 500;

@@ -1,10 +1,10 @@
-## Bake
+## Better for component authors
 
 Write your styles in JavaScript leveraging the language to create expressive,
 dynamic experiences.
 
 ```jsx
-import '@compiled/core';
+import '@compiled/react';
 
 export const LargeHotPinkText = ({ children }) => (
   <span
@@ -18,13 +18,11 @@ export const LargeHotPinkText = ({ children }) => (
 ```
 
 [Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
-[Webpack](https://webpack.js.org/),
-[Parcel](https://parceljs.org/),
-or any other tool that supports Babel.
+or your bundler of choice that supports Babel.
 
 ```json
 {
-  "plugins": ["@compiled/core/babel-plugin"]
+  "plugins": ["@compiled/react/babel-plugin"]
 }
 ```
 
@@ -34,7 +32,7 @@ Successfully compiled 1 file with Babel (9ms)
 ```
 
 ```jsx
-import { CC, CS } from '@compiled/core';
+import { CC, CS } from '@compiled/react';
 
 const _2 = '._syaz1q9v{color: hotpink}';
 const _ = '._1wybfyhu{font-size: 48px;}';
@@ -47,15 +45,15 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-A component that can be used by anyone without needing to configure a bundler has now been built,
-everything is _baked in_ and ready to go.
+A component that can be used by anyone without needing to configure a bundler has now been built -
+everything is baked in.
 
-## Consume
+## Better for consumers
 
-Import and go!
-It could be a component published to [NPM](https://npmjs.com/) or defined in your app,
-no matter where or how its used because everything is baked in no bundler configuration is needed,
-[server side rendering](./docs/server-side-rendering) included.
+Be it a component published to [NPM](https://npmjs.com/) or defined in your app,
+components using Compiled always render exactly as authored on both the server and client.
+No complicated configuration needed;
+just import and go!
 
 ```jsx
 import { LargeHotPinkText } from '@text/components';
@@ -63,9 +61,9 @@ import { LargeHotPinkText } from '@text/components';
 <LargeHotPinkText>Hello world</LargeHotPinkText>;
 ```
 
-## Extract
+## Better for the web
 
-Turn on the [Parcel](https://parceljs.org/) or [Webpack](https://webpack.js.org/) plugin and all components styled with Compiled in your app,
+Turn on the bundler plugin and all components styled with Compiled in your app,
 sourced from [NPM](https://npmjs.com/),
 and everywhere else,
 will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).

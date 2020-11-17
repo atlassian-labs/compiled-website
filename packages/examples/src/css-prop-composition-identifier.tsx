@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 
 const base = {
   color: 'hotpink',

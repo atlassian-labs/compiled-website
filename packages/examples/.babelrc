@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/preset-typescript"],
-  "plugins": ["@compiled/core/babel-plugin", "@babel/plugin-syntax-jsx"]
+  "plugins": ["@compiled/react/babel-plugin", "@babel/plugin-syntax-jsx"]
 }

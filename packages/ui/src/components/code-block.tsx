@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import '@compiled/core';
+import '@compiled/react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
 import codeTheme from 'react-syntax-highlighter/dist/esm/styles/prism/tomorrow';
 

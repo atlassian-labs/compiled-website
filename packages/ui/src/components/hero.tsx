@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 
 export const Hero = ({ children }: { children: React.ReactNode }) => {
   return (

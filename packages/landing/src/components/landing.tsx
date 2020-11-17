@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 import {
   Hero,
   Heading,
@@ -142,21 +142,18 @@ export default () => (
                 maxWidth: '75%',
                 display: 'block',
               }}>
-              <HideSmall>
-                Build time{' '}
-                <a
-                  css={{
-                    color: 'rgba(255, 255, 255, 0.75)',
-                    ':hover': {
-                      color: 'rgba(255, 255, 255, 0.9)',
-                    },
-                  }}
-                  href="/docs/atomic-css">
-                  atomic CSS
-                </a>{' '}
-                in JS.{' '}
-              </HideSmall>
-              Bake, consume, extract. Everywhere.
+              Build time{' '}
+              <a
+                css={{
+                  color: 'rgba(255, 255, 255, 0.75)',
+                  ':hover': {
+                    color: 'rgba(255, 255, 255, 0.9)',
+                  },
+                }}
+                href="/docs/atomic-css">
+                atomic CSS
+              </a>
+              -in-JS. Baked and ready to serve.
             </span>
           </Heading>
           <CodeExamples />

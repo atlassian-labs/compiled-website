@@ -1,4 +1,4 @@
-import { styled } from '@compiled/core';
+import { styled } from '@compiled/react';
 import React, { useState } from 'react';
 import { CodeBlock, colors } from '@compiled/website-ui';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '@compiled/core';
+import '@compiled/react';
 import { Content, HorizontalStack } from '@compiled/website-ui';
 
 export const Footer = () => (
