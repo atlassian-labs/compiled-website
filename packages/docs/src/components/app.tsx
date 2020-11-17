@@ -68,6 +68,11 @@ section: My section
     }));
 };
 
+const getEditUrl = () => {
+  const name = location.pathname.split('/')[2] || 'what-is-compiled';
+  return `https://github.com/compiled/compiled-website/tree/master/packages/docs/src/pages/${name}.mdx`;
+};
+
 const getPage = (slug: string) => {
   const sections = getSections();
   const name = slug === '/' ? sections[0].pages[0].name : slug.slice(1);
@@ -175,6 +180,14 @@ export const App = () => {
           {page && (
             <>
               <page.Component />
+
+              <p css={{ margin: '8rem 0' }}>
+                <a
+                  css={{ color: colors.primary, fontSize: 14 }}
+                  href={getEditUrl()}>
+                  Edit on Github
+                </a>
+              </p>
 
               <div
                 css={{
