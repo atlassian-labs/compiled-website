@@ -60,6 +60,7 @@ const ExampleButton = styled.button<{
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
+  font-size: 11px;
   color: ${(props) =>
     props.isSelected ? colors.primary : 'rgba(37, 56, 88, 0.8)'};
   margin: 0;

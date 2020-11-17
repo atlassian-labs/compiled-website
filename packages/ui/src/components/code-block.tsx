@@ -69,14 +69,6 @@ export const Terminal = ({ children }: CodeBlockProps) => {
             fontFamily: `'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`,
             position: 'relative',
             opacity: 0.9,
-            '@keyframes blink': {
-              '0%': {
-                opacity: 1,
-              },
-              '100%': {
-                opacity: 0,
-              },
-            },
             ':before': {
               content: '➜  ~ ',
               color: '#79F2C0',
@@ -94,7 +86,6 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               top: '-3px',
               right: '-13px ',
               pointerEvents: 'none',
-              animation: 'blink 2s steps(2, end) infinite',
             },
           }}>
           {parsedInput}

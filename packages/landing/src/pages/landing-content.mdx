@@ -1,7 +1,9 @@
+import { LargeHotPinkText } from '../components/example';
+
 ## Better for component authors
 
-Write your styles in JavaScript leveraging the language to create expressive,
-dynamic experiences.
+Write your stylea in JavaScript with the full power of CSS,
+leveraging the language to create expressive & dynamic experiences.
 
 ```jsx
 import '@compiled/react';
@@ -17,8 +19,7 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli),
-or your bundler of choice that supports Babel.
+[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice.
 
 ```json
 {
@@ -45,14 +46,13 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-A component that can be used by anyone without needing to configure a bundler has now been built -
-everything is baked in.
+You now have a super fast component that has all of its styles pre-calculated at build time.
 
 ## Better for consumers
 
 Be it a component published to [NPM](https://npmjs.com/) or defined in your app,
-components using Compiled always render exactly as authored on both the server and client.
-No complicated configuration needed;
+components built with Compiled always render exactly as authored on both the server and client.
+No complicated configuration needed -
 just import and go!
 
 ```jsx
@@ -61,17 +61,15 @@ import { LargeHotPinkText } from '@text/components';
 <LargeHotPinkText>Hello world</LargeHotPinkText>;
 ```
 
+<LargeHotPinkText>Hello world</LargeHotPinkText>
+
 ## Better for the web
 
-Turn on the bundler plugin and all components styled with Compiled in your app,
-sourced from [NPM](https://npmjs.com/),
-and everywhere else,
-will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
+Turn on the bundler plugin and all components styled with Compiled in your app or sourced through [NPM](https://npmjs.com/) will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
 
 1. Build your app
 
 ```bash
-$ npm install @compiled/parcel-plugin
 $ parcel build
 ✨  Built in 0.83s.
 ```
@@ -87,9 +85,7 @@ $ parcel build
 }
 ```
 
-3. All style rules,
-   `<CC>`, and
-   `<CS>` components are removed from your JavaScript bundle
+3. All style rules and runtime components are removed from your JavaScript bundle
 
 ```jsx
 export const LargeHotPinkText = ({ children }) => (
@@ -97,9 +93,8 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-> It's recommended to only extract in apps.
-> Shipping a component library or design system?
-> Keep styles baked in and then get your consumers to extract.
+> **Tip** - If you're publishing a component library or design system it's recommended not to extract.
+> To get the best results extract in apps only.
 
 We're empowering the JavaScript community to extract all styles!
 No longer just focusing on a single app,

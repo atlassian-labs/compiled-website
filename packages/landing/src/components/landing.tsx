@@ -153,7 +153,7 @@ export default () => (
                 href="/docs/atomic-css">
                 atomic CSS
               </a>
-              -in-JS. Baked and ready to serve.
+              -in-JS. <HideSmall>Baked and ready to serve.</HideSmall>
             </span>
           </Heading>
           <CodeExamples />
