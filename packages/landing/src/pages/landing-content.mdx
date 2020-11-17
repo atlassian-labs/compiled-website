@@ -1,3 +1,5 @@
+import '@compiled/react';
+import { ExampleContainer, ExampleRoot } from '@compiled/website-ui';
 import { LargeHotPinkText } from '../components/example';
 
 ## Better for component authors
@@ -61,7 +63,11 @@ import { LargeHotPinkText } from '@text/components';
 <LargeHotPinkText>Hello world</LargeHotPinkText>;
 ```
 
-<LargeHotPinkText>Hello world</LargeHotPinkText>
+<ExampleRoot>
+  <ExampleContainer css={{ padding: '1.5rem' }}>
+    <LargeHotPinkText>Hello world</LargeHotPinkText>
+  </ExampleContainer>
+</ExampleRoot>
 
 ## Better for the web
 

@@ -62,6 +62,7 @@ const TabButton = (props: {
         borderTopRightRadius: 6,
         ':hover, :focus': {
           outline: 'none',
+          opacity: props.isSelected ? 1 : 0.9,
         },
         backgroundColor: 'transparent',
         border: 'none',

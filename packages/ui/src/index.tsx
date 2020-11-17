@@ -16,6 +16,8 @@ export {
   Anchor,
   AnchorProvider,
   Footer,
+  ExampleContainer,
+  ExampleRoot,
   ToAnchor,
 } from './components';
 export { RootLayout } from './layout';
