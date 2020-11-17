@@ -5,16 +5,18 @@ order: 2
 
 # Testing
 
-Testing is important and something that was developed with in mind.
-Using the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests works well for asserting style behaviour over state changes.
+Testing is important for long-lived projects,
+and something that Compiled was developed with in mind.
 
-Install the matcher.
+Use the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests to assert style behaviour over state changes.
+
+First install the matcher:
 
 ```bash
 npm install @compiled/jest --save-dev
 ```
 
-Then configure it in Jest.
+Then configure it in Jest:
 
 ```jsx
 // test/setup.js
@@ -32,8 +34,8 @@ module.exports = {
 };
 ```
 
-The matcher will now be globally available.
-Here we are using [`react-testing-library`](https://github.com/testing-library/react-testing-library) which we highly recommend.
+The matcher is now globally available for your tests.
+Here we are using [`react-testing-library`](https://github.com/testing-library/react-testing-library).
 
 ```jsx
 import { render } from '@testing-library/react';
@@ -49,7 +51,7 @@ it('should have small font', () => {
 });
 ```
 
-When writing tests in TypeScript you will probably need to create a `global.d.ts` file and import the jest matcher to enable types.
+When writing tests in TypeScript you will probably need to create a `<root>/types/global.d.ts` file and import the jest matcher to enable types.
 
 ```tsx
 import '@compiled/jest-matcher';
@@ -94,9 +96,7 @@ it('should appear red', () => {
 ## Selectors
 
 Assert against any CSS selectors and pseudo classes,
-such as `:hover`,
-`:active`,
-by passing in a config object.
+such as `:hover` and `:active` by passing in a config object.
 
 ```jsx
 it('should change background color to blue on hover', () => {

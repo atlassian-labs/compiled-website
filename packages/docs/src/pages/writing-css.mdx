@@ -6,26 +6,7 @@ order: 5
 
 # Writing CSS
 
-There are a few extra features you can utilize when writing styles with Compiled.
-
-## Vendor prefixing
-
-Prefixing CSS declarations enables us to ignore slight browser differences and worry instead for experiences we're developing.
-
-```css
-user-select: none;
-```
-
-Becomes:
-
-```css
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-```
-
-Interestingly not much vendor prefixing is needed today.
+Compiled adds some extra features ontop of regular CSS.
 
 ## Nested rules
 
@@ -120,3 +101,22 @@ Becomes:
   content: 'Hello';
 }
 ```
+
+## Vendor prefixing
+
+Prefixing CSS declarations enables us to ignore slight browser differences and worry instead for experiences we're developing.
+
+```css
+user-select: none;
+```
+
+Becomes:
+
+```css
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+```
+
+Interestingly not much vendor prefixing is needed today.

@@ -14,17 +14,17 @@ import {
 
 # Styled
 
-Create components that have associated styles that come with built-in behaviour such as `ref` and `as` prop support.
+Styled is used to create components that have associated styles that come with built-in behaviour such as `ref` and `as` prop support.
 
 <StyledString />
 
 ## Dynamic declarations
 
-Powered behind the scenes by CSS variables.
+Dynamic declarations are powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 Any props that are valid HTML attributes will be passed down to the underlying DOM node -
 otherwise they will be ignored.
 
-This example shows that behavior -
+This example shows this behavior -
 if you inspect the example element in dev tools you'll see the `primary` prop has not been passed through.
 
 <StyledDynamic />
@@ -34,32 +34,32 @@ if you inspect the example element in dev tools you'll see the `primary` prop ha
 
 ### Transient props
 
-If you want to use a prop name that is also a valid HTML attribute but don't want it to appear on the element,
+When wanting to use a prop name that is also a valid HTML attribute and don't want it to appear on the element,
 prefix the prop with `$` and it won't be applied.
 
-This example shows that `color` is on the element,
+This example shows that `color` is passed down to the DOM element,
 but `$color` is not.
 
 <StyledTransientProps />
 
 ## The as prop
 
-Changing the markup to something else such as a `h1` to a `span` can be useful.
-The `as` prop can be used to change it at runtime.
-
-This example shows a `h1` element being set to a `span`.
+The `as` prop is useful when wanting to change the markup during runtime to something else,
+such as from a `<h1>` element to a `<span>`.
 
 <StyledAsProp />
 
 ## Composing components
 
-Wrap an already defined component to pass extra styles to it (under the hood it does this via the `className` prop).
+Wrapping an already defined component enables you to pass styles to it.
 The composing components styles will take precedence over the composed components styles,
 assuming they're both styled with Compiled.
 
 <StyledComposition />
 
-## Types
+> **Note** - Ensure the wrapped component sets its `className` and `style` props otherwise the styles will not be applied.
+
+## TypeScript
 
 Type support comes out of the box so you'll have a great time using Compiled with TypeScript,
 any interpolation will have access to the props defined in the tagged template generic.

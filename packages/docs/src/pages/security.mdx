@@ -6,12 +6,12 @@ section: 90-Advanced
 
 ## Content security policy
 
-A [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) allows us to be explicit about what can and can't run in web apps -
+A content security policy ([CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)) allows us to be explicit about what can and can't run in web apps -
 JavaScript,
 styles,
 images even.
 
-Supporting a CSP works by setting `nonce` in the Babel plugin config,
+Supporting a CSP works by setting the `nonce` option in the [Babel plugin](/pkg-babel-plugin) config,
 where `nonce` is an identifier your bundler can replace at build time.
 If you're bundling with Webpack they [have support for this](https://webpack.js.org/guides/csp/).
 A `nonce` should resolve to a _unique_ secret that the server generates _every page load_.
@@ -36,7 +36,7 @@ Here `__webpack_nonce__` gets transformed to a function at build time which will
 +uniqueNonceOncePerServerLoad() // returns "k0Mp1lEd" this run
 ```
 
-On the server we need ensure that a `meta` tag in the `head` is set using the same value:
+On the server you need to ensure that a `meta` tag in the `head` is set using the same value:
 
 ```html
 <meta
@@ -67,10 +67,9 @@ the browser blocks them from being used and logs an error to the console.
 
 ## User input
 
-Because of the static nature of Compiled,
-creating CSS at runtime is not possible which means as developers we're now just a little bit safer.
+Because of the static nature of Compiled creating CSS at runtime is not possible meaning that as developers we're now just a little bit safer.
 If we take user input and use it to do dynamic styling it's also pumped through React,
-we get their sanitization for free.
+getting their sanitization for free.
 
 All this to say -
 we don't have to worry about much.

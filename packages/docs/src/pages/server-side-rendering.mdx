@@ -7,8 +7,7 @@ order: 3
 
 [Server side rendering](https://reactjs.org/docs/react-dom-server.html) (SSR) is an important tool used to show your app faster to your users.
 
-Have you heard "SSR is zero config" before?
-What does that actually mean?
+Have you heard the phrase "SSR is zero config" before?
 In the context of Compiled -
 consumers of your components don't have to do anything to make it work.
 Just import and go.
@@ -34,7 +33,8 @@ And then on the web browser when the JavaScript initializes they get moved to th
 ```
 
 The magic sauce though -
-if any atomic CSS is used multiple times only the first atomic rule will render:
+if any atomic CSS is defined multiple times only the first atomic rule will render,
+resulting in less styles rendered initially:
 
 <!-- prettier-ignore -->
 ```html
@@ -51,10 +51,10 @@ if any atomic CSS is used multiple times only the first atomic rule will render:
 This strategy of rendering `style` elements next to their pairing component has two main benefits:
 
 1. Consumers of your components don't need to configure anything
-1. When using the [streaming server API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) component styles are streamed together with your component markup,
+1. When using the [React streaming server API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) component styles are streamed together with your component markup,
    resulting in content being rendered to users faster
 
-> **Warning** - This can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
+> **Warning** - This will interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
 > We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled/issues/31) - please join the conversation!
 
 ## Selector workarounds
@@ -65,12 +65,11 @@ such as applying styles directly to the element you're interested in.
 
 ### First child
 
-Luckily this one is easy.
-Let's say we're targetting the `:first-child` child.
+Here we target the `:first-child` element.
 
 ```jsx
 <div css={`
-  > :first-child {
+  & :first-child {
     color: red;
   }
 `}>
@@ -80,13 +79,24 @@ Let's say we're targetting the `:first-child` child.
 ```
 
 But the text isn't red before the JavaScript has executed!
-What can we do?
 
-Use a different selector.
+To workaround this we can use a different selector,
+either `:first-of-type` or explicitly marking the first child with a [data attribute](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
 
 ```jsx
 <div css={`
-  > [data-first-child] {
+  & :first-of-type {
+    color: red;
+  }
+`}>
+  <div /> <-- text will be red, always
+  <div />
+</div>
+```
+
+```jsx
+<div css={`
+  & [data-first-child] {
     color: red;
   }
 `}>
@@ -95,8 +105,6 @@ Use a different selector.
 </div>
 ```
 
-Right now this is really the only sure fire way of getting what we want.
-
 ### Nth child
 
 This also applies to `:nth-child` as well,
@@ -104,11 +112,11 @@ where `style` elements can appear and complicate things before JavaScript has ex
 
 ```jsx
 <div css={`
-  > :nth-child(even) {
+  & :nth-child(even) {
     color: red;
   }
 
-  > :nth-child(odd) {
+  & :nth-child(odd) {
     color: blue;
   }
 `}>
@@ -119,11 +127,11 @@ where `style` elements can appear and complicate things before JavaScript has ex
 
 ```jsx
 <div css={`
-  > [data-even] {
+  & [data-even] {
     color: red;
   }
 
-  > [data-odd] {
+  & [data-odd] {
     color: blue;
   }
 `}>

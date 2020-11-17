@@ -15,27 +15,25 @@ import {
 
 # CSS Prop
 
-Useful when wanting more control over your component.
+CSS prop is useful when wanting more control over your component.
 
-CSS prop is enabled when any usage of the `@compiled/react` module is found,
+It is enabled when any usage of the `@compiled/react` module is found,
 for example when using the `styled` API the CSS prop will be enabled as well.
 
 <CssPropString />
 
 ## Dynamic declarations
 
-Powered behind the scenes by CSS variables.
+Dynamic declarations are powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
 <CssPropDynamic />
 
 ## Composition gotchas
 
-To ensure the smallest amount of code is generated Compiled will only enable setting styles through props when the element has explicitly defined `className` and `style` props.
+Compiled will try to generate the smallest amount of code possible.
+When composing styles ensure to explicitly define both a `className` and `style` prop.
 
-When composing styles from props with `className` make sure to also define a `style` prop so dynamic declarations work.
-They are powered by CSS variables present in the `style` prop.
-
-Here the `className` and `style` props are explicitly defined so styling works correctly.
+Here the `className` and `style` props are both defined so styling works correctly.
 
 <CssPropCompositionCorrect />
 

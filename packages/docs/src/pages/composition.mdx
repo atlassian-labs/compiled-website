@@ -10,8 +10,9 @@ import {
 
 # Composition
 
-Composing styles together enables style reuse and flexibility.
-Traditionally when defining CSS it is not the `class` order that ensures style get applied,
+Composing styles together will enable you to reuse styles and have more flexibility.
+
+Traditionally when defining CSS it is not the `className` order that ensures style get applied,
 but the the [order of CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) in the DOM.
 This is a common cause for developer confusion.
 
@@ -19,13 +20,13 @@ Compiled eliminates these cascade gotchas by ensuring the last CSS property defi
 
 <CompositionIdentifier />
 
-When composing styles together it's important to remember that the last defined style will win.
+When composing styles together remember that the last defined style will win.
 In this example we can see that red overrides the pink color.
 
 <CompositionMultiple />
 
 > **Note** - When composing styles together it is recommended to use array composition over [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax),
-> like the example above.
+> like in the example above.
 
-Composition works with all APIs found in Compiled.
-Read [more about atomic CSS](/atomic-css#overriding-through-composition) to understanding how this works under the hood.
+Style composition works with all APIs found in Compiled.
+Read [more about atomic CSS](/atomic-css#overriding-through-composition) to understand how this works.

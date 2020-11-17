@@ -6,9 +6,8 @@ order: 99
 
 # Atomic CSS
 
-Atomic CSS reduces the total amount of defined styles by creating a single rule for every style declaration -
-this results in the large majority of your styles being re-used,
-instead of duplicated.
+Atomic CSS will reduce the total amount of defined styles by creating a single rule for every style declaration -
+resulting in the large majority of your styles being re-used instead of duplicated.
 
 Typically CSS is defined like so:
 
@@ -25,8 +24,7 @@ Typically CSS is defined like so:
 <button className="button">Hello world</button>
 ```
 
-However when products scale to hundreds,
-even thousands of developers,
+However when products scale to hundreds of developers,
 defined styles can get messy,
 and very duplicated.
 
@@ -61,7 +59,7 @@ they end up using the same rules.
 <span className="fs-14">Text</span>
 ```
 
-## Other benefits
+## Continued benefits
 
 There are other benefits over and beyond just re-using CSS rules.
 
@@ -70,8 +68,7 @@ There are other benefits over and beyond just re-using CSS rules.
 When you can't create CSS at runtime enabling [composition of styles](/composition) can seem impossible.
 If nothing was done depending on the order of rendered components you'd get different results.
 
-Luckily there is a solution.
-Using atomic CSS we can encode all the data needed to ensure developers can combine property values,
+Using atomic CSS we can encode all the data needed to ensure developers can compose styles together,
 without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
 
 Take these two atomic rules:
@@ -85,20 +82,20 @@ Take these two atomic rules:
 }
 ```
 
-There are two pieces of data that can be used in the class names.
+There are two pieces of data that can be used in the class name.
 
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
 
-Using them we ensure that only one atomic group can exist in an elements class name.
-We introduce a small utility to help with that,
+Using them we can ensure that only one atomic group can exist in an elements class name.
+We introduce a small utility to help with this,
 a function called `ax`:
 
 ```jsx
 <div className={ax(['color-blue', 'color-red'])} />
 ```
 
-Then the final result becomes:
+The final result becomes:
 
 ```jsx
 <div className="color-red" />
@@ -171,5 +168,4 @@ scaling linearly,
 you can see this on the first example on this page.
 However at scale this can prove to be worth it.
 
-There _are_ ways to improve this,
-when we have [completed the CSS extraction story](https://github.com/atlassian-labs/compiled/issues/58) we have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335).
+We have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335) when we are further through development.
