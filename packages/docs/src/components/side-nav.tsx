@@ -13,7 +13,7 @@ export const Section = ({ children, title }: SectionProps) => {
 
   return (
     <VerticalStack spacing={6}>
-      <Heading id={id} as="span" look="h500">
+      <Heading style={{ marginBottom: '0.3rem' }} id={id} as="div" look="h500">
         {title}
       </Heading>
       {Children.map(children, (child) =>

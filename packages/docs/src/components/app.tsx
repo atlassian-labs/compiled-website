@@ -183,7 +183,11 @@ export const App = () => {
 
               <p css={{ margin: '8rem 0' }}>
                 <a
-                  css={{ color: colors.primary, fontSize: 14 }}
+                  css={{
+                    textDecoration: 'none',
+                    color: colors.primary,
+                    fontSize: 14,
+                  }}
                   href={getEditUrl()}>
                   Edit on Github
                 </a>
