@@ -1,12 +1,22 @@
 import React from 'react';
 import '@compiled/react';
 
+const rgb = '101, 84, 192';
+const step = 0.025;
+
 export const Hero = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       css={{
         position: 'relative',
         overflow: 'hidden',
+        background: `repeating-linear-gradient(
+          45deg,
+          rgba(${rgb}, ${step}),
+          rgba(${rgb}, ${step * 2}) 200px,
+          rgba(${rgb}, ${step * 3}) 200px,
+          rgba(${rgb}, ${step * 4}) 400px
+        )`,
       }}>
       <div
         css={{
