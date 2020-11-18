@@ -185,9 +185,9 @@ export const App = () => {
                 <a
                   css={{
                     textDecoration: 'none',
-                    ':hover': {
-                      textDecoration: 'underline',
-                    },
+                    padding: '1rem 1.25rem',
+                    border: `1px solid ${colors.primary}`,
+                    borderRadius: 3,
                     color: colors.primary,
                     fontSize: 14,
                   }}
