@@ -34,6 +34,16 @@ const styledAfter = readFileSync(
   __dirname + '../../../../examples/dist/js/styled-button.js',
   'utf-8'
 );
+
+const classNamesBefore = readFileSync(
+  __dirname + '../../../../examples/dist/jsx/class-names-button.js',
+  'utf-8'
+);
+const classNamesAfter = readFileSync(
+  __dirname + '../../../../examples/dist/js/class-names-button.js',
+  'utf-8'
+);
+
 const LandingPageContent = require('../pages/landing-content.mdx').default;
 
 const codeBackground = 'rgba(23, 43, 77, 0.7)';
@@ -83,7 +93,7 @@ const TabButton = (props: {
 };
 
 const CodeExamples = () => {
-  const [shown, setShown] = useState<'css' | 'styled' | 'class'>('styled');
+  const [shown, setShown] = useState<'css' | 'styled' | 'cn'>('styled');
 
   return (
     <div>
@@ -100,6 +110,13 @@ const CodeExamples = () => {
         isSelected={shown === 'css'}
         onClick={() => setShown('css')}>
         Css prop
+      </TabButton>
+      <TabButton
+        id="cn-tab"
+        aria-controls="cn-example"
+        isSelected={shown === 'cn'}
+        onClick={() => setShown('cn')}>
+        Class names
       </TabButton>
 
       {shown === 'css' && (
@@ -122,6 +139,18 @@ const CodeExamples = () => {
             exampleCode="<Button>Button</Button>"
             before={styledBefore}
             after={styledAfter}>
+            <styledExamples.Button>Button</styledExamples.Button>
+          </Example>
+        </div>
+      )}
+      {shown === 'cn' && (
+        <div id="cn-example" role="tabpanel" aria-labelledby="cn-tab">
+          <Example
+            codeBackground={codeBackground}
+            variant="fixed"
+            exampleCode="<Button>{props => <button {...props}>Button</button>}</Button>"
+            before={classNamesBefore}
+            after={classNamesAfter}>
             <styledExamples.Button>Button</styledExamples.Button>
           </Example>
         </div>
