@@ -4,29 +4,29 @@ order: 1
 name: ClassNames
 ---
 
+import {
+  ClassNamesObj,
+  ClassNamesDynamic,
+  ClassNamesComposition,
+} from '../examples/class-names';
+
 # ClassNames
 
 Use `ClassNames` to create a component where styles are not necessarily tied to an element,
-enabling powerful patterns such as [render props](https://reactjs.org/docs/render-props.html).
+enabling powerful patterns with [render props](https://reactjs.org/docs/render-props.html).
 
-```
-example here
-```
+<ClassNamesObj />
 
 ## Dynamic declarations
 
 Dynamic declarations are powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties),
 make sure to set the `style` prop.
 
-```
-example here
-```
+<ClassNamesDynamic />
 
 ## Composing styles
 
 Composing styles through props allows your consumers to add and override styles.
 Make sure to pass through `className` and `style`.
 
-```
-example here
-```
+<ClassNamesComposition />
