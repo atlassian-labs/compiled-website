@@ -60,7 +60,48 @@ styled.div([
 ]);
 ```
 
+## ClassNames
+
+Generate a `className` without needing to tie it to an element,
+enabling powerful patterns with [render props](https://reactjs.org/docs/render-props.html).
+
+```jsx
+import { ClassNames } from '@compiled/react';
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css({ fontSize: 12 }),
+    })
+  }
+</ClassNames>;
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css`
+        font-size: 12px;
+      `,
+    })
+  }
+</ClassNames>;
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css([`font-size: 12px`, { color: 'blue' }]),
+    })
+  }
+</ClassNames>;
+```
+
 ## Runtime
+
+Runtime entrypoint used when styles have not been extracted and for composing atomic styles together.
+It is advised to not use this directly.
 
 ### CC
 
