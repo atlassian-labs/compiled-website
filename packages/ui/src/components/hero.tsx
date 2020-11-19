@@ -2,7 +2,8 @@ import React from 'react';
 import '@compiled/react';
 
 const rgb = '101, 84, 192';
-const step = 0.025;
+const step = 0.015;
+const size = 250;
 
 export const Hero = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -11,11 +12,11 @@ export const Hero = ({ children }: { children: React.ReactNode }) => {
         position: 'relative',
         overflow: 'hidden',
         background: `repeating-linear-gradient(
-          45deg,
+          35deg,
           rgba(${rgb}, ${step}),
-          rgba(${rgb}, ${step * 2}) 200px,
-          rgba(${rgb}, ${step * 3}) 200px,
-          rgba(${rgb}, ${step * 4}) 400px
+          rgba(${rgb}, ${step * 2}) ${size}px,
+          rgba(${rgb}, ${step * 3}) ${size}px,
+          rgba(${rgb}, ${step * 4}) ${size * 2}px
         )`,
       }}>
       <div

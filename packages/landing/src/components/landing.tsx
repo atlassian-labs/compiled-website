@@ -171,7 +171,6 @@ export default () => (
                 color: 'rgba(255, 255, 255, 0.75)',
                 maxWidth: '75%',
                 display: 'block',
-                fontWeight: 700,
               }}>
               Build time{' '}
               <a
