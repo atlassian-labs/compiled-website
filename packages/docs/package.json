@@ -9,7 +9,7 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@compiled/react": "0.4.8-69aeac1ea50a8d6e83ee80f4b28583875de1e4d9.0",
+    "@compiled/react": "0.4.8-bb30459bd5d20f1089f06e5ff4ef5e8ce034844c.0",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",

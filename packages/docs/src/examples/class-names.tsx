@@ -6,7 +6,7 @@ import { Example } from '@compiled/website-ui';
 export const ClassNamesObj = () => {
   return (
     <Example
-      exampleCode="TODO"
+      exampleCode="<EmphasisText>Transpile</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-obj.js',
         'utf-8'
@@ -15,7 +15,7 @@ export const ClassNamesObj = () => {
         __dirname + '../../../../examples/dist/js/class-names-obj.js',
         'utf-8'
       )}>
-      <span>TODO</span>
+      <classNames.ClassNamesObj>Transpile</classNames.ClassNamesObj>
     </Example>
   );
 };
@@ -23,7 +23,7 @@ export const ClassNamesObj = () => {
 export const ClassNamesDynamic = () => {
   return (
     <Example
-      exampleCode="TODO"
+      exampleCode="<EmphasisText>Builder</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
         'utf-8'
@@ -32,7 +32,7 @@ export const ClassNamesDynamic = () => {
         __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
         'utf-8'
       )}>
-      <span>TODO</span>
+      <classNames.ClassNamesDynamic>Builder</classNames.ClassNamesDynamic>
     </Example>
   );
 };
@@ -40,7 +40,9 @@ export const ClassNamesDynamic = () => {
 export const ClassNamesComposition = () => {
   return (
     <Example
-      exampleCode="TODO"
+      exampleCode={
+        '<CustomColorText color="pink">This text is pink</CustomColorText>'
+      }
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-composition.js',
         'utf-8'
@@ -49,7 +51,9 @@ export const ClassNamesComposition = () => {
         __dirname + '../../../../examples/dist/js/class-names-composition.js',
         'utf-8'
       )}>
-      <span>TODO</span>
+      <classNames.ClassNamesComposition color="pink">
+        This text is pink
+      </classNames.ClassNamesComposition>
     </Example>
   );
 };

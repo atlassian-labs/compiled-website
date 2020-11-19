@@ -13,7 +13,11 @@ import {
   mdxComponents,
   colors,
 } from '@compiled/website-ui';
-import { cssProp, styled as styledExamples } from '@compiled/website-examples';
+import {
+  cssProp,
+  styled as styledExamples,
+  classNames,
+} from '@compiled/website-examples';
 import { readFileSync } from 'fs';
 import { MDXProvider } from '@mdx-js/react';
 
@@ -151,7 +155,9 @@ const CodeExamples = () => {
             exampleCode="<Button>{props => <button {...props}>Button</button>}</Button>"
             before={classNamesBefore}
             after={classNamesAfter}>
-            <styledExamples.Button>Button</styledExamples.Button>
+            <classNames.Button>
+              {(props) => <button {...props}>Button</button>}
+            </classNames.Button>
           </Example>
         </div>
       )}

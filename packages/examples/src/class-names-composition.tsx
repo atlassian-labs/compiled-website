@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { ClassNames } from '@compiled/react';
 
-const EmphasisText = (props) => (
+const EmphasisText = ({ className, children, style: styl }: any) => (
   <ClassNames>
     {({ css }) => (
       <span
-        style={props.style}
+        style={styl}
         className={
           css({
             color: '#00b8d9',
@@ -13,9 +13,9 @@ const EmphasisText = (props) => (
             fontWeight: 700,
           }) +
           ' ' +
-          props.className
+          className
         }>
-        {props.children}
+        {children}
       </span>
     )}
   </ClassNames>
