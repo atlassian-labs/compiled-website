@@ -214,7 +214,7 @@ npm install @compiled/react
 
       <VerticalStack align="right" spacing={10}>
         <a
-          href="docs/installation"
+          href="docs/what-is-compiled"
           css={{
             color: colors.primary,
             fontSize: '1.25em',
@@ -235,7 +235,7 @@ npm install @compiled/react
                 right: '-2rem',
               },
             }}>
-            Installation
+            What is Compiled?
           </span>
         </a>
       </VerticalStack>
