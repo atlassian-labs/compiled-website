@@ -83,7 +83,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               backgroundColor: 'currentColor',
               width: 12,
               height: 28,
-              top: '-3px',
+              top: '-4px',
               right: '-13px ',
               pointerEvents: 'none',
             },
