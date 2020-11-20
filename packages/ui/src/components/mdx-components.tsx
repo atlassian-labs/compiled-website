@@ -112,4 +112,5 @@ export const mdxComponents: MDXProviderComponentsProp = {
       </Link>
     ),
   blockquote: (props) => <Quote {...props} />,
+  strong: (props) => <strong css={{ fontWeight: 500 }} {...props} />,
 };

@@ -8,25 +8,11 @@ import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
 
 # What is Compiled?
 
-Compiled is a build time [atomic CSS](/atomic-css)-in-JS library.
+Compiled is a _build time_ [atomic CSS](./atomic-css)-in-JS library that has a two-step transformation process.
 
-For us at [Atlassian](https://atlassian.com) CSS-in-JS provides a fantastic developer experience,
-with deep integrations with JavaScript by design,
-and the delivery mechanism making it super easy for consumers to use our components.
-Just import and go!
+## Baking in
 
-However we've seen scaling problems,
-unintended performance gotchas -
-death by a thousand cuts.
-Where the focus has been swayed towards the developer and away from the user.
-
-We want more from our styling library and our users.
-We want to do everything we can at build time.
-
-## How it works
-
-Compiled transforms components you've styled.
-Everything the component needs to function is baked into the resulting JavaScript.
+Write your styles in JavaScript/TypeScript and Compiled will **create all CSS rules ahead of time** baking everything the component needs to run.
 
 <BeforeHowItWorks />
 
@@ -34,8 +20,28 @@ Becomes:
 
 <AfterHowItWorks />
 
-This enables you to ship your components to any consumer without needing them to configure their tooling.
-Just import and go!
+Resulting in **super fast renders** and enabling consumers to **use your components without configuring their tooling**.
 
-This is powerful,
-and importantly the same experience for developers who consume components styled with runtime CSS-in-JS libraries today.
+## Extracting styles
+
+Turn on the extract plugin in your app and **all CSS logic from every component styled with Compiled will be removed from your bundle** and moved to a single [atomic style sheet](./atomic-css).
+
+```jsx
+import * as React from 'react';
+import { ax } from '@compiled/react/runtime';
+
+export const EmphasisText = React.forwardRef(
+  ({ as: C = 'span', style, primary, ...props }, ref) => (
+    <C
+      {...props}
+      style={{ ...style, '--_ogjj5i': primary ? '#00B8D9' : '#36B37E' }}
+      ref={ref}
+      className={ax(['_syazpjp7 _1p1dangw _k48pni7l', props.className])}
+    />
+  )
+);
+```
+
+Resulting in **smaller JavaScript bundles**,
+and even **better peformance**.
+Extracting will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
