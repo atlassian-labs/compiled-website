@@ -4,7 +4,7 @@ import { LargeHotPinkText } from '../components/example';
 
 ## Better for component authors
 
-Write your styles in JavaScript with the full power of CSS,
+Write your styles in JavaScript/TypeScript with the full power of CSS,
 leveraging the language to create expressive & dynamic experiences.
 
 ```jsx
@@ -48,14 +48,13 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-You now have a super fast component that has all of its styles pre-calculated at build time.
+You now have a **super fast component** that has all of its styles built ahead of time.
 
 ## Better for consumers
 
-Be it a component published to [NPM](https://npmjs.com/) or defined in your app,
-components built with Compiled always render exactly as authored on both the server and client.
-No complicated configuration needed -
-just import and go!
+Components published to [NPM](https://npmjs.com/) or defined in your app,
+any built with Compiled always render exactly as authored on both the server and client.
+No complicated configuration needed.
 
 ```jsx
 import { LargeHotPinkText } from '@text/components';
@@ -91,7 +90,7 @@ $ parcel build
 }
 ```
 
-3. All style rules and runtime components are removed from your JavaScript
+3. All style rules and runtime components are removed from your bundle
 
 ```jsx
 export const LargeHotPinkText = ({ children }) => (
@@ -102,8 +101,8 @@ export const LargeHotPinkText = ({ children }) => (
 > **Tip** - If you're publishing a component library or design system it's recommended not to extract.
 > For the best results extract in apps only.
 
-It's time to start thinking not just a single app,
+It's time to start thinking not just about a single app,
 but the entire ecosystem and all the packages we consume.
 It's time to extract all styles!
 
-Extract to an atomic style sheet will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
+Extracting will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
