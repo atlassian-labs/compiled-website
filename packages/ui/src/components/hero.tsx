@@ -2,7 +2,7 @@ import React from 'react';
 import '@compiled/react';
 
 const rgb = '101, 84, 192';
-const step = 0.015;
+const step = 0.0185;
 const size = 250;
 
 export const Hero = ({ children }: { children: React.ReactNode }) => {
