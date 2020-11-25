@@ -1,4 +1,4 @@
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 export const HorizontalStack = styled.div<{ spacing?: number; gap?: number }>`
   margin-top: ${(props) => props.spacing}rem;

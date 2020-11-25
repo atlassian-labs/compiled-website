@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ClassNames } from '@compiled/react';
+import { ClassNames } from '@emotion/core';
 
 const EmphasisText = ({ className, children, style: styl }: any) => (
   <ClassNames>

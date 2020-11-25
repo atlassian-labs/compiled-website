@@ -1,5 +1,7 @@
-import { styled } from '@compiled/react';
-import React, { useState } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
+import { useState } from 'react';
 import { CodeBlock, colors } from '@compiled/website-ui';
 
 interface ExampleProps {

@@ -1,9 +1,10 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { Fragment } from 'react';
 import { Content, HorizontalStack } from '@compiled/website-ui';
 
 export const Footer = () => (
-  <>
+  <Fragment>
     <div css={{ height: 80 }} />
     <footer
       css={{
@@ -33,5 +34,5 @@ export const Footer = () => (
         </HorizontalStack>
       </Content>
     </footer>
-  </>
+  </Fragment>
 );

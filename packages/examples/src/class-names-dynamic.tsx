@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ClassNames } from '@compiled/react';
+import { ClassNames } from '@emotion/core';
 
 export const EmphasisText = (props) => (
   <ClassNames>
-    {({ css, style }) => (
+    {({ css }) => (
       <span
-        style={style}
         // ^--- make sure to set style prop
         className={css({
           color: props.primary ? '#00B8D9' : '#36B37E',

@@ -18,7 +18,8 @@ npm install @compiled/react
 Use [CSS prop](./css-prop) when needing more control in a component tying styles to an element.
 
 ```jsx
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
 <div
   css={{
@@ -40,7 +41,7 @@ import '@compiled/react';
 Use [styled](./styled) when wanting to create a component that has styles tied to an element.
 
 ```jsx
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 styled.div`
   font-size: 12px;

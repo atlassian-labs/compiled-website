@@ -1,5 +1,5 @@
 import React, { cloneElement, Children } from 'react';
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 import { VerticalStack, Heading, colors } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 

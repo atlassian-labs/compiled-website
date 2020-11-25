@@ -1,5 +1,6 @@
-import React from 'react';
-import { styled } from '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 import { ScreenReaderText } from './helpers';
 
 const height = '9rem';

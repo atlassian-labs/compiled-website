@@ -1,5 +1,6 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { Fragment } from 'react';
 import {
   RootLayout,
   VerticalStack,
@@ -144,7 +145,7 @@ export const App = () => {
           )
         }
         sidenav={
-          <>
+          <Fragment>
             {getSections().map((section, sectionIndex) => (
               <Section
                 key={section.name}
@@ -166,7 +167,7 @@ export const App = () => {
                 ))}
               </Section>
             ))}
-          </>
+          </Fragment>
         }>
         <MDXProvider components={mdxComponents}>
           <ScrollTop key={pageSlug} />
@@ -178,7 +179,7 @@ export const App = () => {
           />
 
           {page && (
-            <>
+            <Fragment>
               <page.Component />
 
               <p css={{ margin: '8rem 0' }}>
@@ -256,7 +257,7 @@ export const App = () => {
                   </Link>
                 )}
               </div>
-            </>
+            </Fragment>
           )}
         </MDXProvider>
       </RootLayout>

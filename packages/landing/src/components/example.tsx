@@ -1,5 +1,5 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
 export const LargeHotPinkText = ({ children }) => (
   <span

@@ -1,4 +1,4 @@
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 const RedText = styled.span`
   color: red;

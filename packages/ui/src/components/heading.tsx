@@ -1,5 +1,6 @@
-import React, { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 interface HeadingProps
   extends DetailedHTMLProps<

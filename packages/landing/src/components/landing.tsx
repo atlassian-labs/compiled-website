@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { styled } from '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { useState } from 'react';
+import styled from '@emotion/styled';
 import {
   Hero,
   Heading,

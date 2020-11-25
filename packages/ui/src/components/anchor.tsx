@@ -1,4 +1,6 @@
-import React, {
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import {
   createContext,
   useContext,
   useRef,
@@ -8,8 +10,6 @@ import React, {
   useState,
   Ref,
 } from 'react';
-import '@compiled/react';
-import { Heading } from '@compiled/website-ui';
 import { colors } from '../utils';
 
 interface AnchorContextData {

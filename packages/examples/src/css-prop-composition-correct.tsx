@@ -1,5 +1,6 @@
 import * as React from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
 const EmphasisText = (props) => (
   <span

@@ -1,5 +1,6 @@
-import React, { CSSProperties } from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { CSSProperties } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
 import codeTheme from 'react-syntax-highlighter/dist/esm/styles/prism/tomorrow';
 

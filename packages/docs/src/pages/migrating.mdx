@@ -13,7 +13,7 @@ Replace the imports with `@compiled/react`.
 
 ```diff
 -import styled from 'styled-components';
-+import { styled } from '@compiled/react';
++import styled from '@emotion/styled';
 
 styled.div`
   font-size: 12px;
@@ -42,7 +42,8 @@ Replace the imports with `@compiled/react`.
 ```diff
 -/** @jsx jsx */
 -import { jsx } from '@emotion/core';
-+import '@compiled/react';
++/** @jsx jsx */
+import { jsx } from '@emotion/core';
 
 (props) => (
   <div
@@ -66,7 +67,7 @@ Replace the imports with `@compiled/react`.
 
 ```diff
 -import styled from '@emotion/styled';
-+import { styled } from '@compiled/react';
++import styled from '@emotion/styled';
 
 styled.div`
   font-size: 12px;

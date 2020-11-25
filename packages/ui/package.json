@@ -9,6 +9,8 @@
     "@babel/preset-react": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
     "@compiled/react": "0.4.8-bb30459bd5d20f1089f06e5ff4ef5e8ce034844c.0",
+    "@emotion/core": "^10.1.1",
+    "@emotion/styled": "^10.0.27",
     "@svgr/parcel-plugin-svgr": "^5.3.0",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",

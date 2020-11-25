@@ -1,4 +1,4 @@
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 export const EmphasisText = styled.span<{ primary: boolean }>({
   color: (props) => (props.primary ? '#00B8D9' : '#36B37E'),

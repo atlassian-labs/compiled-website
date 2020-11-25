@@ -1,5 +1,7 @@
-import { styled } from '@compiled/react';
-import React, { Fragment, useState, useEffect } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import styled from '@emotion/styled';
+import { Fragment, useState, useEffect } from 'react';
 import {
   Header,
   HorizontalStack,
@@ -9,7 +11,6 @@ import {
   ScreenReaderText,
   Footer,
 } from '../components';
-import { primary } from '../utils/colors';
 
 interface RootProps {
   children: React.ReactNode;

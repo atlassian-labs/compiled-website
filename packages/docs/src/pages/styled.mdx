@@ -65,7 +65,7 @@ Type support comes out of the box so you'll have a great time using Compiled wit
 any interpolation will have access to the props defined in the tagged template generic.
 
 ```jsx
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 const BigIfTrue = styled.div<{ big: true }>`
   font-size: ${props => big ? 100 : 10};
