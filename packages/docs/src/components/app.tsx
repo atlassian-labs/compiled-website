@@ -8,7 +8,6 @@ import {
   mdxComponents,
   ToAnchor,
   AnchorProvider,
-  colors,
 } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
@@ -187,9 +186,9 @@ export const App = () => {
                   css={{
                     textDecoration: 'none',
                     padding: '1rem 1.25rem',
-                    border: `1px solid ${colors.primary}`,
+                    border: `1px solid ${'#8777D9'}`,
                     borderRadius: 3,
-                    color: colors.primary,
+                    color: '#8777D9',
                     fontSize: 14,
                   }}
                   href={getEditUrl()}>
@@ -209,7 +208,7 @@ export const App = () => {
                   <Link
                     to={`/${page.previous.slug}`}
                     css={{
-                      color: colors.primary,
+                      color: '#8777D9',
                       fontSize: '1.25em',
                       textDecoration: 'none',
                     }}>
@@ -220,7 +219,7 @@ export const App = () => {
                       css={{
                         position: 'relative',
                         ':before': {
-                          content: '‹',
+                          content: '"‹"',
                           position: 'absolute',
                           left: '-2rem',
                         },
@@ -235,7 +234,7 @@ export const App = () => {
                     data-next
                     to={`/${page.next.slug}`}
                     css={{
-                      color: colors.primary,
+                      color: '#8777D9',
                       fontSize: '1.25em',
                       textDecoration: 'none',
                       textAlign: 'right',
@@ -247,7 +246,7 @@ export const App = () => {
                       css={{
                         position: 'relative',
                         ':after': {
-                          content: '›',
+                          content: '"›"',
                           position: 'absolute',
                           right: '-2rem',
                         },

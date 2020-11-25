@@ -1,12 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import {
-  VerticalStack,
-  Heading,
-  CodeBlock,
-  colors,
-} from '@compiled/website-ui';
+import { VerticalStack, Heading, CodeBlock } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 import { MDXProviderComponentsProp } from '@mdx-js/react';
 import { Anchor } from './anchor';
@@ -19,7 +14,7 @@ const Hr = styled.hr`
 const Quote = styled.blockquote`
   padding: 2rem 3rem;
   margin: 6rem -3rem;
-  border-left: 3px solid ${colors.primary};
+  border-left: 3px solid ${'#8777D9'};
   background-color: #8777d926;
   opacity: 0.9;
 
@@ -91,7 +86,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
       <a
         href={href}
         css={{
-          color: colors.primary,
+          color: '#8777D9',
           textDecoration: 'none',
           ':hover': { textDecoration: 'underline' },
         }}
@@ -104,7 +99,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
       <Link
         to={href}
         css={{
-          color: colors.primary,
+          color: '#8777D9',
           textDecoration: 'none',
           ':hover': { textDecoration: 'underline' },
         }}

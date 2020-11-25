@@ -13,7 +13,6 @@ import {
   HideSmall,
   Example,
   mdxComponents,
-  colors,
 } from '@compiled/website-ui';
 import {
   cssProp,
@@ -218,7 +217,7 @@ npm install @compiled/react
         <a
           href="docs/what-is-compiled"
           css={{
-            color: colors.primary,
+            color: '#8777D9',
             fontSize: '1.25em',
             textDecoration: 'none',
             textAlign: 'right',
@@ -232,7 +231,7 @@ npm install @compiled/react
               textTransform: 'capitalize',
               position: 'relative',
               ':after': {
-                content: '›',
+                content: '"›"',
                 position: 'absolute',
                 right: '-2rem',
               },

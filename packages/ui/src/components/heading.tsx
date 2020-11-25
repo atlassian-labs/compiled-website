@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 interface HeadingProps
@@ -28,7 +28,7 @@ export const Heading = ({ children, style, ...props }: HeadingProps) => {
       data-look={props.look}
       className={props.className}
       style={style}
-      css={`
+      css={css`
         font-family: 'Noto Sans', sans-serif;
         font-weight: 500;
         margin: 0;

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ScreenReaderText } from './helpers';
 
@@ -57,7 +57,7 @@ export const Header = ({
       <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
         <Logo>
           <span
-            css={`
+            css={css`
               font-size: 2.5rem;
               font-weight: 600;
 

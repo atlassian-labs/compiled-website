@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { CodeBlock, colors } from '@compiled/website-ui';
+import { CodeBlock } from '@compiled/website-ui';
 
 interface ExampleProps {
   before: string;
@@ -64,13 +64,12 @@ const ExampleButton = styled.button<{
   text-transform: uppercase;
   font-weight: 600;
   font-size: 11px;
-  color: ${(props) =>
-    props.isSelected ? colors.primary : 'rgba(37, 56, 88, 0.8)'};
+  color: ${(props) => (props.isSelected ? '#8777D9' : 'rgba(37, 56, 88, 0.8)')};
   margin: 0;
   outline: none;
 
   :hover {
-    color: ${colors.primary};
+    color: ${'#8777D9'};
   }
 `;
 

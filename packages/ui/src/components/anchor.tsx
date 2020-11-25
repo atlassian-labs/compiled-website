@@ -10,7 +10,8 @@ import {
   useState,
   Ref,
 } from 'react';
-import { colors } from '../utils';
+
+const primary = '#8777D9';
 
 interface AnchorContextData {
   listen: (element: HTMLElement) => void;
@@ -59,7 +60,7 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
         position: 'relative',
         ':before': {
           opacity: 0,
-          content: '🔗',
+          content: '"🔗"',
           position: 'absolute',
           left: '-4rem',
           fontSize: '3rem',
@@ -99,7 +100,7 @@ export const ToAnchor = ({
         display: 'block',
         fontSize: 12,
         marginLeft: `${depth - 1}rem`,
-        color: context.selected === id ? colors.primary : 'currentColor',
+        color: context.selected === id ? primary : 'currentColor',
         transition: 'color 100ms',
         textDecoration: 'none',
       }}

@@ -1,6 +1,6 @@
 import React, { cloneElement, Children } from 'react';
 import styled from '@emotion/styled';
-import { VerticalStack, Heading, colors } from '@compiled/website-ui';
+import { VerticalStack, Heading } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 
 interface SectionProps {
@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
 
   :hover {
     cursor: pointer;
-    color: ${colors.primary};
+    color: ${'#8777D9'};
   }
 
   :active {
@@ -41,7 +41,7 @@ const StyledLink = styled(Link)`
   }
 
   &[aria-current='page'] {
-    border-left: 2px solid ${colors.primary};
+    border-left: 2px solid ${'#8777D9'};
     padding-left: 10px;
     margin-left: -12px;
   }
