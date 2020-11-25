@@ -1,4 +1,3 @@
-import * as React from 'react';
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 
