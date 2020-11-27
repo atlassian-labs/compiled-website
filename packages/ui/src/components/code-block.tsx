@@ -1,7 +1,9 @@
 import React, { CSSProperties } from 'react';
 import '@compiled/react';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async';
-import codeTheme from 'react-syntax-highlighter/dist/esm/styles/prism/tomorrow';
+
+const SyntaxHighlighter = (props) => {
+  return <code {...props}>{props.children}</code>;
+};
 
 interface CodeBlockProps {
   children: string;
@@ -35,8 +37,8 @@ export const CodeBlock = ({
     {...props}>
     <SyntaxHighlighter
       language={language}
-      style={codeTheme}
-      customStyle={{
+      style={{
+        color: '#fff',
         padding: 0,
         overflow: 'visible',
         margin: '2rem',
