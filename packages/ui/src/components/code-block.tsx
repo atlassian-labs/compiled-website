@@ -73,14 +73,14 @@ export const Terminal = ({ children }: CodeBlockProps) => {
             position: 'relative',
             opacity: 0.9,
             ':before': {
-              content: '➜  ~ ',
+              content: '"➜  ~ "',
               color: '#79F2C0',
               pointerEvents: 'none',
               position: 'absolute',
               left: -50,
             },
             ':after': {
-              content: '',
+              content: '""',
               display: 'block',
               position: 'absolute',
               backgroundColor: 'currentColor',
