@@ -1,5 +1,6 @@
-import React, { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+import { ReactNode, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 interface HeadingProps
   extends DetailedHTMLProps<
@@ -27,7 +28,7 @@ export const Heading = ({ children, style, ...props }: HeadingProps) => {
       data-look={props.look}
       className={props.className}
       style={style}
-      css={`
+      css={css`
         font-family: 'Noto Sans', sans-serif;
         font-weight: 500;
         margin: 0;

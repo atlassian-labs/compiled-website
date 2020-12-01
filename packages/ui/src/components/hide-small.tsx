@@ -1,4 +1,4 @@
-import { styled } from '@compiled/react';
+import styled from '@emotion/styled';
 
 export const HideSmall = styled.span`
   display: none;

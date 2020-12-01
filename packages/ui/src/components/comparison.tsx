@@ -1,5 +1,5 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { HorizontalStack } from './stack';
 import { CodeBlock } from './code-block';
 

@@ -1,5 +1,6 @@
-import React, { CSSProperties } from 'react';
-import '@compiled/react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { CSSProperties } from 'react';
 
 const SyntaxHighlighter = (props) => {
   return <code {...props}>{props.children}</code>;
