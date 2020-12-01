@@ -59,7 +59,7 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
         position: 'relative',
         ':before': {
           opacity: 0,
-          content: '🔗',
+          content: '"🔗"',
           position: 'absolute',
           left: '-4rem',
           fontSize: '3rem',
