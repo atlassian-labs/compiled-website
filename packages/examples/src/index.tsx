@@ -17,6 +17,7 @@ import { CustomColorText as CssPropCompositionNoStyle } from './css-prop-composi
 import { Button as ClassNamesButton } from './class-names-button';
 import { EmphasisText as ClassNamesObj } from './class-names-obj';
 import { EmphasisText as ClassNamesDynamic } from './class-names-dynamic';
+import { Lozenge as CssPropConditionalRules } from './css-prop-conditional-rules';
 import { CustomColorText as ClassNamesComposition } from './class-names-composition';
 
 export const styled = {
@@ -37,6 +38,7 @@ export const cssProp = {
   CssPropCompositionCorrect,
   CssPropCompositionIncorrect,
   CssPropCompositionNoStyle,
+  CssPropConditionalRules,
 };
 
 export const classNames = {

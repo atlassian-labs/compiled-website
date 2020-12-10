@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
-    "@compiled/react": "0.4.8-bb30459bd5d20f1089f06e5ff4ef5e8ce034844c.0",
+    "@compiled/react": "0.4.8-89613447d38cf1b7584642d33d0c2000d474239d.0",
     "@compiled/website-ui": "^1.0.0",
     "@compiled/website-examples": "^1.0.0",
     "@mdx-js/parcel-plugin-mdx": "^1.5.8",

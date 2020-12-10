@@ -23,6 +23,9 @@ import '@compiled/react';
 <div
   css={{
     fontSize: 12,
+    ...(isPrimary && {
+      color: 'blue',
+    }),
   }}
 />;
 
@@ -32,7 +35,7 @@ import '@compiled/react';
   `}
 />;
 
-<div css={[`font-size: 12px;`, { color: 'blue' }]} />;
+<div css={[`font-size: 12px;`, isPrimary && { color: 'blue' }]} />;
 ```
 
 ## styled

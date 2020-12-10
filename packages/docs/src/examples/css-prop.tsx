@@ -122,3 +122,22 @@ export const CssPropCompositionNoStyle = () => {
     </Example>
   );
 };
+
+export const CssPropConditionalRules = () => {
+  return (
+    <Example
+      exampleCode="<Lozenge primary>Arrange</Lozenge>"
+      before={readFileSync(
+        __dirname +
+          '../../../../examples/dist/jsx/css-prop-conditional-rules.js',
+        'utf-8'
+      )}
+      after={readFileSync(
+        __dirname +
+          '../../../../examples/dist/js/css-prop-conditional-rules.js',
+        'utf-8'
+      )}>
+      <cssProp.CssPropConditionalRules>Arrange</cssProp.CssPropConditionalRules>
+    </Example>
+  );
+};

@@ -20,11 +20,13 @@ Use `styled` to create a component that has styles tied to an element which come
 
 ## Dynamic declarations
 
-Dynamic declarations are powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+Change a [CSS declaration](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Properties_and_values) at runtime,
+powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+
 Any props that are valid HTML attributes will be passed down to the underlying DOM node -
 otherwise they will be ignored.
 
-This example shows this behavior -
+This example shows that behavior -
 if you inspect the example element in dev tools you'll see the `primary` prop has not been passed through.
 
 <StyledDynamic />
