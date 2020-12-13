@@ -68,11 +68,11 @@ such as applying styles directly to the element you're interested in.
 Here we target the `:first-child` element.
 
 ```jsx
-<div css={`
-  & :first-child {
-    color: red;
+<div css={{
+  '& :first-child': {
+    color: 'red'
   }
-`}>
+}}>
   <div /> <-- text will be red, after JavaScript executes
   <div />
 </div>
@@ -84,22 +84,22 @@ To workaround this we can use a different selector,
 either `:first-of-type` or explicitly marking the first child with a [data attribute](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
 
 ```jsx
-<div css={`
-  & :first-of-type {
-    color: red;
+<div css={{
+  '& :first-of-type': {
+    color: 'red'
   }
-`}>
+}}>
   <div /> <-- text will be red, always
   <div />
 </div>
 ```
 
 ```jsx
-<div css={`
-  & [data-first-child] {
-    color: red;
+<div css={{
+  '& [data-first-child]': {
+    color: 'red'
   }
-`}>
+}}>
   <div data-first-child /> <-- text will be red, always
   <div />
 </div>
@@ -111,30 +111,28 @@ This also applies to `:nth-child` as well,
 where `style` elements can appear and complicate things before JavaScript has executed.
 
 ```jsx
-<div css={`
-  & :nth-child(even) {
-    color: red;
+<div css={{
+  '& :nth-child(even)': {
+    color: 'red'
+  },
+  '& :nth-child(odd)': {
+    color: 'blue'
   }
-
-  & :nth-child(odd) {
-    color: blue;
-  }
-`}>
+}}>
   <div /> <-- text will be red, after JavaScript executes
   <div /> <-- text will be blue, after JavaScript executes
 </div>
 ```
 
 ```jsx
-<div css={`
-  & [data-even] {
-    color: red;
+<div css={{
+  '& [data-even]': {
+    color: 'red'
+  },
+  '& [data-odd]': {
+    color: 'blue'
   }
-
-  & [data-odd] {
-    color: blue;
-  }
-`}>
+}}>
   <div data-even /> <-- text will be red, always
   <div data-odd /> <-- text will be blue, always
 </div>

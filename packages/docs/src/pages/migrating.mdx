@@ -19,11 +19,6 @@ styled.div`
   font-size: 12px;
   color: ${props => props.color};
 `;
-
-styled.div({
-  fontSize: 12px,
-  color: props => props.color,
-});
 ```
 
 There exists a [codemod](/docs/pkg-cli#styled-components-to-compiled) to streamline this.
@@ -45,16 +40,6 @@ Replace the imports with `@compiled/react`.
     }}
   />
 )
-
-(props) => (
-  <div
--   css={css`
-+   css={`
-      color: red;
-      background-color: ${props.background}
-    `}
-  />
-)
 ```
 
 ```diff
@@ -65,20 +50,14 @@ styled.div`
   font-size: 12px;
   color: ${props => props.color};
 `;
-
-styled.div({
-  fontSize: 12px,
-  color: props => props.color,
-});
 ```
 
 There exists a [codemod](/docs/pkg-cli#emotion-to-compiled) to streamline this.
 
 ## Current limitations
 
-There are missing features that will be implemented in the future.
-When migrating over you may find some code that doesn't work as expected -
-in that case please [raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Bug:&labels=bug%20%F0%9F%90%9B) and we'll look into it.
+There is missing behaviour and features that will be implemented in the future.
+Follow these issues to stay updated.
 
 ### Missing behaviour
 
@@ -95,4 +74,5 @@ There is work planned to flesh out the remainder APIs.
 - [Animation keyframes](https://github.com/atlassian-labs/compiled/issues/14)
 - [Theming](https://github.com/atlassian-labs/compiled/issues/18)
 
-Follow the issues to stay updated.
+When migrating over you may find some code that doesn't work as expected —
+in that case please [raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Bug:&labels=bug%20%F0%9F%90%9B) and we'll look into it.

@@ -63,10 +63,10 @@ Assert multiple values at once if we pass in an object instead.
 
 ```jsx
 it('should have small bold font', () => {
-  const SmallText = styled.div({
-    fontSize: '12px',
-    fontWeight: 'bold',
-  });
+  const SmallText = styled.div`
+    font-size: 12px;
+    font-weight: bold;
+  `;
 
   const { getByText } = render(<SmallText>hello world</SmallText>);
 
@@ -100,11 +100,11 @@ such as `:hover` and `:active` by passing in a config object.
 
 ```jsx
 it('should change background color to blue on hover', () => {
-  const Hoverable = styled.div({
-    ':hover': {
-      backgroundColor: 'blue',
-    },
-  });
+  const Hoverable = styled.div`
+    :hover {
+      background-color: blue;
+    }
+  `;
 
   const { getByText } = render(<Hoverable>hello world</Hoverable>);
 
@@ -122,11 +122,11 @@ Assert against media queries using the config object.
 
 ```jsx
 it('should have big padding when viewed on a tablet', () => {
-  const Card = styled.div({
-    '@media screen and (min-width: 1220px)': {
-      padding: '8rem',
-    },
-  });
+  const Card = styled.div`
+    @media screen and (min-width: 1220px) {
+      padding: 8rem;
+    }
+  `;
 
   const { getByText } = render(<Card>hello world</Card>);
 

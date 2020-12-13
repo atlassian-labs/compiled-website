@@ -14,18 +14,16 @@ Nest CSS rules:
 
 ```jsx
 <div
-  css={`
-    margin: 0 auto;
-
-    div {
-      color: red;
-      font-size: 12px;
-
-      a {
-        text-decoration: none;
-      }
-    }
-  `}>
+  css={{
+    margin: '0 auto',
+    div: {
+      color: 'red',
+      fontSize: 12,
+      a: {
+        textDecoration: 'none',
+      },
+    },
+  }}>
   <div>
     <a />
   </div>
@@ -53,15 +51,14 @@ In the example below the two selectors (textarea and input) both alter the color
 
 ```jsx
 <div
-  css={`
-    textarea,
-    input {
-      color: #a7a7a7;
-      &:hover {
-        color: #000;
-      }
-    }
-  `}
+  css={{
+    'textarea,input': {
+      color: '#a7a7a7',
+      '&:hover': {
+        color: '#000',
+      },
+    },
+  }}
 />
 ```
 
@@ -86,11 +83,11 @@ These rules are transformed to recieve a nesting selector.
 
 ```jsx
 <div
-  css={`
-    :before {
-      content: 'Hello';
-    }
-  `}
+  css={{
+    ':before': {
+      content: 'Hello',
+    },
+  }}
 />
 ```
 
