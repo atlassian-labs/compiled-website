@@ -1,0 +1,36 @@
+---
+section: 99-Packages
+order: 5
+name: cli
+---
+
+# @compiled/cli
+
+Command-line interface utilities.
+This package does not follow semver and will always be pinned to the same version of the [React package](/pkg-react).
+
+```bash
+npx @compiled/cli
+```
+
+And then follow the prompts.
+
+## Presets
+
+The CLI comes with various presets to streamline usage.
+
+### Codemods
+
+```bash
+npx @compiled/cli --preset codemods
+```
+
+#### Emotion to Compiled
+
+Will convert all usages of Emotion to Compiled.
+For code that could not be automatically converted a `/** TODO: (from codemod) */` comment will be placed.
+
+#### Styled components to Compiled
+
+Will convert all usages of Styled Components to Compiled.
+For code that could not be automatically converted a `/** TODO: (from codemod) */` comment will be placed.

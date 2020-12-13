@@ -138,7 +138,7 @@ export const Example = ({
             isSelected={htmlShown}
             aria-pressed={htmlShown}
             onClick={() => setHtmlShown((prev) => !prev)}>
-            {htmlShown ? 'Hide' : 'Show'} JSX Usage
+            {htmlShown ? 'Hide' : 'Show'} JSX Markup
           </ExampleButton>
         )}
 

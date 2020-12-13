@@ -26,14 +26,7 @@ styled.div({
 });
 ```
 
-There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
-
-```bash
-npx jscodeshift --transform node_modules/@compiled/react/dist/codemods/styled-components-to-compiled <path>
-```
-
-Where `<path>` is the path to your source code.
-If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` command.
+There exists a [codemod](/docs/pkg-cli#styled-components-to-compiled) to streamline this.
 
 ## Emotion
 
@@ -79,14 +72,7 @@ styled.div({
 });
 ```
 
-There exists a [codemod](https://github.com/facebook/jscodeshift) to streamline this.
-
-```bash
-npx jscodeshift --transform node_modules/@compiled/react/dist/codemods/emotion-to-compiled <path>
-```
-
-Where `<path>` is the path to your source code.
-If you're using TypeScript make sure to add `--parser=tsx --extensions=tsx` to your `jscodeshift` command.
+There exists a [codemod](/docs/pkg-cli#emotion-to-compiled) to streamline this.
 
 ## Current limitations
 
@@ -94,18 +80,12 @@ There are missing features that will be implemented in the future.
 When migrating over you may find some code that doesn't work as expected -
 in that case please [raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Bug:&labels=bug%20%F0%9F%90%9B) and we'll look into it.
 
-### Conditional rules
+### Missing behaviour
 
-Conditionally declared CSS rules are not able to be defined at this time but will be [supported in the future](https://github.com/atlassian-labs/compiled/issues/278).
-
-```jsx
-<div
-  css={{
-    color: 'blue',
-    ...(props.isPrimary && { fontSize: 15, fontWeight: bold }),
-  }}
-/>
-```
+- [Conditional rules for styled](https://github.com/atlassian-labs/compiled/issues/390)
+- [Conditional rules for ClassNames](https://github.com/atlassian-labs/compiled/issues/391)
+- [Function mixins](https://github.com/atlassian-labs/compiled/issues/341)
+- [Styled mixins](https://github.com/atlassian-labs/compiled/issues/313)
 
 ### Missing APIs
 
