@@ -2,9 +2,10 @@ import '@compiled/react';
 import { ExampleContainer, ExampleRoot } from '@compiled/website-ui';
 import { LargeHotPinkText } from '../components/example';
 
-## Better for component authors
+## Write your styles in JavaScript
 
-Write your styles in JavaScript/TypeScript with the full power of CSS,
+Using APIs you may already be familiar with,
+write your styles in JavaScript with the full power of CSS —
 leveraging the language to create expressive & dynamic experiences.
 
 ```jsx
@@ -21,7 +22,10 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice.
+## Speed up your CSS-in-JS
+
+[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice,
+resulting in a **very performant component** that has its styles built ahead of time.
 
 ```json
 {
@@ -48,26 +52,7 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-You now have a **super fast component** that has all of its styles built ahead of time.
-
-## Better for consumers
-
-Components published to [NPM](https://npmjs.com/) or defined in your app built with Compiled always render exactly as authored on both the server and client.
-No complicated configuration needed.
-
-```jsx
-import { LargeHotPinkText } from '@text/components';
-
-<LargeHotPinkText>Hello world</LargeHotPinkText>;
-```
-
-<ExampleRoot>
-  <ExampleContainer css={{ padding: '1.5rem' }}>
-    <LargeHotPinkText>Hello world</LargeHotPinkText>
-  </ExampleContainer>
-</ExampleRoot>
-
-## Better for the web
+## Extract all styles to CSS
 
 Turn on the bundler plugin and all components styled with Compiled in your app or sourced through [NPM](https://npmjs.com/) will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
 
@@ -97,11 +82,8 @@ export const LargeHotPinkText = ({ children }) => (
 );
 ```
 
-> **Tip** - If you're publishing a component library or design system it's recommended not to extract _yet_.
-> For the best results extract in apps only.
-
-Let's start thinking not just about one web app,
-but the entire ecosystem and all packages we consume.
-It's time to bring platform and product closer and extract all styles!
-
+We are bringing styles from platform,
+product,
+and the wider ecosystem closer.
+It's time to extract all styles!
 Extracting will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).
