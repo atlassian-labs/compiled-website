@@ -31,8 +31,8 @@ if you inspect the example element in dev tools you'll see the `primary` prop ha
 
 <StyledDynamic />
 
-> **Remember** - It's all done at build time.
-> No cost is paid at runtime to check if the prop is a valid HTML attribute.
+> **Remember** <br /> Styles are all pre-calculated at build time,
+> no cost is paid at runtime to check if the prop is a valid HTML attribute.
 
 ### Transient props
 
@@ -59,7 +59,7 @@ assuming they're both styled with Compiled.
 
 <StyledComposition />
 
-> **Note** - Ensure the wrapped component sets its `className` and `style` props otherwise the styles will not be applied.
+> **Note** <br /> Ensure the wrapped component sets its `className` and `style` props otherwise the styles will not be applied.
 
 ## TypeScript
 
@@ -77,5 +77,5 @@ const BigIfTrue = styled.div<{ big: true }>`
  ^^^^^^^^^ Property 'big' is missing in type [..]
 ```
 
-> **Note** - Typing of composed components are inherited,
+> **Note** <br /> Typing of composed components are inherited,
 > which means their props will be available as props as well.

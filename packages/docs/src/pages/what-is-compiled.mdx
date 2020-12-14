@@ -10,7 +10,7 @@ import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
 
 Compiled is a _build time_ [atomic CSS](./atomic-css)-in-JS library that has a two-step transformation process.
 
-## Pre-calculated styles
+## Pre-calculate styles
 
 Write your styles in JavaScript or TypeScript and Compiled will **create all CSS rules ahead of time** baking everything the component needs to run.
 
@@ -20,11 +20,12 @@ Becomes:
 
 <AfterHowItWorks />
 
-Resulting in **super fast renders** without anyone using your components needing to configure their tooling.
+Resulting in **very performant components** that can be **used without needing bundler configuration**,
+even when published to NPM.
 
-## Extracting styles
+## Extract styles
 
-Turn on the extract plugin in your app and **all CSS logic** from every component styled with Compiled will be **removed from your bundle** and moved to a single [atomic style sheet](./atomic-css).
+Turn on the extract plugin and **all pre-calculated CSS** will be **removed from your JavaScript bundle** and moved to a single [atomic style sheet](./atomic-css).
 
 ```jsx
 import * as React from 'react';

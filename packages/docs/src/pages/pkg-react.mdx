@@ -103,7 +103,7 @@ import { ClassNames } from '@compiled/react';
 ## Runtime
 
 Runtime entrypoint used when styles have not been extracted and for composing atomic styles together.
-It is advised to not use this directly.
+**It is advised not to use this directly.**
 
 ### CC
 
@@ -128,9 +128,9 @@ import { CS } from '@compiled/react/runtime';
 
 ### ax
 
+Will concat class names together and ensure uniqueness of atomic groups.
 Similar in functionality to the `cx` function from the [`classnames`](https://github.com/JedWatson/classnames) package,
 however it is optimized for atomic CSS grouping.
-Will concat class names together and ensure uniqueness of atomic groups.
 
 ```tsx
 import { ax } from '@compiled/react/runtime';
