@@ -6,7 +6,7 @@ order: 3
 
 # Writing CSS
 
-Compiled adds some extra features ontop of regular CSS.
+Compiled adds extra features ontop of [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 ## Nested rules
 
@@ -32,9 +32,9 @@ Nest CSS rules:
 
 Use nested rules with caution.
 One of the promises of [atomic CSS](/atomic-css) is reducing the total amount of defined styles,
-however you will end up creating more duplicates when writing nested rules.
+however you will end up creating more duplicate CSS rules when they are nested.
 
-A safer approach is to assign styles directly to the child elements instead:
+To ensure reusability of your CSS rules instead assign styles directly to the elements instead.
 
 ```jsx
 <div css={{ margin: '0 auto' }}>
