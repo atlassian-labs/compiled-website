@@ -86,7 +86,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
   hr: () => <Hr />,
   inlineCode: ({ children }) => <Code>{children}</Code>,
   a: ({ href, children, ...props }) =>
-    href.startsWith('http') || href.startsWith('./') ? (
+    href.startsWith('http') || href.startsWith('./') || href.startsWith('#') ? (
       <a
         href={href}
         css={{
@@ -94,7 +94,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
           textDecoration: 'none',
           ':hover': { textDecoration: 'underline' },
         }}
-        target="_blank"
+        target={href.startsWith('#') ? undefined : '_blank'}
         rel="noopener noreferrer"
         {...props}>
         {children}

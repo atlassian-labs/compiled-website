@@ -17,7 +17,7 @@ so you'll need to use either [its CLI](https://babeljs.io/docs/en/babel-cli) or 
 
 ## Babel setup
 
-Add the plugin in your [Babel config](https://babeljs.io/docs/en/configuration).
+Add the plugin to your [Babel config](https://babeljs.io/docs/en/configuration).
 
 ```json
 {
@@ -25,4 +25,17 @@ Add the plugin in your [Babel config](https://babeljs.io/docs/en/configuration).
 }
 ```
 
-> **Note** <br /> For extra configuration [look at the plugin package documentation](/pkg-babel-plugin).
+> **Note** <br /> For extra configuration look at the [plugin package documentation](/pkg-babel-plugin).
+
+## Write your styles
+
+Import the APIs you may already be familiar with and style away.
+
+```jsx
+import { styled } from '@compiled/react';
+
+const ColoredText = styled.span`
+  font-size: 11px;
+  color: red;
+`;
+```
