@@ -20,6 +20,7 @@ Use [CSS prop](/css-prop) when needing more control in a component tying styles 
 ```jsx
 import '@compiled/react';
 
+// Object styles
 <div
   css={{
     fontSize: 12,
@@ -29,12 +30,14 @@ import '@compiled/react';
   }}
 />;
 
+// Templatel literal styles
 <div
   css={`
     font-size: 12px;
   `}
 />;
 
+// Array styles
 <div css={[`font-size: 12px;`, isPrimary && { color: 'blue' }]} />;
 ```
 
@@ -45,22 +48,33 @@ Use [styled](/styled) when wanting to create a component that has styles tied to
 ```jsx
 import { styled } from '@compiled/react';
 
+// Template literal styles
 styled.div`
   font-size: 12px;
   color: ${(props) => props.color};
 `;
 
+// Object styles
 styled.div({
   fontSize: 12,
   color: (props) => props.color,
 });
 
+// Array styles
 styled.div([
   `
   font-size: 12px;
 `,
   { color: (props) => props.color },
 ]);
+
+// Multi argument styles
+styled.div(
+  `
+  font-size: 12px;
+`,
+  { color: (props) => props.color }
+);
 ```
 
 ## ClassNames
@@ -70,6 +84,7 @@ Use [ClassNames](/class-names) when wanting a component where styles are not nec
 ```jsx
 import { ClassNames } from '@compiled/react';
 
+// Object styles
 <ClassNames>
   {({ css, style }) =>
     children({
@@ -79,6 +94,7 @@ import { ClassNames } from '@compiled/react';
   }
 </ClassNames>;
 
+// Template literal styles
 <ClassNames>
   {({ css, style }) =>
     children({
@@ -90,6 +106,7 @@ import { ClassNames } from '@compiled/react';
   }
 </ClassNames>;
 
+// Array styles
 <ClassNames>
   {({ css, style }) =>
     children({
