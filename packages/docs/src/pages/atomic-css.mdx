@@ -6,10 +6,19 @@ order: 99
 
 # Atomic CSS
 
-Atomic CSS will reduce the total amount of defined styles by creating a single rule for every style declaration -
-resulting in the large majority of your styles being re-used instead of duplicated.
+Compiled uses atomic CSS as the delivery mechanism for your styles.
+When writing your CSS-in-JS you won't even notice that it does however!
 
-Typically CSS is defined like so:
+If you're just getting started don't feel the need to read this page,
+but if you're interested in understanding more under the hood,
+keep on reading.
+
+## Benefits
+
+### Reducing defined CSS
+
+CSS delivered as atomic rules reduces the total amount of defined CSS by creating a single rule for every declaration —
+enabling large re-use of styles.
 
 ```css
 .button {
@@ -24,11 +33,7 @@ Typically CSS is defined like so:
 <button className="button">Hello world</button>
 ```
 
-However when products scale to hundreds of developers,
-defined styles can get messy,
-and very duplicated.
-
-If we take the same rule and change it to be atomic CSS:
+This rule transformed to atomic CSS looks like:
 
 ```css
 .b-none {
@@ -52,16 +57,13 @@ If we take the same rule and change it to be atomic CSS:
 <button className="b-none fs-14 bgc-purple br-3">Hello world</button>
 ```
 
-When other components end up defining similar styles,
-they end up using the same rules.
+When other components end up defining the same styles they use the same rules.
 
 ```html
 <span className="fs-14">Text</span>
 ```
 
-## Other benefits
-
-There are other benefits over and beyond just re-using CSS rules.
+Thus as your product grows the less often new CSS rules need to be created.
 
 ### Overriding through composition
 
@@ -157,16 +159,15 @@ active state would take precedence over hover state.
 This ordering ensures a stable,
 consistent experience.
 
-## Pitfalls
+## Drawbacks
 
 There are trade-offs for everything.
 Atomic CSS while dramatically reducing the total amount of defined CSS,
 increases HTML markup from the addition of added classes to elements.
 
 Every CSS declaration will add another class to the element,
-scaling linearly,
-you can see this on the first example on this page.
-However at scale this can prove to be worth it,
-with compression techniques like `gzip` working very well at reducing bundle size.
+scaling linearly.
+At scale this can prove to be worth it,
+with compression techniques like `gzip` working very well at keeping your bundle size small.
 
 We have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335) when we are further through development.
