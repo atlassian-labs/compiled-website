@@ -14,7 +14,8 @@
     "build:docs": "cd packages/docs && yarn build",
     "build:landing": "cd packages/landing && yarn build",
     "build:ui": "cd packages/ui && yarn build",
-    "build:examples": "cd packages/examples && yarn build"
+    "build:examples": "cd packages/examples && yarn build",
+    "postinstall": "npx yarn-deduplicate"
   },
   "dependencies": {
     "prettier": "^2.0.2",
