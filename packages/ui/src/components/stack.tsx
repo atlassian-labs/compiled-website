@@ -1,8 +1,8 @@
 import { styled } from '@compiled/react';
 
 export const HorizontalStack = styled.div<{ spacing?: number; gap?: number }>`
-  margin-top: ${(props) => props.spacing}rem;
-  margin-bottom: ${(props) => props.spacing}rem;
+  margin-top: ${({ spacing }) => spacing}rem;
+  margin-bottom: ${({ spacing }) => spacing}rem;
 
   && > * {
     margin-right: ${(props) => props.gap}rem;
