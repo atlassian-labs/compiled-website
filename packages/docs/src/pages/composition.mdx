@@ -1,42 +1,28 @@
 ---
-section: 1-Getting started
+section: 90-Other guides
 ---
 
 import {
-  CompositionObject,
-  CompositionOrder,
-  CompositionImports,
+  CompositionIdentifier,
+  CompositionMultiple,
 } from '../examples/composition';
 
 # Composition
 
-Compiled allows us to statically compose your styles together.
-There are a few benefits of composing in this fashion,
-outside of reusability and performance the biggest is that styles get applied in a consistent way.
-The last property defined wins -
-which when used is immediately obvious to the developer.
+Composing styles together will enable you to reuse styles and have more flexibility.
 
-<CompositionObject />
+Traditionally when defining CSS it is not the `className` order that ensures style get applied,
+but the the [order of CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance) in the DOM.
+This is a common cause for developer confusion.
 
-> **Note** - Make sure to look at the compiled code,
-> `base` has been compiled into the final CSS string.
-> You'll see this for every other example here as well.
+Compiled eliminates these cascade gotchas by ensuring the last CSS property defined always wins.
 
-When composing it's important to remember that the last defined style will win.
-In the next example we can see that in action.
+<CompositionIdentifier />
 
-<CompositionOrder />
+When composing styles together remember that the last defined style will win.
+In this example we can see that red overrides the pink color.
 
-## Composing from modules
+<CompositionMultiple />
 
-Composition wouldn't be complete if we couldn't also compose from module imports.
-It mostly works but there _are_ some cavets right now,
-most importantly:
-
-- `babel` and `tsc` with typechecking turned off breaks this
-- traversing node modules doesn't work
-
-This is something that can and will be fixed.
-[Chime into the issue if you'd like](https://github.com/atlassian-labs/compiled-css-in-js/issues/67).
-
-<CompositionImports />
+Style composition works with all APIs found in Compiled.
+Read [more about atomic CSS](/atomic-css#overriding-through-composition) to understand how this works.

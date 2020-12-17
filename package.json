@@ -2,20 +2,20 @@
   "name": "@compiled/website",
   "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
     "start:docs": "cd packages/docs && yarn start",
-    "start:intro": "cd packages/introduction && yarn start",
-    "clean": "rm -rf dist && workspaces-run -- rm -rf dist && rm -rf .cache",
+    "start:landing": "cd packages/landing && yarn start",
+    "clean": "rm -rf dist && workspaces-run -- rm -rf dist && workspaces-run -- rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
     "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
-    "build": "yarn build:ui && yarn build:examples && yarn build:intro && yarn build:docs",
+    "build": "yarn build:examples && yarn build:landing && yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
-    "build:intro": "cd packages/introduction && yarn build",
+    "build:landing": "cd packages/landing && yarn build",
     "build:ui": "cd packages/ui && yarn build",
-    "build:examples": "cd packages/examples && yarn build"
+    "build:examples": "cd packages/examples && yarn build",
+    "postinstall": "npx yarn-deduplicate"
   },
   "dependencies": {
     "prettier": "^2.0.2",

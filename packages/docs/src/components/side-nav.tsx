@@ -1,5 +1,5 @@
 import React, { cloneElement, Children } from 'react';
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/react';
 import { VerticalStack, Heading, colors } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export const Section = ({ children, title }: SectionProps) => {
 
   return (
     <VerticalStack spacing={6}>
-      <Heading id={id} as="span" look="h400">
+      <Heading style={{ marginBottom: '0.3rem' }} id={id} as="div" look="h500">
         {title}
       </Heading>
       {Children.map(children, (child) =>
@@ -29,10 +29,11 @@ const StyledLink = styled(Link)`
   user-select: none;
   color: currentColor;
   text-decoration: none;
+  font-size: 14px;
 
   :hover {
     cursor: pointer;
-    color: ${() => colors.primary};
+    color: ${colors.primary};
   }
 
   :active {
@@ -40,9 +41,9 @@ const StyledLink = styled(Link)`
   }
 
   &[aria-current='page'] {
-    border-left: 0.375rem solid #7ab2c8;
-    padding-left: 2rem;
-    margin-left: -2.375rem;
+    border-left: 2px solid ${colors.primary};
+    padding-left: 10px;
+    margin-left: -12px;
   }
 `;
 

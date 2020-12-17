@@ -1,3 +1,3 @@
-export const base = {
+export const basebase = {
   color: 'hotpink',
 };

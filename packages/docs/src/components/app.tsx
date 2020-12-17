@@ -1,15 +1,20 @@
 import React from 'react';
-import '@compiled/css-in-js';
-import { RootLayout, VerticalStack, Heading } from '@compiled/website-ui';
+import '@compiled/react';
+import {
+  RootLayout,
+  VerticalStack,
+  Heading,
+  mdxComponents,
+  ToAnchor,
+  AnchorProvider,
+  colors,
+} from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
-import { Footer } from './footer';
 import { ScrollTop } from './scroll-top';
 import { PageTitle } from './page-title';
 import { titleCase } from '../utils/string';
-import { ToAnchor, AnchorProvider } from './anchor';
-import { components } from './mdx-components';
 
 interface Page {
   default: React.ComponentType<{}>;
@@ -61,6 +66,11 @@ section: My section
       name: name,
       pages,
     }));
+};
+
+const getEditUrl = () => {
+  const name = location.pathname.split('/')[2] || 'what-is-compiled';
+  return `https://github.com/compiled/compiled-website/tree/master/packages/docs/src/pages/${name}.mdx`;
 };
 
 const getPage = (slug: string) => {
@@ -116,7 +126,10 @@ export const App = () => {
         aside={
           page && (
             <nav aria-label="page">
-              <VerticalStack gap={0.5}>
+              <VerticalStack gap={1}>
+                <Heading look="h500" as="div">
+                  Contents
+                </Heading>
                 {page.data.headings
                   .filter((heading) => heading.depth < 4)
                   .map((heading, index) => (
@@ -153,16 +166,35 @@ export const App = () => {
                 ))}
               </Section>
             ))}
-            <Footer />
           </>
         }>
-        <MDXProvider components={components}>
+        <MDXProvider components={mdxComponents}>
           <ScrollTop key={pageSlug} />
-          <PageTitle title={page && page.name} />
+          <PageTitle
+            title={
+              (page && page.data.headings[0].text) ||
+              (page && titleCase(page.name))
+            }
+          />
 
           {page && (
             <>
               <page.Component />
+
+              <p css={{ margin: '8rem 0' }}>
+                <a
+                  css={{
+                    textDecoration: 'none',
+                    padding: '1rem 1.25rem',
+                    border: `1px solid ${colors.primary}`,
+                    borderRadius: 3,
+                    color: colors.primary,
+                    fontSize: 14,
+                  }}
+                  href={getEditUrl()}>
+                  Edit on Github
+                </a>
+              </p>
 
               <div
                 css={{
@@ -176,7 +208,7 @@ export const App = () => {
                   <Link
                     to={`/${page.previous.slug}`}
                     css={{
-                      color: '#7ab2c8',
+                      color: colors.primary,
                       fontSize: '1.25em',
                       textDecoration: 'none',
                     }}>
@@ -202,7 +234,7 @@ export const App = () => {
                     data-next
                     to={`/${page.next.slug}`}
                     css={{
-                      color: '#7ab2c8',
+                      color: colors.primary,
                       fontSize: '1.25em',
                       textDecoration: 'none',
                       textAlign: 'right',

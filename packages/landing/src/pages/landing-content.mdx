@@ -1,0 +1,89 @@
+import '@compiled/react';
+import { ExampleContainer, ExampleRoot } from '@compiled/website-ui';
+import { LargeHotPinkText } from '../components/example';
+
+## Write your styles in JavaScript
+
+Using APIs you may already be familiar with,
+write your styles in JavaScript with the full power of CSS —
+leveraging the language to create expressive & dynamic experiences.
+
+```jsx
+import '@compiled/react';
+
+export const LargeHotPinkText = ({ children }) => (
+  <span
+    css={{
+      color: 'hotpink',
+      fontSize: 48,
+    }}>
+    {children}
+  </span>
+);
+```
+
+## Speed up your CSS-in-JS
+
+[Configure Babel](https://babeljs.io/docs/en/config-files) and build your components using its [CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice,
+resulting in a **very performant component** that has its styles built ahead of time.
+
+```json
+{
+  "plugins": ["@compiled/react/babel-plugin"]
+}
+```
+
+```bash
+$ babel src
+Successfully compiled 1 file with Babel (9ms)
+```
+
+```jsx
+import { CC, CS } from '@compiled/react/runtime';
+
+const _2 = '._syaz1q9v{color: hotpink}';
+const _ = '._1wybfyhu{font-size: 48px;}';
+
+export const LargeHotPinkText = ({ children }) => (
+  <CC>
+    <CS>{[_, _2]}</CS>
+    <span className="_syaz1q9v _1wybfyhu">{children}</span>
+  </CC>
+);
+```
+
+## Extract all styles to CSS
+
+Turn on the bundler plugin and all components styled with Compiled in your app or sourced through [NPM](https://npmjs.com/) will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
+
+1. Build your app
+
+```bash
+$ parcel build
+✨  Built in 0.83s.
+```
+
+2. An atomic style sheet is generated
+
+```css
+._1wybfyhu {
+  font-size: 48px;
+}
+._syaz1q9v {
+  color: hotpink;
+}
+```
+
+3. All style rules and runtime components are removed from your bundle
+
+```jsx
+export const LargeHotPinkText = ({ children }) => (
+  <span className="_syaz1q9v _1wybfyhu">{children}</span>
+);
+```
+
+We are bringing styles from platform,
+product,
+and the wider ecosystem closer.
+It's time to extract all styles!
+Extracting will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

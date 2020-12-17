@@ -1,4 +1,7 @@
 {
   "presets": ["@babel/preset-typescript"],
-  "plugins": ["transform-inline-environment-variables", "@compiled/babel-plugin-css-in-js"]
+  "plugins": [
+    "transform-inline-environment-variables",
+    "@compiled/react/babel-plugin"
+  ]
 }

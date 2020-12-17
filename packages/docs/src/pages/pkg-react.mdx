@@ -1,0 +1,144 @@
+---
+order: 1
+section: 99-Packages
+name: react
+---
+
+# @compiled/react
+
+The primary entrypoint package for Compiled.
+This package follows semver.
+
+```bash
+npm install @compiled/react
+```
+
+## CSS prop
+
+Use [CSS prop](/css-prop) when needing more control in a component tying styles to an element.
+
+```jsx
+import '@compiled/react';
+
+<div
+  css={{
+    fontSize: 12,
+    ...(isPrimary && {
+      color: 'blue',
+    }),
+  }}
+/>;
+
+<div
+  css={`
+    font-size: 12px;
+  `}
+/>;
+
+<div css={[`font-size: 12px;`, isPrimary && { color: 'blue' }]} />;
+```
+
+## styled
+
+Use [styled](/styled) when wanting to create a component that has styles tied to an element.
+
+```jsx
+import { styled } from '@compiled/react';
+
+styled.div`
+  font-size: 12px;
+  color: ${(props) => props.color};
+`;
+
+styled.div({
+  fontSize: 12,
+  color: (props) => props.color,
+});
+
+styled.div([
+  `
+  font-size: 12px;
+`,
+  { color: (props) => props.color },
+]);
+```
+
+## ClassNames
+
+Use [ClassNames](/class-names) when wanting a component where styles are not necessarily tied to an element.
+
+```jsx
+import { ClassNames } from '@compiled/react';
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css({ fontSize: 12 }),
+    })
+  }
+</ClassNames>;
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css`
+        font-size: 12px;
+      `,
+    })
+  }
+</ClassNames>;
+
+<ClassNames>
+  {({ css, style }) =>
+    children({
+      style,
+      className: css([`font-size: 12px`, { color: 'blue' }]),
+    })
+  }
+</ClassNames>;
+```
+
+## Runtime
+
+Runtime entrypoint used when styles have not been extracted and for composing atomic styles together.
+**It is advised not to use this directly.**
+
+### CC
+
+Will ensure only the minimum amount of styles are rendered on the client and server for child `CS` components.
+
+```jsx
+import { CC } from '@compiled/react/runtime';
+
+<CC></CC>;
+```
+
+### CS
+
+Moves child CSS to the head of the document in web browsers,
+and renders an inline `style` element on the server.
+
+```jsx
+import { CS } from '@compiled/react/runtime';
+
+<CS>{['.foo{color:#ff5630;}']}</CS>;
+```
+
+### ax
+
+Will concat class names together and ensure uniqueness of atomic groups.
+Similar in functionality to the `cx` function from the [`classnames`](https://github.com/JedWatson/classnames) package,
+however it is optimized for atomic CSS grouping.
+
+```tsx
+import { ax } from '@compiled/react/runtime';
+
+ax(['_k48pni7l _syaz18rw', '_syazff21']);
+// > "_k48pni7l _syazff21"
+```
+
+## Babel plugin
+
+The [babel-plugin](/pkg-babel-plugin) is re-exported through the `@compiled/react/babel-plugin` entry point.

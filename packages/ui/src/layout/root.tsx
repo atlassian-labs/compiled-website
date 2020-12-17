@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/react';
 import React, { Fragment, useState, useEffect } from 'react';
 import {
   Header,
@@ -7,33 +7,25 @@ import {
   Content,
   VerticalStack,
   ScreenReaderText,
+  Footer,
 } from '../components';
+import { primary } from '../utils/colors';
 
 interface RootProps {
   children: React.ReactNode;
   sidenav?: React.ReactNode;
   aside?: React.ReactNode;
+  invertHeader?: boolean;
 }
 
 const Link = styled.a<{ href: string; exact?: boolean }>`
   color: currentColor;
   text-decoration: none;
   padding: 1rem 0.5rem;
-  border-bottom: ${(props) => {
-    const active = '0.375rem solid #7ab2c8';
-    const inactive = '0.375rem solid transparent';
-
-    if (props.exact) {
-      return document.location.pathname === props.href ? active : inactive;
-    } else {
-      return document.location.pathname.startsWith(props.href)
-        ? active
-        : inactive;
-    }
-  }};
+  font-size: 16px;
 
   :hover {
-    color: #7ab2c8;
+    text-decoration: underline currentColor;
   }
 
   &&:last-child {
@@ -41,7 +33,12 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   }
 `;
 
-export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
+export const RootLayout = ({
+  children,
+  sidenav,
+  aside,
+  invertHeader,
+}: RootProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // TODO: Move to global style component.
@@ -55,7 +52,7 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
 
   return (
     <Fragment>
-      <Header>
+      <Header variant={invertHeader ? 'invert' : 'default'}>
         <nav
           aria-label="main"
           css={{
@@ -63,14 +60,14 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
           }}>
           <HorizontalStack
             gap={2}
-            css={{ display: 'flex', alignItems: 'center' }}>
-            <Link exact href="/">
-              Intro
-            </Link>
-            <Link href="/docs">Docs</Link>
+            css={{
+              display: 'flex',
+              alignItems: 'center',
+            }}>
+            <Link href="/docs">Documentation</Link>
             <Link
               title="Github"
-              href="https://github.com/atlassian-labs/compiled-css-in-js">
+              href="https://github.com/atlassian-labs/compiled">
               Github
             </Link>
           </HorizontalStack>
@@ -175,7 +172,7 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
           <main
             css={{
               flexShrink: 1,
-              padding: '6rem 0',
+              paddingTop: '6rem',
               display: 'block',
               minWidth: 1,
               width: '100%',
@@ -214,6 +211,8 @@ export const RootLayout = ({ children, sidenav, aside }: RootProps) => {
       ) : (
         <main>{children}</main>
       )}
+
+      <Footer />
     </Fragment>
   );
 };

@@ -1,50 +1,60 @@
 ---
-order: 3
-section: 1-Getting started
+section: 5-API Guides
+order: 2
+name: CSS Prop
 ---
 
 import {
-  CssPropExample,
-  CssPropTemplateLiteralExample,
+  CssPropObj,
+  CssPropDynamic,
+  CssPropCompositionCorrect,
+  CssPropCompositionIncorrect,
+  CssPropCompositionNoStyle,
+  CssPropConditionalRules,
 } from '../examples/css-prop';
 
-# Css Prop
+# CSS Prop
 
-The `css` prop made famous by Emotion is available in Compiled!
-Both strings and objects are supported -
-check out the code that is generated below.
+Use `css` prop to have more control over a component that has styles tied to an element.
 
-<CssPropExample />
+It is enabled when any usage of the `@compiled/react` module is found,
+for example when using the `styled` API it will be enabled.
 
-Using `css` prop is easy but powerful,
-it's useful when we want to choose your own destiny and other APIs,
-like `styled`,
-are missing that one thing we need.
+<CssPropObj />
 
-<CssPropTemplateLiteralExample />
+## Conditional rules
 
-## Pass through class and style
+Conditionally apply [CSS rules](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Selectors).
 
-When passing either `className` or `style` you'll need to statically define it.
-Since Compiled can't statically know where either prop will be if we're spreading it,
-we need to be explicit.
+<CssPropConditionalRules />
 
-### Works
+## Dynamic declarations
 
-Class name and style are both picked up as expected because we can statically analyze their usage.
+Change a [CSS declaration](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Properties_and_values) at runtime,
+powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-```jsx
-<div
-  style={{ display: 'block' }}
-  className="my class name"
-  css={{ fontSize: 12 }}
-/>
-```
+<CssPropDynamic />
 
-### Doesn't work
+## Composition gotchas
 
-Since we can't statically analyze either ones usage it doesn't work.
+Compiled will try to generate the smallest amount of code possible.
+When composing styles ensure to explicitly define both a `className` and `style` prop.
 
-```jsx
-<div {...props} css={{ fontSize: 12 }} />
-```
+Here the `className` and `style` props are both defined so styling works correctly.
+
+<CssPropCompositionCorrect />
+
+The next few example show what happens if you don't do this.
+
+### Spread pops
+
+The overflow `props` are spread onto the element so the composed styles are not applied.
+
+<CssPropCompositionIncorrect />
+
+### Missing style
+
+The `style` prop is missing so the CSS variables used to power dynamic declarations aren't set.
+In this case instead it receives the `body` color value instead of pink.
+
+<CssPropCompositionNoStyle />

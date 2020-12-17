@@ -1,23 +1,19 @@
 ---
-order: 4
 section: 1-Getting started
+name: Migrating to Compiled
 ---
 
-# Migrating
+# Migrating to Compiled
 
-Migrating to Compiled isn't that hard depending how dynamic your CSS is.
-It's more of a mind shift than anything.
-The single precondition for this page is completing the [installation instructions](/1-getting-started/1-installation),
-so if you haven't already go read that.
+Follow the [installation](/installation) instructions before continuing.
 
-## From Styled Components
+## Styled Components
 
-Just replace the imports and we're done!
-If we have dynamic CSS values they'll still work fantastically except we don't need to re-calculate the CSS at runtime to make it work.
+Replace the imports with `@compiled/react`.
 
 ```diff
 -import styled from 'styled-components';
-+import { styled } from '@compiled/css-in-js';
++import { styled } from '@compiled/react';
 
 styled.div`
   font-size: 12px;
@@ -25,25 +21,17 @@ styled.div`
 `;
 ```
 
-```diff
--import styled from 'styled-components';
-+import { styled } from '@compiled/css-in-js';
+There exists a [codemod](/pkg-cli#styled-components-to-compiled) to streamline this.
+Please read [limitations](/limitations) for a list of things that are not supported.
 
-styled.div({
-  fontSize: 12px,
-  color: props => props.color,
-});
-```
+## Emotion
 
-## From Emotion
-
-Just replace the imports,
-if you're using `@emotion/styled` the migration is the same from above.
+Replace the imports with `@compiled/react`.
 
 ```diff
 -/** @jsx jsx */
 -import { jsx } from '@emotion/core';
-+import '@compiled/css-in-js';
++import '@compiled/react';
 
 (props) => (
   <div
@@ -56,69 +44,14 @@ if you're using `@emotion/styled` the migration is the same from above.
 ```
 
 ```diff
--/** @jsx jsx */
--import { jsx } from '@emotion/core';
-+import '@compiled/css-in-js';
+-import styled from '@emotion/styled';
++import { styled } from '@compiled/react';
 
-(props) => (
-  <div
--    css={css`
-+    css={`
-      color: red;
-      background-color: ${props.background}
-    `}
-  />
-)
-```
-
-## Generating CSS at runtime
-
-In a large majority of libraries today you'll see something like this,
-where it returns new CSS based on some props:
-
-```jsx
-import styled from 'styled-components';
-
-const getBackgroundGradient = (color, percent) => ({
-  background: `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
-      ${color}`,
-});
-
-styled.input`
-  ＄{(props) => getBackgroundGradient(props.color, props.percent)}
+styled.div`
+  font-size: 12px;
+  color: ${props => props.color};
 `;
 ```
 
-Every time `color` or `percent` changes it will recalculate the CSS and then re-render.
-While at a glance this looks okay it's actually quite **dangerous and unperformant**,
-a massive footgun every developer is wielding!
-Especially if `percent` isn't just whole numbers!
-
-In Compiled it's **impossible to generate CSS at runtime**,
-so the above code can't migrate across.
-How might we do it then?
-
-Well the direction we can go in is by statically defining the CSS properties,
-and then assigning function interpolations (the arrow functions inside the styled declaration) to set the values at runtime.
-
-```jsx
-import styled from 'styled-components';
-
-const getBackgroundGradient = (color, percent) => ({
-  `linear-gradient(${color}, ${color}) 0 / ${percent}% 100% no-repeat
-      ${color}`,
-});
-
-styled.input`
-  background: ＄{props => getBackgroundGradient(props.color, props.percent)};
-`;
-```
-
-This accomplishes two things for us:
-
-1. We've **successfully migrated** our runtime CSS over!
-   It turns out it didn't need to be generated at runtime anyway.
-1. We've **fixed our performance problem**!
-   Now it doesn't matter how many ticks `percent` has,
-   it'll be buttery smooth.
-   All because of the constraint of _no runtime CSS_ this footgun has been disarmed.
+There exists a [codemod](/pkg-cli#emotion-to-compiled) to streamline this.
+Please read [limitations](/limitations) for a list of things that are not supported.

@@ -1,22 +1,26 @@
 ---
-section: 1-Getting started
+section: 5-API Guides
+order: 99
 ---
 
 # Testing
 
-Testing is super important and something that was developed with in mind.
-There exists a `jest` matcher to help!
-First install the dependency.
+Testing is important for long-lived projects,
+and something that Compiled was developed with in mind.
+
+Use the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests to assert style behaviour over state changes.
+
+First install the matcher:
 
 ```bash
-npm i @compiled/jest-css-in-js
+npm install @compiled/jest --save-dev
 ```
 
-Then configure it.
+Then configure it in Jest:
 
 ```jsx
-// test/setup.tsx
-import { toHaveCompiledCss } from '@compiled/jest-css-in-js';
+// test/setup.js
+const { toHaveCompiledCss } = require('@compiled/jest');
 
 expect.extend({
   toHaveCompiledCss,
@@ -26,16 +30,15 @@ expect.extend({
 ```jsx
 // jest.config.js
 module.exports = {
-  setupFilesAfterEnv: ['./test/setup.tsx'],
+  setupFilesAfterEnv: ['./test/setup.js'],
 };
 ```
 
-And then reap your rewards!
-Here we are using [`react-testing-library`](https://github.com/testing-library/react-testing-library) which we highly recommend.
+The matcher is now globally available for your tests.
+Here we are using [`react-testing-library`](https://github.com/testing-library/react-testing-library).
 
 ```jsx
 import { render } from '@testing-library/react';
-import { styled } from '@compiled/css-in';
 
 it('should have small font', () => {
   const SmallText = styled.div({
@@ -48,16 +51,22 @@ it('should have small font', () => {
 });
 ```
 
+When writing tests in TypeScript you will probably need to create a `<root>/types/global.d.ts` file and import the jest matcher to enable types.
+
+```tsx
+import '@compiled/jest';
+```
+
 ## Multi match
 
-We can assert multiple values at once if we pass in an object instead.
+Assert multiple values at once if we pass in an object instead.
 
 ```jsx
 it('should have small bold font', () => {
-  const SmallText = styled.div({
-    fontSize: '12px',
-    fontWeight: 'bold',
-  });
+  const SmallText = styled.div`
+    font-size: 12px;
+    font-weight: bold;
+  `;
 
   const { getByText } = render(<SmallText>hello world</SmallText>);
 
@@ -70,12 +79,12 @@ it('should have small bold font', () => {
 
 ## Dynamic props
 
-We can also go a step further and test dynamic props as well.
+Assert dynamic interpolations.
 
 ```jsx
 it('should appear red', () => {
   const SmallText = styled.div`
-    color: ＄{(props) => props.color}px;
+    color: ${(props) => props.color}px;
   `;
 
   const { getByText } = render(<SmallText color="red">hello world</SmallText>);
@@ -84,26 +93,18 @@ it('should appear red', () => {
 });
 ```
 
-> **Note** - It might sound tempting to want a snapshot serializer to make assertions against Compiled.
-> We strongly discourage this so we don't supply one.
-> We can get something more valuable with visual regression tests,
-> else assert the specific styles we're interested in -
-> **don't snapshot the world**!
-
 ## Selectors
 
-We can assert against any CSS selectors,
-such as `:hover`,
-`:active`,
-and so on by passing in a config object.
+Assert against any CSS selectors and pseudo classes,
+such as `:hover` and `:active` by passing in a config object.
 
 ```jsx
 it('should change background color to blue on hover', () => {
-  const Hoverable = styled.div({
-    ':hover': {
-      backgroundColor: 'blue',
-    },
-  });
+  const Hoverable = styled.div`
+    :hover {
+      background-color: blue;
+    }
+  `;
 
   const { getByText } = render(<Hoverable>hello world</Hoverable>);
 
@@ -117,15 +118,15 @@ it('should change background color to blue on hover', () => {
 
 ## Media queries
 
-We can also assert against specific media queries using the same config object.
+Assert against media queries using the config object.
 
 ```jsx
 it('should have big padding when viewed on a tablet', () => {
-  const Card = styled.div({
-    '@media screen and (min-width: 1220px)': {
-      padding: '8rem',
-    },
-  });
+  const Card = styled.div`
+    @media screen and (min-width: 1220px) {
+      padding: 8rem;
+    }
+  `;
 
   const { getByText } = render(<Card>hello world</Card>);
 

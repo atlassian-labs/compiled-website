@@ -1,0 +1,172 @@
+---
+section: 90-Other guides
+name: Atomic CSS
+order: 99
+---
+
+# Atomic CSS
+
+Atomic CSS will reduce the total amount of defined styles by creating a single rule for every style declaration -
+resulting in the large majority of your styles being re-used instead of duplicated.
+
+Typically CSS is defined like so:
+
+```css
+.button {
+  border: none;
+  font-size: 14px;
+  background-color: purple;
+  border-radius: 3px;
+}
+```
+
+```html
+<button className="button">Hello world</button>
+```
+
+However when products scale to hundreds of developers,
+defined styles can get messy,
+and very duplicated.
+
+If we take the same rule and change it to be atomic CSS:
+
+```css
+.b-none {
+  border: none;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.bgc-purple {
+  background-color: purple;
+}
+
+.br-3 {
+  border-radius: 3px;
+}
+```
+
+```html
+<button className="b-none fs-14 bgc-purple br-3">Hello world</button>
+```
+
+When other components end up defining similar styles,
+they end up using the same rules.
+
+```html
+<span className="fs-14">Text</span>
+```
+
+## Other benefits
+
+There are other benefits over and beyond just re-using CSS rules.
+
+### Overriding through composition
+
+When you can't create CSS at runtime enabling [composition of styles](/composition) can seem impossible.
+If nothing was done depending on the order of rendered components you'd get different results.
+
+Using atomic CSS we can encode all the data needed to ensure developers can compose styles together,
+without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
+
+Take these two atomic rules:
+
+```css
+.color-blue {
+  color: blue;
+}
+.color-red {
+  color: red;
+}
+```
+
+There are two pieces of data that can be used in the class name.
+
+1. The atomic group - in this case `color`
+1. The atomic value - in this case `blue` and `red`
+
+Using them we can ensure that only one atomic group can exist in an elements class name.
+We introduce a small utility to help with this,
+a function called `ax`:
+
+```jsx
+<div className={ax(['color-blue', 'color-red'])} />
+```
+
+The final result becomes:
+
+```jsx
+<div className="color-red" />
+```
+
+The last atomic group defined wins.
+
+### Ordered pseudos
+
+When defining pseudo classes atomic CSS imposes some restrictions.
+Remember,
+only one CSS rule per declaration can exist!
+
+Take these two examples which order `hover` and `active` pseudo classes differently,
+but they share the same atomic rule,
+what happens?
+
+```jsx
+<div
+  css={`
+    :hover {
+      color: blue;
+    }
+    :active {
+      color: red;
+    }
+  `}
+/>
+```
+
+```jsx
+<div
+  css={`
+    :active {
+      color: red;
+    }
+    :hover {
+      color: blue;
+    }
+  `}
+/>
+```
+
+The simple answer is it depends which component renders first!
+Which is inconsistent at best,
+and just plain wrong at worse.
+
+To ensure we have a stable experience enforcement of a specific ordering of pseudo classes is done using **LVFHA**:
+
+- **L**ink
+- **V**isited
+- **F**ocus
+- **H**over
+- **A**ctive
+
+The last defined pseudo wins.
+For the list above,
+active state would take precedence over hover state.
+This ordering ensures a stable,
+consistent experience.
+
+## Pitfalls
+
+There are trade-offs for everything.
+Atomic CSS while dramatically reducing the total amount of defined CSS,
+increases HTML markup from the addition of added classes to elements.
+
+Every CSS declaration will add another class to the element,
+scaling linearly,
+you can see this on the first example on this page.
+However at scale this can prove to be worth it,
+with compression techniques like `gzip` working very well at reducing bundle size.
+
+We have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335) when we are further through development.

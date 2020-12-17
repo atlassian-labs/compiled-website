@@ -1,0 +1,38 @@
+---
+order: 3
+section: 99-Packages
+name: babel-plugin
+---
+
+# @compiled/babel-plugin
+
+Babel plugin used to transform your code.
+See [Installation](/installation) for setup instructions.
+Generally you would not install this directly but use it through the [React package](/pkg-react).
+
+This package will always be pinned to the same version of the React package,
+however it will follow semver.
+
+```bash
+npm install @compiled/babel-plugin --save-dev
+```
+
+## Options
+
+```json
+{
+  "plugins": [
+    [
+      "@compiled/babel-plugin",
+      {
+        "nonce": "__webpack_nonce__"
+      }
+    ]
+  ]
+}
+```
+
+#### nonce: string
+
+Enables CSP support,
+read [Security](/security) for more information.

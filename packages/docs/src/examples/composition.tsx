@@ -1,52 +1,40 @@
 import React from 'react';
 import { readFileSync } from 'fs';
 import { composition } from '@compiled/website-examples';
-import { Example } from './example';
+import { Example } from '@compiled/website-ui';
 
-export const CompositionObject = () => {
+export const CompositionIdentifier = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/composition-obj.tsx',
+        __dirname +
+          '../../../../examples/dist/jsx/css-prop-composition-identifier.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-obj.jsx',
+        __dirname +
+          '../../../../examples/dist/js/css-prop-composition-identifier.js',
         'utf-8'
       )}>
-      <composition.CompositionObject />
+      <composition.CompositionIdentifier />
     </Example>
   );
 };
 
-export const CompositionOrder = () => {
+export const CompositionMultiple = () => {
   return (
     <Example
       before={readFileSync(
-        __dirname + '../../../../examples/src/composition-order.tsx',
+        __dirname +
+          '../../../../examples/dist/jsx/css-prop-composition-multiple.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-order.jsx',
+        __dirname +
+          '../../../../examples/dist/js/css-prop-composition-multiple.js',
         'utf-8'
       )}>
-      <composition.CompositionOrder />
-    </Example>
-  );
-};
-
-export const CompositionImports = () => {
-  return (
-    <Example
-      before={readFileSync(
-        __dirname + '../../../../examples/src/composition-imports.tsx',
-        'utf-8'
-      )}
-      after={readFileSync(
-        __dirname + '../../../../examples/dist/composition-imports.jsx',
-        'utf-8'
-      )}>
-      <composition.CompositionImports />
+      <composition.CompositionMultiple />
     </Example>
   );
 };

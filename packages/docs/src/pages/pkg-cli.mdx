@@ -1,0 +1,39 @@
+---
+section: 99-Packages
+order: 5
+name: cli
+---
+
+# @compiled/cli
+
+Command-line interface utilities.
+This package does not follow semver and will always be pinned to the same version of the [React package](/pkg-react).
+
+We suggest running this package through [`npx`](https://docs.npmjs.com/cli/v7/commands/npx),
+where `@latest` is the version of `@compiled/react` you've installed.
+
+```bash
+npx @compiled/cli@latest
+```
+
+Then follow the prompts.
+
+## Presets
+
+The CLI comes with presets to streamline usage.
+
+### Codemods
+
+```bash
+npx @compiled/cli --preset codemods
+```
+
+#### Emotion to Compiled
+
+Will convert all usages of Emotion to Compiled.
+For code that could not be automatically converted a `/** TODO(@compiled/react codemod):` comment will be placed.
+
+#### Styled components to Compiled
+
+Will convert all usages of Styled Components to Compiled.
+For code that could not be automatically converted a `/** TODO(@compiled/react codemod):` comment will be placed.

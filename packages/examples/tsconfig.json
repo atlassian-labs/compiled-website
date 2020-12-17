@@ -7,7 +7,6 @@
     "target": "ESNext",
     "moduleResolution": "node",
     "declaration": true,
-    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
   },
   "exclude": ["./dist"]
 }

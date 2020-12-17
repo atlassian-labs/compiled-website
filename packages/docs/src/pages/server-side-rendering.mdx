@@ -1,146 +1,137 @@
 ---
-section: 2-Advanced
+section: 90-Other guides
 ---
 
 # Server Side Rendering
 
-Server side rendering (SSR) in Compiled works by compiling the CSS next to the element itself.
-This is very similar to how Emotion accomplishes it by default.
+[Server side rendering](https://reactjs.org/docs/react-dom-server.html) (SSR) is an important tool used to show your app faster to your users.
 
-This strategy has a few benefits -
-the biggest being when rendering React on the server with the [streaming API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) your component styles are streamed together with your component markup,
-resulting in things being rendered to users faster.
+Have you heard the phrase "SSR is zero config" before?
+In the context of Compiled -
+consumers of your components don't have to do anything to make it work.
+Just import and go!
 
-```jsx
-import { renderToNodeStream } from 'react-dom/server';
-import { App } from '@app/code';
-
-renderToNodeStream(<App />);
-```
-
-> **Warning** - This approach can interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
-> We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled-css-in-js/issues/31) - please join the conversation!
-
-## How it works
-
-So we keep hearing "SSR is 0 config" - but what does that actually mean?
-It means that we -
-or more explicitly consumers of our components -
-don't have to do anything to make SSR work.
-Just import a Compiled Component and go.
-
-It accomplishes this by inlining `style` elements in the server rendered markup,
+This is accomplished by inlining `style` elements in the server rendered markup,
 like so:
 
 <!-- prettier-ignore -->
 ```html
-<style>.cc-10mivee{display:flex;}</style>
-<div class="cc-10mivee">
-  <style>.cc-1610nsm{font-size:12px;}</style>
-  <div class="cc-1610nsm">hello world</div>
+<style>._k48pni7l{font-weight:600}</style>
+<div class="_k48pni7l">
+  <style>._syaz18rw{color:#ff5630}</style>
+  <div class="_syaz18rw">hello world</div>
 </div>
 ```
 
-And then on the client when the JavaScript initializes they get moved to the head of the document,
-so we end up with this on the client:
+And then on the web browser when the JavaScript initializes they get moved to the head of the document:
 
 ```html
-<div class="cc-10mivee">
-  <div class="cc-1610nsm">hello world</div>
+<div class="_k48pni7l">
+  <div class="_syaz18rw">hello world</div>
 </div>
 ```
 
 The magic sauce though -
-is that if any of the same component is rendered multiple times only the _first_ element will have a matching `style` element.
-The rest won't need it because it's already there!
-Saving precious Kb.
+if any atomic CSS is defined multiple times only the first atomic rule will render,
+resulting in less styles rendered initially:
 
 <!-- prettier-ignore -->
 ```html
-<style>.cc-10mivee{display:flex;}</style>
-<div class="cc-10mivee">
-  <style>.cc-1610nsm{font-size:12px;}</style>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
-  <div class="cc-1610nsm">hello world</div>
+<style>._k48pni7l{margin-top:24px}</style>
+<div class="_k48pni7l">
+  <style>._syaz18rw{color:#ff5630}</style>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
+  <div class="_k48pni7l _syaz18rw">hello world</div>
 </div>
 ```
 
-Fantastic.
+This strategy of rendering `style` elements next to their pairing component has two main benefits:
+
+1. Consumers of your components don't need to configure anything
+1. When using the [React streaming server API](https://reactjs.org/docs/react-dom-server.html#rendertonodestream) component styles are streamed together with your component markup,
+   resulting in content being rendered to users faster
+
+> **Warning** <br /> This will interfere with nth child and similar selectors as it is inserts style tags directly into your markup.
+> We have an [RFC where we are thinking about what to do with this](https://github.com/atlassian-labs/compiled/issues/31) - please join the conversation!
 
 ## Selector workarounds
 
-So you've seen the error message in dev and you're supporting SSR so you can't let this message go.
-Let's go into a few _workarounds_.
-
-> **Note** - Try to only use these workarounds if you can't think of an alternate implementation.
+There are a few workarounds for the nth child type selector problems.
+Try to only use these workarounds if you can't think of an alternate implementation,
+such as applying styles directly to the element you're interested in.
 
 ### First child
 
-Luckily this one is easy.
-Let's say we're targetting the `:first-child` child.
+Here we target the `:first-child` element.
 
 ```jsx
-<div css={`
-  > :first-child {
-    color: red;
+<div css={{
+  '& :first-child': {
+    color: 'red'
   }
-`}>
+}}>
   <div /> <-- text will be red, after JavaScript executes
   <div />
 </div>
 ```
 
 But the text isn't red before the JavaScript has executed!
-What can we do?
 
-Use a different selector.
+To workaround this we can use a different selector,
+either `:first-of-type` or explicitly marking the first child with a [data attribute](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes).
 
 ```jsx
-<div css={`
-  > [data-first-child] {
-    color: red;
+<div css={{
+  '& :first-of-type': {
+    color: 'red'
   }
-`}>
+}}>
+  <div /> <-- text will be red, always
+  <div />
+</div>
+```
+
+```jsx
+<div css={{
+  '& [data-first-child]': {
+    color: 'red'
+  }
+}}>
   <div data-first-child /> <-- text will be red, always
   <div />
 </div>
 ```
 
-Right now this is really the only sure fire way of getting what we want.
-
-### Nth-child
+### Nth child
 
 This also applies to `:nth-child` as well,
-where `style` elements can appear and ruin our day before JavaScript has executed.
+where `style` elements can appear and complicate things before JavaScript has executed.
 
 ```jsx
-<div css={`
-  > :nth-child(even) {
-    color: red;
+<div css={{
+  '& :nth-child(even)': {
+    color: 'red'
+  },
+  '& :nth-child(odd)': {
+    color: 'blue'
   }
-
-  > :nth-child(odd) {
-    color: blue;
-  }
-`}>
+}}>
   <div /> <-- text will be red, after JavaScript executes
   <div /> <-- text will be blue, after JavaScript executes
 </div>
 ```
 
 ```jsx
-<div css={`
-  > [data-even] {
-    color: red;
+<div css={{
+  '& [data-even]': {
+    color: 'red'
+  },
+  '& [data-odd]': {
+    color: 'blue'
   }
-
-  > [data-odd] {
-    color: blue;
-  }
-`}>
+}}>
   <div data-even /> <-- text will be red, always
   <div data-odd /> <-- text will be blue, always
 </div>

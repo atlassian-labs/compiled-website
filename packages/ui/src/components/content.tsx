@@ -1,4 +1,4 @@
-import { styled } from '@compiled/css-in-js';
+import { styled } from '@compiled/react';
 
 export const Content = styled.div`
   max-width: 140rem;

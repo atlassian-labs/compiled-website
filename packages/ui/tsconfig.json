@@ -5,8 +5,7 @@
     "module": "ES2020",
     "moduleResolution": "node",
     "lib": ["ES2015", "DOM"],
-    "declaration": true,
-    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
+    "declaration": true
   },
   "exclude": ["dist", ".cache"]
 }

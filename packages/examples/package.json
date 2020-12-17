@@ -1,20 +1,24 @@
 {
   "name": "@compiled/website-examples",
   "version": "1.0.0",
-  "main": "./dist/compiled/index.js",
-  "types": "./dist/compiled/index.d.ts",
+  "main": "./dist/js/index.js",
+  "source": "./src/index.tsx",
   "author": "Michael Dougall",
   "license": "MIT",
   "scripts": {
-    "build": "ttsc && ttsc --outDir dist/compiled --jsx react && prettier ./dist --write"
+    "build": "yarn clean && yarn build:src && yarn build:dist && prettier ./dist --write",
+    "build:src": "babel src --retain-lines --no-babelrc --presets=@babel/preset-typescript --out-dir dist/jsx --extensions .tsx",
+    "build:dist": "babel src --extensions .tsx --out-dir dist/js",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@compiled/css-in-js": "0.4.4",
-    "@compiled/ts-transform-css-in-js": "0.4.4",
+    "@babel/core": "^7.9.0",
+    "@babel/cli": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/preset-react": "^7.9.0",
+    "@compiled/react": "0.5.1",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
-    "ts-node": "^8.8.2",
-    "ttypescript": "^1.5.10",
     "typescript": "^3.7.5"
   }
 }

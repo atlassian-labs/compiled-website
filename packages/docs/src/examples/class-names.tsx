@@ -1,60 +1,59 @@
 import React from 'react';
 import { readFileSync } from 'fs';
 import { classNames } from '@compiled/website-examples';
-import { Example } from './example';
+import { Example } from '@compiled/website-ui';
 
-export const ClassNamesExample = () => {
+export const ClassNamesObj = () => {
   return (
     <Example
+      exampleCode="<EmphasisText>Transpile</EmphasisText>"
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-obj.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names.jsx',
+        __dirname + '../../../../examples/dist/js/class-names-obj.js',
         'utf-8'
       )}>
-      <classNames.ZoomOnHover>
-        The Fountain of Bakhchisaray <i>(hover over me)</i>
-      </classNames.ZoomOnHover>
+      <classNames.ClassNamesObj>Transpile</classNames.ClassNamesObj>
     </Example>
   );
 };
 
-export const ClassNamesCafExample = () => {
+export const ClassNamesDynamic = () => {
   return (
     <Example
+      exampleCode="<EmphasisText>Builder</EmphasisText>"
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names-caf.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names-caf.jsx',
+        __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
         'utf-8'
       )}>
-      <classNames.ZoomOnHoverCAF>
-        {(props) => (
-          <div {...props}>
-            The Bronze Horseman <i>(hover over me)</i>
-          </div>
-        )}
-      </classNames.ZoomOnHoverCAF>
+      <classNames.ClassNamesDynamic>Builder</classNames.ClassNamesDynamic>
     </Example>
   );
 };
 
-export const ClassNamesDynamicExample = () => {
+export const ClassNamesComposition = () => {
   return (
     <Example
+      exampleCode={
+        '<CustomColorText color="pink">This text is pink</CustomColorText>'
+      }
       before={readFileSync(
-        __dirname + '../../../../examples/src/class-names-dynamic.tsx',
+        __dirname + '../../../../examples/dist/jsx/class-names-composition.js',
         'utf-8'
       )}
       after={readFileSync(
-        __dirname + '../../../../examples/dist/class-names-dynamic.jsx',
+        __dirname + '../../../../examples/dist/js/class-names-composition.js',
         'utf-8'
       )}>
-      <classNames.Dynamic color="blue">Eugene Onegin</classNames.Dynamic>
+      <classNames.ClassNamesComposition color="pink">
+        This text is pink
+      </classNames.ClassNamesComposition>
     </Example>
   );
 };

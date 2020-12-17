@@ -1,41 +1,54 @@
-import { ColoredText } from './styled';
-import { EmphasisText } from './styled-invalid';
-import { EmphasisText as EmphasisTextObject } from './styled-object';
+import { ColoredText as StyledString } from './styled-string';
+import { Button as StyledButton } from './styled-button';
+import { EmphasisText as StyledDynamic } from './styled-dynamic-decl';
+import { ColoredText as StyledObj } from './styled-obj';
 import { TransientProps } from './styled-transient-props';
-import { EmphasisText as EmphasisTextCssProp } from './css-prop';
-import { EmphasisText as EmphasisTextCssPropString } from './css-prop-string';
-import { ZoomOnHover } from './class-names';
-import { ZoomOnHoverCAF } from './class-names-caf';
-import { Dynamic } from './class-names-dynamic';
-import { StylusBuiltInFunctions } from './stylus-built-in-functions';
-import { CompositionObject } from './composition-obj';
-import { CompositionOrder } from './composition-order';
-import { CompositionImports } from './composition-imports';
+import { BlueText as StyledComposition } from './styled-composition';
+import { Button as CssPropButton } from './css-prop-button';
+import { EmphasisText as CssPropString } from './css-prop-string';
+import { EmphasisText as CssPropObj } from './css-prop-obj';
+import { CompositionMultiple } from './css-prop-composition-multiple';
+import { CompositionIdentifier } from './css-prop-composition-identifier';
+import { Heading as StyledAsProp } from './styled-as-prop';
+import { EmphasisText as CssPropDynamic } from './css-prop-dynamic-decl';
+import { CustomColorText as CssPropCompositionCorrect } from './css-prop-composition-correct';
+import { CustomColorText as CssPropCompositionIncorrect } from './css-prop-composition-incorrect';
+import { CustomColorText as CssPropCompositionNoStyle } from './css-prop-composition-no-style';
+import { Button as ClassNamesButton } from './class-names-button';
+import { EmphasisText as ClassNamesObj } from './class-names-obj';
+import { EmphasisText as ClassNamesDynamic } from './class-names-dynamic';
+import { Lozenge as CssPropConditionalRules } from './css-prop-conditional-rules';
+import { CustomColorText as ClassNamesComposition } from './class-names-composition';
 
 export const styled = {
-  ColoredText,
-  EmphasisText,
+  Button: StyledButton,
+  StyledString,
+  StyledObj,
+  StyledDynamic,
   TransientProps,
-  EmphasisTextObject,
+  StyledComposition,
+  StyledAsProp,
 };
 
 export const cssProp = {
-  EmphasisText: EmphasisTextCssProp,
-  EmphasisTextString: EmphasisTextCssPropString,
+  Button: CssPropButton,
+  CssPropObj,
+  CssPropString,
+  CssPropDynamic,
+  CssPropCompositionCorrect,
+  CssPropCompositionIncorrect,
+  CssPropCompositionNoStyle,
+  CssPropConditionalRules,
 };
 
 export const classNames = {
-  ZoomOnHover,
-  ZoomOnHoverCAF,
-  Dynamic,
-};
-
-export const stylus = {
-  StylusBuiltInFunctions,
+  Button: ClassNamesButton,
+  ClassNamesObj,
+  ClassNamesDynamic,
+  ClassNamesComposition,
 };
 
 export const composition = {
-  CompositionObject,
-  CompositionOrder,
-  CompositionImports,
+  CompositionMultiple,
+  CompositionIdentifier,
 };

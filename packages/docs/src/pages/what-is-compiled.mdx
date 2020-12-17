@@ -1,0 +1,48 @@
+---
+order: 1
+section: 1-Getting started
+name: What is Compiled?
+---
+
+import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
+
+# What is Compiled?
+
+Compiled is a _build time_ [atomic CSS](/atomic-css)-in-JS library that has a two-step transformation process.
+
+## Pre-calculate styles
+
+Write your styles in JavaScript or TypeScript and Compiled will **create all CSS rules ahead of time** baking everything the component needs to run.
+
+<BeforeHowItWorks />
+
+Becomes:
+
+<AfterHowItWorks />
+
+Resulting in **very performant components** that can be **used without needing bundler configuration**,
+even when published to NPM.
+
+## Extract styles
+
+Turn on the extract plugin and **all pre-calculated CSS** will be **removed from your JavaScript bundle** and moved to a single [atomic style sheet](/atomic-css).
+
+```jsx
+import * as React from 'react';
+import { ax } from '@compiled/react/runtime';
+
+export const EmphasisText = React.forwardRef(
+  ({ as: C = 'span', style, primary, ...props }, ref) => (
+    <C
+      {...props}
+      style={{ ...style, '--_ogjj5i': primary ? '#00B8D9' : '#36B37E' }}
+      ref={ref}
+      className={ax(['_syazpjp7 _1p1dangw _k48pni7l', props.className])}
+    />
+  )
+);
+```
+
+Resulting in **smaller JavaScript bundles**,
+and even **better peformance**.
+Extracting will be [shipping in 2021](https://github.com/atlassian-labs/compiled/issues/58).

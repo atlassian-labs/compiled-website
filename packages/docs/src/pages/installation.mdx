@@ -1,91 +1,41 @@
 ---
-order: 1
+order: 2
 section: 1-Getting started
 ---
 
 # Installation
 
-There are two avenues we can take to enable Compiled either with the TypeScript compiler or with Babel.
-Both end up using the same transformations under-the-hood.
-
-We start by installing the library made for React -
-this will give us all the APIs we know and love.
+Setup is required.
+Install the [React](https://reactjs.org) package with `npm` or `yarn`.
 
 ```bash
-npm install @compiled/css-in-js
+npm install @compiled/react
 ```
 
-> **Note** - It won't work without enabling a transform and will just throw an exception.
-> This is because there [isn't any code there to run](https://github.com/atlassian-labs/compiled/blob/master/packages/core/src/styled/index.tsx#L63) 😎.
+Compiled uses [Babel](https://babeljs.io) to transform your code,
+so you'll need to use either [its CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice.
 
----
+## Babel setup
 
-## Babel
+Add the plugin to your [Babel config](https://babeljs.io/docs/en/configuration).
 
-We need to install the dependency and then wire up the plugin in your `.babelrc` config.
-Make sure the Compiled plugin is the **first plugin in the array**.
-Need a live example?
-[These docs you're reading are built using
-the Babel plugin!](https://github.com/compiled/website/tree/master/packages/docs)
-
-```bash
-npm install @compiled/babel-plugin-css-in-js
-```
-
-```jsx
+```json
 {
-  "plugins": ["@compiled/babel-plugin-css-in-js"]
+  "plugins": ["@compiled/react/babel-plugin"]
 }
 ```
 
-## TypeScript compiler
+> **Note** <br /> For extra configuration look at the [plugin package documentation](/pkg-babel-plugin).
 
-This is a little bit more cumbersome to setup because there isn't any official support for defining plugins in your `tsconfig.json`.
-But it still works great!
-Need a live example?
-[The introduction is built using
-the TypeScript transformer](https://github.com/compiled/website/tree/master/packages/introduction).
+## Write your styles
 
-```bash
-npm install @compiled/ts-transform-css-in-js ttypescript
-```
+Import the APIs you may already be familiar with and style away.
 
 ```jsx
-{
-  "compilerOptions": {
-    "plugins": [{ "transform": "@compiled/ts-transform-css-in-js" }]
-  }
-}
-```
+import { styled } from '@compiled/react';
 
-Now it's a matter of getting the compiler to pick up plugins from your `tsconfig.json`.
-
-### TypeScript CLI
-
-Run `ttsc` instead of `tsc`.
-
-```diff
--tsc
-+ttsc
-```
-
-### Webpack
-
-Set the compiler option to `ttypescript`.
-
-```jsx
-{
-  loader: require.resolve('ts-loader'),
-  options: {
-    compiler: 'ttypescript',
-  },
-},
-```
-
-### Parcel
-
-Install the plugin and we're done!
-
-```bash
-npm i parcel-plugin-ttypescript
+const ColoredText = styled.span`
+  font-size: 11px;
+  color: red;
+`;
 ```
