@@ -10,7 +10,7 @@
     "clean": "rm -rf dist && workspaces-run -- rm -rf dist && workspaces-run -- rm -rf .cache",
     "clean:npm": "yarn clean:pkg:npm && rm -rf node_modules",
     "clean:pkg:npm": "workspaces-run -- rm -rf node_modules",
-    "build": "yarn build:examples && yarn build:landing && yarn build:docs",
+    "build": "NODE_ENV=production yarn build:examples && NODE_ENV=production yarn build:landing && NODE_ENV=production yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
     "build:landing": "cd packages/landing && yarn build",
     "build:ui": "cd packages/ui && yarn build",

@@ -25,6 +25,7 @@ npm install @compiled/babel-plugin --save-dev
     [
       "@compiled/babel-plugin",
       {
+        "importReact": true,
         "nonce": "__webpack_nonce__"
       }
     ]
@@ -32,7 +33,19 @@ npm install @compiled/babel-plugin --save-dev
 }
 ```
 
+#### importReact: boolean
+
+Will import React into the module if it is not found.
+When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and you can set this to `false`.
+
+Defaults to `true`.
+
 #### nonce: string
 
 Enables CSP support,
 read [Security](/security) for more information.
+
+## Production
+
+When bundling for a production release make sure to set the `NODE_ENV` environment variable to `production`.
+Compiled performs extra build time optimizations to ensure the minimum amount of CSS is generated.

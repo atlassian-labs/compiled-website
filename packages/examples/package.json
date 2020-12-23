@@ -16,7 +16,7 @@
     "@babel/cli": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/preset-react": "^7.9.0",
-    "@compiled/react": "0.5.1",
+    "@compiled/react": "0.5.2",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
     "typescript": "^3.7.5"
