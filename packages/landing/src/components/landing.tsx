@@ -50,7 +50,7 @@ const classNamesAfter = readFileSync(
 
 const LandingPageContent = require('../pages/landing-content.mdx').default;
 
-const codeBackground = 'rgba(23, 43, 77, 0.7)';
+const codeBackground = 'rgba(23, 43, 77, 0.4)';
 
 const TerminalStripe = styled.div`
   background-color: ${codeBackground};
