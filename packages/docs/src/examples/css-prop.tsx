@@ -57,9 +57,7 @@ export const CssPropDynamic = () => {
 export const CssPropCompositionCorrect = () => {
   return (
     <Example
-      exampleCode={
-        '<CustomColorText color="pink">This text is pink</CustomColorText>'
-      }
+      exampleCode={'<CustomColorText color="pink">Pink text</CustomColorText>'}
       before={readFileSync(
         __dirname +
           '../../../../examples/dist/jsx/css-prop-composition-correct.js',
@@ -71,7 +69,7 @@ export const CssPropCompositionCorrect = () => {
         'utf-8'
       )}>
       <cssProp.CssPropCompositionCorrect color="pink">
-        This text is pink
+        Pink text
       </cssProp.CssPropCompositionCorrect>
     </Example>
   );

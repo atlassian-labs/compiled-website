@@ -6,7 +6,7 @@ import { Example } from '@compiled/website-ui';
 export const ClassNamesObj = () => {
   return (
     <Example
-      exampleCode="<EmphasisText>Transpile</EmphasisText>"
+      exampleCode="<EmphasisText>Teal text</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-obj.js',
         'utf-8'
@@ -15,7 +15,7 @@ export const ClassNamesObj = () => {
         __dirname + '../../../../examples/dist/js/class-names-obj.js',
         'utf-8'
       )}>
-      <classNames.ClassNamesObj>Transpile</classNames.ClassNamesObj>
+      <classNames.ClassNamesObj>Teal text</classNames.ClassNamesObj>
     </Example>
   );
 };
@@ -23,7 +23,7 @@ export const ClassNamesObj = () => {
 export const ClassNamesDynamic = () => {
   return (
     <Example
-      exampleCode="<EmphasisText>Builder</EmphasisText>"
+      exampleCode="<EmphasisText primary>Teal text</EmphasisText>"
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-dynamic.js',
         'utf-8'
@@ -32,7 +32,9 @@ export const ClassNamesDynamic = () => {
         __dirname + '../../../../examples/dist/js/class-names-dynamic.js',
         'utf-8'
       )}>
-      <classNames.ClassNamesDynamic>Builder</classNames.ClassNamesDynamic>
+      <classNames.ClassNamesDynamic primary>
+        Teal text
+      </classNames.ClassNamesDynamic>
     </Example>
   );
 };
@@ -40,9 +42,7 @@ export const ClassNamesDynamic = () => {
 export const ClassNamesComposition = () => {
   return (
     <Example
-      exampleCode={
-        '<CustomColorText color="pink">This text is pink</CustomColorText>'
-      }
+      exampleCode={'<CustomColorText color="pink">Pink text</CustomColorText>'}
       before={readFileSync(
         __dirname + '../../../../examples/dist/jsx/class-names-composition.js',
         'utf-8'
@@ -52,7 +52,7 @@ export const ClassNamesComposition = () => {
         'utf-8'
       )}>
       <classNames.ClassNamesComposition color="pink">
-        This text is pink
+        Pink text
       </classNames.ClassNamesComposition>
     </Example>
   );
