@@ -156,6 +156,19 @@ ax(['_k48pni7l _syaz18rw', '_syazff21']);
 // > "_k48pni7l _syazff21"
 ```
 
+### ix
+
+Will handle interpolations that may resolve to `undefined`.
+When the interpolation resolves to `undefined` an empty CSS variable is returned,
+effectively blocking parent CSS variables affecting this interpolation.
+
+```js
+import { ix } from '@compiled/react/runtime';
+
+ix(true && '#36B37E'); // '#36B37E'
+ix(false && '#36B37E'); // 'var(--, )'
+```
+
 ## Babel plugin
 
 The [babel-plugin](/pkg-babel-plugin) is re-exported through the `@compiled/react/babel-plugin` entry point.
