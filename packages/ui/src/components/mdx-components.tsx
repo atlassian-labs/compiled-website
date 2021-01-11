@@ -17,7 +17,7 @@ const Hr = styled.hr`
 
 const Quote = styled.blockquote`
   padding: 2rem 3rem;
-  margin: 6rem -3rem;
+  margin: 4rem -3rem;
   border-left: 3px solid ${colors.primary};
   background-color: #8777d926;
   opacity: 0.9;

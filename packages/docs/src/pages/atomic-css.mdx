@@ -7,15 +7,14 @@ order: 99
 # Atomic CSS
 
 Compiled uses atomic CSS as the delivery mechanism for your styles.
-When writing your CSS-in-JS you won't even notice that it does however!
+However when writing your CSS-in-JS you won't even notice that it does!
 
+This page goes over what behaviors are possible using atomic CSS.
 If you're just getting started don't feel the need to read this page,
 but if you're interested in understanding more under the hood,
 keep on reading.
 
-## Benefits
-
-### Reducing defined CSS
+## Reducing defined CSS
 
 CSS delivered as atomic rules reduces the total amount of defined CSS by creating a single rule for every declaration —
 enabling large re-use of styles.
@@ -65,7 +64,7 @@ When other components end up defining the same styles they use the same rules.
 
 Thus as your product grows the less often new CSS rules need to be created.
 
-### Overriding through composition
+## Overriding through composition
 
 When you can't create CSS at runtime enabling [composition of styles](/composition) can seem impossible.
 If nothing was done depending on the order of rendered components you'd get different results.
@@ -89,15 +88,17 @@ There are two pieces of data that can be used in the class name.
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
 
-Using them we can ensure that only one atomic group can exist in an elements class name.
-We introduce a small utility to help with this,
-a function called `ax`:
+> **Note** <br /> Atomic groups also include selectors and at rules.
+> The structure of a group is `hash({atrules}{selectors}{propertyname})`.
+
+Using this data we can ensure that only one atomic group can exist in an elements class name,
+using a small utility called `ax`.
 
 ```jsx
 <div className={ax(['color-blue', 'color-red'])} />
 ```
 
-The final result becomes:
+When executed only `color-red` remains.
 
 ```jsx
 <div className="color-red" />
@@ -105,7 +106,7 @@ The final result becomes:
 
 The last atomic group defined wins.
 
-### Ordered pseudos
+## Ordered pseudos
 
 When defining pseudo classes atomic CSS imposes some restrictions.
 Remember,
