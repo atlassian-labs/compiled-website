@@ -23,7 +23,7 @@
     "parcel-plugin-babel-typescript": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "remark-frontmatter": "^2.0.0",
     "unist-util-visit": "^2.0.2",
     "yaml": "^1.8.3"
