@@ -5,9 +5,9 @@
   "source": "./src/index.tsx",
   "scripts": {},
   "dependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-react": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@compiled/react": "0.5.2",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",

@@ -7,8 +7,8 @@
     "build": "BASENAME=/docs parcel build src/index.html --out-dir ../../dist/docs --public-url /docs"
   },
   "dependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
     "@compiled/react": "0.5.2",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
