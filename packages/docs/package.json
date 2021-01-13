@@ -12,8 +12,8 @@
     "@compiled/react": "0.5.3",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
-    "@mdx-js/parcel-plugin-mdx": "^1.5.8",
-    "@mdx-js/react": "^1.0.0-rc.5",
+    "@mdx-js/parcel-plugin-mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "@types/mdx-js__react": "^1.5.3",
     "@types/node": "^13.13.39",
     "@types/react": "^16.14.2",
@@ -29,8 +29,8 @@
     "yaml": "^1.10.0"
   },
   "devDependencies": {
-    "@mdx-js/parcel-plugin-mdx": "^1.5.8",
-    "@mdx-js/react": "^1.1.6",
+    "@mdx-js/parcel-plugin-mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "react": "^16.14.0"
   },
