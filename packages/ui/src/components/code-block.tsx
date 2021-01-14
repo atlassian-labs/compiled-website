@@ -49,9 +49,7 @@ export const CodeBlock = ({
   </div>
 );
 
-export const Terminal = ({ children }: CodeBlockProps) => {
-  const parsedInput = children.replace(/^\n/, '');
-
+export const Terminal = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       css={{
@@ -68,7 +66,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
             fontSize: '16px',
             fontFamily: `'SFMono-Medium', 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace`,
             position: 'relative',
-            opacity: 0.9,
+            opacity: 1,
             ':before': {
               content: '➜  ~ ',
               color: '#79F2C0',
@@ -88,7 +86,7 @@ export const Terminal = ({ children }: CodeBlockProps) => {
               pointerEvents: 'none',
             },
           }}>
-          {parsedInput}
+          {children}
         </code>
       </pre>
     </div>

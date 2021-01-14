@@ -198,10 +198,9 @@ export default () => (
 
       <TerminalStripe css={{ marginTop: '10rem' }}>
         <Content>
-          <Terminal language="bash">
-            {`
-npm install @compiled/react @compiled/babel-plugin
-`}
+          <Terminal>
+            <span css={{ color: 'rgb(240, 141, 73)' }}>npm install</span>{' '}
+            @compiled/react @compiled/babel-plugin
           </Terminal>
         </Content>
       </TerminalStripe>
