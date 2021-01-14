@@ -200,7 +200,7 @@ export default () => (
         <Content>
           <Terminal language="bash">
             {`
-npm install @compiled/react
+npm install @compiled/react @compiled/babel-plugin
 `}
           </Terminal>
         </Content>
