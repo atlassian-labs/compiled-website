@@ -832,10 +832,10 @@
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-0.4.0.tgz#3413badb2c3904357a36268cb9f8c7e0afc3a804"
 
-"@compiled/babel-plugin@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.5.3.tgz#52995892a465a0fb588064091a80fba938db7ab7"
-  integrity sha512-dSDn8pyfJ0tiynk7YuLZDk8SHSxVyOBCKzNjxnhJZq1cFRG4hjKLEwcI1emlktwH406cj9ZpGqfV8PdCul05Dw==
+"@compiled/babel-plugin@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.6.0.tgz#f6185e8a737fd8300b540ba0902ce084ada05407"
+  integrity sha512-uMxbOi4hou2MLqFMh0BQ4SA2ABEpuONQYg9x0fSwtegUBYFoSvB3e+i4SPVh6qdgAF4xJWlw9/66fQFWF6ZmhA==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/generator" "^7.12.11"
@@ -845,17 +845,17 @@
     "@babel/template" "^7.12.7"
     "@babel/traverse" "^7.12.12"
     "@babel/types" "^7.12.12"
-    "@compiled/css" "0.5.3"
-    "@compiled/utils" "0.5.3"
+    "@compiled/css" "0.6.0"
+    "@compiled/utils" "0.6.0"
     "@emotion/is-prop-valid" "^1.0.0"
     resolve "^1.19.0"
 
-"@compiled/css@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.5.3.tgz#199fdec6c7c11234642658b328ff37c8b6e360af"
-  integrity sha512-kYp7kePDT04NvwTsvDo0PdCq2O+PqLOYNbRJlvIItlFrXgXi5CUfW4is8vEyZLCrXrY6q/k57ZKzJkn0mUmHSQ==
+"@compiled/css@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.6.0.tgz#c3126208985dbb342403ec1d63b752bcc0103de3"
+  integrity sha512-+PBQ3dnzRdYxVh7DPydXii0vj2akZEXBg0U3TEihVZQBjywv3Z13oaQhuhjYEcC/2A1LfRDuLGE/75VLhl/Hag==
   dependencies:
-    "@compiled/utils" "0.5.3"
+    "@compiled/utils" "0.6.0"
     autoprefixer "^9.8.6"
     convert-source-map "^1.7.0"
     cssnano-preset-default "^4.0.7"
@@ -865,18 +865,17 @@
     postcss-selector-parser "^6.0.4"
     postcss-values-parser "^4.0.0"
 
-"@compiled/react@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.5.3.tgz#76bf84b6b0c21960b24b4ed5780e01fc666b046f"
-  integrity sha512-GO3opU6PazdsnYnDRrfwm10EXWS//i3DFTsRFQQ3BdPpw+D3tXfoDSFAaypIR9WLYty9oyeKmwtbM8nWQN44wA==
+"@compiled/react@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.6.0.tgz#6ec1d3b46212727603b3aa1f78e093377132b9c1"
+  integrity sha512-tBTn7bsip0/dc+pVDnbc5o+4h7QSNC6KSgMFe6iTP98dGPxQ/soDY7SQykez5LCAU0z9zv1hPF9uezJZ2ZHt0g==
   dependencies:
-    "@compiled/babel-plugin" "0.5.3"
     csstype "^3.0.6"
 
-"@compiled/utils@0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@compiled/utils/-/utils-0.5.3.tgz#3759aa9325182e64e173d02af911ebf9cdd75950"
-  integrity sha512-Q4h9W3GBxNGWwDpwjgiHC/ex/1Kdt12EqVqqq84nGhYv3y8+GYmN4fT4Ulqwertmw+iv70jaqH5XHAdLBlS+qA==
+"@compiled/utils@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@compiled/utils/-/utils-0.6.0.tgz#2572096f46337a72a686433151876f86a07eb593"
+  integrity sha512-DdXoSX0iNocoAenjiTLn/rQQr9IJeEuhDC30UQFQrTUabNK/i5iswNkf2ZVWfktqduFaXFvb6KWd8QNdpY2LPg==
   dependencies:
     convert-source-map "^1.7.0"
     source-map "^0.7.3"
@@ -1556,15 +1555,15 @@ browserify-zlib@^0.2.0:
     pako "~1.0.5"
 
 browserslist@^4.0.0, browserslist@^4.1.0, browserslist@^4.12.0, browserslist@^4.8.3, browserslist@^4.9.1:
-  version "4.14.7"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.14.7.tgz#c071c1b3622c1c2e790799a37bb09473a4351cb6"
-  integrity sha512-BSVRLCeG3Xt/j/1cCGj1019Wbty0H+Yvu2AOuZSuoaUWn3RatbL33Cxk+Q4jRMRAbOm0p7SLravLjpnT6s0vzQ==
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.1.tgz#bf757a2da376b3447b800a16f0f1c96358138766"
+  integrity sha512-UXhDrwqsNcpTYJBTZsbGATDxZbiVDsx6UjpmRUmtnP10pr8wAYr5LgFoEFw9ixriQH2mv/NX2SfGzE/o8GndLA==
   dependencies:
-    caniuse-lite "^1.0.30001157"
+    caniuse-lite "^1.0.30001173"
     colorette "^1.2.1"
-    electron-to-chromium "^1.3.591"
+    electron-to-chromium "^1.3.634"
     escalade "^3.1.1"
-    node-releases "^1.1.66"
+    node-releases "^1.1.69"
 
 buffer-crc32@~0.2.3:
   version "0.2.13"
@@ -1655,10 +1654,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001157:
-  version "1.0.30001158"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001158.tgz#fce86d321369603c2bc855ee0e901a7f49f8310b"
-  integrity sha512-s5loVYY+yKpuVA3HyW8BarzrtJvwHReuzugQXlv1iR3LKSReoFXRm86mT6hT7PEF5RxW+XQZg+6nYjlywYzQ+g==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001157, caniuse-lite@^1.0.30001173:
+  version "1.0.30001177"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001177.tgz#2c3b384933aafda03e29ccca7bb3d8c3389e1ece"
+  integrity sha512-6Ld7t3ifCL02jTj3MxPMM5wAYjbo4h/TAQGFTgv1inihP1tWnWp8mxxT4ut4JBEHLbpFXEXJJQ119JCJTBkYDw==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -2443,10 +2442,10 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-electron-to-chromium@^1.3.591:
-  version "1.3.597"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.597.tgz#0d30fd4c0f5437149c28a6044c4e119357ae56aa"
-  integrity sha512-VJI21MucKaqyFw0oe3j9BIg+nDF4MHzUZAmUwZzrxho+s8zPCD13Fds07Rgu+MTtAadO4tYTKFdAUksKYUyIJw==
+electron-to-chromium@^1.3.591, electron-to-chromium@^1.3.634:
+  version "1.3.639"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.639.tgz#0a27e3018ae3acf438a14a1dd4e41db4b8ab764e"
+  integrity sha512-bwl6/U6xb3d3CNufQU9QeO1L32ueouFwW4bWANSwdXR7LVqyLzWjNbynoKNfuC38QFB5Qn7O0l2KLqBkcXnC3Q==
 
 elliptic@^6.0.0:
   version "6.5.2"
@@ -4301,10 +4300,10 @@ node-libs-browser@^2.0.0:
     util "^0.11.0"
     vm-browserify "^1.0.1"
 
-node-releases@^1.1.66:
-  version "1.1.67"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.67.tgz#28ebfcccd0baa6aad8e8d4d8fe4cbc49ae239c12"
-  integrity sha512-V5QF9noGFl3EymEwUYzO+3NTDpGfQB4ve6Qfnzf3UNydMhjQRVPR1DZTuvWiLzaFJYw2fmDwAfnRNEVb64hSIg==
+node-releases@^1.1.66, node-releases@^1.1.69:
+  version "1.1.69"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.69.tgz#3149dbde53b781610cd8b486d62d86e26c3725f6"
+  integrity sha512-DGIjo79VDEyAnRlfSqYTsy+yoHd2IOjJiKUozD2MV2D85Vso6Bug56mb9tT/fY5Urt0iqk01H7x+llAruDR2zA==
 
 normalize-html-whitespace@^1.0.0:
   version "1.0.0"
