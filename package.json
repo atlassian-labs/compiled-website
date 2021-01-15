@@ -13,7 +13,6 @@
     "build": "NODE_ENV=production yarn build:examples && NODE_ENV=production yarn build:landing && NODE_ENV=production yarn build:docs",
     "build:docs": "cd packages/docs && yarn build",
     "build:landing": "cd packages/landing && yarn build",
-    "build:ui": "cd packages/ui && yarn build",
     "build:examples": "cd packages/examples && yarn build",
     "postinstall": "npx yarn-deduplicate"
   },
