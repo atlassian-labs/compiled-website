@@ -949,10 +949,10 @@
   resolved "https://registry.yarnpkg.com/@changesets/types/-/types-0.4.0.tgz#3413badb2c3904357a36268cb9f8c7e0afc3a804"
   integrity sha512-TclHHKDVYQ8rJGZgVeWiF7c91yWzTTWdPagltgutelGu/Psup5PQlUq6svx7S8suj+jXcaE34yEEsfIvzXXB2Q==
 
-"@compiled/babel-plugin@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.6.0.tgz#f6185e8a737fd8300b540ba0902ce084ada05407"
-  integrity sha512-uMxbOi4hou2MLqFMh0BQ4SA2ABEpuONQYg9x0fSwtegUBYFoSvB3e+i4SPVh6qdgAF4xJWlw9/66fQFWF6ZmhA==
+"@compiled/babel-plugin@0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.6.1.tgz#1ec49f5081787c8029c5fa2ab8d1b53c0b9572ef"
+  integrity sha512-D4gLjwjjExvfAo0IWk/yohfx7h37IbIK8Shb+q+1Bsid2K515KHAZcWsbaP9giPZX92M6n4BcJ/Tlpji9dlAkA==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/generator" "^7.12.11"
@@ -962,17 +962,17 @@
     "@babel/template" "^7.12.7"
     "@babel/traverse" "^7.12.12"
     "@babel/types" "^7.12.12"
-    "@compiled/css" "0.6.0"
-    "@compiled/utils" "0.6.0"
+    "@compiled/css" "0.6.1"
+    "@compiled/utils" "0.6.1"
     "@emotion/is-prop-valid" "^1.0.0"
     resolve "^1.19.0"
 
-"@compiled/css@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.6.0.tgz#c3126208985dbb342403ec1d63b752bcc0103de3"
-  integrity sha512-+PBQ3dnzRdYxVh7DPydXii0vj2akZEXBg0U3TEihVZQBjywv3Z13oaQhuhjYEcC/2A1LfRDuLGE/75VLhl/Hag==
+"@compiled/css@0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.6.1.tgz#e04f46f05f8ff25aa4276a2446bfbcef5c330a31"
+  integrity sha512-l2zaDqJKf4L+k7zA1di4LSzaldrjqLwT3lRtZwp5nLsszZynb4jldsvssvI1OIDpXkZ8ecngeZerRZB2k/ZDww==
   dependencies:
-    "@compiled/utils" "0.6.0"
+    "@compiled/utils" "0.6.1"
     autoprefixer "^9.8.6"
     convert-source-map "^1.7.0"
     cssnano-preset-default "^4.0.7"
@@ -982,17 +982,17 @@
     postcss-selector-parser "^6.0.4"
     postcss-values-parser "^4.0.0"
 
-"@compiled/react@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.6.0.tgz#6ec1d3b46212727603b3aa1f78e093377132b9c1"
-  integrity sha512-tBTn7bsip0/dc+pVDnbc5o+4h7QSNC6KSgMFe6iTP98dGPxQ/soDY7SQykez5LCAU0z9zv1hPF9uezJZ2ZHt0g==
+"@compiled/react@0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.6.1.tgz#47fda19f62d1f90645177427a76d70f834f38ce8"
+  integrity sha512-84X+fgGUBKwLnKACU9QBtSUQJRu12kjIi/MWGRL+ZczNr8pYil+bMp0pIo24+v0N3bi6OenvLdp4yNyL8XYkLg==
   dependencies:
     csstype "^3.0.6"
 
-"@compiled/utils@0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@compiled/utils/-/utils-0.6.0.tgz#2572096f46337a72a686433151876f86a07eb593"
-  integrity sha512-DdXoSX0iNocoAenjiTLn/rQQr9IJeEuhDC30UQFQrTUabNK/i5iswNkf2ZVWfktqduFaXFvb6KWd8QNdpY2LPg==
+"@compiled/utils@0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@compiled/utils/-/utils-0.6.1.tgz#c5c2d9b2887cf9b7e1799e8cc18ed237ec4e91c0"
+  integrity sha512-oI/JJ8C3cYMqqsS/qbmZ4NKLoTNHQEWh9TQnBE4C9qARa2SMcqc91yeCRoLYafWUlgPWCBVGtNJOd+zGt9swLg==
   dependencies:
     convert-source-map "^1.7.0"
     source-map "^0.7.3"
