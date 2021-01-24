@@ -24,6 +24,10 @@
       "groupName": "postcss packages"
     },
     {
+      "packagePatterns": ["^@compiled/"],
+      "groupName": "compiled css-in-js packages"
+    },
+    {
       "depTypeList": ["peerDependencies"],
       "rangeStrategy": "widen"
     },
