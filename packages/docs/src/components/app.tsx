@@ -183,16 +183,17 @@ export const App = () => {
 
               <p css={{ margin: '8rem 0' }}>
                 <a
+                  target="_blank"
                   css={{
                     textDecoration: 'none',
-                    padding: '1rem 1.25rem',
-                    border: `1px solid ${colors.primary}`,
                     borderRadius: 3,
                     color: colors.primary,
                     fontSize: 14,
+                    opacity: 0.7,
+                    fontWeight: 500,
                   }}
                   href={getEditUrl()}>
-                  Edit on Github
+                  Suggest changes to this page ➚
                 </a>
               </p>
 
