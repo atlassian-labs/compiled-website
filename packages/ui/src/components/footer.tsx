@@ -7,7 +7,7 @@ export const Footer = () => (
     <div css={{ height: 80 }} />
     <footer
       css={{
-        padding: '4rem',
+        padding: '4rem 2rem',
         fontSize: 11,
         background: '#FAFBFC',
         position: 'absolute',

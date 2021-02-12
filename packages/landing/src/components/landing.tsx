@@ -196,11 +196,25 @@ export default () => (
         </VerticalStack>
       </Content>
 
-      <TerminalStripe css={{ marginTop: '10rem' }}>
+      <TerminalStripe css={{ marginTop: '10rem', height: '10rem' }}>
         <Content>
           <Terminal>
             <span css={{ color: 'rgb(240, 141, 73)' }}>npm install</span>{' '}
-            @compiled/react
+            @compiled/react{' '}
+            <span
+              css={{
+                marginTop: -10,
+                position: 'relative',
+                display: 'inline-block',
+              }}>
+              <div>@compiled/webpack-loader</div>
+              <div css={{ opacity: 0.7, top: '100%', position: 'absolute' }}>
+                @compiled/parcel-transformer
+              </div>
+              <div css={{ opacity: 0.4, top: '200%', position: 'absolute' }}>
+                @compiled/babel-plugin
+              </div>
+            </span>
           </Terminal>
         </Content>
       </TerminalStripe>
