@@ -200,7 +200,7 @@ export default () => (
         <Content>
           <Terminal>
             <span css={{ color: 'rgb(240, 141, 73)' }}>npm install</span>{' '}
-            @compiled/react @compiled/babel-plugin
+            @compiled/react
           </Terminal>
         </Content>
       </TerminalStripe>
