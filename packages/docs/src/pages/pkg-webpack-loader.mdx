@@ -1,0 +1,50 @@
+---
+section: 99-Packages
+name: webpack-loader
+---
+
+# @compiled/webpack-loader
+
+Webpack plugin used to transform your code.
+See [Installation](/installation#webpack) for setup instructions.
+
+This package will always be pinned to the same version of the [React package](/pkg-react),
+however it will follow semver.
+
+```bash
+npm install @compiled/webpack-loader --save-dev
+```
+
+## Options
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: '@compiled/webpack-loader',
+        },
+        options: {
+          importReact: true,
+          nonce: '__webpack_nonce__',
+        },
+      },
+    ],
+  },
+};
+```
+
+#### importReact: boolean
+
+Will import React into the module if it is not found.
+When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and you can set this to `false`.
+
+Defaults to `true`.
+
+#### nonce: string
+
+Enables CSP support,
+read [Security](/security) for more information.

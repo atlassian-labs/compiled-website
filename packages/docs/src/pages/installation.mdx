@@ -10,13 +10,52 @@ Install the [React](https://reactjs.org) package with `npm` or `yarn`.
 
 ```bash
 npm install @compiled/react
-npm install @compiled/babel-plugin --save-dev
 ```
 
 Compiled uses [Babel](https://babeljs.io) to transform your code,
 so you'll need to use either [its CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice.
 
-## Babel setup
+## Webpack
+
+Install the [Webpack](https://webpack.js.org/) loader.
+
+```bash
+npm install @compiled/webpack-loader --save-dev
+```
+
+Add the loader to your [Webpack config](https://webpack.js.org/).
+If you're using [babel-loader](https://github.com/babel/babel-loader) ensure `@compiled/webpack-loader` is defined after.
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: '@compiled/webpack-loader',
+        },
+      },
+    ],
+  },
+};
+```
+
+## Babel
+
+Install the [Babel](https://babeljs.io) plugin.
+
+```bash
+npm install @compiled/babel-plugin --save-dev
+```
 
 Add the plugin to your [Babel config](https://babeljs.io/docs/en/configuration).
 
@@ -26,7 +65,7 @@ Add the plugin to your [Babel config](https://babeljs.io/docs/en/configuration).
 }
 ```
 
-> **Note** <br /> For extra configuration look at the [plugin package documentation](/pkg-babel-plugin).
+> **Note** <br /> See the [plugin package documentation](/pkg-babel-plugin) for more information.
 
 ## Write your styles
 
