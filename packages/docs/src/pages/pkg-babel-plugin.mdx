@@ -7,9 +7,9 @@ name: babel-plugin
 # @compiled/babel-plugin
 
 Babel plugin used to transform your code.
-See [Installation](/installation) for setup instructions.
+See [Installation](/installation#babel) for setup instructions.
 
-This package will always be pinned to the same version of the React package,
+This package will always be pinned to the same version of the [React package](/pkg-react),
 however it will follow semver.
 
 ```bash
@@ -44,7 +44,11 @@ Defaults to `true`.
 Enables CSP support,
 read [Security](/security) for more information.
 
-## Production
+#### cache: boolean | 'single-pass'
 
-When bundling for a production release make sure to set the `NODE_ENV` environment variable to `production`.
-Compiled performs extra build time optimizations to ensure the minimum amount of CSS is generated.
+Will cache the result of statically evaluated imports.
+Defaults to `true`.
+
+- `true` will cache for the duration of the node process
+- `'single-pass'` will cache for a single pass of a file
+- `false` turns caching off

@@ -74,17 +74,6 @@ export const Terminal = ({ children }: { children: React.ReactNode }) => {
               position: 'absolute',
               left: -50,
             },
-            ':after': {
-              content: '',
-              display: 'block',
-              position: 'absolute',
-              backgroundColor: 'currentColor',
-              width: 12,
-              height: 28,
-              top: '-4px',
-              right: '-13px ',
-              pointerEvents: 'none',
-            },
           }}>
           {children}
         </code>

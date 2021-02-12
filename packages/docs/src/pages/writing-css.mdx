@@ -6,11 +6,26 @@ order: 3
 
 # Writing CSS
 
-Compiled adds extra features ontop of [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+Write CSS using template literals or objects with any of the APIs available with Compiled.
 
-## Nested rules
+```jsx
+import { styled } from '@compiled/react';
 
-Nest CSS rules:
+const Button = styled.button`
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 3px;
+  border: 1px solid blue;
+`;
+```
+
+## Features
+
+Compiled has extra features above standard [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+
+### Nested rules
+
+Nest CSS rules within each other.
 
 ```jsx
 <div
@@ -32,9 +47,9 @@ Nest CSS rules:
 
 Use nested rules with caution.
 One of the promises of [atomic CSS](/atomic-css) is reducing the total amount of defined styles,
-however you will end up creating more duplicate CSS rules when they are nested.
+however you will end up creating more selectors when nested.
 
-To ensure reusability of your CSS rules instead assign styles directly to the elements instead.
+To ensure minimal creation of CSS rules assign styles directly to the elements instead.
 
 ```jsx
 <div css={{ margin: '0 auto' }}>
@@ -44,7 +59,7 @@ To ensure reusability of your CSS rules instead assign styles directly to the el
 </div>
 ```
 
-## Nesting selector
+### Nesting selector
 
 The `&` character references the parent selector(s).
 In the example below the two selectors (textarea and input) both alter the color on the `:hover` pseudo selector.
@@ -77,7 +92,7 @@ input:hover {
 
 Note how both `textarea` and `input` both have a hover selector.
 
-## Dangling pseudos
+### Dangling pseudos
 
 These rules are transformed to recieve a nesting selector.
 
@@ -99,7 +114,7 @@ Becomes:
 }
 ```
 
-## Vendor prefixing
+### Vendor prefixing
 
 Prefixing CSS declarations enables us to ignore slight browser differences and worry instead for experiences we're developing.
 

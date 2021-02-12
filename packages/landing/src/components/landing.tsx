@@ -50,10 +50,11 @@ const classNamesAfter = readFileSync(
 
 const LandingPageContent = require('../pages/landing-content.mdx').default;
 
-const codeBackground = 'rgba(23, 43, 77, 0.7)';
+const codeBackground = 'rgba(23, 43, 77, 0.6)';
 
 const TerminalStripe = styled.div`
   background-color: ${codeBackground};
+  user-select: none;
 `;
 
 const TabButton = (props: {
@@ -196,11 +197,25 @@ export default () => (
         </VerticalStack>
       </Content>
 
-      <TerminalStripe css={{ marginTop: '10rem' }}>
+      <TerminalStripe css={{ marginTop: '10rem', height: '10rem' }}>
         <Content>
           <Terminal>
             <span css={{ color: 'rgb(240, 141, 73)' }}>npm install</span>{' '}
-            @compiled/react @compiled/babel-plugin
+            @compiled/react{' '}
+            <span
+              css={{
+                marginTop: -10,
+                position: 'relative',
+                display: 'inline-block',
+              }}>
+              <div>@compiled/webpack-loader</div>
+              <div css={{ opacity: 0.7, top: '100%', position: 'absolute' }}>
+                @compiled/parcel-transformer
+              </div>
+              <div css={{ opacity: 0.4, top: '200%', position: 'absolute' }}>
+                @compiled/babel-plugin
+              </div>
+            </span>
           </Terminal>
         </Content>
       </TerminalStripe>
