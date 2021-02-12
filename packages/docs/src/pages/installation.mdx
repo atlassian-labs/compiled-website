@@ -12,8 +12,7 @@ Install the [React](https://reactjs.org) package with `npm` or `yarn`.
 npm install @compiled/react
 ```
 
-Compiled uses [Babel](https://babeljs.io) to transform your code,
-so you'll need to use either [its CLI](https://babeljs.io/docs/en/babel-cli) or your bundler of choice.
+Then configure your bundler of choice or use [Babel](https://babeljs.io) directly.
 
 ## Webpack
 
@@ -24,19 +23,12 @@ npm install @compiled/webpack-loader --save-dev
 ```
 
 Add the loader to your [Webpack config](https://webpack.js.org/).
-If you're using [babel-loader](https://github.com/babel/babel-loader) ensure `@compiled/webpack-loader` is defined after.
+Make sure this is defined after other loaders so it runs first.
 
 ```js
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -49,11 +41,12 @@ module.exports = {
 };
 ```
 
-See the [loader package documentation](/pkg-webpack-loader) for more information.
+See the [loader package docs](/pkg-webpack-loader) for more information.
 
 ## Babel
 
 Install the [Babel](https://babeljs.io) plugin.
+Make sure this is defined after other plugins so it runs first.
 
 ```bash
 npm install @compiled/babel-plugin --save-dev
@@ -67,17 +60,4 @@ Add the plugin to your [Babel config](https://babeljs.io/docs/en/configuration).
 }
 ```
 
-See the [plugin package documentation](/pkg-babel-plugin) for more information.
-
-## Write your styles
-
-Import the APIs you may already be familiar with and style away.
-
-```jsx
-import { styled } from '@compiled/react';
-
-const ColoredText = styled.span`
-  font-size: 11px;
-  color: red;
-`;
-```
+See the [plugin package docs](/pkg-babel-plugin) for more information.
