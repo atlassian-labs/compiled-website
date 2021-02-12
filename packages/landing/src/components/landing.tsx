@@ -54,6 +54,7 @@ const codeBackground = 'rgba(23, 43, 77, 0.6)';
 
 const TerminalStripe = styled.div`
   background-color: ${codeBackground};
+  user-select: none;
 `;
 
 const TabButton = (props: {
