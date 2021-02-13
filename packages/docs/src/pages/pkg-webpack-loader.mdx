@@ -25,13 +25,16 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: '@compiled/webpack-loader',
-        },
-        options: {
-          importReact: true,
-          nonce: '__webpack_nonce__',
-        },
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              importReact: true,
+              nonce: '__webpack_nonce__',
+            },
+          },
+        ],
       },
     ],
   },

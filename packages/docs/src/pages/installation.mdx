@@ -30,11 +30,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: '@compiled/webpack-loader',
-        },
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+          },
+        ],
       },
     ],
   },
