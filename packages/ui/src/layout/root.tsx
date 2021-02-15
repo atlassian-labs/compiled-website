@@ -70,6 +70,8 @@ export const RootLayout = ({
               href="https://github.com/atlassian-labs/compiled">
               Github
             </Link>
+
+            <Link href="https://twitter.com/compiledcss">@compiledcss</Link>
           </HorizontalStack>
         </nav>
       </Header>
