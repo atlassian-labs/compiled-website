@@ -9,8 +9,8 @@
     "build": "parcel build src/index.html --out-dir ../../dist --no-source-maps"
   },
   "dependencies": {
-    "@babel/core": "^7.12.17",
-    "@babel/preset-typescript": "^7.12.17",
+    "@babel/core": "^7.13.1",
+    "@babel/preset-typescript": "^7.13.0",
     "@compiled/babel-plugin": "0.6.3",
     "@compiled/react": "0.6.3",
     "@compiled/website-ui": "^1.0.0",
