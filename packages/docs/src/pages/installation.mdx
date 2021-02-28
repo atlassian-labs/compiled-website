@@ -6,7 +6,7 @@ section: 1-Getting started
 # Installation
 
 Setup is required.
-Install the [React](https://reactjs.org) package with `npm` or `yarn`.
+Install the [React](https://reactjs.org) package with `npm` or your package manager of choice.
 
 ```bash
 npm install @compiled/react
@@ -35,6 +35,7 @@ module.exports = {
         use: [
           { loader: 'babel-loader' },
           {
+            // ↓↓ defined last ↓↓
             loader: '@compiled/webpack-loader',
           },
         ],
@@ -45,6 +46,33 @@ module.exports = {
 ```
 
 See the [loader package docs](/pkg-webpack-loader) for more information.
+
+## Parcel
+
+Install the [Parcel v2](https://v2.parceljs.org) transformer.
+
+```bash
+npm install @compiled/parcel-transformer --save-dev
+```
+
+Add the transformer to your [Parcel config](https://v2.parceljs.org/configuration/plugin-configuration/).
+Make sure this is defined before other transformers so it runs first.
+
+```json
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,jsx,ts,tsx}": [
+      // ↓↓ defined first ↓↓
+      "@compiled/parcel-transformer",
+      "@parcel/transformer-babel",
+      "@parcel/transformer-js"
+    ]
+  }
+}
+```
+
+See the [transformer package docs](/pkg-parcel-transformer) for more information.
 
 ## Babel
 
@@ -59,7 +87,10 @@ Make sure this is defined after other plugins so it runs first.
 
 ```json
 {
-  "plugins": ["@compiled/babel-plugin"]
+  "plugins": [
+    // ↓↓ defined last ↓↓
+    "@compiled/babel-plugin"
+  ]
 }
 ```
 

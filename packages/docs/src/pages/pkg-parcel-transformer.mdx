@@ -1,0 +1,49 @@
+---
+section: 99-Packages
+name: parcel-transformer
+order: 3
+---
+
+# @compiled/parcel-transformer
+
+[Parcel v2](https://v2.parceljs.org) transformer used to transform your code.
+See [Installation](/installation#parcel) for setup instructions.
+
+This package will always be pinned to the same version of the [React package](/pkg-react),
+however it will follow semver.
+
+```bash
+npm install @compiled/parcel-transformer --save-dev
+```
+
+## Options
+
+```json
+// .parcelrc
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.{js,jsx,ts,tsx}": [
+      [
+        "@compiled/parcel-transformer",
+        {
+          "importReact": true,
+          "nonce": "__parcel_nonce__"
+        }
+      ]
+    ]
+  }
+}
+```
+
+#### importReact: boolean
+
+Will import React into the module if it is not found.
+When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and you can set this to `false`.
+
+Defaults to `true`.
+
+#### nonce: string
+
+Enables CSP support,
+read [Security](/security) for more information.
