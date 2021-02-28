@@ -51,11 +51,13 @@ See the [loader package docs](/pkg-webpack-loader) for more information.
 
 Install the [Parcel v2](https://v2.parceljs.org) transformer.
 
-> **Note** <br /> Parcel v2 is currently in pre-release which makes this transformer experimental, please use with caution.
-
 ```bash
 npm install @compiled/parcel-transformer --save-dev
 ```
+
+> **Note** <br /> Parcel v2 is currently in pre-release which makes this transformer experimental,
+> it may break when updating Parcel.
+> Use with caution.
 
 Add the transformer to your [Parcel config](https://v2.parceljs.org/configuration/plugin-configuration/).
 Make sure this is defined before other transformers so it runs first.

@@ -33,6 +33,7 @@ export const Heading = ({ children, style, ...props }: HeadingProps) => {
         margin: 0;
         opacity: 0.9;
         margin-top: 6rem;
+        word-break: break-word;
 
         [data-look='h100']& {
           font-size: 48px;
