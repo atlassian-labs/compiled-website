@@ -19,20 +19,10 @@ npm install @compiled/parcel-transformer --save-dev
 ## Options
 
 ```json
-// .parcelrc
+// .compiledcssrc
 {
-  "extends": "@parcel/config-default",
-  "transformers": {
-    "*.{js,jsx,ts,tsx}": [
-      [
-        "@compiled/parcel-transformer",
-        {
-          "importReact": true,
-          "nonce": "__parcel_nonce__"
-        }
-      ]
-    ]
-  }
+  "importReact": true,
+  "nonce": "__parcel_nonce__"
 }
 ```
 
