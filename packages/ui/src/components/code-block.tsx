@@ -11,6 +11,10 @@ interface CodeBlockProps {
   variant?: 'sharp' | 'rounded';
 }
 
+const customTheme = Object.assign({}, codeTheme, {
+  inserted: { color: 'rgb(126, 198, 153)' },
+});
+
 export const CodeBlock = ({
   children,
   language = 'jsx',
@@ -35,7 +39,7 @@ export const CodeBlock = ({
     {...props}>
     <SyntaxHighlighter
       language={language}
-      style={codeTheme}
+      style={customTheme}
       customStyle={{
         padding: 0,
         overflow: 'visible',

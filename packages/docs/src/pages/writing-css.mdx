@@ -6,7 +6,7 @@ order: 3
 
 # Writing CSS
 
-Write CSS using template literals or objects with any of the APIs available with Compiled.
+Write CSS using template literals and objects with any of the APIs available with Compiled.
 
 ```jsx
 import { styled } from '@compiled/react';
@@ -21,7 +21,7 @@ const Button = styled.button`
 
 ## Features
 
-Compiled has extra features above standard [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+Compiled comes with extra features above standard [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 
 ### Nested rules
 
@@ -45,11 +45,11 @@ Nest CSS rules within each other.
 </div>
 ```
 
-Use nested rules with caution.
-One of the promises of [atomic CSS](/atomic-css) is reducing the total amount of defined styles,
-however you will end up creating more selectors when nested.
+Use with caution.
+One of the promises of [atomic CSS](/atomic-css) is reducing the amount of styles,
+however more selectors are created when nested.
 
-To ensure minimal creation of CSS rules assign styles directly to the elements instead.
+To create less CSS rules assign styles directly to the elements instead.
 
 ```jsx
 <div css={{ margin: '0 auto' }}>
@@ -90,7 +90,7 @@ input:hover {
 }
 ```
 
-Note how both `textarea` and `input` both have a hover selector.
+Both `textarea` and `input` have a hover selector.
 
 ### Dangling pseudos
 
@@ -116,7 +116,7 @@ Becomes:
 
 ### Vendor prefixing
 
-Prefixing CSS declarations enables us to ignore slight browser differences and worry instead for experiences we're developing.
+[Autoprefixing](https://github.com/postcss/autoprefixer) CSS declarations enables us to ignore slight browser differences and instead concentrate on the experiences we're developing.
 
 ```css
 user-select: none;
@@ -130,5 +130,3 @@ Becomes:
 -ms-user-select: none;
 user-select: none;
 ```
-
-Interestingly not much vendor prefixing is needed today.

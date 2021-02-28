@@ -23,11 +23,11 @@ Use `styled` to create a component that has styles tied to an element which come
 Change a [CSS declaration](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Properties_and_values) at runtime,
 powered by [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-Any props that are valid HTML attributes will be passed down to the underlying DOM node -
+Any props that are valid HTML attributes will be passed down to the underlying DOM element -
 otherwise they will be ignored.
 
 This example shows that behavior -
-if you inspect the example element in dev tools you'll see the `primary` prop has not been passed through.
+inspect the example using dev tools and you'll see the `primary` prop has not been passed through.
 
 <StyledDynamic />
 
@@ -36,8 +36,7 @@ if you inspect the example element in dev tools you'll see the `primary` prop ha
 
 ### Transient props
 
-When wanting to use a prop name that is also a valid HTML attribute and don't want it to appear on the element,
-prefix the prop with `$` and it won't be applied.
+Use a prop name prefixed with `$` and even if it's a valid HTML attribute it won't be passed down to the DOM element.
 
 This example shows that `color` is passed down to the DOM element,
 but `$color` is not.
@@ -54,12 +53,11 @@ such as from a `<h1>` element to a `<span>`.
 ## Composing components
 
 Wrapping an already defined component enables you to pass styles to it.
-The composing components styles will take precedence over the composed components styles,
-assuming they're both styled with Compiled.
+Here the `BlueText` styles take presedence over `RedText`.
 
 <StyledComposition />
 
-> **Note** <br /> Ensure the wrapped component sets its `className` and `style` props otherwise the styles will not be applied.
+> **Note** <br /> When composing custom componens make sure to set its `className` and `style` props otherwise styles will not be applied correctly.
 
 ## TypeScript
 
