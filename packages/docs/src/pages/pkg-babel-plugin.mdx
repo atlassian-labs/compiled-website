@@ -16,6 +16,9 @@ however it will follow semver.
 npm install @compiled/babel-plugin --save-dev
 ```
 
+> **Note** <br/> When configuring Babel watch out for inadvertently transforming your code with Compiled twice if _also using one of the bundler packages_.
+> Utilizing [JavaScript configuration files](https://babeljs.io/docs/en/configuration#javascript-configuration-files) can help you conditionally set plugins based on your running environment.
+
 ## Options
 
 Configure in your Babel config.
