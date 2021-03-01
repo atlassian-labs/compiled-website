@@ -1,12 +1,12 @@
 ---
-order: 3
 section: 99-Packages
 name: babel-plugin
+order: 4
 ---
 
 # @compiled/babel-plugin
 
-Babel plugin used to transform your code.
+[Babel](https://babeljs.io) plugin used to transform your code.
 See [Installation](/installation#babel) for setup instructions.
 
 This package will always be pinned to the same version of the [React package](/pkg-react),
@@ -16,9 +16,15 @@ however it will follow semver.
 npm install @compiled/babel-plugin --save-dev
 ```
 
+> **Note** <br/> When configuring Babel watch out for inadvertently transforming your code with Compiled twice if _also using one of the bundler packages_.
+> Utilizing [JavaScript configuration files](https://babeljs.io/docs/en/configuration#javascript-configuration-files) can help you conditionally set plugins based on your running environment.
+
 ## Options
 
+Configure in your Babel config.
+
 ```json
+// .babelrc
 {
   "plugins": [
     [
@@ -35,7 +41,7 @@ npm install @compiled/babel-plugin --save-dev
 #### importReact: boolean
 
 Will import React into the module if it is not found.
-When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and you can set this to `false`.
+When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and can be set to `false`.
 
 Defaults to `true`.
 

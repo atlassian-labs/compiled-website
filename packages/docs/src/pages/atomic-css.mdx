@@ -14,10 +14,10 @@ If you're just getting started don't feel the need to read this page,
 but if you're interested in understanding more under the hood,
 keep on reading.
 
-## Reducing defined CSS
+## Reducing defined styles
 
-CSS delivered as atomic rules reduces the total amount of defined CSS by creating a single rule for every declaration —
-enabling large re-use of styles.
+Styles delivered as atomic rules reduces the total amount defined by creating a single rule for every declaration —
+enabling large re-use.
 
 ```css
 .button {
@@ -56,13 +56,13 @@ This rule transformed to atomic CSS looks like:
 <button className="b-none fs-14 bgc-purple br-3">Hello world</button>
 ```
 
-When other components end up defining the same styles they use the same rules.
+When other components define the same styles they use the same rules.
 
 ```html
 <span className="fs-14">Text</span>
 ```
 
-Thus as your product grows the less often new CSS rules need to be created.
+As your product grows less often new CSS rules need to be created.
 
 ## Overriding through composition
 
@@ -106,9 +106,9 @@ When executed only `color-red` remains.
 
 The last atomic group defined wins.
 
-## Ordered pseudos
+## Automatic pseudo class ordering
 
-When defining pseudo classes atomic CSS imposes some restrictions.
+When defining [pseudo classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) atomic CSS imposes some restrictions.
 Remember,
 only one CSS rule per declaration can exist!
 
@@ -143,14 +143,13 @@ what happens?
 ```
 
 The simple answer is it depends which component renders first!
-Which is inconsistent at best,
-and just plain wrong at worse.
-
-To ensure we have a stable experience enforcement of a specific ordering of pseudo classes is done using **LVFHA**:
+To ensure we have a stable experience automatic ordering of common pseudo classes is done.
 
 - **L**ink
 - **V**isited
+- **F**ocus within
 - **F**ocus
+- **F**ocus visible
 - **H**over
 - **A**ctive
 
@@ -160,18 +159,26 @@ active state would take precedence over hover state.
 This ordering ensures a stable,
 consistent experience.
 
-## Drawbacks
+## Trade-offs
 
-There are trade-offs for everything.
-Atomic CSS while dramatically reducing the total amount of defined CSS,
-increases HTML markup from the addition of added classes to elements.
+### Larger class names
 
-Every CSS declaration will add another class to the element,
-scaling linearly.
-At scale this can prove to be worth it,
+Styles delivered as atomic CSS increases HTML markup by the addition of classes to elements.
+Every CSS declaration will add a class to the element,
+scaling linearly,
 with compression techniques like `gzip` working very well at keeping your bundle size small.
 
-We have some [optimization ideas to investigate](https://github.com/atlassian-labs/compiled/issues/335) when we are further through development.
+We have [optimization ideas](https://github.com/atlassian-labs/compiled/issues/335) to investigate for compressing class names.
+
+### Selector specificity
+
+Styles delivered with atomic CSS share the same [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity),
+so its up to their order in the style sheet to determine what takes presedence over the other.
+Compiled handles common [pseudo class ordering](#ordered-pseudos) for you,
+however other pseudo selectors including media queries may unexpectedly clash.
+
+At those times an easy option could be to double the specificity using the [nesting selector](/writing-css#nesting-selector),
+however re-writing your styles so only a single declaration can take affect at once may prove more fruitful.
 
 ## Other resources
 

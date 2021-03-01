@@ -50,11 +50,15 @@ The next few example show what happens if you don't do this.
 
 The overflow `props` are spread onto the element so the composed styles are not applied.
 
+Statically defining them fixes this.
+
 <CssPropCompositionIncorrect />
 
 ### Missing style
 
 The `style` prop is missing so the CSS variables used to power dynamic declarations aren't set.
 In this case instead it receives the `body` color value instead of pink.
+
+Statically defining the style prop fixes this.
 
 <CssPropCompositionNoStyle />
