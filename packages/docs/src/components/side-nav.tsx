@@ -1,6 +1,6 @@
 import React, { cloneElement, Children } from 'react';
 import { styled } from '@compiled/react';
-import { VerticalStack, Heading, colors } from '@compiled/website-ui';
+import { VerticalStack, Heading, colors, Text } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 
 interface SectionProps {
@@ -29,7 +29,6 @@ const StyledLink = styled(Link)`
   user-select: none;
   color: currentColor;
   text-decoration: none;
-  font-size: 14px;
 
   :hover {
     cursor: pointer;
@@ -57,7 +56,7 @@ export const LinkItem = ({
 }) => {
   return (
     <StyledLink {...props} to={href}>
-      {children}
+      <Text variant="aside">{children}</Text>
     </StyledLink>
   );
 };

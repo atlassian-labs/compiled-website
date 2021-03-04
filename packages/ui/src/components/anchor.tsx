@@ -9,7 +9,7 @@ import React, {
   Ref,
 } from 'react';
 import '@compiled/react';
-import { Heading } from '@compiled/website-ui';
+import { Text } from '@compiled/website-ui';
 import { colors } from '../utils';
 
 interface AnchorContextData {
@@ -66,12 +66,12 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
           transform: 'translateX(1rem)',
           transition: 'opacity 100ms, transform 100ms',
           paddingRight: '5rem',
-          top: 2,
+          top: 0,
           bottom: 0,
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
         },
-        ':hover': {
+        ':hover,:focus': {
           ':before': {
             opacity: 1,
             transform: 'none',
@@ -104,7 +104,7 @@ export const ToAnchor = ({
         textDecoration: 'none',
       }}
       href={`#${id}`}>
-      {children}
+      <Text variant="supplementary">{children}</Text>
     </a>
   );
 };

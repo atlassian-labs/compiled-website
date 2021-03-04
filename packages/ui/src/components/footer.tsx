@@ -1,6 +1,6 @@
 import React from 'react';
 import '@compiled/react';
-import { Content, HorizontalStack } from '@compiled/website-ui';
+import { Content, HorizontalStack, Text } from '@compiled/website-ui';
 
 export const Footer = () => (
   <>
@@ -22,13 +22,21 @@ export const Footer = () => (
       <Content>
         <HorizontalStack css={{ textAlign: 'center' }} gap={3}>
           <a href="https://atlassian.com">
-            © {new Date().getFullYear()} Atlassian
+            <Text variant="supplementary">
+              © {new Date().getFullYear()} Atlassian
+            </Text>
           </a>
-          <a href="https://www.atlassian.com/company/careers">Careers</a>
-          <a href="https://www.atlassian.com/legal/trademark">Trademark</a>
-          <a href="https://www.atlassian.com/legal/privacy-policy">Privacy</a>
+          <a href="https://www.atlassian.com/company/careers">
+            <Text variant="supplementary">Careers</Text>
+          </a>
+          <a href="https://www.atlassian.com/legal/trademark">
+            <Text variant="supplementary">Trademark</Text>
+          </a>
+          <a href="https://www.atlassian.com/legal/privacy-policy">
+            <Text variant="supplementary">Privacy</Text>
+          </a>
           <a href="https://github.com/atlassian-labs/compiled/blob/master/LICENSE">
-            License
+            <Text variant="supplementary">License</Text>
           </a>
         </HorizontalStack>
       </Content>

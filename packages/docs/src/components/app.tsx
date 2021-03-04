@@ -9,6 +9,7 @@ import {
   AnchorProvider,
   colors,
   PageLink,
+  Text,
 } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { useLocation, Link } from 'react-router-dom';
@@ -194,7 +195,7 @@ export const App = () => {
                     fontWeight: 500,
                   }}
                   href={getEditUrl()}>
-                  Suggest changes to this page ➚
+                  <Text variant="aside">Suggest changes to this page ➚</Text>
                 </a>
               </p>
 
