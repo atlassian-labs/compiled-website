@@ -126,10 +126,10 @@ export const App = () => {
         aside={
           page && (
             <nav aria-label="page">
+              <Heading css={{ marginBottom: 16 }} look="h500" as="div">
+                Contents
+              </Heading>
               <VerticalStack gap={1}>
-                <Heading look="h500" as="div">
-                  Contents
-                </Heading>
                 {page.data.headings
                   .filter((heading) => heading.depth < 4)
                   .map((heading, index) => (

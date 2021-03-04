@@ -11,3 +11,5 @@ export { Example, ExampleContainer, ExampleRoot } from './example';
 export { Footer } from './footer';
 export { mdxComponents } from './mdx-components';
 export { Anchor, AnchorProvider, ToAnchor } from './anchor';
+export { PageLink } from './links';
+export { Text } from './text';

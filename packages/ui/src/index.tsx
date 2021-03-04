@@ -19,6 +19,8 @@ export {
   ExampleContainer,
   ExampleRoot,
   ToAnchor,
+  PageLink,
+  Text,
 } from './components';
 export { RootLayout } from './layout';
 export { Icon } from './icon';

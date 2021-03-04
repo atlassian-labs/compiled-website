@@ -5,6 +5,7 @@ import {
   Heading,
   CodeBlock,
   colors,
+  Text,
 } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 import { MDXProviderComponentsProp } from '@mdx-js/react';
@@ -41,7 +42,7 @@ const Code = styled.code`
 `;
 
 const P = styled.p`
-  margin: 3rem 0;
+  margin: 4rem 0;
 
   & + h2 {
     margin-top: 6rem;
@@ -55,26 +56,30 @@ export const mdxComponents: MDXProviderComponentsProp = {
     </Heading>
   ),
   h2: ({ children }) => (
-    <Heading look="h200">
+    <Heading css={{ marginTop: 60 }} look="h200">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h3: ({ children }) => (
-    <Heading look="h300">
+    <Heading css={{ marginTop: 52 }} look="h300">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
   h4: ({ children }) => (
-    <Heading look="h400">
+    <Heading css={{ marginTop: 44 }} look="h400">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h5: ({ children }) => (
-    <Heading look="h500">
+    <Heading css={{ marginTop: 36 }} look="h500">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
-  p: ({ children }) => <P>{children}</P>,
+  p: ({ children }) => (
+    <P>
+      <Text>{children}</Text>
+    </P>
+  ),
   pre: ({ children }) => children,
   code: ({ children, className }) => (
     <VerticalStack spacing={2}>
