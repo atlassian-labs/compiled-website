@@ -20,25 +20,19 @@ export const Footer = () => (
         },
       }}>
       <Content>
-        <HorizontalStack css={{ textAlign: 'center' }} gap={3}>
-          <a href="https://atlassian.com">
-            <Text variant="supplementary">
+        <Text variant="supplementary">
+          <HorizontalStack css={{ textAlign: 'center' }} gap={3}>
+            <a href="https://atlassian.com">
               © {new Date().getFullYear()} Atlassian
-            </Text>
-          </a>
-          <a href="https://www.atlassian.com/company/careers">
-            <Text variant="supplementary">Careers</Text>
-          </a>
-          <a href="https://www.atlassian.com/legal/trademark">
-            <Text variant="supplementary">Trademark</Text>
-          </a>
-          <a href="https://www.atlassian.com/legal/privacy-policy">
-            <Text variant="supplementary">Privacy</Text>
-          </a>
-          <a href="https://github.com/atlassian-labs/compiled/blob/master/LICENSE">
-            <Text variant="supplementary">License</Text>
-          </a>
-        </HorizontalStack>
+            </a>
+            <a href="https://www.atlassian.com/company/careers">Career</a>
+            <a href="https://www.atlassian.com/legal/trademark">Trademark</a>
+            <a href="https://www.atlassian.com/legal/privacy-policy">Privacy</a>
+            <a href="https://github.com/atlassian-labs/compiled/blob/master/LICENSE">
+              License
+            </a>
+          </HorizontalStack>
+        </Text>
       </Content>
     </footer>
   </>

@@ -6,7 +6,7 @@ interface TextProps {
   children: ReactNode;
   variant?: 'reading' | 'aside' | 'supplementary';
   weight?: 'regular' | 'bold';
-  as?: 'p' | 'span' | 'li';
+  as?: 'p' | 'span' | 'li' | 'div';
 }
 
 export function Text({
@@ -20,11 +20,9 @@ export function Text({
       data-variant={variant}
       css={[
         weight === 'regular' && `font-weight: 300;`,
-        weight === 'bold' && `font-weight: 600;`,
+        weight === 'bold' && `font-weight: 500;`,
         `
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-            'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-            sans-serif;
+          font-family: 'Roboto', sans-serif;
 
           ::before {
             content: '';
@@ -40,15 +38,15 @@ export function Text({
 
           &[data-variant='reading'] {
             font-size: 20px;
-            line-height: 28.1602px;
+            line-height: 30px;
             padding: 0.05px 0;
 
             ::before {
-              margin-top: -0.3701em;
+              margin-top: -0.3834em;
             }
 
             ::after {
-              margin-bottom: -0.3349em;
+              margin-top: -0.3834em;
             }
           }
 
@@ -58,11 +56,11 @@ export function Text({
             padding: 0.05px 0;
 
             ::before {
-              margin-top: -0.413em;
+              margin-top: -0.3844em;
             }
 
             ::after {
-              margin-bottom: -0.3959em;
+              margin-bottom: -0.4118em;
             }
           }
 
@@ -72,17 +70,11 @@ export function Text({
             padding: 0.05px 0;
 
             ::before {
-              content: '';
-              margin-top: -0.4136em;
-              display: block;
-              height: 0;
+              margin-top: -0.385em;
             }
 
             ::after {
-              content: '';
-              margin-bottom: -0.3965em;
-              display: block;
-              height: 0;
+              margin-bottom: -0.4124em;
             }
           }
         `,

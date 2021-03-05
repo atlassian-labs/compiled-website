@@ -53,7 +53,8 @@ const ExampleButton = styled.button<{
   border-radius: 5px 5px 0 0;
   display: block;
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
-  padding: 1.5rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
   border: none;
   background: ${(props) =>
     props.fullWidth ? 'rgba(255, 255, 255, 0.75)' : 'transparent'};

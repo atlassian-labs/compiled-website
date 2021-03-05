@@ -93,25 +93,26 @@ export const ToAnchor = ({
   const context = useContext(AnchorContext);
 
   return (
-    <a
-      css={{
-        display: 'block',
-        fontSize: 12,
-        marginLeft: `${depth - 1}rem`,
-        color: context.selected === id ? colors.primary : 'currentColor',
-        transition: 'color 100ms',
-        textDecoration: 'none',
-        ':hover,:focus': {
-          cursor: 'pointer',
-          color: colors.primary,
-        },
-        ':active': {
-          opacity: 0.8,
-        },
-      }}
-      href={`#${id}`}>
-      <Text variant="supplementary">{children}</Text>
-    </a>
+    <Text as="div" variant="supplementary">
+      <a
+        css={{
+          fontSize: 12,
+          marginLeft: `${depth - 1}rem`,
+          color: context.selected === id ? colors.primary : 'currentColor',
+          transition: 'color 100ms',
+          textDecoration: 'none',
+          ':hover,:focus': {
+            cursor: 'pointer',
+            color: colors.primary,
+          },
+          ':active': {
+            opacity: 0.8,
+          },
+        }}
+        href={`#${id}`}>
+        {children}
+      </a>
+    </Text>
   );
 };
 

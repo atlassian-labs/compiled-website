@@ -12,7 +12,7 @@ export const Section = ({ children, title }: SectionProps) => {
   const id = `section--${title.toLowerCase().split(' ').join('-')}`;
 
   return (
-    <VerticalStack gap={1.5} spacing={6}>
+    <VerticalStack gap={2} spacing={6}>
       <Heading id={id} as="div" look="h500">
         {title}
       </Heading>
@@ -24,7 +24,6 @@ export const Section = ({ children, title }: SectionProps) => {
 };
 
 const StyledLink = styled(Link)`
-  display: block;
   user-select: none;
   color: currentColor;
   text-decoration: none;
@@ -63,8 +62,10 @@ export const LinkItem = ({
   href: string;
 }) => {
   return (
-    <StyledLink {...props} to={href}>
-      <Text variant="aside">{children}</Text>
-    </StyledLink>
+    <Text as="div" variant="aside">
+      <StyledLink {...props} to={href}>
+        {children}
+      </StyledLink>
+    </Text>
   );
 };
