@@ -12,8 +12,8 @@ export const Section = ({ children, title }: SectionProps) => {
   const id = `section--${title.toLowerCase().split(' ').join('-')}`;
 
   return (
-    <VerticalStack spacing={6}>
-      <Heading style={{ marginBottom: 16 }} id={id} as="div" look="h500">
+    <VerticalStack gap={1} spacing={6}>
+      <Heading id={id} as="div" look="h500">
         {title}
       </Heading>
       {Children.map(children, (child) =>
@@ -25,12 +25,12 @@ export const Section = ({ children, title }: SectionProps) => {
 
 const StyledLink = styled(Link)`
   display: block;
-  padding: 0.5rem 0;
   user-select: none;
   color: currentColor;
   text-decoration: none;
 
-  :hover {
+  :hover,
+  :focus {
     cursor: pointer;
     color: ${colors.primary};
   }
@@ -40,9 +40,7 @@ const StyledLink = styled(Link)`
   }
 
   &[aria-current='page'] {
-    border-left: 2px solid ${colors.primary};
-    padding-left: 10px;
-    margin-left: -12px;
+    color: ${colors.primary};
   }
 `;
 

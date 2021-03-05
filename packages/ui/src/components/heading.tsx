@@ -33,7 +33,6 @@ export const Heading = ({ children, style, ...props }: HeadingProps) => {
         margin: 0;
         opacity: 0.9;
         word-break: break-word;
-        color: rgba(37, 56, 88, 0.9);
 
         ::before {
           content: '';

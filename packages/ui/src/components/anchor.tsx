@@ -9,8 +9,7 @@ import React, {
   Ref,
 } from 'react';
 import '@compiled/react';
-import { Text } from '@compiled/website-ui';
-import { colors } from '../utils';
+import { Text, colors } from '@compiled/website-ui';
 
 interface AnchorContextData {
   listen: (element: HTMLElement) => void;
@@ -102,6 +101,13 @@ export const ToAnchor = ({
         color: context.selected === id ? colors.primary : 'currentColor',
         transition: 'color 100ms',
         textDecoration: 'none',
+        ':hover,:focus': {
+          cursor: 'pointer',
+          color: colors.primary,
+        },
+        ':active': {
+          opacity: 0.8,
+        },
       }}
       href={`#${id}`}>
       <Text variant="supplementary">{children}</Text>

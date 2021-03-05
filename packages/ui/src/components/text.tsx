@@ -5,14 +5,23 @@ import '@compiled/react';
 interface TextProps {
   children: ReactNode;
   variant?: 'reading' | 'aside' | 'supplementary';
+  weight?: 'regular' | 'bold';
+  as?: 'p' | 'span' | 'li';
 }
 
-export function Text({ children, variant = 'reading' }: TextProps) {
+export function Text({
+  children,
+  as: Component = 'span',
+  weight = 'regular',
+  variant = 'reading',
+}: TextProps) {
   return (
-    <span
+    <Component
       data-variant={variant}
-      css={`
-        font-weight: 300;
+      css={[
+        weight === 'regular' && `font-weight: 300;`,
+        weight === 'bold' && `font-weight: 600;`,
+        `
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
           'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
           sans-serif;
@@ -44,8 +53,9 @@ export function Text({ children, variant = 'reading' }: TextProps) {
         &[data-variant='supplementary'] {
           font-size: 12px;
         }
-      `}>
+      `,
+      ]}>
       {children}
-    </span>
+    </Component>
   );
 }

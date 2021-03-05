@@ -43,10 +43,6 @@ const Code = styled.code`
 
 const P = styled.p`
   margin: 4rem 0;
-
-  & + h2 {
-    margin-top: 6rem;
-  }
 `;
 
 export const mdxComponents: MDXProviderComponentsProp = {
@@ -56,22 +52,22 @@ export const mdxComponents: MDXProviderComponentsProp = {
     </Heading>
   ),
   h2: ({ children }) => (
-    <Heading css={{ marginTop: 60 }} look="h200">
+    <Heading css={{ marginTop: 68 }} look="h200">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h3: ({ children }) => (
-    <Heading css={{ marginTop: 52 }} look="h300">
+    <Heading css={{ marginTop: 60 }} look="h300">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
   h4: ({ children }) => (
-    <Heading css={{ marginTop: 44 }} look="h400">
+    <Heading css={{ marginTop: 52 }} look="h400">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h5: ({ children }) => (
-    <Heading css={{ marginTop: 36 }} look="h500">
+    <Heading css={{ marginTop: 44 }} look="h500">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
@@ -118,4 +114,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
     ),
   blockquote: (props) => <Quote {...props} />,
   strong: (props) => <strong css={{ fontWeight: 500 }} {...props} />,
+  ol: (props) => <ol {...props} />,
+  ul: (props) => <ul {...props} />,
+  li: (props) => <Text as="li" {...props} />,
 };

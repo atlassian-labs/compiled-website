@@ -1,6 +1,6 @@
 import { styled } from '@compiled/react';
 import React, { useState } from 'react';
-import { CodeBlock, colors } from '@compiled/website-ui';
+import { CodeBlock, colors, Text } from '@compiled/website-ui';
 
 interface ExampleProps {
   before: string;
@@ -66,6 +66,7 @@ const ExampleButton = styled.button<{
     props.isSelected ? colors.primary : 'rgba(37, 56, 88, 0.8)'};
   margin: 0;
   outline: none;
+  font-family: inherit;
 
   :hover {
     color: ${colors.primary};
@@ -106,7 +107,9 @@ export const Example = ({
   return (
     <ExampleRoot>
       <ExampleButton fullWidth onClick={() => setIsShown((prev) => !prev)}>
-        {isShown ? 'View source code' : 'View transformed code'}
+        <Text weight="bold" variant="supplementary">
+          {isShown ? 'View source code' : 'View transformed code'}
+        </Text>
       </ExampleButton>
       <ExampleSwitcher data-is-shown={isShown}>
         <CodeBlock
@@ -138,7 +141,9 @@ export const Example = ({
             isSelected={htmlShown}
             aria-pressed={htmlShown}
             onClick={() => setHtmlShown((prev) => !prev)}>
-            {htmlShown ? 'Hide' : 'Show'} JSX Markup
+            <Text variant="supplementary" weight="bold">
+              {htmlShown ? 'Hide' : 'Show'} JSX Markup
+            </Text>
           </ExampleButton>
         )}
 
