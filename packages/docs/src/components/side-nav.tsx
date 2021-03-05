@@ -12,7 +12,7 @@ export const Section = ({ children, title }: SectionProps) => {
   const id = `section--${title.toLowerCase().split(' ').join('-')}`;
 
   return (
-    <VerticalStack gap={1} spacing={6}>
+    <VerticalStack gap={1.5} spacing={6}>
       <Heading id={id} as="div" look="h500">
         {title}
       </Heading>

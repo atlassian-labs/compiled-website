@@ -128,7 +128,7 @@ export const App = () => {
         aside={
           page && (
             <nav aria-label="page">
-              <VerticalStack gap={1}>
+              <VerticalStack gap={1.5}>
                 <Heading look="h500" as="div">
                   Contents
                 </Heading>
