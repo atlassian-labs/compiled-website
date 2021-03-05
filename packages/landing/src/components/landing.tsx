@@ -11,7 +11,6 @@ import {
   HideSmall,
   Example,
   mdxComponents,
-  colors,
   PageLink,
 } from '@compiled/website-ui';
 import {
@@ -177,21 +176,12 @@ export default () => (
             <span
               css={{
                 color: 'rgba(255, 255, 255, 0.75)',
-                maxWidth: '75%',
-                display: 'block',
               }}>
-              Build time{' '}
-              <a
-                css={{
-                  color: 'rgba(255, 255, 255, 0.75)',
-                  ':hover': {
-                    color: 'rgba(255, 255, 255, 0.9)',
-                  },
-                }}
-                href="/docs/atomic-css">
-                atomic CSS
-              </a>
-              -in-JS. <HideSmall>Baked and ready to serve.</HideSmall>
+              Build time CSS-in-JS.{' '}
+              <HideSmall>
+                <br />
+                Baked and ready to serve.
+              </HideSmall>
             </span>
           </Heading>
           <CodeExamples />
