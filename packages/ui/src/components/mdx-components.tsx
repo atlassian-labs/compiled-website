@@ -114,7 +114,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
     ),
   blockquote: (props) => <Quote {...props} />,
   strong: (props) => <strong css={{ fontWeight: 500 }} {...props} />,
-  ol: (props) => <ol {...props} />,
-  ul: (props) => <ul {...props} />,
+  ol: (props) => <VerticalStack as="ol" spacing={4} gap={2} {...props} />,
+  ul: (props) => <VerticalStack as="ul" spacing={4} gap={2} {...props} />,
   li: (props) => <Text as="li" {...props} />,
 };
