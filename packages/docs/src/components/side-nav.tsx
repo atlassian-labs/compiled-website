@@ -41,6 +41,16 @@ const StyledLink = styled(Link)`
 
   &[aria-current='page'] {
     color: ${colors.primary};
+    position: relative;
+
+    :before {
+      content: '';
+      border-left: 2px solid ${colors.primary};
+      transform: translateX(-8px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
   }
 `;
 
