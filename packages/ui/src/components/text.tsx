@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ReactNode } from 'react';
+import type { ReactNode, CSSProperties } from 'react';
 import '@compiled/react';
 
 interface TextProps {
@@ -7,6 +7,8 @@ interface TextProps {
   variant?: 'reading' | 'aside' | 'supplementary';
   weight?: 'regular' | 'bold';
   as?: 'p' | 'span' | 'li' | 'div';
+  className?: string;
+  style?: CSSProperties;
 }
 
 export function Text({
@@ -14,15 +16,21 @@ export function Text({
   as: Component = 'span',
   weight = 'regular',
   variant = 'reading',
+  className,
+  style,
 }: TextProps) {
   return (
     <Component
+      className={className}
+      style={style}
       data-variant={variant}
       css={[
         weight === 'regular' && `font-weight: 300;`,
         weight === 'bold' && `font-weight: 500;`,
         `
           font-family: 'Roboto', sans-serif;
+          padding-top: 0.05px;
+          padding-bottom: 0.05px;
 
           ::before {
             content: '';
@@ -39,7 +47,6 @@ export function Text({
           &[data-variant='reading'] {
             font-size: 20px;
             line-height: 30px;
-            padding: 0.05px 0;
 
             ::before {
               margin-top: -0.3834em;
@@ -53,7 +60,6 @@ export function Text({
           &[data-variant='aside'] {
             font-size: 14px;
             line-height: 21px;
-            padding: 0.05px 0;
 
             ::before {
               margin-top: -0.3844em;
@@ -67,7 +73,6 @@ export function Text({
           &[data-variant='supplementary'] {
             font-size: 12px;
             line-height: 18px;
-            padding: 0.05px 0;
 
             ::before {
               margin-top: -0.385em;

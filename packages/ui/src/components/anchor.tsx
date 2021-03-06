@@ -93,11 +93,12 @@ export const ToAnchor = ({
   const context = useContext(AnchorContext);
 
   return (
-    <Text as="div" variant="supplementary">
+    <Text
+      as="div"
+      variant="supplementary"
+      css={{ paddingLeft: `${depth - 1}rem` }}>
       <a
         css={{
-          fontSize: 12,
-          marginLeft: `${depth - 1}rem`,
           color: context.selected === id ? colors.primary : 'currentColor',
           transition: 'color 100ms',
           textDecoration: 'none',
