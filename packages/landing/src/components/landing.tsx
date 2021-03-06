@@ -177,7 +177,7 @@ export default () => (
               css={{
                 color: 'rgba(255, 255, 255, 0.75)',
               }}>
-              Build time CSS-in-JS.{' '}
+              Build time CSS-in-JS for React.
               <HideSmall>
                 <br />
                 Baked and ready to serve.
