@@ -200,10 +200,22 @@ export default () => (
                 display: 'inline-block',
               }}>
               <div>@compiled/webpack-loader</div>
-              <div css={{ opacity: 0.7, top: '100%', position: 'absolute' }}>
+              <div
+                css={{
+                  opacity: 0.7,
+                  left: 0,
+                  top: '100%',
+                  position: 'absolute',
+                }}>
                 @compiled/parcel-transformer
               </div>
-              <div css={{ opacity: 0.4, top: '200%', position: 'absolute' }}>
+              <div
+                css={{
+                  opacity: 0.4,
+                  left: 0,
+                  top: '200%',
+                  position: 'absolute',
+                }}>
                 @compiled/babel-plugin
               </div>
             </span>
