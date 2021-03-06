@@ -8,8 +8,8 @@ import {
   VerticalStack,
   ScreenReaderText,
   Footer,
+  Text,
 } from '../components';
-import { primary } from '../utils/colors';
 
 interface RootProps {
   children: React.ReactNode;
@@ -22,7 +22,6 @@ const Link = styled.a<{ href: string; exact?: boolean }>`
   color: currentColor;
   text-decoration: none;
   padding: 1rem 0.5rem;
-  font-size: 16px;
 
   :hover {
     text-decoration: underline currentColor;
@@ -64,11 +63,13 @@ export const RootLayout = ({
               display: 'flex',
               alignItems: 'center',
             }}>
-            <Link href="/docs">Documentation</Link>
+            <Link href="/docs">
+              <Text variant="aside">Documentation</Text>
+            </Link>
             <Link
               title="Github"
               href="https://github.com/atlassian-labs/compiled">
-              Github
+              <Text variant="aside">Github</Text>
             </Link>
           </HorizontalStack>
         </nav>

@@ -1,6 +1,6 @@
 import React, { cloneElement, Children } from 'react';
 import { styled } from '@compiled/react';
-import { VerticalStack, Heading, colors } from '@compiled/website-ui';
+import { VerticalStack, Heading, colors, Text } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 
 interface SectionProps {
@@ -12,8 +12,8 @@ export const Section = ({ children, title }: SectionProps) => {
   const id = `section--${title.toLowerCase().split(' ').join('-')}`;
 
   return (
-    <VerticalStack spacing={6}>
-      <Heading style={{ marginBottom: '0.3rem' }} id={id} as="div" look="h500">
+    <VerticalStack gap={2} spacing={6}>
+      <Heading id={id} as="div" look="h500">
         {title}
       </Heading>
       {Children.map(children, (child) =>
@@ -24,14 +24,12 @@ export const Section = ({ children, title }: SectionProps) => {
 };
 
 const StyledLink = styled(Link)`
-  display: block;
-  padding: 0.5rem 0;
   user-select: none;
   color: currentColor;
   text-decoration: none;
-  font-size: 14px;
 
-  :hover {
+  :hover,
+  :focus {
     cursor: pointer;
     color: ${colors.primary};
   }
@@ -41,9 +39,17 @@ const StyledLink = styled(Link)`
   }
 
   &[aria-current='page'] {
-    border-left: 2px solid ${colors.primary};
-    padding-left: 10px;
-    margin-left: -12px;
+    color: ${colors.primary};
+    position: relative;
+
+    :before {
+      content: '';
+      border-left: 2px solid ${colors.primary};
+      transform: translateX(-8px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
   }
 `;
 
@@ -56,8 +62,10 @@ export const LinkItem = ({
   href: string;
 }) => {
   return (
-    <StyledLink {...props} to={href}>
-      {children}
-    </StyledLink>
+    <Text as="div" variant="aside">
+      <StyledLink {...props} to={href}>
+        {children}
+      </StyledLink>
+    </Text>
   );
 };

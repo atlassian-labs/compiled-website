@@ -7,7 +7,7 @@ export const Button = styled.button`
   background-color: #6554c0;
   color: #fff;
   font-weight: 400;
-  font-family: inherit;
+  font-family: arial;
   font-size: 14px;
 
   :hover {

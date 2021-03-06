@@ -5,6 +5,7 @@ import {
   Heading,
   CodeBlock,
   colors,
+  Text,
 } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
 import { MDXProviderComponentsProp } from '@mdx-js/react';
@@ -16,11 +17,11 @@ const Hr = styled.hr`
 `;
 
 const Quote = styled.blockquote`
-  padding: 2rem 3rem;
+  padding: 3rem;
   margin: 4rem -3rem;
-  border-left: 3px solid ${colors.primary};
+  border-left: 4px solid ${colors.primary};
   background-color: #8777d926;
-  opacity: 0.9;
+  opacity: 0.8;
 
   p {
     margin: 0;
@@ -41,11 +42,7 @@ const Code = styled.code`
 `;
 
 const P = styled.p`
-  margin: 3rem 0;
-
-  & + h2 {
-    margin-top: 6rem;
-  }
+  margin: 4rem 0;
 `;
 
 export const mdxComponents: MDXProviderComponentsProp = {
@@ -55,26 +52,30 @@ export const mdxComponents: MDXProviderComponentsProp = {
     </Heading>
   ),
   h2: ({ children }) => (
-    <Heading look="h200">
+    <Heading css={{ marginTop: 68 }} look="h200">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h3: ({ children }) => (
-    <Heading look="h300">
+    <Heading css={{ marginTop: 60 }} look="h300">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
   h4: ({ children }) => (
-    <Heading look="h400">
+    <Heading css={{ marginTop: 52 }} look="h400">
       <Anchor>{children}</Anchor>
     </Heading>
   ),
   h5: ({ children }) => (
-    <Heading look="h500">
+    <Heading css={{ marginTop: 44 }} look="h500">
       <Anchor>{children} </Anchor>
     </Heading>
   ),
-  p: ({ children }) => <P>{children}</P>,
+  p: ({ children }) => (
+    <P>
+      <Text>{children}</Text>
+    </P>
+  ),
   pre: ({ children }) => children,
   code: ({ children, className }) => (
     <VerticalStack spacing={2}>
@@ -113,4 +114,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
     ),
   blockquote: (props) => <Quote {...props} />,
   strong: (props) => <strong css={{ fontWeight: 500 }} {...props} />,
+  ol: (props) => <VerticalStack as="ol" spacing={4} gap={2} {...props} />,
+  ul: (props) => <VerticalStack as="ul" spacing={4} gap={2} {...props} />,
+  li: (props) => <Text as="li" {...props} />,
 };

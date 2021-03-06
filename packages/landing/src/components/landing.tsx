@@ -11,7 +11,7 @@ import {
   HideSmall,
   Example,
   mdxComponents,
-  colors,
+  PageLink,
 } from '@compiled/website-ui';
 import {
   cssProp,
@@ -69,7 +69,7 @@ const TabButton = (props: {
       aria-selected={props.isSelected}
       role="tab"
       css={{
-        padding: '8px 12px',
+        padding: '12px',
         margin: 0,
         cursor: 'pointer',
         opacity: props.isSelected ? 0.99 : 0.7,
@@ -114,7 +114,7 @@ const CodeExamples = () => {
         aria-controls="css-example"
         isSelected={shown === 'css'}
         onClick={() => setShown('css')}>
-        Css prop
+        CSS prop
       </TabButton>
       <TabButton
         id="cn-tab"
@@ -171,26 +171,17 @@ export default () => (
     <Hero>
       <Content>
         <HeaderSpacing aria-hidden="true" />
-        <VerticalStack gap={3}>
+        <VerticalStack spacing={7} gap={5}>
           <Heading look="h100">
             <span
               css={{
                 color: 'rgba(255, 255, 255, 0.75)',
-                maxWidth: '75%',
-                display: 'block',
               }}>
-              Build time{' '}
-              <a
-                css={{
-                  color: 'rgba(255, 255, 255, 0.75)',
-                  ':hover': {
-                    color: 'rgba(255, 255, 255, 0.9)',
-                  },
-                }}
-                href="/docs/atomic-css">
-                atomic CSS
-              </a>
-              -in-JS. <HideSmall>Baked and ready to serve.</HideSmall>
+              Build time CSS-in-JS for React.
+              <HideSmall>
+                <br />
+                Baked and ready to serve.
+              </HideSmall>
             </span>
           </Heading>
           <CodeExamples />
@@ -227,31 +218,13 @@ export default () => (
       </MDXProvider>
 
       <VerticalStack align="right" spacing={10}>
-        <a
-          href="docs/what-is-compiled"
-          css={{
-            color: colors.primary,
-            fontSize: '1.25em',
-            textDecoration: 'none',
-            textAlign: 'right',
-          }}>
-          <Heading look="h500" as="span">
-            Getting started
-          </Heading>
-          <br />
-          <span
-            css={{
-              textTransform: 'capitalize',
-              position: 'relative',
-              ':after': {
-                content: '›',
-                position: 'absolute',
-                right: '-2rem',
-              },
-            }}>
-            What is Compiled?
-          </span>
-        </a>
+        <PageLink
+          to="docs/what-is-compiled"
+          hard
+          direction="next"
+          section="Getting started">
+          What is Compiled?
+        </PageLink>
       </VerticalStack>
     </Content>
   </RootLayout>

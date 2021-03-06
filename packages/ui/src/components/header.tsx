@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@compiled/react';
-import { ScreenReaderText } from './helpers';
+import { Heading } from './heading';
 
 const height = '9rem';
 
@@ -54,24 +54,10 @@ export const Header = ({
   return (
     <StyledHeader variant={variant} color={color} {...props}>
       <a href="/" css={{ textDecoration: 'none', color: 'currentColor' }}>
-        <Logo>
-          <span
-            css={`
-              font-size: 2.5rem;
-              font-weight: 600;
-
-              @media only screen and (min-width: 500px) {
-                font-size: 1em;
-                font-weight: 500;
-              }
-            `}>
-            Compiled
-          </span>
-        </Logo>
+        <Heading look="h300" as="span">
+          Compiled
+        </Heading>
       </a>
-      <ScreenReaderText aria-label="Compiled see ess ess in jay ess">
-        Compiled CSS-in-JS
-      </ScreenReaderText>
       {children}
     </StyledHeader>
   );

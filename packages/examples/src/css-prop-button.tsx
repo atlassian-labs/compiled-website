@@ -12,7 +12,7 @@ export const Button = ({ children }) => {
         backgroundColor: '#6554C0',
         color: '#fff',
         fontWeight: 400,
-        fontFamily: 'inherit',
+        fontFamily: 'arial',
         fontSize: 14,
         ':hover': {
           backgroundColor: '#8777D9',

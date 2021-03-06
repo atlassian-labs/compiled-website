@@ -9,8 +9,7 @@ import React, {
   Ref,
 } from 'react';
 import '@compiled/react';
-import { Heading } from '@compiled/website-ui';
-import { colors } from '../utils';
+import { Text, colors } from '@compiled/website-ui';
 
 interface AnchorContextData {
   listen: (element: HTMLElement) => void;
@@ -66,12 +65,12 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
           transform: 'translateX(1rem)',
           transition: 'opacity 100ms, transform 100ms',
           paddingRight: '5rem',
-          top: 2,
+          top: 0,
           bottom: 0,
           display: 'flex',
-          alignItems: 'flex-end',
+          alignItems: 'center',
         },
-        ':hover': {
+        ':hover,:focus': {
           ':before': {
             opacity: 1,
             transform: 'none',
@@ -94,18 +93,27 @@ export const ToAnchor = ({
   const context = useContext(AnchorContext);
 
   return (
-    <a
-      css={{
-        display: 'block',
-        fontSize: 12,
-        marginLeft: `${depth - 1}rem`,
-        color: context.selected === id ? colors.primary : 'currentColor',
-        transition: 'color 100ms',
-        textDecoration: 'none',
-      }}
-      href={`#${id}`}>
-      {children}
-    </a>
+    <Text
+      as="div"
+      variant="supplementary"
+      css={{ paddingLeft: `${depth - 1}rem` }}>
+      <a
+        css={{
+          color: context.selected === id ? colors.primary : 'currentColor',
+          transition: 'color 100ms',
+          textDecoration: 'none',
+          ':hover,:focus': {
+            cursor: 'pointer',
+            color: colors.primary,
+          },
+          ':active': {
+            opacity: 0.8,
+          },
+        }}
+        href={`#${id}`}>
+        {children}
+      </a>
+    </Text>
   );
 };
 
