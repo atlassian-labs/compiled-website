@@ -11,7 +11,7 @@
     "@compiled/babel-plugin": "0.6.7",
     "@compiled/react": "0.6.7",
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.1",
+    "@types/react-dom": "^17.0.2",
     "@types/react-syntax-highlighter": "^13.5.0",
     "parcel-plugin-svg-sprite": "^1.4.1",
     "react-syntax-highlighter": "15.4.3",
