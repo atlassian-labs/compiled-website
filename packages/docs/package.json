@@ -27,7 +27,7 @@
     "react-router-dom": "^5.2.0",
     "remark-frontmatter": "^2.0.0",
     "unist-util-visit": "^2.0.3",
-    "yaml": "^1.10.1"
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@mdx-js/parcel-plugin-mdx": "^1.6.22",
