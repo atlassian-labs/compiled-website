@@ -172,13 +172,21 @@ export default () => (
       <Content>
         <HeaderSpacing aria-hidden="true" />
         <VerticalStack spacing={7} gap={5}>
-          <Heading look="h100" css={{ maxWidth: 750 }}>
+          <Heading
+            look="h100"
+            css={{
+              maxWidth: '80%',
+            }}>
             <span
               css={{
                 color: 'rgba(255, 255, 255, 0.75)',
               }}>
-              A familiar and performant
-              <br /> compile time CSS-in-JS library for React.
+              A{' '}
+              <HideSmall>
+                familiar and performant
+                <br />
+              </HideSmall>
+              compile time CSS-in-JS library for React.
             </span>
           </Heading>
           <CodeExamples />
