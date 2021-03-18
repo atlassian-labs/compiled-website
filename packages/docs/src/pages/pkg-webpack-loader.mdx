@@ -41,14 +41,33 @@ module.exports = {
 };
 ```
 
-#### importReact: boolean
+### importReact: boolean
 
 Will import React into the module if it is not found.
 When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and can be set to `false`.
 
 Defaults to `true`.
 
-#### nonce: string
+### nonce: string
 
 Enables CSP support,
 read [Security](/security) for more information.
+
+### extract: boolean
+
+Enables extracting all styles to an atomic style sheet,
+to be used in conjunction with `CompiledExtractPlugin`.
+Read the [Webpack CSS extraction](/css-extraction-webpack) guide for help.
+
+## CompiledExtractPlugin
+
+Plugin to be used when the `extract` option is set to `true`.
+
+```js
+// webpack.config.js
+const { CompiledExtractPlugin } = require('@compiled/webpack-loader');
+
+module.exports = {
+  plugins: [new CompiledExtractPlugin()],
+};
+```

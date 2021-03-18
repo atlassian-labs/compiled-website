@@ -6,7 +6,7 @@ order: 4
 
 # @compiled/babel-plugin
 
-[Babel](https://babeljs.io) plugin used to bake styles into JavaScript.
+[Babel plugin](https://babeljs.io) used to bake styles into your JavaScript.
 See [installation](/installation#babel) for setup instructions.
 
 ```bash
@@ -28,26 +28,27 @@ Configure in your Babel config.
       "@compiled/babel-plugin",
       {
         "importReact": true,
-        "nonce": "__webpack_nonce__"
+        "nonce": "__webpack_nonce__",
+        "cache": true
       }
     ]
   ]
 }
 ```
 
-#### importReact: boolean
+### importReact: boolean
 
 Will import React into the module if it is not found.
 When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime) this is not needed and can be set to `false`.
 
 Defaults to `true`.
 
-#### nonce: string
+### nonce: string
 
 Enables CSP support,
 read [Security](/security) for more information.
 
-#### cache: boolean | 'single-pass'
+### cache: boolean | 'single-pass'
 
 Will cache the result of statically evaluated imports.
 Defaults to `true`.
@@ -55,3 +56,7 @@ Defaults to `true`.
 - `true` will cache for the duration of the node process
 - `'single-pass'` will cache for a single pass of a file
 - `false` turns caching off
+
+### onIncludedFiles: (files: string[]) => void
+
+Will callback at the end of a file pass with all imported files that were statically evaluated into the file.

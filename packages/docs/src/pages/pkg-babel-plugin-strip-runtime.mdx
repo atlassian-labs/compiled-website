@@ -1,0 +1,28 @@
+---
+section: 99-Packages
+name: babel-plugin-strip-runtime
+order: 5
+---
+
+# @compiled/babel-plugin-strip-runtime
+
+[Babel plugin](https://babeljs.io) used to strip the runtime away.
+
+```bash
+npm install @compiled/babel-plugin-strip-runtime --save-dev
+```
+
+## Options
+
+Configure in your Babel config.
+
+```json
+// .babelrc
+{
+  "plugins": [["@compiled/babel-plugin-strip-runtime", {}]]
+}
+```
+
+### onFoundStyleRules: (rules: string[]) => void
+
+Will callback at the end of a file pass with all found style rules.
