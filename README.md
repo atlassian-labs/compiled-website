@@ -4,7 +4,7 @@
 
 ## Getting started
 
-```sh
+```bash
 yarn # Install dependencies
 yarn build:examples # Build examples that are using in the website
 ```
@@ -13,7 +13,7 @@ yarn build:examples # Build examples that are using in the website
 
 This is the home page of the website.
 
-```sh
+```bash
 yarn start:landing
 ```
 
@@ -21,7 +21,7 @@ yarn start:landing
 
 This is the actual documentation.
 
-```sh
+```bash
 yarn start:docs
 ```
 
