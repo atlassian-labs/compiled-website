@@ -74,9 +74,19 @@ module.exports = {
 };
 ```
 
+### nodeModulesTest: Condition
+
+As a performance optimization you can test paths to include by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
+
+```js
+new CompiledExtractPlugin({
+  nodeModulesTest: /@atlaskit/,
+});
+```
+
 ### nodeModulesInclude: Condition
 
-As a performance optimization you can include specific files and directories by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
+As a performance optimization you can include paths by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
 
 ```js
 new CompiledExtractPlugin({
@@ -86,7 +96,7 @@ new CompiledExtractPlugin({
 
 ### nodeModulesExclude: Condition
 
-As a performance optimization you can exclude specific files and directories by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
+As a performance optimization you can exclude paths by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
 
 ```js
 new CompiledExtractPlugin({
