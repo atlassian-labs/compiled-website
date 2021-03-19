@@ -31,7 +31,6 @@ module.exports = {
             loader: '@compiled/webpack-loader',
             options: {
               importReact: true,
-              nonce: '__webpack_nonce__',
             },
           },
         ],
@@ -48,16 +47,19 @@ When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io
 
 Defaults to `true`.
 
-### nonce: string
-
-Enables CSP support,
-read [Security](/security) for more information.
-
 ### extract: boolean
 
 Enables extracting all styles to an atomic style sheet,
 to be used in conjunction with `CompiledExtractPlugin`.
 Read the [Webpack CSS extraction](/css-extraction-webpack) guide for help.
+
+Defaults to `false`.
+
+### bake: boolean
+
+Enables baking your styles into JavaScript.
+
+Defaults to `true`.
 
 ## CompiledExtractPlugin
 
