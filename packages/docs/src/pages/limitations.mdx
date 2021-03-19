@@ -4,13 +4,11 @@ section: 90-Other guides
 
 # Limitations
 
-## Hard limitations
-
 The architecture of Compiled prevents some things that are possible with runtime libraries.
 
-### Runtime CSS
+## Runtime styles
 
-CSS can't be created at runtime which includes dynamic CSS selectors as well.
+Styles can't be created at runtime which includes dynamic selectors as well.
 
 ```jsx
 const selectedIndex = useState(0);
@@ -25,7 +23,7 @@ const selectedIndex = useState(0);
 />;
 ```
 
-If the selector resolves to a static constant value it will work.
+If a dynamic value resolves to a static constant value however, it will work!
 
 ## Missing behavior
 
