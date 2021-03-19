@@ -73,3 +73,23 @@ module.exports = {
   plugins: [new CompiledExtractPlugin()],
 };
 ```
+
+### nodeModulesInclude: Condition
+
+As a performance optimization you can include specific files and directories by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
+
+```js
+new CompiledExtractPlugin({
+  nodeModulesInclude: [require.resolve('@atlaskit/button')],
+});
+```
+
+### nodeModulesExclude: Condition
+
+As a performance optimization you can exclude specific files and directories by [passing a webpack condition](https://webpack.js.org/configuration/module/#condition) to the plugin.
+
+```js
+new CompiledExtractPlugin({
+  nodeModulesExclude: [require.resolve('@atlaskit/button')],
+});
+```
