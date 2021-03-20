@@ -157,8 +157,8 @@ ax(['_k48pni7l _syaz18rw', '_syazff21']);
 
 ### ix
 
-Handles interpolations that may resolve to `undefined`.
-When resolving to `undefined` an empty CSS variable is returned.
+Handles interpolations that may resolve to a falsy value.
+When called with a falsy value an empty CSS variable is returned.
 
 ```js
 import { ix } from '@compiled/react/runtime';
