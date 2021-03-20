@@ -1,5 +1,5 @@
 ---
-section: 5-API Guides
+section: 5-API
 order: 1
 ---
 
@@ -57,7 +57,8 @@ Here the `BlueText` styles take presedence over `RedText`.
 
 <StyledComposition />
 
-> **Note** <br /> When composing custom components make sure to set its `className` and `style` props otherwise styles will not be applied correctly.
+> **Custom components** <br />
+> When composing custom components make sure to set its `className` and `style` props otherwise styles will not be applied correctly.
 
 ## TypeScript
 
@@ -75,5 +76,6 @@ const BigIfTrue = styled.div<{ big: true }>`
  ^^^^^^^^^ Property 'big' is missing in type [..]
 ```
 
-> **Note** <br /> Typing of composed components are inherited,
-> which means their props will be available as props as well.
+> **Inherited types** <br />
+> Typing of composed components are inherited,
+> which means their props will be available as props on the styled component as well.

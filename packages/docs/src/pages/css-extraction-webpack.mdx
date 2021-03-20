@@ -1,0 +1,153 @@
+---
+section: 50-Guides
+name: Webpack CSS Extraction
+---
+
+# Webpack CSS Extraction
+
+> **Experimental**<br />
+> CSS extraction is experimental, please use your own risk.
+> Found a bug? [Raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Webpack%20extraction%20bug:&labels=bug%20%F0%9F%90%9B).
+
+Extracting to a static style sheet can be enabled with some extra configuration,
+we recommend only extracting when building your production assets.
+
+Before continuing make sure to install the [webpack loader](/installation#webpack).
+
+## Setup
+
+### Compiled configuration
+
+Configure the `extract` option to `true` in the webpack loader and turn on the extract plugin.
+
+```diff
++import { CompiledExtractPlugin } from '@compiled/webpack-loader';
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
++              extract: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
++  plugins: [
++    new CompiledExtractPlugin(),
++  ],
+};
+```
+
+For more configuration options see the [loader package docs](/pkg-webpack-loader#options).
+
+### CSS configuration
+
+Add loaders to handle and extract found styles.
+We recommend using [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin/),
+anything else is unsupported.
+
+```bash
+npm i css-loader mini-css-extract-plugin --save-dev
+```
+
+```diff
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              extract: true,
+            },
+          },
+        ],
+      },
++      {
++        test: /\.css$/i,
++        use: [MiniCssExtractPlugin.loader, 'css-loader'],
++      },
+    ],
+  },
+  plugins: [
++    new MiniCssExtractPlugin()
+    new CompiledExtractPlugin(),
+  ],
+};
+```
+
+All extracted styles will be placed in a file called `compiled-css.css`.
+
+## Production optimization
+
+### Filename
+
+Pass the `filename` option to the extract plugin,
+we recommend using `[contenthash]` in the name.
+
+```diff
+-new MiniCssExtractPlugin()
++new MiniCssExtractPlugin({ filename: '[contenthash].css' })
+```
+
+See [`mini-css-extract-plugin` docs](https://github.com/webpack-contrib/mini-css-extract-plugin/#long-term-caching) for more information on these options.
+
+### CSS minification
+
+Turn on the [minimizer plugin](https://github.com/webpack-contrib/mini-css-extract-plugin/#minimizing-for-production).
+
+```bash
+npm i css-minimizer-webpack-plugin --save-dev
+```
+
+```diff
++const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+module.exports = {
++  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              extract: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({ filename: '[contenthash].css' })
+    new CompiledExtractPlugin(),
+  ],
++  optimization: {
++    minimizer: [
++      '...',
++      new CssMinimizerPlugin(),
++    ],
++  },
+};
+```

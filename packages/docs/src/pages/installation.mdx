@@ -45,11 +45,15 @@ module.exports = {
 };
 ```
 
-See the [loader package docs](/pkg-webpack-loader) for more information.
+Interested in CSS extraction?
+Read the [Webpack CSS extraction](/css-extraction-webpack) for a step-by-step guide.
+
+See the [loader package docs](/pkg-webpack-loader) for configuration options.
 
 ## Parcel
 
-> **Note** <br /> Parcel v2 is currently in pre-release which makes this transformer experimental,
+> **Pre-release** <br />
+> Parcel v2 is currently in pre-release which makes this transformer experimental,
 > it may break when updating Parcel.
 > Use with caution.
 
@@ -76,9 +80,12 @@ Make sure this is defined before other transformers so it runs first.
 }
 ```
 
-See the [transformer package docs](/pkg-parcel-transformer) for more information.
+See the [transformer package docs](/pkg-parcel-transformer) for configuration options.
 
 ## Babel
+
+> **Local development** <br />
+> When developing locally its advised to use a bundler instead of Babel directly for improved developer experience.
 
 Install the [Babel](https://babeljs.io) plugin.
 
@@ -98,6 +105,4 @@ Make sure this is defined after other plugins so it runs first.
 }
 ```
 
-> **Note** <br /> When developing locally its advised to use a bundler instead of Babel directly for improved developer experience.
-
-See the [plugin package docs](/pkg-babel-plugin) for more information.
+See the [plugin package docs](/pkg-babel-plugin) for configuration options.
