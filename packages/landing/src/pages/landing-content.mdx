@@ -44,7 +44,7 @@ Successfully compiled 1 file with Babel (9ms)
 import { CC, CS } from '@compiled/react/runtime';
 
 const _2 = '._syaz1q9v{color: hotpink}';
-const _ = '._1wybfyhu{font-size: 48px;}';
+const _ = '._1wybfyhu{font-size: 48px}';
 
 export const LargeHotPinkText = () => (
   <CC>
@@ -54,9 +54,9 @@ export const LargeHotPinkText = () => (
 );
 ```
 
-## Extract all styles to CSS
+## Extract styles to CSS
 
-Turn on extraction and all components styled with Compiled in your app and sourced through [NPM](https://npmjs.com/) will have their styles extracted to a single [atomic style sheet](./docs/atomic-css).
+Turn on extraction and all components styled in your app and sourced through [NPM](https://npmjs.com/) will have their runtime stripped and styles extracted to an [atomic style sheet](./docs/atomic-css).
 
 1. Bundle your app
 
@@ -71,7 +71,7 @@ webpack 5.26.3 compiled successfully in 1912 ms
 -import { CC, CS } from '@compiled/react/runtime';
 -
 -const _2 = '._syaz1q9v{color: hotpink}';
--const _ = '._1wybfyhu{font-size: 48px;}';
+-const _ = '._1wybfyhu{font-size: 48px}';
 -
 export const LargeHotPinkText = () => (
 -  <CC>
@@ -92,7 +92,6 @@ export const LargeHotPinkText = () => (
 }
 ```
 
-We are bringing styles from platform,
+Compiled brings distributed styles from platform,
 product,
 and the wider ecosystem closer.
-It's time to extract all styles!

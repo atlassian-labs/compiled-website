@@ -15,7 +15,7 @@ npm install @compiled/jest --save-dev
 
 ## Jest matcher
 
-Used to enable the compiled CSS matcher in Jest.
+Assert styles in your unit tests.
 
 ```jsx
 import { toHaveCompiledCss } from '@compiled/jest';
@@ -30,19 +30,22 @@ expect(element).toHaveCompiledCss(property-name, value, ?options);
 expect(element).toHaveCompiledCss({ [propertyName]: value }, ?options);
 ```
 
-### Options
-
-```jsx
-{
-  media: 'screen',
-  target: ':hover'
-}
-```
-
-#### Media
+### Media queries
 
 Narrows the assertion down to any valid media query.
 
-#### Target
+```tsx
+expect(element).toHaveCompiledCss('color', 'red', {
+  media: '(min-width: 300px)',
+});
+```
 
-Narrows the assertion down to any valid CSS selector.
+### Pseudo selectors
+
+Narrows the assertion down to any valid pseudo selector.
+
+```tsx
+expect(element).toHaveCompiledCss('color', 'red', {
+  target: ':hover',
+});
+```
