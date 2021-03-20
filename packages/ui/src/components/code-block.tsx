@@ -12,7 +12,14 @@ interface CodeBlockProps {
 }
 
 const customTheme = Object.assign({}, codeTheme, {
-  inserted: { color: 'rgb(126, 198, 153)' },
+  inserted: {
+    color: 'rgb(126, 198, 153)',
+    backgroundColor: 'rgba(126, 198, 153, 0.15)',
+  },
+  deleted: {
+    backgroundColor: 'rgba(226, 119, 122, 0.15)',
+    color: 'rgb(226, 119, 122)',
+  },
 });
 
 export const CodeBlock = ({
