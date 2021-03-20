@@ -10,12 +10,14 @@ name: Webpack CSS Extraction
 > Found a bug? [Raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Webpack%20extraction%20bug:&labels=bug%20%F0%9F%90%9B).
 
 Extracting to a static style sheet can be enabled with some extra configuration.
-We recommend only extracting when building your application for production.
-If you're building your design system or component library your consumers should extract instead.
+We recommend only extracting when building an application for production.
 
-Before continuing make sure to install the [webpack loader](/installation#webpack).
+If you're building a design system or component library and shipping to NPM you shouldn't extract just yet,
+let your consumers do it in their app.
 
 ## Setup
+
+Before continuing make sure to install the [webpack loader](/installation#webpack).
 
 ### Compiled configuration
 
