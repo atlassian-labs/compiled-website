@@ -4,6 +4,10 @@ section: 50-Guides
 
 # Testing
 
+> **Baked only**<br />
+> This functionality is only available when styles are baked into the JavaScript.
+> Only [extract styles](/css-extraction-webpack) when building for production.
+
 Use the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests to assert style behavior over state changes.
 
 First install the matcher:
@@ -39,6 +43,7 @@ import { render } from '@testing-library/react';
 it('should have small font', () => {
   const SmallText = styled.div({
     fontSize: '12px',
+    fontWeight: 'bold',
   });
 
   const { getByText } = render(<SmallText>hello world</SmallText>);
@@ -53,81 +58,41 @@ When writing tests in TypeScript you will probably need to create a `<root>/type
 import '@compiled/jest';
 ```
 
+## Single match
+
+Assert a single style by passing a string.
+
+```jsx
+expect(element).toHaveCompiledCss('font-size', '12px');
+```
+
 ## Multi match
 
-Assert multiple values at once if we pass in an object instead.
+Assert multiple styles by passing an object.
 
 ```jsx
-it('should have small bold font', () => {
-  const SmallText = styled.div`
-    font-size: 12px;
-    font-weight: bold;
-  `;
-
-  const { getByText } = render(<SmallText>hello world</SmallText>);
-
-  expect(getByText('hello world')).toHaveCompiledCss({
-    fontSize: '12px',
-    fontWeight: 'bold',
-  });
+expect(element).toHaveCompiledCss({
+  fontSize: '12px',
+  fontWeight: 'bold',
 });
 ```
 
-## Dynamic props
+## Selector match
 
-Assert dynamic interpolations.
+Assert against any CSS selector and pseudo classes by passing `target` in an object as the third argument.
 
 ```jsx
-it('should appear red', () => {
-  const SmallText = styled.div`
-    color: ${(props) => props.color}px;
-  `;
-
-  const { getByText } = render(<SmallText color="red">hello world</SmallText>);
-
-  expect(getByText('hello world')).toHaveCompiledCss('color', 'red');
+expect(element).toHaveCompiledCss('background-color', 'blue', {
+  target: ':hover',
 });
 ```
 
-## Selectors
+## Media query match
 
-Assert against any CSS selectors and pseudo classes,
-such as `:hover` and `:active` by passing in a config object.
-
-```jsx
-it('should change background color to blue on hover', () => {
-  const Hoverable = styled.div`
-    :hover {
-      background-color: blue;
-    }
-  `;
-
-  const { getByText } = render(<Hoverable>hello world</Hoverable>);
-
-  expect(getByText('hello world')).toHaveCompiledCss(
-    'background-color',
-    'blue',
-    { target: ':hover' }
-  );
-});
-```
-
-## Media queries
-
-Assert against media queries using the config object.
+Assert against media queries by passing `media` in an object as the third argument.
 
 ```jsx
-it('should have big padding when viewed on a tablet', () => {
-  const Card = styled.div`
-    @media screen and (min-width: 1220px) {
-      padding: 8rem;
-    }
-  `;
-
-  const { getByText } = render(<Card>hello world</Card>);
-
-  expect(getByText('hello world')).toHaveCompiledCss('padding', '8rem', {
-    media: 'screen and (min-width: 1220px)',
-  });
+expect(element).toHaveCompiledCss('padding', '8rem', {
+  media: 'screen and (min-width: 1220px)',
 });
 ```
