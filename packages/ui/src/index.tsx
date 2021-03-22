@@ -21,6 +21,7 @@ export {
   ToAnchor,
   PageLink,
   Text,
+  Lozenge,
 } from './components';
 export { RootLayout } from './layout';
 export { Icon } from './icon';

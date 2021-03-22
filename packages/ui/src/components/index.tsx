@@ -13,3 +13,4 @@ export { mdxComponents } from './mdx-components';
 export { Anchor, AnchorProvider, ToAnchor } from './anchor';
 export { PageLink } from './links';
 export { Text } from './text';
+export { Lozenge } from './lozenge';
