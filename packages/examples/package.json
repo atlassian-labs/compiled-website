@@ -19,7 +19,7 @@
     "@compiled/babel-plugin": "0.6.9",
     "@compiled/react": "0.6.8",
     "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.2",
+    "@types/react-dom": "^17.0.3",
     "typescript": "^4.2.3"
   }
 }
