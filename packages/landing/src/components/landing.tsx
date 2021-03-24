@@ -170,7 +170,7 @@ export default () => (
     <Hero>
       <Content>
         <HeaderSpacing aria-hidden="true" />
-        <VerticalStack spacing={9} gap={5}>
+        <VerticalStack spacing={7} gap={5}>
           <Heading
             look="h100"
             css={{
