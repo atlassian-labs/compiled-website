@@ -3,7 +3,6 @@ import { styled } from '@compiled/react';
 import {
   Hero,
   Heading,
-  Terminal,
   Content,
   RootLayout,
   HeaderSpacing,
@@ -171,7 +170,7 @@ export default () => (
     <Hero>
       <Content>
         <HeaderSpacing aria-hidden="true" />
-        <VerticalStack spacing={7} gap={5}>
+        <VerticalStack spacing={9} gap={5}>
           <Heading
             look="h100"
             css={{
@@ -192,41 +191,6 @@ export default () => (
           <CodeExamples />
         </VerticalStack>
       </Content>
-
-      <TerminalStripe css={{ marginTop: '10rem', height: '10rem' }}>
-        <Content>
-          <Terminal>
-            <span css={{ color: 'rgb(240, 141, 73)' }}>npm install</span>{' '}
-            @compiled/react{' '}
-            <span
-              css={{
-                marginTop: -10,
-                position: 'relative',
-                display: 'inline-block',
-              }}>
-              <div>@compiled/webpack-loader</div>
-              <div
-                css={{
-                  opacity: 0.7,
-                  left: 0,
-                  top: '100%',
-                  position: 'absolute',
-                }}>
-                @compiled/parcel-transformer
-              </div>
-              <div
-                css={{
-                  opacity: 0.4,
-                  left: 0,
-                  top: '200%',
-                  position: 'absolute',
-                }}>
-                @compiled/babel-plugin
-              </div>
-            </span>
-          </Terminal>
-        </Content>
-      </TerminalStripe>
     </Hero>
 
     <Content>

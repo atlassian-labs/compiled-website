@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@compiled/react';
 import { Heading } from './heading';
+import { primary } from '../utils/colors';
 
 const height = '9rem';
 
@@ -27,13 +28,6 @@ const StyledHeader = styled.header<{
 
 export const HeaderSpacing = styled.div`
   height: ${height};
-`;
-
-const Logo = styled.span`
-  font-size: 4rem;
-  font-family: 'Noto Sans', sans-serif;
-  display: flex;
-  align-items: center;
 `;
 
 interface HeaderProps {
