@@ -25,7 +25,7 @@ Configure the `extract` option to `true` in the webpack loader and turn on the e
 
 ```diff
 // webpack.config.js
-+import { CompiledExtractPlugin } from '@compiled/webpack-loader';
++const { CompiledExtractPlugin } = require('@compiled/webpack-loader');
 
 module.exports = {
   module: {
