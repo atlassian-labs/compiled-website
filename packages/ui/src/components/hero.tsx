@@ -25,7 +25,7 @@ export const Hero = ({ children }: { children: React.ReactNode }) => {
           right: 0,
           bottom: 0,
           height: 56,
-          background: 'linear-gradient(transparent, #fff)',
+          background: 'linear-gradient(rgba(255, 255, 255, 0), #fff)',
         },
       }}>
       <div
