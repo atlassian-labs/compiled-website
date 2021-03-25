@@ -18,6 +18,15 @@ export const Hero = ({ children }: { children: React.ReactNode }) => {
           rgba(${rgb}, ${step * 3}) ${size}px,
           rgba(${rgb}, ${step * 4}) ${size * 2}px
         )`,
+        ':after': {
+          content: '',
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: 56,
+          background: 'linear-gradient(transparent, #fff)',
+        },
       }}>
       <div
         css={{
