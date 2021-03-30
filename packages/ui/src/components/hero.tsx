@@ -30,7 +30,6 @@ export const Hero = ({ children }: { children: React.ReactNode }) => {
       }}>
       <div
         css={{
-          animation: '50s move',
           background: 'linear-gradient(120deg,#6554C0 0%, #FF7452 100%)',
           pointerEvents: 'none',
           position: 'absolute',
