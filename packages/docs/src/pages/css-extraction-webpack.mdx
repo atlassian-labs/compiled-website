@@ -108,7 +108,7 @@ we recommend using `[contenthash]` in the name.
 ```diff
 // webpack.config.js
 -new MiniCssExtractPlugin()
-+new MiniCssExtractPlugin({ filename: '[contenthash].css' })
++new MiniCssExtractPlugin({ filename: '[contenthash].[name].css' })
 ```
 
 See [`mini-css-extract-plugin` docs](https://github.com/webpack-contrib/mini-css-extract-plugin/#long-term-caching) for more information on these options.
@@ -149,7 +149,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[contenthash].css' })
+    new MiniCssExtractPlugin({ filename: '[contenthash].[name].css' })
     new CompiledExtractPlugin(),
   ],
 +  optimization: {
