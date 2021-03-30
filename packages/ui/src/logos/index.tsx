@@ -1,1 +1,0 @@
-export { AtlassianLogo } from './atlassian';

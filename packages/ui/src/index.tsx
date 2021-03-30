@@ -26,4 +26,3 @@ export {
 export { RootLayout } from './layout';
 export { Icon } from './icon';
 export { colors } from './utils';
-export { AtlassianLogo } from './logos';

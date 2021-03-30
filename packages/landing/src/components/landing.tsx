@@ -17,44 +17,17 @@ import {
   styled as styledExamples,
   classNames,
 } from '@compiled/website-examples';
-import { readFileSync } from 'fs';
 import { MDXProvider } from '@mdx-js/react';
-
-const cssPropBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/css-prop-button.js',
-  'utf-8'
-);
-const cssPropAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/css-prop-button.js',
-  'utf-8'
-);
-
-const styledBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/styled-button.js',
-  'utf-8'
-);
-const styledAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/styled-button.js',
-  'utf-8'
-);
-
-const classNamesBefore = readFileSync(
-  __dirname + '../../../../examples/dist/jsx/class-names-button.js',
-  'utf-8'
-);
-const classNamesAfter = readFileSync(
-  __dirname + '../../../../examples/dist/js/class-names-button.js',
-  'utf-8'
-);
-
-const LandingPageContent = require('../pages/landing-content.mdx').default;
+import cssPropBefore from '!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-button.js';
+import cssPropAfter from '!!raw-loader!@compiled/website-examples/dist/js/css-prop-button.js';
+import styledBefore from '!!raw-loader!@compiled/website-examples/dist/jsx/styled-button.js';
+import styledAfter from '!!raw-loader!@compiled/website-examples/dist/js/styled-button.js';
+import classNamesBefore from '!!raw-loader!@compiled/website-examples/dist/jsx/class-names-button.js';
+import classNamesAfter from '!!raw-loader!@compiled/website-examples/dist/js/class-names-button.js';
+// @ts-ignore
+import LandingPageContent from '../pages/landing-content.mdx';
 
 const codeBackground = 'rgba(23, 43, 77, 0.6)';
-
-const TerminalStripe = styled.div`
-  background-color: ${codeBackground};
-  user-select: none;
-`;
 
 const TabButton = (props: {
   children: React.ReactNode;
