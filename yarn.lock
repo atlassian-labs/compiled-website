@@ -1046,10 +1046,10 @@
     convert-source-map "^1.7.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.6.13":
-  version "0.6.13"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.6.13.tgz#48c6df683549449445221c1007d99444d57e2702"
-  integrity sha512-scp28gBVgWbGL4xYB/UFfNeaPCIBjitfrxi++k3YKGzp5ilI/xpAT62lO4H1TDMTwPb+AaGXLfnPQVWPFDhc1Q==
+"@compiled/webpack-loader@^0.6.14":
+  version "0.6.14"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.6.14.tgz#6beccdb336931320ade6a274cd1683c903baca39"
+  integrity sha512-Q9OoRmR4yMVG+igUIlaDWT+i6BL4GYUnjwb8T2h3wynmNxxD0UElqOzEvZ1kngdSRY40Xn77Sp4DTz8NlUaCdg==
   dependencies:
     "@babel/core" "^7.13.10"
     "@compiled/babel-plugin" "^0.6.10"
