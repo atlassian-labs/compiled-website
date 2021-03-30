@@ -3,13 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { CompiledExtractPlugin } = require('@compiled/webpack-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.tsx',
+  mode: isProduction ? 'production' : 'development',
+  entry: { bundle: './src/index.tsx' },
   output: {
     path: path.resolve(__dirname, '../../dist'),
-    filename: 'bundle.js',
+    filename: isProduction ? '[chunkhash].js' : '[name].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.json', '.js'],
@@ -44,9 +47,14 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: isProduction ? '[chunkhash].[name].css' : '[name].css',
+    }),
     new CompiledExtractPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+    !isProduction && new webpack.HotModuleReplacementPlugin(),
+  ].filter(Boolean),
+  optimization: {
+    minimizer: ['...', new CssMinimizerPlugin()],
+  },
 };

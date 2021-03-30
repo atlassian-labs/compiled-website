@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
-    "build": "parcel build src/index.html --out-dir ../../dist --no-source-maps"
+    "build": "webpack build"
   },
   "dependencies": {
     "@compiled/react": "^0.6.9",
