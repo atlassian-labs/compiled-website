@@ -9,8 +9,8 @@
     "build": "parcel build src/index.html --out-dir ../../dist --no-source-maps"
   },
   "dependencies": {
-    "@compiled/react": "0.6.9",
-    "@compiled/webpack-loader": "^0.6.12",
+    "@compiled/react": "^0.6.9",
+    "@compiled/webpack-loader": "^0.6.13",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/loader": "^1.6.22",
