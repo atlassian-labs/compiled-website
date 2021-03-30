@@ -1,12 +1,12 @@
 import React from 'react';
 import '@compiled/react';
 
-export const LargeHotPinkText = ({ children }) => (
+export const LargeText = (props) => (
   <span
     css={{
-      color: 'hotpink',
+      color: props.color,
       fontSize: 48,
     }}>
-    {children}
+    {props.children}
   </span>
 );

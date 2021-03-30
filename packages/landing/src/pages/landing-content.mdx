@@ -1,30 +1,35 @@
 import '@compiled/react';
 import { ExampleContainer, ExampleRoot } from '@compiled/website-ui';
-import { LargeHotPinkText } from '../components/example';
+import { LargeText } from '../components/example';
 
 ## Don't change a thing
 
-Using APIs you may already be familiar with,
-write your styles in JavaScript with the full power of CSS —
+Using **APIs and behavior you may already be familiar with**,
+write your styles in JavaScript with the **full power of CSS** —
 leveraging the language to create expressive & dynamic experiences.
 
 ```jsx
 import '@compiled/react';
 
-export const LargeHotPinkText = () => (
+export const LargeText = (props) => (
   <span
     css={{
-      color: 'hotpink',
+      color: props.color,
       fontSize: 48,
     }}>
-    Hello world
+    {props.children}
   </span>
 );
 ```
 
-<LargeHotPinkText>Hello world</LargeHotPinkText>
+<!-- prettier-ignore -->
+```jsx
+<LargeText color="pink">Hello world</LargeText>
+```
 
-## Speed up your CSS-in-JS
+<LargeText color="pink">Hello world</LargeText>
+
+## Speed up your styles
 
 Build with your bundler of choice or just [Babel](https://babeljs.io/docs/en/config-files),
 resulting in **very performant components** that have their **styles built ahead of time**.
@@ -43,20 +48,22 @@ Successfully compiled 1 file with Babel (9ms)
 ```jsx
 import { CC, CS } from '@compiled/react/runtime';
 
-const _2 = '._syaz1q9v{color: hotpink}';
+const _2 = '._syaz4rde{color: var(--_kmurgp)}';
 const _ = '._1wybfyhu{font-size: 48px}';
 
-export const LargeHotPinkText = () => (
+export const LargeHotPinkText = (props) => (
   <CC>
     <CS>{[_, _2]}</CS>
-    <span className="_syaz1q9v _1wybfyhu">Hello world</span>
+    <span style={{ '--_kmurgp': props.color }} className="_syaz4rde _1wybfyhu">
+      {props.children}
+    </span>
   </CC>
 );
 ```
 
 ## Extract styles
 
-Turn on extraction and all components styled in your app and sourced through [NPM](https://npmjs.com/) will have their runtime stripped and styles extracted to an [atomic style sheet](./docs/atomic-css).
+Turn on extraction and all components styled in your app and sourced through [NPM](https://npmjs.com/) will have their **runtime stripped and styles extracted** to an [atomic style sheet](./docs/atomic-css).
 
 1. Bundle your app
 
@@ -70,13 +77,15 @@ webpack 5.26.3 compiled successfully in 1912 ms
 ```diff
 -import { CC, CS } from '@compiled/react/runtime';
 -
--const _2 = '._syaz1q9v{color: hotpink}';
+-const _2 = '._syaz4rde{color: var(--_kmurgp)}';
 -const _ = '._1wybfyhu{font-size: 48px}';
--
-export const LargeHotPinkText = () => (
+
+export const LargeHotPinkText = (props) => (
 -  <CC>
--   <CS>{[_, _2]}</CS>
-    <span className="_syaz1q9v _1wybfyhu">Hello world</span>
+-    <CS>{[_, _2]}</CS>
+    <span style={{ '--_kmurgp': props.color }} className="_syaz4rde _1wybfyhu">
+      {props.children}
+    </span>
 -  </CC>
 );
 ```
@@ -87,8 +96,8 @@ export const LargeHotPinkText = () => (
 ._1wybfyhu {
   font-size: 48px;
 }
-._syaz1q9v {
-  color: hotpink;
+._syaz4rde {
+  color: var(--_kmurgp);
 }
 ```
 
