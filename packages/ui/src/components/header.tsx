@@ -1,7 +1,6 @@
 import React from 'react';
 import { styled } from '@compiled/react';
 import { Heading } from './heading';
-import { primary } from '../utils/colors';
 
 const height = '9rem';
 
