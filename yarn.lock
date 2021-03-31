@@ -998,10 +998,10 @@
     "@babel/traverse" "^7.13.0"
     "@babel/types" "^7.13.0"
 
-"@compiled/babel-plugin@^0.6.10":
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.6.10.tgz#5594723514bc80a1246d222f7aa68632e906bac3"
-  integrity sha512-HI0j7ZZmbkQx/zInNIhXmm3Z2SeqxwhopCs3e65U/EcomZwu6pLDC6OMAzsQghVarBMfuqM1gRj2atxRFQFajw==
+"@compiled/babel-plugin@^0.6.10", "@compiled/babel-plugin@^0.6.12":
+  version "0.6.12"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.6.12.tgz#cd65b65e707ce8ad5c3a84ebf02cb6c9c45d006a"
+  integrity sha512-46l6KTMGn7peMy91Mh8OWl1kQd2XpvpVRVfgHL3T1HdhFOW2c9APzgj/ZR2hQ3m6qw3+AfSdbVpHWUQN67xW0Q==
   dependencies:
     "@babel/core" "^7.13.10"
     "@babel/generator" "^7.13.9"
