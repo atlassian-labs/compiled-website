@@ -12,11 +12,22 @@ import {
   Text,
 } from '@compiled/website-ui';
 import { MDXProvider } from '@mdx-js/react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { LinkItem, Section } from './side-nav';
 import { ScrollTop } from './scroll-top';
 import { PageTitle } from './page-title';
 import { titleCase } from '../utils/string';
+
+function requireAllPages() {
+  const req = require.context('../pages');
+  return req
+    .keys()
+    .reduce(
+      (acc, filename) =>
+        Object.assign(acc, { [filename]: req(filename).default }),
+      {}
+    );
+}
 
 interface Page {
   default: React.ComponentType<{}>;
@@ -32,7 +43,9 @@ interface Page {
 }
 
 const getSections = () => {
-  const pages: Record<string, Page> = require('../pages/*.mdx');
+  const pages: Record<string, Page> = requireAllPages();
+  console.log(pages);
+
   const sections: Record<string, (Page & { name: string })[]> = {};
 
   Object.entries(pages)
@@ -78,7 +91,8 @@ const getEditUrl = () => {
 const getPage = (slug: string) => {
   const sections = getSections();
   const name = slug === '/' ? sections[0].pages[0].name : slug.slice(1);
-  const pages: Record<string, Page> = require('../pages/*.mdx');
+  const pages: Record<string, Page> = requireAllPages();
+
   const page = pages[name];
   if (!page) {
     return null;
