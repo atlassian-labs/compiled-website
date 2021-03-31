@@ -34,10 +34,6 @@ We want to make sure the consumption story works,
 completely,
 with no impacts from the monorepo.
 
-### Why is the landing page and docs separate apps?
-
-Previously we had the the landing page be a TypeScript build,
-and the docs be a Babel build.
-We haven't done the work to consolidate them yet since we've standardized on Babel.
+---
 
 [![Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-cheers-light.png)](https://atlassian.com)
