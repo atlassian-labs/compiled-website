@@ -69,8 +69,14 @@ export const CssPropCompositionNoStyle = () => {
       exampleCode={
         '<CustomColorText color="pink">This text should be pink</CustomColorText>'
       }
-      before={require('!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-composition-no-style.js')}
-      after={require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-composition-no-style.js')}>
+      before={
+        require('!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-composition-no-style.js')
+          .default
+      }
+      after={
+        require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-composition-no-style.js')
+          .default
+      }>
       <cssProp.CssPropCompositionNoStyle color="pink">
         This text should be pink
       </cssProp.CssPropCompositionNoStyle>
@@ -82,8 +88,14 @@ export const CssPropConditionalRules = () => {
   return (
     <Example
       exampleCode="<Lozenge primary>Arrange</Lozenge>"
-      before={require('!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-conditional-rules.js')}
-      after={require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-conditional-rules.js')}>
+      before={
+        require('!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-conditional-rules.js')
+          .default
+      }
+      after={
+        require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-conditional-rules.js')
+          .default
+      }>
       <cssProp.CssPropConditionalRules>Arrange</cssProp.CssPropConditionalRules>
     </Example>
   );

@@ -24,7 +24,7 @@ function requireAllPages() {
     .keys()
     .reduce(
       (acc, filename) =>
-        Object.assign(acc, { [filename]: req(filename).default }),
+        Object.assign(acc, { [filename.replace('./', '')]: req(filename) }),
       {}
     );
 }
@@ -44,8 +44,6 @@ interface Page {
 
 const getSections = () => {
   const pages: Record<string, Page> = requireAllPages();
-  console.log(pages);
-
   const sections: Record<string, (Page & { name: string })[]> = {};
 
   Object.entries(pages)
