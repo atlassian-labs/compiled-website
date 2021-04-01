@@ -18,7 +18,8 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, '../../dist'),
+    publicPath: '/docs/',
+    path: path.resolve(__dirname, '../../dist/docs'),
     filename: isProduction ? '[chunkhash].js' : '[name].js',
   },
 
