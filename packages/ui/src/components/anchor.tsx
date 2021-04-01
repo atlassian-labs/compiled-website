@@ -148,8 +148,10 @@ export const AnchorProvider = ({
     observer.current.observe(element);
   }, []);
 
-  const unlisten = useCallback((element: HTMLElement) => {
-    observer.current.unobserve(element);
+  const unlisten = useCallback((element: HTMLElement | null) => {
+    if (element) {
+      observer.current.unobserve(element);
+    }
   }, []);
 
   const value = useMemo(() => ({ listen, unlisten, selected }), [

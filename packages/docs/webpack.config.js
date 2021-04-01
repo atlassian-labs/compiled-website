@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const { CompiledExtractPlugin } = require('@compiled/webpack-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const frontmatter = require('remark-frontmatter');
+const exportMeta = require('./src/utils/export-meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -16,7 +18,8 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, '../../dist'),
+    publicPath: '/docs/',
+    path: path.resolve(__dirname, '../../dist/docs'),
     filename: isProduction ? '[chunkhash].js' : '[name].js',
   },
 
@@ -30,7 +33,10 @@ module.exports = {
         test: /\.mdx?$/,
         use: [
           { loader: 'babel-loader', options: { rootMode: 'upward-optional' } },
-          '@mdx-js/loader',
+          {
+            loader: '@mdx-js/loader',
+            options: { remarkPlugins: [frontmatter, exportMeta] },
+          },
         ],
       },
       {
