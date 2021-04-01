@@ -24,7 +24,9 @@ function requireAllPages() {
     .keys()
     .reduce(
       (acc, filename) =>
-        Object.assign(acc, { [filename.replace('./', '')]: req(filename) }),
+        Object.assign(acc, {
+          [filename.replace('./', '').replace('.mdx', '')]: req(filename),
+        }),
       {}
     );
 }

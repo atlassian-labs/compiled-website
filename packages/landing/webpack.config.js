@@ -11,6 +11,10 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: { bundle: './src/index.tsx' },
 
+  devServer: {
+    historyApiFallback: true,
+  },
+
   output: {
     path: path.resolve(__dirname, '../../dist'),
     filename: isProduction ? '[chunkhash].js' : '[name].js',
