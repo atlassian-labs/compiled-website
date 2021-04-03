@@ -14,7 +14,9 @@ module.exports = {
   entry: { bundle: './src/index.tsx' },
 
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [{ from: /./, to: '/docs/index.html' }],
+    },
   },
 
   output: {
