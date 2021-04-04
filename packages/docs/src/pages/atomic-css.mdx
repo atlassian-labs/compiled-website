@@ -6,18 +6,19 @@ order: 99
 
 # Atomic CSS
 
-Compiled uses atomic CSS as the delivery mechanism for your styles.
-However when writing your CSS-in-JS you won't even notice that it does!
+Compiled outputs your styles as atomic CSS.
+This page goes over what it is and what behaviors are enabled by using it.
 
-This page goes over what behaviors are possible using atomic CSS.
 If you're just getting started don't feel the need to read this page,
 but if you're interested in understanding more under the hood,
 keep on reading.
 
-## Reducing defined styles
+## What is it
 
-Styles delivered as atomic rules reduces the total amount defined by creating a single rule for every declaration —
+Atomic CSS reduces the total amount defined rules by creating a single rule for every declaration —
 enabling large re-use.
+
+Take a standard rule:
 
 ```css
 .button {
@@ -32,7 +33,7 @@ enabling large re-use.
 <button className="button">Hello world</button>
 ```
 
-This rule transformed to atomic CSS looks like:
+Transformed to atomic CSS every declaration is now a rule:
 
 ```css
 .b-none {
@@ -62,12 +63,13 @@ When other components define the same styles they use the same rules.
 <span className="fs-14">Text</span>
 ```
 
-As your product grows less often new CSS rules need to be created.
+As your product grows rules are created less often.
 
 ## Overriding through composition
 
-When you can't create CSS at runtime enabling [composition of styles](/composition) can seem impossible.
-If nothing was done depending on the order of rendered components you'd get different results.
+Compiled [can't create CSS at runtime](/limitations),
+because of this [composition of styles](/composition) may seem out of reach.
+Naively depending on the order of rendered components you'd get different results.
 
 Using atomic CSS we can encode all the data needed to ensure developers can compose styles together,
 without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
@@ -118,7 +120,7 @@ what happens?
 
 ```jsx
 <div
-  css={`
+  css={css`
     :hover {
       color: blue;
     }
@@ -131,7 +133,7 @@ what happens?
 
 ```jsx
 <div
-  css={`
+  css={css`
     :active {
       color: red;
     }
