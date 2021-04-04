@@ -1,0 +1,67 @@
+---
+section: 5-API
+order: 99
+name: CSS
+---
+
+# CSS
+
+Create styles that can be re-used between components.
+
+```jsx
+import { css } from '@compiled/react';
+
+const largeText = css`
+  font-size: 50px;
+  color: black;
+`;
+```
+
+> **Watch out**<br/>
+> The result of `css` at runtime will be `null`.
+> It can only be used within the context of other Compiled APIs.
+> Use regular JS objects over `css` when wanting to use in other contexts.
+
+## Composition
+
+Combine the result of multiple `css` usages.
+
+```jsx
+import { css } from '@compiled/react';
+
+const largeText = css`
+  font-size: 50px;
+  color: black;
+`;
+
+const pinkText = css`
+  color: pink;
+`;
+```
+
+```jsx
+import '@compiled/react';
+
+<div css={[largeText, pinkText]}>Hello, world!</div>;
+
+<div
+  css={{
+    ...largeText,
+    ...pinkText,
+  }}>
+  Hello, world!
+</div>;
+```
+
+```jsx
+import { styled } from '@compiled/react';
+
+styled.div`
+  ${largeText};
+  ${pinkText};
+`;
+
+styled.div(largeText, pinkText);
+```
+
+Read [composition](/composition) for more information.
