@@ -34,7 +34,7 @@
     "remark-frontmatter": "^2.0.0",
     "unist-util-visit": "^2.0.3",
     "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.0",
+    "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^3.11.2",
     "yaml": "^1.10.2"
   }
