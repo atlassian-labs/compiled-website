@@ -1042,10 +1042,10 @@
     "@babel/traverse" "^7.13.0"
     "@babel/types" "^7.13.0"
 
-"@compiled/babel-plugin@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.9.0.tgz#af3e78527dd5e950b824b4dff629f232f2a3aaf2"
-  integrity sha512-MNgBDnohAnTUSose28u0G9eZd8MDlNKYh9UxSOsKIUh3o5tcLQu4GRwpTLsyWwXd9AfHsC+s2kPbL7A7O/cIDQ==
+"@compiled/babel-plugin@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.10.0.tgz#3ff2762b6d172287a9ac101a1327d5e9c44238e2"
+  integrity sha512-YcKhqFC0MYJ5oUntN3kOdSpOZezDp+TKn2p91cywSOYvGNZz94ctaVK/+rIyissLDANwovGyLaWGmSl5b7AB2Q==
   dependencies:
     "@babel/core" "^7.15.8"
     "@babel/generator" "^7.15.8"
@@ -1090,18 +1090,18 @@
     convert-source-map "^1.7.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.7.0.tgz#ea6cdfee72f02a4fc61f8a4421a8722785b0bbb3"
-  integrity sha512-8N18+hjUCb+Zdk4efWtxyXQ+S2lghjMErPdnG+Im385Y/Oo//zpQUtiqyTbc1+TtMNeQuFV4fHXla19wdmAPbg==
+"@compiled/webpack-loader@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.7.1.tgz#f13630029e68d8fcc37c5672a6233b90297373ff"
+  integrity sha512-nwzrKEt2MvUYIVPQ2Qn2mysSEPiy6byLgvJg1jNt1Mmrm57grKD4ETa7da4FZMYX0hOJzsMugrfcjdGK5oDnSw==
   dependencies:
     "@babel/core" "^7.15.8"
-    "@compiled/babel-plugin" "^0.9.0"
+    "@compiled/babel-plugin" "^0.10.0"
     "@compiled/babel-plugin-strip-runtime" "^0.6.13"
     "@compiled/css" "^0.7.0"
     "@compiled/utils" "^0.6.11"
     enhanced-resolve "^5.8.3"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.1"
     webpack-sources "^1.4.3"
 
 "@discoveryjs/json-ext@^0.5.0":
@@ -4257,7 +4257,7 @@ loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-loader-utils@^2.0.0:
+loader-utils@^2.0.0, loader-utils@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.1.tgz#3b8d4386f42378d6434d32d7bc08e7a52d39575e"
   integrity sha512-g4miPa9uUrZz4iElkaVJgDFwKJGh8aQGM7pUL4ejXl6cu7kSb30seQOVGNMP6sW8j7DW77X68hJZ+GM7UGhXeQ==
