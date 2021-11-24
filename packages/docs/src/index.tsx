@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { StrictMode } from 'react';
+import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import '@compiled/website-ui/global.css';
 import { App } from './components/app';
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <BrowserRouter basename="/docs">
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementsByTagName('body')[0]
 );

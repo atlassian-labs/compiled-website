@@ -1,4 +1,4 @@
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 
 export const LargeText = (props) => (
   <span

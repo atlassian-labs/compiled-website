@@ -1,5 +1,4 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 import { Content, HorizontalStack, Text } from '@compiled/website-ui';
 
 export const Footer = () => (

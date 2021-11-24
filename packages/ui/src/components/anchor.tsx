@@ -1,4 +1,5 @@
-import React, {
+/** @jsxImportSource @compiled/react */
+import {
   createContext,
   useContext,
   useRef,
@@ -8,7 +9,6 @@ import React, {
   useState,
   Ref,
 } from 'react';
-import '@compiled/react';
 import { Text, colors } from '@compiled/website-ui';
 
 interface AnchorContextData {
@@ -27,12 +27,13 @@ export const Anchor = ({ children }: { children: string | string[] }) => {
   const context = useContext(AnchorContext);
   const ref = useRef<HTMLElement | null>(null);
 
-  const id = (typeof children === 'string'
-    ? [children.trim().split(' ').join('-')]
-    : // Somehow children arrays could END with a space.
-      children.filter(
-        (text, index) => !(index === children.length - 1 && text === ' ')
-      )
+  const id = (
+    typeof children === 'string'
+      ? [children.trim().split(' ').join('-')]
+      : // Somehow children arrays could END with a space.
+        children.filter(
+          (text, index) => !(index === children.length - 1 && text === ' ')
+        )
   )
     .filter((child) => typeof child === 'string')
     .map((child) => child.trim().split(' ').join('-'))
@@ -154,11 +155,10 @@ export const AnchorProvider = ({
     }
   }, []);
 
-  const value = useMemo(() => ({ listen, unlisten, selected }), [
-    listen,
-    unlisten,
-    selected,
-  ]);
+  const value = useMemo(
+    () => ({ listen, unlisten, selected }),
+    [listen, unlisten, selected]
+  );
 
   useEffect(() => {
     return () => {

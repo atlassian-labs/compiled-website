@@ -1,5 +1,4 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 import { Github } from './github';
 import { Npm } from './npm';
 

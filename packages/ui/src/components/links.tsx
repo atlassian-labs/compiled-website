@@ -1,6 +1,5 @@
-import * as React from 'react';
+/** @jsxImportSource @compiled/react */
 import { Link } from 'react-router-dom';
-import '@compiled/react';
 import { VerticalStack } from './stack';
 import { Heading } from './heading';
 import { primary } from '../utils/colors';

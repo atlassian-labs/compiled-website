@@ -1,5 +1,4 @@
-import * as React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 
 export const Lozenge = (props) => (
   <span

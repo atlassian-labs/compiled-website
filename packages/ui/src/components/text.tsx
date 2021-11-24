@@ -1,6 +1,5 @@
-import React from 'react';
+/** @jsxImportSource @compiled/react */
 import type { ReactNode, CSSProperties } from 'react';
-import '@compiled/react';
 
 interface TextProps {
   children: ReactNode;

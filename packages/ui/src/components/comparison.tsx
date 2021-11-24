@@ -1,5 +1,4 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 import { HorizontalStack } from './stack';
 import { CodeBlock } from './code-block';
 

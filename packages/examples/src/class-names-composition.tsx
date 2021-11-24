@@ -1,8 +1,8 @@
-import * as React from 'react';
+/** @jsxImportSource @compiled/react */
 import { ClassNames } from '@compiled/react';
 import { ax } from '@compiled/react/runtime';
 
-const EmphasisText = ({ className, children, style }: any) => (
+const EmphasisText = ({ className, children, style }: { className?: string; children?: any; style?: any }) => (
   <ClassNames>
     {({ css }) => (
       <span
