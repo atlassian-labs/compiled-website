@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { ClassNames } from '@compiled/react';
 
 export const Button = ({ children }) => {

@@ -1,5 +1,4 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 
 const rgb = '101, 84, 192';
 const step = 0.0185;

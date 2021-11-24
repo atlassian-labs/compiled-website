@@ -1,4 +1,4 @@
-import * as React from 'react';
+/** @jsxImportSource @compiled/react */
 import { css } from '@compiled/react';
 
 export const EmphasisText = (props) => (

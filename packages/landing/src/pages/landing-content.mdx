@@ -1,4 +1,3 @@
-import '@compiled/react';
 import { ExampleContainer, ExampleRoot } from '@compiled/website-ui';
 import { LargeText } from '../components/example';
 
@@ -9,15 +8,15 @@ write your styles in JavaScript with the **full power of CSS** —
 leveraging the language to create expressive & dynamic experiences.
 
 ```jsx
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 
-export const LargeText = (props) => (
+export const LargeText = ({ color, children }) => (
   <span
     css={{
-      color: props.color,
+      color: color,
       fontSize: 48,
     }}>
-    {props.children}
+    {children}
   </span>
 );
 ```
@@ -51,11 +50,11 @@ import { CC, CS } from '@compiled/react/runtime';
 const _2 = '._syaz4rde{color: var(--_kmurgp)}';
 const _ = '._1wybfyhu{font-size: 48px}';
 
-export const LargeHotPinkText = (props) => (
+export const LargeHotPinkText = ({ color, children }) => (
   <CC>
     <CS>{[_, _2]}</CS>
-    <span style={{ '--_kmurgp': props.color }} className="_syaz4rde _1wybfyhu">
-      {props.children}
+    <span style={{ '--_kmurgp': color }} className="_syaz4rde _1wybfyhu">
+      {children}
     </span>
   </CC>
 );
@@ -80,11 +79,11 @@ webpack 5.26.3 compiled successfully in 1912 ms
 -const _2 = '._syaz4rde{color: var(--_kmurgp)}';
 -const _ = '._1wybfyhu{font-size: 48px}';
 
-export const LargeHotPinkText = (props) => (
+export const LargeHotPinkText = ({ color, children }) => (
 -  <CC>
 -    <CS>{[_, _2]}</CS>
-    <span style={{ '--_kmurgp': props.color }} className="_syaz4rde _1wybfyhu">
-      {props.children}
+    <span style={{ '--_kmurgp': color }} className="_syaz4rde _1wybfyhu">
+      {children}
     </span>
 -  </CC>
 );
@@ -103,4 +102,4 @@ export const LargeHotPinkText = (props) => (
 
 Compiled brings distributed styles from platform,
 product,
-and the wider ecosystem closer.
+and the wider ecosystem together.

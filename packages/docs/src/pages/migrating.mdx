@@ -21,17 +21,14 @@ styled.div`
 `;
 ```
 
-There exists a [codemod](/pkg-cli#styled-components-to-compiled) to streamline this.
-For features that aren't available due to the compile time nature of the library read [limitations](/limitations).
-
 ## Emotion
 
 Replace the imports with `@compiled/react`.
 
 ```diff
--/** @jsx jsx */
+/** @jsx jsx */
 -import { jsx } from '@emotion/core';
-+import '@compiled/react';
++import { jsx } from '@compiled/react';
 
 (props) => (
   <div

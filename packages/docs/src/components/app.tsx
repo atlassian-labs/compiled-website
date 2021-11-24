@@ -1,5 +1,4 @@
-import React from 'react';
-import '@compiled/react';
+/** @jsxImportSource @compiled/react */
 import {
   RootLayout,
   VerticalStack,
@@ -20,15 +19,13 @@ import { titleCase } from '../utils/string';
 
 function requireAllPages() {
   const req = require.context('../pages');
-  return req
-    .keys()
-    .reduce(
-      (acc, filename) =>
-        Object.assign(acc, {
-          [filename.replace('./', '').replace('.mdx', '')]: req(filename),
-        }),
-      {}
-    );
+  return req.keys().reduce(
+    (acc, filename) =>
+      Object.assign(acc, {
+        [filename.replace('./', '').replace('.mdx', '')]: req(filename),
+      }),
+    {}
+  );
 }
 
 interface Page {
