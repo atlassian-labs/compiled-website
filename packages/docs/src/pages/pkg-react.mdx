@@ -13,7 +13,7 @@ import { Lozenge, HorizontalStack } from '@compiled/website-ui';
   <Lozenge>React 17</Lozenge>
 </HorizontalStack>
 
-The primary entrypoint package for Compiled that provides familiar [React](https://reactjs.org/) APIs to style your app.
+The primary entrypoint package for Compiled that provides familiar APIs to style your app.
 
 ```bash
 npm install @compiled/react
@@ -21,12 +21,12 @@ npm install @compiled/react
 
 ## CSS prop
 
-Use [CSS prop](/api-css-prop) to tie styles to an element.
+Use [CSS prop](/api-css-prop) to style a JSX element.
 
 ```jsx
 /** @jsxImportSource @compiled/react */
+import { css } from '@compiled/react';
 
-// Object styles
 <div
   css={{
     fontSize: 12,
@@ -36,61 +36,61 @@ Use [CSS prop](/api-css-prop) to tie styles to an element.
   }}
 />;
 
-// Template literal styles
 <div
-  css={`
+  css={css`
     font-size: 12px;
   `}
 />;
 
-// Array styles
-<div css={[`font-size: 12px;`, isPrimary && { color: 'blue' }]} />;
+<div
+  css={[
+    css`
+      font-size: 12px;
+    `,
+    isPrimary && { color: 'blue' },
+  ]}
+/>;
 ```
 
-## styled
+## Styled
 
-Use [styled](/api-styled) to create a component that ties styles to an element which comes with built-in behavior such as `ref` and `as` prop support.
+Use [styled](/api-styled) to create a component that styles a JSX element which comes with built-in behavior such as `ref` and `as` prop support.
 
 ```jsx
-import { styled } from '@compiled/react';
+import { css, styled } from '@compiled/react';
 
-// Template literal styles
 styled.div`
   font-size: 12px;
   color: ${(props) => props.color};
 `;
 
-// Object styles
 styled.div({
   fontSize: 12,
   color: (props) => props.color,
 });
 
-// Array styles
 styled.div([
-  `
-  font-size: 12px;
-`,
+  css`
+    font-size: 12px;
+  `,
   { color: (props) => props.color },
 ]);
 
-// Multi argument styles
 styled.div(
-  `
-  font-size: 12px;
-`,
+  css`
+    font-size: 12px;
+  `,
   { color: (props) => props.color }
 );
 ```
 
-## ClassNames
+## Class names
 
-Use [ClassNames](/api-class-names) to use a component where styles are not necessarily tied to an element.
+Use [ClassNames](/api-class-names) for when styles are not necessarily used on a JSX element.
 
 ```jsx
-import { ClassNames } from '@compiled/react';
+import { css, ClassNames } from '@compiled/react';
 
-// Object styles
 <ClassNames>
   {({ css, style }) =>
     children({
@@ -100,7 +100,6 @@ import { ClassNames } from '@compiled/react';
   }
 </ClassNames>;
 
-// Template literal styles
 <ClassNames>
   {({ css, style }) =>
     children({
@@ -112,12 +111,16 @@ import { ClassNames } from '@compiled/react';
   }
 </ClassNames>;
 
-// Array styles
 <ClassNames>
   {({ css, style }) =>
     children({
       style,
-      className: css([`font-size: 12px`, { color: 'blue' }]),
+      className: css([
+        css`
+          font-size: 12px;
+        `,
+        { color: 'blue' },
+      ]),
     })
   }
 </ClassNames>;
@@ -125,63 +128,43 @@ import { ClassNames } from '@compiled/react';
 
 ## CSS
 
-Use [`css`](/api-css) to create styles that can be re-used between components.
+Use [`css`](/api-css) to define styles that can be statically typed and useable with other Compiled APIs.
 
 ```jsx
 import { css } from '@compiled/react';
+
+const blackText = css({
+  color: 'black',
+});
 
 const blackText = css`
   color: black;
 `;
 ```
 
-## Runtime
+## Keyframes
 
-Functionality used at runtime,
-such as style reconciliation and atomic class names compositon.
-
-### CC
-
-Ensures the minimum amount of styles are rendered on the server for child `CS` components.
+Use [`keyframes`](/api-keyframes) to define keyframes to be used in a [CSS animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation).
 
 ```jsx
-import { CC } from '@compiled/react/runtime';
+import { keyframes } from '@compiled/react';
 
-<CC></CC>;
-```
+const fadeOut = keyframes({
+  from: {
+    opacity: 1,
+  },
+  to: {
+    opacity: 0,
+  },
+});
 
-### CS
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
 
-Moves child CSS to the head of the document in web browsers,
-and renders an inline `style` element on the server.
-
-```jsx
-import { CS } from '@compiled/react/runtime';
-
-<CS>{['.foo{color:#ff5630;}']}</CS>;
-```
-
-### ax
-
-Concats class names together to ensure uniqueness of atomic groups.
-Similar in functionality to the `cx` function from the [`classnames`](https://github.com/JedWatson/classnames) package,
-optimized for atomic groups.
-
-```tsx
-import { ax } from '@compiled/react/runtime';
-
-ax(['_k48pni7l _syaz18rw', '_syazff21']);
-// "_k48pni7l _syazff21"
-```
-
-### ix
-
-Handles interpolations that may resolve to a falsy value.
-When called with a falsy value an empty CSS variable is returned.
-
-```js
-import { ix } from '@compiled/react/runtime';
-
-ix(true && '#36B37E'); // "#36B37E"
-ix(false && '#36B37E'); // "var(--, )"
+  to {
+    opacity: 0;
+  }
+`;
 ```

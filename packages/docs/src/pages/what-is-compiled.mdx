@@ -8,12 +8,11 @@ import { BeforeHowItWorks, AfterHowItWorks } from '../examples/how-it-works';
 
 # What is Compiled?
 
-Compiled is a familiar and performant compile time [CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) library for [React](https://reactjs.org) with a two-step transformation process that outputs [atomic CSS](/atomic-css).
+Compiled is a familiar and performant compile time [CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) library for [React](https://reactjs.org) with a two-step transformation that outputs [atomic CSS](/atomic-css).
 
 ## Create styles ahead of time
 
-Write your styles in JavaScript or TypeScript and Compiled will **create all styles ahead of time**,
-baking everything the component needs to run.
+Write your styles in JavaScript or TypeScript and Compiled will **create all styles ahead of time** baking everything the component needs to run.
 
 <BeforeHowItWorks />
 
@@ -66,5 +65,4 @@ export const EmphasisText = forwardRef(({ as: C = 'span', style, primary, ...pro
 }
 ```
 
-Resulting in **smaller JavaScript bundles**,
-and even **better peformance**.
+Resulting in **smaller JavaScript bundles** and even **better peformance**.

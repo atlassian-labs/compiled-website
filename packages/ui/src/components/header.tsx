@@ -1,4 +1,4 @@
-import React from 'react';
+/** @jsxImportSource @compiled/react */
 import { styled } from '@compiled/react';
 import { Heading } from './heading';
 

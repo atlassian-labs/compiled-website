@@ -1,6 +1,6 @@
 ---
 section: 5-API
-order: 2
+order: 1
 name: CSS Prop
 ---
 
@@ -16,14 +16,17 @@ import {
 
 # CSS Prop
 
-Tie styles to an element.
-It is available when the `@compiled/react` module is in scope.
+Style a JSX element,
+enabled when a JSX pragma is defined and the JSX element also takes a `className` prop.
 
 <CssPropObj />
 
+> **Don't worry about the pragma**<br />
+> For a streamlined developer experience install the `jsx-pragma` rule from the [ESLint plugin](/pkg-eslint-plugin).
+
 ## Template literal rules
 
-Define your styles as a template literal.
+Write your styles as a template literal.
 Use the [`css`](/api-css) import for better syntax highlighting.
 
 <CssPropString />

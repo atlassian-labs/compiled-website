@@ -1,4 +1,3 @@
-import React from 'react';
 import { cssProp } from '@compiled/website-examples';
 import { Example } from '@compiled/website-ui';
 

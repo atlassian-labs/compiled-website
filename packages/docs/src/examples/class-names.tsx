@@ -1,4 +1,3 @@
-import React from 'react';
 import { classNames } from '@compiled/website-examples';
 import { Example } from '@compiled/website-ui';
 

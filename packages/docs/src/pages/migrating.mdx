@@ -14,40 +14,38 @@ Replace the imports with `@compiled/react`.
 ```diff
 -import styled from 'styled-components';
 +import { styled } from '@compiled/react';
-
-styled.div`
-  font-size: 12px;
-  color: ${props => props.color};
-`;
 ```
+
+There exists a [codemod](/pkg-cli#styled-components-to-compiled) to streamline this.
+For features that aren't available due to the compile time nature of the library read [limitations](/limitations).
 
 ## Emotion
 
 Replace the imports with `@compiled/react`.
 
+> **Incremental adoption**<br />
+> To find every call site to convert install the `no-emotion-css` rule from the [ESLint plugin](/pkg-eslint-plugin).
+
 ```diff
 /** @jsx jsx */
--import { jsx } from '@emotion/core';
-+import { jsx } from '@compiled/react';
+-import { css, jsx } from '@emotion/core';
++import { css, jsx } from '@compiled/react';
+```
 
-(props) => (
-  <div
-    css={{
-      color: 'red',
-      backgroundColor: props.background,
-    }}
-  />
-)
+```diff
+-/** @jsxImportSource @emotion/react */
++/** @jsxImportSource @compiled/react */
 ```
 
 ```diff
 -import styled from '@emotion/styled';
 +import { styled } from '@compiled/react';
+```
 
-styled.div`
-  font-size: 12px;
-  color: ${props => props.color};
-`;
+```diff
+-import { css, ClassNames, keyframes } from '@emotion/core';
+-import { css, ClassNames, keyframes } from '@emotion/react';
++import { css, ClassNames, keyframes } from '@compiled/react';
 ```
 
 There exists a [codemod](/pkg-cli#emotion-to-compiled) to streamline this.
