@@ -177,7 +177,7 @@ export default () => (
           hard
           direction="next"
           section="Getting started">
-          What is Compiled?
+          Installation
         </PageLink>
       </VerticalStack>
     </Content>
