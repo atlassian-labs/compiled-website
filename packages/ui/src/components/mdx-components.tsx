@@ -1,4 +1,4 @@
-import React from 'react';
+/** @jsxImportSource @compiled/react */
 import { styled } from '@compiled/react';
 import {
   VerticalStack,
@@ -117,4 +117,15 @@ export const mdxComponents: MDXProviderComponentsProp = {
   ol: (props) => <VerticalStack as="ol" spacing={4} gap={2} {...props} />,
   ul: (props) => <VerticalStack as="ul" spacing={4} gap={2} {...props} />,
   li: (props) => <Text as="li" {...props} />,
+  td: (props) => (
+    <td>
+      <Text as="td" {...props} />
+    </td>
+  ),
+  th: (props) => (
+    <th>
+      <Text as="th" weight="bold" {...props} />
+    </th>
+  ),
+  table: (props) => <table {...props} css={{ marginTop: '4rem' }} />,
 };

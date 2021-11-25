@@ -1,5 +1,5 @@
 ---
-section: 90-Other guides
+section: 50-Guides
 name: Atomic CSS
 order: 99
 ---
@@ -8,17 +8,15 @@ order: 99
 
 Compiled outputs your styles as atomic CSS.
 This page goes over what it is and what behaviors are enabled by using it.
-
 If you're just getting started don't feel the need to read this page,
-but if you're interested in understanding more under the hood,
-keep on reading.
+but if you're interested in understanding more under-the-hood keep on reading.
 
 ## What is it
 
-Atomic CSS reduces the total amount defined rules by creating a single rule for every declaration —
-enabling large re-use.
+Atomic CSS is a method of reducing the total amount of defined rules by creating a single rule for every declaration —
+enabling large style re-use.
 
-Take a standard rule:
+Take a regular looking style rule:
 
 ```css
 .button {
@@ -58,21 +56,13 @@ Transformed to atomic CSS every declaration is now a rule:
 ```
 
 When other components define the same styles they use the same rules.
-
-```html
-<span className="fs-14">Text</span>
-```
-
-As your product grows rules are created less often.
+As your styles grow rules are created less often.
 
 ## Overriding through composition
 
-Compiled [can't create CSS at runtime](/limitations),
-because of this [composition of styles](/composition) may seem out of reach.
-Naively depending on the order of rendered components you'd get different results.
+Compiled [can't create CSS at runtime](/limitations) and because of this [composition of styles](/composition) may seem out of reach.
 
-Using atomic CSS we can encode all the data needed to ensure developers can compose styles together,
-without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
+Using atomic CSS we can encode all the data needed to ensure developers can compose styles together without the gotchas of [CSS cascade ordering](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance).
 
 Take these two atomic rules:
 
@@ -80,6 +70,7 @@ Take these two atomic rules:
 .color-blue {
   color: blue;
 }
+
 .color-red {
   color: red;
 }
@@ -90,20 +81,14 @@ There are two pieces of data that can be used in the class name.
 1. The atomic group - in this case `color`
 1. The atomic value - in this case `blue` and `red`
 
-> **Group structure** <br /> Atomic groups also include selectors and at rules.
-> The structure of a group is `hash({atrules}{selectors}{propertyname})`.
+> **Group structure** <br /> Atomic groups also include selectors and at rules,
+> the structure of an actual atomic group in Compiled is `hash({atrules}{selectors}{propertyname})`.
 
-Using this data we can ensure that only one atomic group can exist in an elements class name,
-using a small utility called `ax`.
+Using this data and a small utility called `ax` we ensure that only one atomic group can exist in an elements class name,
 
 ```jsx
 <div className={ax(['color-blue', 'color-red'])} />
-```
-
-When executed only `color-red` remains.
-
-```jsx
-<div className="color-red" />
+// <div class="color-red" />
 ```
 
 The last atomic group defined wins.

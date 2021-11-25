@@ -2,6 +2,6 @@
   "presets": ["@babel/preset-typescript"],
   "plugins": [
     "transform-inline-environment-variables",
-    "@compiled/babel-plugin"
+    ["@compiled/babel-plugin", { "importReact": false }]
   ]
 }

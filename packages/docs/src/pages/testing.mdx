@@ -4,9 +4,8 @@ section: 50-Guides
 
 # Testing
 
-> **Baked only**<br />
-> This functionality is only available when styles are baked into the JavaScript.
-> Only [extract styles](/css-extraction-webpack) when building for production.
+> **Runtime only functionality**<br />
+> These testing utils are only available when styles have not been [extracted to a stylesheet](/css-extraction-webpack).
 
 Use the [Jest matcher](https://jestjs.io/docs/en/using-matchers) when writing unit tests to assert style behavior over state changes.
 
@@ -35,7 +34,7 @@ module.exports = {
 ```
 
 The matcher is now globally available for your tests.
-Here we are using [`react-testing-library`](https://github.com/testing-library/react-testing-library).
+Here we are using the assertion with [`react-testing-library`](https://github.com/testing-library/react-testing-library).
 
 ```jsx
 import { render } from '@testing-library/react';
@@ -52,10 +51,23 @@ it('should have small font', () => {
 });
 ```
 
-When writing tests in TypeScript you will probably need to create a `<root>/types/global.d.ts` file and import the jest matcher to enable types.
+## TypeScript
+
+Having types flow through generally requires an extra step.
+First create a `<root>/types/global.d.ts` file and then import the jest matcher to enable types.
 
 ```tsx
 import '@compiled/jest';
+```
+
+Finally add your `/types/` folder as a [type root](https://www.typescriptlang.org/tsconfig#typeRoots).
+
+```json
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules", "./types"]
+  }
+}
 ```
 
 ## Single match

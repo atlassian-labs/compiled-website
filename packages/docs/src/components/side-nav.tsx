@@ -1,4 +1,4 @@
-import React, { cloneElement, Children } from 'react';
+import { cloneElement, Children } from 'react';
 import { styled } from '@compiled/react';
 import { VerticalStack, Heading, colors, Text } from '@compiled/website-ui';
 import { Link } from 'react-router-dom';
