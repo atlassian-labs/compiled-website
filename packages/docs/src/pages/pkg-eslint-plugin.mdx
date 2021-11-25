@@ -6,7 +6,7 @@ name: eslint-plugin
 
 # @compiled/eslint-plugin
 
-Accompanying [ESLint rules](https://eslint.org/docs/user-guide/configuring/configuration-files#using-a-configuration-from-a-plugin) useful when developing with Compiled.
+Accompanying [ESLint rules](https://eslint.org/docs/user-guide/configuring/configuration-files#using-a-configuration-from-a-plugin) useful when writing styles with Compiled.
 
 ```bash
 npm install @compiled/eslint-plugin --save-dev
@@ -23,10 +23,10 @@ module.exports = {
 
 ## Rules
 
-| Name                | Description                                           | Fixer |
-| ------------------- | ----------------------------------------------------- | ----- |
-| [no-emotion-css][1] | Use Compiled instead of Emotion                       | Yes   |
-| [jsx-pragma][2]     | Ensures a jsx pragma is set when using the `css` prop | Yes   |
+| Name                | Description                                           | Fixer | Recommended |
+| ------------------- | ----------------------------------------------------- | ----- | ----------- |
+| [no-emotion-css][1] | Use Compiled instead of Emotion                       | Yes   |             |
+| [jsx-pragma][2]     | Ensures a jsx pragma is set when using the `css` prop | Yes   | Yes         |
 
 [1]: https://github.com/atlassian-labs/compiled/tree/master/packages/eslint-plugin/src/rules/no-emotion-css
 [2]: https://github.com/atlassian-labs/compiled/tree/master/packages/eslint-plugin/src/rules/jsx-pragma
