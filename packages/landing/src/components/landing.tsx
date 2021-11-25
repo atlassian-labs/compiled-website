@@ -173,7 +173,7 @@ export default () => (
 
       <VerticalStack align="right" spacing={10}>
         <PageLink
-          to="docs/what-is-compiled"
+          to="docs/installation"
           hard
           direction="next"
           section="Getting started">
