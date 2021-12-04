@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "workspaces-run": "^1.0.1"
   },
   "workspaces": {
