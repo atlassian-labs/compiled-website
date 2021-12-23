@@ -18,7 +18,7 @@
     "@babel/preset-react": "^7.16.5",
     "@compiled/babel-plugin": "^0.11.3",
     "@compiled/react": "^0.10.1",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "typescript": "^4.5.4"
   }
