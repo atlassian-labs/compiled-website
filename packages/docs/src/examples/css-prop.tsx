@@ -116,7 +116,10 @@ export const CssPropCompositionNoStyle = () => {
 export const CssPropConditionalRules = () => {
   return (
     <Example
-      exampleCode="<Lozenge primary>Arrange</Lozenge>"
+      exampleCode={`
+        <Lozenge primary isBold>Primary</Lozenge>
+        <Lozenge>Secondary</Lozenge>
+      `}
       before={
         require('!!raw-loader!@compiled/website-examples/dist/jsx/css-prop-conditional-rules.js')
           .default
@@ -125,7 +128,10 @@ export const CssPropConditionalRules = () => {
         require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-conditional-rules.js')
           .default
       }>
-      <cssProp.CssPropConditionalRules>Arrange</cssProp.CssPropConditionalRules>
+        <>
+          <cssProp.CssPropConditionalRulesArr primary isBold>Primary</cssProp.CssPropConditionalRulesArr>
+          <cssProp.CssPropConditionalRulesArr>Secondary</cssProp.CssPropConditionalRulesArr>
+        </>
     </Example>
   );
 };
