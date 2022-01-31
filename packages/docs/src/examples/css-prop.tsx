@@ -125,7 +125,7 @@ export const CssPropConditionalRules = () => {
         require('!!raw-loader!@compiled/website-examples/dist/js/css-prop-conditional-rules.js')
           .default
       }>
-      <cssProp.CssPropConditionalRules>Arrange</cssProp.CssPropConditionalRules>
+      <cssProp.CssPropConditionalRules primary>Arrange</cssProp.CssPropConditionalRules>
     </Example>
   );
 };
