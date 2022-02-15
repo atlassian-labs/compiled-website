@@ -59,7 +59,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.16.5", "@babel/core@^7.16.7", "@babel/core@^7.17.2":
+"@babel/core@^7.16.5", "@babel/core@^7.17.2":
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.2.tgz#2c77fc430e95139d816d39b113b31bf40fb22337"
   integrity sha512-R3VH5G42VSDolRHyUO4V2cfag8WHcZyxdq5Z/m8Xyb92lW/Erm/6kM+XtRFGf3Mulre3mveni2NHfEUws8wSvw==
@@ -80,7 +80,7 @@
     json5 "^2.1.2"
     semver "^6.3.0"
 
-"@babel/generator@^7.12.5", "@babel/generator@^7.16.8", "@babel/generator@^7.17.0":
+"@babel/generator@^7.12.5", "@babel/generator@^7.17.0":
   version "7.17.0"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.17.0.tgz#7bd890ba706cd86d3e2f727322346ffdbf98f65e"
   integrity sha512-I3Omiv6FGOC29dtlZhkfXO6pgkmukJSlT26QjVvS1DGZe/NzSVCPG41X0tS21oZkJYlovfj9qDWgKP+Cn4bXxw==
@@ -310,7 +310,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.12.7", "@babel/parser@^7.16.7", "@babel/parser@^7.16.8", "@babel/parser@^7.17.0":
+"@babel/parser@^7.12.7", "@babel/parser@^7.16.7", "@babel/parser@^7.17.0":
   version "7.17.0"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.0.tgz#f0ac33eddbe214e4105363bb17c3341c5ffcc43c"
   integrity sha512-VKXSCQx5D8S04ej+Dqsr1CzYvvWgf20jIw2D+YhQCrIlr2UZGaDds23Y0xg75/skOxpLCRpUZvk/1EAVkGoDOw==
@@ -1061,24 +1061,24 @@
     "@babel/traverse" "^7.16.5"
     "@babel/types" "^7.16.0"
 
-"@compiled/babel-plugin@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.12.0.tgz#576f3d85831ef8e443f489fb848e1a67dfa51136"
-  integrity sha512-iVwIENRGePQSUAIeEN9Eo917V0qm1yeTIvBBYouO04jDwJw+RWV1CRrzPZ5hCkT6f5cRS8fJEh1FRgLG5Cg18g==
+"@compiled/babel-plugin@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.12.1.tgz#c3a694efe6d11da2a01be34f570a0a5ac7267db6"
+  integrity sha512-H/GbAIDLCsSsRuNJICCX0q0Tezfi85q1EGVEvfXQFoBRDACz5+ESrHCnwD4LjfbSVeuKO4t2w//CERtHbfvW9g==
   dependencies:
-    "@babel/core" "^7.16.7"
-    "@babel/generator" "^7.16.8"
+    "@babel/core" "^7.17.2"
+    "@babel/generator" "^7.17.0"
     "@babel/helper-plugin-utils" "^7.16.7"
-    "@babel/parser" "^7.16.8"
+    "@babel/parser" "^7.17.0"
     "@babel/plugin-syntax-jsx" "^7.16.7"
     "@babel/plugin-transform-flow-strip-types" "^7.16.7"
     "@babel/template" "^7.16.7"
-    "@babel/traverse" "^7.16.8"
-    "@babel/types" "^7.16.8"
+    "@babel/traverse" "^7.17.0"
+    "@babel/types" "^7.17.0"
     "@compiled/css" "^0.8.1"
     "@compiled/utils" "^0.6.14"
     "@emotion/is-prop-valid" "^1.1.1"
-    resolve "^1.21.0"
+    resolve "^1.22.0"
 
 "@compiled/css@^0.8.1":
   version "0.8.1"
@@ -1110,13 +1110,13 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.0.tgz#81b48eb7927a2ee90a324c88370037aa05d6f2d0"
-  integrity sha512-xtr0sxmPEfCLkwJ0sxw0e3juzxCNe+pY3oH0ZHmj4ZLVKCft4V44JB2xR/7tw0K+OZ9gzpCaVINMP5SpE0RZbg==
+"@compiled/webpack-loader@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.1.tgz#7ba6d28e2fdf20862d4cf5c8a64df4de2c6e73df"
+  integrity sha512-JPNMIzBOgrAftsIn5zzDQwfpQRmCkJ+ngnepu3IKeu7MOPTfaKMiFU5QljBy/rHpihEToLshkGGQwk1IqFnmhQ==
   dependencies:
-    "@babel/core" "^7.16.7"
-    "@compiled/babel-plugin" "^0.12.0"
+    "@babel/core" "^7.17.2"
+    "@compiled/babel-plugin" "^0.12.1"
     "@compiled/babel-plugin-strip-runtime" "^0.11.4"
     "@compiled/css" "^0.8.1"
     "@compiled/react" "0.10.2"
@@ -5641,7 +5641,7 @@ resolve-url@^0.2.1:
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.10.0, resolve@^1.14.2, resolve@^1.21.0, resolve@^1.3.2, resolve@^1.9.0:
+resolve@^1.10.0, resolve@^1.14.2, resolve@^1.22.0, resolve@^1.3.2, resolve@^1.9.0:
   version "1.22.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.0.tgz#5e0b8c67c15df57a89bdbabe603a002f21731198"
   integrity sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==
