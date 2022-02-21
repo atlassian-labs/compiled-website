@@ -1111,12 +1111,12 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.1.tgz#7ba6d28e2fdf20862d4cf5c8a64df4de2c6e73df"
-  integrity sha512-JPNMIzBOgrAftsIn5zzDQwfpQRmCkJ+ngnepu3IKeu7MOPTfaKMiFU5QljBy/rHpihEToLshkGGQwk1IqFnmhQ==
+"@compiled/webpack-loader@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.2.tgz#f24716be28fe99f3f38ebd863c022137d060a946"
+  integrity sha512-vPas6wxQS/g+KeDtSEm1a1JJUmlUyMHcJRxMiUK3b2vC+eR+qgs4GsBsn89A3VQF/p2BquivZ+oqmKtJUa4DQg==
   dependencies:
-    "@babel/core" "^7.17.2"
+    "@babel/core" "^7.17.5"
     "@compiled/babel-plugin" "^0.12.1"
     "@compiled/babel-plugin-strip-runtime" "^0.11.4"
     "@compiled/css" "^0.8.1"
