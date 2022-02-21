@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@compiled/react": "^0.10.2",
-    "@compiled/webpack-loader": "^0.8.1",
+    "@compiled/webpack-loader": "^0.8.2",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/loader": "^1.6.22",
