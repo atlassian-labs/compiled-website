@@ -60,7 +60,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.16.5", "@babel/core@^7.17.2", "@babel/core@^7.17.5":
+"@babel/core@^7.16.5", "@babel/core@^7.17.5":
   version "7.17.5"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.17.5.tgz#6cd2e836058c28f06a4ca8ee7ed955bbf37c8225"
   integrity sha512-/BBMw4EvjmyquN5O+t5eh0+YqB3XXJkYD2cjKpYtWOfFy4lQ4UozNSmxAcWT8r2XtZs0ewG+zrfsqeR15i1ajA==
@@ -81,7 +81,7 @@
     json5 "^2.1.2"
     semver "^6.3.0"
 
-"@babel/generator@^7.12.5", "@babel/generator@^7.17.0", "@babel/generator@^7.17.3":
+"@babel/generator@^7.12.5", "@babel/generator@^7.17.3":
   version "7.17.3"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.17.3.tgz#a2c30b0c4f89858cb87050c3ffdfd36bdf443200"
   integrity sha512-+R6Dctil/MgUsZsZAkYgK+ADNSZzJRRy0TvY65T71z/CR854xHQ1EweBYXdfT+HNeN7w0cSJJEzgxZMv40pxsg==
@@ -311,7 +311,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.12.7", "@babel/parser@^7.16.7", "@babel/parser@^7.17.0", "@babel/parser@^7.17.3":
+"@babel/parser@^7.12.7", "@babel/parser@^7.16.7", "@babel/parser@^7.17.3":
   version "7.17.3"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.3.tgz#b07702b982990bf6fdc1da5049a23fece4c5c3d0"
   integrity sha512-7yJPvPV+ESz2IUTPbOL+YkIGyCqOyNIzdguKQuJGnH7bg1WTIifuM21YqokFt/THWh1AkCRn9IgoykTRCBVpzA==
@@ -1062,23 +1062,23 @@
     "@babel/traverse" "^7.16.5"
     "@babel/types" "^7.16.0"
 
-"@compiled/babel-plugin@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.12.1.tgz#c3a694efe6d11da2a01be34f570a0a5ac7267db6"
-  integrity sha512-H/GbAIDLCsSsRuNJICCX0q0Tezfi85q1EGVEvfXQFoBRDACz5+ESrHCnwD4LjfbSVeuKO4t2w//CERtHbfvW9g==
+"@compiled/babel-plugin@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.13.0.tgz#bb63a9eb00bee2502c7434296d4c9ce93442a61d"
+  integrity sha512-UNW8A22tCuu9LzHsb73vJ4dhuSTNvOMw6EHk27Kndk53IR8YMAfXWlQhkJSsKppaXhAK9mfrIY60D4mVtrZdfQ==
   dependencies:
-    "@babel/core" "^7.17.2"
-    "@babel/generator" "^7.17.0"
+    "@babel/core" "^7.17.5"
+    "@babel/generator" "^7.17.3"
     "@babel/helper-plugin-utils" "^7.16.7"
-    "@babel/parser" "^7.17.0"
+    "@babel/parser" "^7.17.3"
     "@babel/plugin-syntax-jsx" "^7.16.7"
     "@babel/plugin-transform-flow-strip-types" "^7.16.7"
     "@babel/template" "^7.16.7"
-    "@babel/traverse" "^7.17.0"
+    "@babel/traverse" "^7.17.3"
     "@babel/types" "^7.17.0"
     "@compiled/css" "^0.8.1"
     "@compiled/utils" "^0.6.14"
-    "@emotion/is-prop-valid" "^1.1.1"
+    "@emotion/is-prop-valid" "^1.1.2"
     resolve "^1.22.0"
 
 "@compiled/css@^0.8.1":
@@ -1111,13 +1111,13 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.2.tgz#f24716be28fe99f3f38ebd863c022137d060a946"
-  integrity sha512-vPas6wxQS/g+KeDtSEm1a1JJUmlUyMHcJRxMiUK3b2vC+eR+qgs4GsBsn89A3VQF/p2BquivZ+oqmKtJUa4DQg==
+"@compiled/webpack-loader@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.3.tgz#3763591f5fa757d80df6b75ae3fe229b51863b89"
+  integrity sha512-AC8PVKedJopsQhnoUk4Fa37WwxzPEf0POKIOWz5gjttMk80AOTLNToOYGLk/QjBtvhFWwWZjhT7JjT5S4YnRvA==
   dependencies:
     "@babel/core" "^7.17.5"
-    "@compiled/babel-plugin" "^0.12.1"
+    "@compiled/babel-plugin" "^0.13.0"
     "@compiled/babel-plugin-strip-runtime" "^0.11.4"
     "@compiled/css" "^0.8.1"
     "@compiled/react" "0.10.2"
@@ -1131,7 +1131,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
-"@emotion/is-prop-valid@^1.1.1":
+"@emotion/is-prop-valid@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.1.2.tgz#34ad6e98e871aa6f7a20469b602911b8b11b3a95"
   integrity sha512-3QnhqeL+WW88YjYbQL5gUIkthuMw7a0NGbZ7wfFVk2kg/CK5w8w5FFa0RzWjyY1+sujN0NWbtSHH6OJmWHtJpQ==
