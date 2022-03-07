@@ -1096,10 +1096,10 @@
     postcss-selector-parser "^6.0.8"
     postcss-values-parser "^6.0.1"
 
-"@compiled/react@0.10.2", "@compiled/react@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.10.2.tgz#e1e3442a4b7e70a1da9271544ab63427ecc824b3"
-  integrity sha512-4RG03QTQmtiLHm+C7C+lGljma6mr8zpxUkCxUtBMYWV1r2n7Xhh3qw1/UkHTGX23yso/LglS2CdeVsmOd86XRg==
+"@compiled/react@0.10.3", "@compiled/react@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.10.3.tgz#ec5385da9c1c54a2b979ef6b60b4303aba7a0d13"
+  integrity sha512-uU0Kooh4ErWakbmf+znDRDlRA8G/cYmh1OKYvpkXaRTkgxNgy9uLhXMJ9tmB/34yeouJsCrsvSOxvKTDTfnqDA==
   dependencies:
     csstype "^3.0.10"
 
@@ -1111,16 +1111,16 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.8.3":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.3.tgz#3763591f5fa757d80df6b75ae3fe229b51863b89"
-  integrity sha512-AC8PVKedJopsQhnoUk4Fa37WwxzPEf0POKIOWz5gjttMk80AOTLNToOYGLk/QjBtvhFWwWZjhT7JjT5S4YnRvA==
+"@compiled/webpack-loader@^0.8.4":
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.8.4.tgz#dd35e04b5c345773a7b576bc0efc033c4b4c6e20"
+  integrity sha512-OBrx/437toX3VQIEf969hNvvwzDQr4YAi0kSNMR4CNNe/iCbAZedK7WJ0hjHalBeCMSRBTNvGzqkfrugHlgqig==
   dependencies:
     "@babel/core" "^7.17.5"
     "@compiled/babel-plugin" "^0.13.0"
     "@compiled/babel-plugin-strip-runtime" "^0.11.4"
     "@compiled/css" "^0.8.1"
-    "@compiled/react" "0.10.2"
+    "@compiled/react" "0.10.3"
     "@compiled/utils" "^0.6.14"
     enhanced-resolve "^5.8.3"
     loader-utils "^2.0.2"
