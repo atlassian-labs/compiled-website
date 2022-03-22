@@ -21,7 +21,7 @@
     "@types/react-dom": "^17.0.14",
     "@types/react-router-dom": "^5.3.3",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "html-webpack-plugin": "^5.5.0",
