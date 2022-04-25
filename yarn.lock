@@ -1302,10 +1302,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.26.tgz#1bbff9b23ee5a64f87b4f30c0c854b112ee2e635"
   integrity sha512-z/FG/6DUO7pnze3AE3TBGIjGGKkvCcGcWINe1C7cADY8hKLJPDYpzsNE37uExQ4md5RFtTCvg+M8Mu1Enyeg2A==
 
-"@types/node@^16.11.28":
-  version "16.11.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.28.tgz#4c16c266882b1cbd268719ea6c7c8ff3c60aae39"
-  integrity sha512-l/y1ZZpWqevemVQmk0Q1TPohlJTul7u9ysq3bw6xlRDO8z+98JBI6gp4JS0OK8YkWUdYxnJU35H4vOzuiOFIag==
+"@types/node@^16.11.29":
+  version "16.11.29"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.29.tgz#2422b0bf46afb2568dc71df903afa36f56bab8ea"
+  integrity sha512-9dDdonLyPJQJ/kdOlDxAah+bTI+u2ccF3k62FErhquDuggoCX6piWez7j7o6yNE+rP2IRcZVQ6Tw4N0P38+rWA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -1322,10 +1322,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-dom@^17.0.15":
-  version "17.0.15"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.15.tgz#f2c8efde11521a4b7991e076cb9c70ba3bb0d156"
-  integrity sha512-Tr9VU9DvNoHDWlmecmcsE5ZZiUkYx+nKBzum4Oxe1K0yJVyBlfbq7H3eXjxXqJczBKqPGq3EgfTru4MgKb9+Yw==
+"@types/react-dom@^17.0.16":
+  version "17.0.16"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.16.tgz#7caba93cf2806c51e64d620d8dff4bae57e06cc4"
+  integrity sha512-DWcXf8EbMrO/gWnQU7Z88Ws/p16qxGpPyjTKTpmBSFKeE+HveVubqGO1CVK7FrwlWD5MuOcvh8gtd0/XO38NdQ==
   dependencies:
     "@types/react" "^17"
 
