@@ -68,6 +68,12 @@ Enables baking your styles into JavaScript.
 
 Defaults to `true`.
 
+### ssr: boolean
+To be used in conjunction with `extract: true` when having a different configuration for SSR.
+When set will prevent additional require (one import per rule) in the bundle during style sheet extraction.
+
+Defaults to `false`.
+
 ## CompiledExtractPlugin
 
 Plugin to be used when the `extract` option is set to `true`.
@@ -108,5 +114,15 @@ As a performance optimization you can exclude paths by [passing a webpack condit
 ```js
 new CompiledExtractPlugin({
   nodeModulesExclude: [require.resolve('@atlaskit/button')],
+});
+```
+
+### cacheGroupExclude: boolean
+To be used in conjunction with `extract: true` when having a different configuration for SSR.
+This will prevent the additional `cacheGroup` chunk to be created during style sheet extraction; compiled-css files should be only generated in the client-side.
+
+```js
+new CompiledExtractPlugin({
+  cacheGroupExclude: true
 });
 ```
