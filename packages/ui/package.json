@@ -5,7 +5,7 @@
   "source": "./src/index.tsx",
   "scripts": {},
   "dependencies": {
-    "@babel/core": "^7.17.12",
+    "@babel/core": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@compiled/babel-plugin": "^0.15.0",
