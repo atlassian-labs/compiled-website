@@ -32,3 +32,10 @@ Configure in your Babel config.
 ### onFoundStyleRules: (rules: string[]) => void
 
 Will callback at the end of a file pass with all found style rules.
+
+### compiledRequireExclude: boolean
+When set will prevent additional require (one import per rule) in the bundle.
+This could be used when enabling style sheet extraction in a different configuration for SSR.
+
+Defaults to `false`.
+
