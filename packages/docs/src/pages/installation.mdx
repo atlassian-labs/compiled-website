@@ -52,35 +52,21 @@ See the [loader package docs](/pkg-webpack-loader) for configuration options.
 
 ## Parcel
 
-> **Pre-release** <br />
-> Parcel v2 is currently in pre-release which makes this transformer experimental,
-> it may break when updating Parcel.
-> Use with caution.
-
-Install the [Parcel v2](https://v2.parceljs.org) transformer.
+Install the [Parcel v2](https://v2.parceljs.org) configuration.
 
 ```bash
 npm install @compiled/parcel-transformer --save-dev
 ```
 
-Add the transformer to your [Parcel config](https://v2.parceljs.org/configuration/plugin-configuration/).
-Make sure this is defined before other transformers so it runs first.
+Add the compiled preset to your [Parcel config](https://v2.parceljs.org/configuration/plugin-configuration/).
+Make sure this is defined before other parcel configurations so that it runs first.
 
 ```json
 {
-  "extends": "@parcel/config-default",
-  "transformers": {
-    "*.{js,jsx,ts,tsx}": [
-      // ↓↓ defined first ↓↓
-      "@compiled/parcel-transformer",
-      "@parcel/transformer-babel",
-      "@parcel/transformer-js"
-    ]
-  }
+  "extends": ["...", "@compiled/parcel-config"]
 }
-```
 
-See the [transformer package docs](/pkg-parcel-transformer) for configuration options.
+See the [configuration package docs](/pkg-parcel-config) for configuration options.
 
 ## Babel
 

@@ -69,10 +69,83 @@ Enables baking your styles into JavaScript.
 Defaults to `true`.
 
 ### ssr: boolean
+
 To be used in conjunction with `extract: true` when having a different configuration for SSR.
 When set will prevent additional require (one import per rule) in the bundle during style sheet extraction.
 
 Defaults to `false`.
+
+### transformerBabelPlugins: PluginItem[]
+
+Babel transformer plugins to be applied to transformed files before the Compiled evaluation.
+
+Use this if you have some sort of babel plugin that should run before Compiled,
+likely because you have some sort of non-standard syntax in your code.
+See the [babel docs](https://babeljs.io/docs/en/plugins/#transform-plugins) for more context.
+
+Example usage:
+
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              transformerBabelPlugins: [
+                [
+                  '@babel/plugin-proposal-decorators',
+                  {
+                    legacy: true,
+                  },
+                ],
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+Defaults to none.
+
+### parserBabelPlugins: ParserPlugin[]
+
+Babel parser plugins to be used when parsing the source code. Define these to enable extra babel parsers (for example, typescript).
+See the [babel docs](https://babeljs.io/docs/en/plugins/#syntax-plugins) for more context.
+
+Example usage:
+
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              parserBabelPlugins: ['typescript'],
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
 
 ## CompiledExtractPlugin
 
@@ -118,11 +191,12 @@ new CompiledExtractPlugin({
 ```
 
 ### cacheGroupExclude: boolean
+
 To be used in conjunction with `extract: true` when having a different configuration for SSR.
 This will prevent the additional `cacheGroup` chunk to be created during style sheet extraction; compiled-css files should be only generated in the client-side.
 
 ```js
 new CompiledExtractPlugin({
-  cacheGroupExclude: true
+  cacheGroupExclude: true,
 });
 ```
