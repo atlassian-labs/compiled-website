@@ -59,12 +59,12 @@ npm install @compiled/parcel-config --save-dev
 ```
 
 Add the compiled preset to your [Parcel config](https://v2.parceljs.org/configuration/plugin-configuration/).
-Make sure this is defined before other parcel configurations so that it runs first.
 
 ```json
 {
-  "extends": ["...", "@compiled/parcel-config"]
+  "extends": ["@parcel/config-default", "@compiled/parcel-config"]
 }
+```
 
 See the [configuration package docs](/pkg-parcel-config) for configuration options.
 
