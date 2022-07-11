@@ -1066,10 +1066,10 @@
     "@babel/types" "^7.17.10"
     "@compiled/utils" "^0.6.16"
 
-"@compiled/babel-plugin@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.0.tgz#323e29fbbd9845dd864192ccdb48a2b4da9c28ed"
-  integrity sha512-eGN1HGz/r2fs+P7nXeOIP6RIeoYxEK2pWuGHpl3pD/kmFqi1fvYgRh+/F1jTOIKwJ1rH9ezFwaCBkPwp/oWZCg==
+"@compiled/babel-plugin@^0.16.0", "@compiled/babel-plugin@^0.16.1":
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.1.tgz#e8ee7dcf5ca1c20d43fab791e27a95630a78f827"
+  integrity sha512-L2pqfdwY/MW+BCne+BUrjTLJMpoZ3wxYIkIFBwBXtS0MSk+Z31DMh+OEyvPJ1gGQu/WvP5AHlruCjn2c3ETdvg==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/generator" "^7.17.10"
@@ -1082,7 +1082,7 @@
     "@babel/types" "^7.17.10"
     "@compiled/css" "^0.8.3"
     "@compiled/utils" "^0.6.16"
-    "@emotion/is-prop-valid" "^1.1.2"
+    "@emotion/is-prop-valid" "^1.1.3"
     resolve "^1.22.0"
 
 "@compiled/css@^0.8.3":
@@ -1135,7 +1135,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@emotion/is-prop-valid@^1.1.2":
+"@emotion/is-prop-valid@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.1.3.tgz#f0907a416368cf8df9e410117068e20fe87c0a3a"
   integrity sha512-RFg04p6C+1uO19uG8N+vqanzKqiM9eeV1LDOG3bmkYmuOj7NbKNlFC/4EZq5gnwAIlcC/jOT24f8Td0iax2SXA==
