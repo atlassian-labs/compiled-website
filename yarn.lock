@@ -1066,10 +1066,10 @@
     "@babel/types" "^7.17.10"
     "@compiled/utils" "^0.6.16"
 
-"@compiled/babel-plugin@^0.16.0", "@compiled/babel-plugin@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.1.tgz#e8ee7dcf5ca1c20d43fab791e27a95630a78f827"
-  integrity sha512-L2pqfdwY/MW+BCne+BUrjTLJMpoZ3wxYIkIFBwBXtS0MSk+Z31DMh+OEyvPJ1gGQu/WvP5AHlruCjn2c3ETdvg==
+"@compiled/babel-plugin@^0.16.0", "@compiled/babel-plugin@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.2.tgz#5a323b3efc2bf22ec6d75aab7509ff3137e9abee"
+  integrity sha512-v4YbO8WoLbik2u1FzgczB5xBzVXSmVZ0Zgs2zuJHlMKLJzl/og9XQWSJaRy5pzGhClQ7KAJte0JsdFO0cnsVlQ==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/generator" "^7.17.10"
