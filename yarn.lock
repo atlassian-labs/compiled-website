@@ -1071,10 +1071,10 @@
     "@babel/types" "^7.17.10"
     "@compiled/utils" "^0.6.16"
 
-"@compiled/babel-plugin@^0.16.3":
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.3.tgz#b9bab8b2dea32fbc58ac76dcf1e203ca17436fe6"
-  integrity sha512-bbD1HB7KG+d6GBASGij14l81J3PLaL+zNmZGBTPkGvmv8vGaf2D2KeUgvqSeOgxjFqF8YAnZibUzQKoOoeOjIg==
+"@compiled/babel-plugin@^0.16.3", "@compiled/babel-plugin@^0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.4.tgz#be77e88fda5556f61b68c0ddf3e04a7057221eeb"
+  integrity sha512-XeKbOyHlYfJsD6oJOG+xAhBHVIysrUrpQnytWy1xFSdAoUoM8UM2N3vv2cCKneqwfDUfUZRCll2lHNHdMXPL4A==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/generator" "^7.17.10"
@@ -1085,15 +1085,15 @@
     "@babel/template" "^7.16.7"
     "@babel/traverse" "^7.17.10"
     "@babel/types" "^7.17.10"
-    "@compiled/css" "^0.8.4"
+    "@compiled/css" "^0.8.5"
     "@compiled/utils" "^0.6.16"
     "@emotion/is-prop-valid" "^1.2.0"
     resolve "^1.22.0"
 
-"@compiled/css@^0.8.4":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.8.4.tgz#e966d76f634425a5f93f634c929a64d0d7dd9ae2"
-  integrity sha512-c/1D0tTAJdQP7uyaCLbBqxv+2LTbIk3CGX2L31UueA8cYTgSEN56d1+8vY8W5Z/24coSbz6LZW7fSkXHx+eHSg==
+"@compiled/css@^0.8.4", "@compiled/css@^0.8.5":
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.8.5.tgz#b0a3174299740c62bb733a4ec480dd47d488caee"
+  integrity sha512-/oNAFulv+l9MuL2ca22YXuJ6DiTiwNIG9scOCByb2bbypPQE0SPq0EoLORZ2ZvuCd6F27ztrLlwtRS6kqzG1lA==
   dependencies:
     "@compiled/utils" "^0.6.16"
     autoprefixer "^10.4.7"

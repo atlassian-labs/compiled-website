@@ -8,7 +8,7 @@
     "@babel/core": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "@compiled/babel-plugin": "^0.16.3",
+    "@compiled/babel-plugin": "^0.16.4",
     "@compiled/react": "^0.11.0",
     "@types/react": "^17.0.49",
     "@types/react-dom": "^17.0.17",
