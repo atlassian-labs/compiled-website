@@ -30,7 +30,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.3",
-    "typescript": "^4.8.2",
+    "typescript": "^4.8.3",
     "remark-frontmatter": "^2.0.0",
     "unist-util-visit": "^2.0.3",
     "webpack": "^5.74.0",
