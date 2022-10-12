@@ -1071,10 +1071,10 @@
     "@babel/types" "^7.17.10"
     "@compiled/utils" "^0.6.16"
 
-"@compiled/babel-plugin@^0.16.3", "@compiled/babel-plugin@^0.16.4":
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.4.tgz#be77e88fda5556f61b68c0ddf3e04a7057221eeb"
-  integrity sha512-XeKbOyHlYfJsD6oJOG+xAhBHVIysrUrpQnytWy1xFSdAoUoM8UM2N3vv2cCKneqwfDUfUZRCll2lHNHdMXPL4A==
+"@compiled/babel-plugin@^0.16.5":
+  version "0.16.5"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.16.5.tgz#fd326806a42d64fdf7fbfe26fff122ad66f1d36e"
+  integrity sha512-mDYK66AKakn0ezd8mJr6Ep0W0Mor1jPBjOeq3jpb8+t+dM5R6alPiPuleMgev3C1k/KmpXHUZVpGYH91h81dWg==
   dependencies:
     "@babel/core" "^7.17.10"
     "@babel/generator" "^7.17.10"
@@ -1105,10 +1105,10 @@
     postcss-selector-parser "^6.0.10"
     postcss-values-parser "^6.0.2"
 
-"@compiled/react@0.11.0", "@compiled/react@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.11.0.tgz#7641faea1051481dee0c96f9b96222f3becb1e65"
-  integrity sha512-SY5/lsy7nWRMcCydUp10XPgHlF3uEVe93I6DMhDxoMwFwAoeR2HY7gWLtRd2YJXLzrH99SwVvf+INZ0IY2XbNg==
+"@compiled/react@0.11.1", "@compiled/react@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.11.1.tgz#f640ed74ccc480b81c0f0c6753c6a8e45b3e72a4"
+  integrity sha512-R719Jtaze+j8oQsMm+xEBT533DOIAPeEIdZvea/WZFnkbuXzggOrS2Gmch/K6Uc7Bjs4pOB96+QZttRJKcZiwg==
   dependencies:
     csstype "^3.1.0"
 
@@ -1120,16 +1120,16 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.9.2":
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.9.2.tgz#e1c7c280287f7b07208465c9935f45ae28ff6839"
-  integrity sha512-+5qIINBD61STJDofb/2LL8/d/9avKyEnawRriGOLZqgR6KYkHKKn9A1tmBHV5MAd7ByOzujedT1TWOpGgBBMnQ==
+"@compiled/webpack-loader@^0.9.3":
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.9.3.tgz#f8c4f65f12dbebd68a3950f9a47987cc736c8010"
+  integrity sha512-wsc9ZE5VqWHFGE9EOaQmLDrFaXbH9ZHFF88P5OGDKxhDL6XmejOJr3HkgF56lpRs1LTuyom07f3p/E45uIj7UQ==
   dependencies:
     "@babel/core" "^7.17.10"
-    "@compiled/babel-plugin" "^0.16.3"
+    "@compiled/babel-plugin" "^0.16.5"
     "@compiled/babel-plugin-strip-runtime" "^0.16.0"
     "@compiled/css" "^0.8.4"
-    "@compiled/react" "0.11.0"
+    "@compiled/react" "0.11.1"
     "@compiled/utils" "^0.6.16"
     enhanced-resolve "^5.10.0"
     loader-utils "^2.0.2"
