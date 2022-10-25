@@ -114,3 +114,22 @@ Defaults to `['.js', '.jsx', '.ts', '.tsx']`.
 Add the component name as class name to DOM in non-production environment if styled is used.
 
 Default to `false`
+
+### resolve: ResolveOptions
+
+Override the default `resolve` used by @compiled/babel-plugin, which is used to statically evaluate import declarations.
+
+Example usage:
+
+```json
+// .compiledcssrc
+{
+  "resolve": {
+    "mainFields": ["module:es2019", "browser", "module", "main"]
+  }
+}
+```
+
+See [enhanced-resolver docs](https://github.com/webpack/enhanced-resolve#resolver-options) for more options.
+
+Defaults to none.
