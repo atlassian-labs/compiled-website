@@ -108,3 +108,22 @@ Defaults to `false`.
 Extensions that we should consider code. We use these to identify if a file should be parsed.
 
 Defaults to `['.js', '.jsx', '.ts', '.tsx']`.
+
+### resolve: ResolveOptions
+
+Override the default `resolve` used by @compiled/babel-plugin, which is used to statically evaluate import declarations.
+
+Example usage:
+
+```json
+// .compiledcssrc
+{
+  "resolve": {
+    "mainFields": ["module:es2019", "browser", "module", "main"]
+  }
+}
+```
+
+See [enhanced-resolver docs](https://github.com/webpack/enhanced-resolve#resolver-options) for more options.
+
+Defaults to none.
