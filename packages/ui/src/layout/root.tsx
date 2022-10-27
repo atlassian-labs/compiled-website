@@ -67,9 +67,9 @@ export const RootLayout = ({
               <Text variant="aside">Documentation</Text>
             </Link>
             <Link
-              title="Github"
+              title="GitHub"
               href="https://github.com/atlassian-labs/compiled">
-              <Text variant="aside">Github</Text>
+              <Text variant="aside">GitHub</Text>
             </Link>
           </HorizontalStack>
         </nav>
