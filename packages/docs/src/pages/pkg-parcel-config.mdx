@@ -111,6 +111,7 @@ Extensions that we should consider code. We use these to identify if a file shou
 
 Defaults to `['.js', '.jsx', '.ts', '.tsx']`.
 
+
 ### inlineCss: boolean
 
 Indicates whether CSS content is inlined in HTML or served as a external .css file when the styleshset extraction is enabled.
@@ -118,3 +119,21 @@ Indicates whether CSS content is inlined in HTML or served as a external .css fi
 Defaults to `false`.
 
 
+### resolve: ResolveOptions
+
+Override the default `resolve` used by @compiled/babel-plugin, which is used to statically evaluate import declarations.
+
+Example usage:
+
+```json
+// .compiledcssrc
+{
+  "resolve": {
+    "mainFields": ["module:es2019", "browser", "module", "main"]
+  }
+}
+```
+
+See [enhanced-resolver docs](https://github.com/webpack/enhanced-resolve#resolver-options) for more options.
+
+Defaults to none.
