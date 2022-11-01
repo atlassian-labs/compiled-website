@@ -88,6 +88,8 @@ Defaults to none.
 
 Enables the stylesheet extraction feature. When enabled, Compiled react components will be removed and the css will be extracted into a single CSS stylesheet.
 
+The stylesheet extraction feature is disabled on local development due to [known issue](https://github.com/atlassian-labs/compiled/issues/1306).
+
 Defaults to `false`.
 
 ### ssr: boolean
@@ -108,3 +110,11 @@ Defaults to `false`.
 Extensions that we should consider code. We use these to identify if a file should be parsed.
 
 Defaults to `['.js', '.jsx', '.ts', '.tsx']`.
+
+### inlineCSS: boolean
+
+Indicates whether CSS content is inlined in HTML or served as a external .css file when the styleshset extraction is enabled.
+
+Defaults to `false`.
+
+
