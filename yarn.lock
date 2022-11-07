@@ -1117,10 +1117,10 @@
     convert-source-map "^1.8.0"
     source-map "^0.7.3"
 
-"@compiled/webpack-loader@^0.9.4":
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.9.4.tgz#f2b67c89e0f02ef7af524290e658f291ab356cd0"
-  integrity sha512-TKPOBXtzDdtv52LHDhvso/oX1vc9fP++pzW3JhPi8VKIdoQ8MJrlLEkwKJ2L49cConcTzL/0i53NO4GgoQ9h+A==
+"@compiled/webpack-loader@^0.9.5":
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.9.5.tgz#1a0a7052d96ad21a372d5c48d2ebb9a713fce5de"
+  integrity sha512-mbTC/2JOnxqODxUOig1a11lNNVkvolhVk+2jHps37QePAOSNI6GrfO4TcC3EZDyX9QxyM+p5Cv1VwPS5hJ3cvg==
   dependencies:
     "@babel/core" "^7.17.10"
     "@compiled/babel-plugin" "^0.16.5"
@@ -1129,7 +1129,7 @@
     "@compiled/react" "0.11.1"
     "@compiled/utils" "^0.6.16"
     enhanced-resolve "^5.10.0"
-    loader-utils "^2.0.2"
+    loader-utils "^2.0.3"
     webpack-sources "^3.2.3"
 
 "@discoveryjs/json-ext@^0.5.0":
@@ -4097,7 +4097,7 @@ loader-utils@2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-loader-utils@^2.0.0, loader-utils@^2.0.2:
+loader-utils@^2.0.0, loader-utils@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.3.tgz#d4b15b8504c63d1fc3f2ade52d41bc8459d6ede1"
   integrity sha512-THWqIsn8QRnvLl0shHYVBN9syumU8pYWEHPTmkiVGd+7K5eFNVSY6AJhRvgGF70gg1Dz+l/k8WicvFCxdEs60A==
