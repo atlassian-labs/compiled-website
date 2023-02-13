@@ -1097,9 +1097,9 @@
     resolve "^1.22.0"
 
 "@compiled/css@^0.8.8":
-  version "0.8.9"
-  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.8.9.tgz#3b6ebe1eeaca9f67ee762b697c3634de36b50da0"
-  integrity sha512-BRV7gwch6bKCMDDTHTccP6AWiLOaPZoOyNJxoo93P51XC9zG21/j+6qAIbSa3WW4DoGNsFNgbvSzQgN70uzD/A==
+  version "0.8.10"
+  resolved "https://registry.yarnpkg.com/@compiled/css/-/css-0.8.10.tgz#56fd2e9724a23b005cfc2427ab9c01f704d25df8"
+  integrity sha512-Ma5M7Brh3wh7LWBJDsxr/6EN6P6kUwJoWoBmlDAmtIpK3oz/DOfUxDQVXonSR48sqNR+XxHQJJk8u+Bgfr3ojA==
   dependencies:
     "@compiled/utils" "^0.6.17"
     autoprefixer "^10.4.13"
