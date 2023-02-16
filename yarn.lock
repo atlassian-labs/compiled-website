@@ -6897,10 +6897,10 @@ wildcard@^2.0.0:
   resolved "https://registry.yarnpkg.com/wildcard/-/wildcard-2.0.0.tgz#a77d20e5200c6faaac979e4b3aadc7b3dd7f8fec"
   integrity sha512-JcKqAHLPxcdb9KM49dufGXn2x3ssnfjbcaQdLlfZsL9rH9wgDQjUtDxbo8NE0F6SFvydeu1VhZe7hZuHsB2/pw==
 
-workspaces-run@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/workspaces-run/-/workspaces-run-1.0.1.tgz#dace5df0d45f8770316d254e0cfe7a6c1a3df437"
-  integrity sha512-B7tZj/g4/1JCeNQ7+zVNVBC83hOJBKpOm/yYob3eqw0Aerp1Guecfdf0J6kO/I/EyA2X2uP1oCHWsh2QywXh0A==
+workspaces-run@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/workspaces-run/-/workspaces-run-1.0.2.tgz#2a94300aaa03f76eaa52e888ff1d679a889b776b"
+  integrity sha512-VJO+ZcefRGjH81hxGOpS/bpelW+l6PfjUlA8cqtSq/hbIlTC+oG9TWUJTo1xKIyRSg/W+Snu2g9V0lyWGbpCgw==
   dependencies:
     aggregate-error "^3.0.1"
     chalk "^3.0.0"
