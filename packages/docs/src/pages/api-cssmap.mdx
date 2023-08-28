@@ -1,0 +1,59 @@
+---
+section: 5-API
+order: 99
+name: CSS Map
+---
+
+# CSS Map
+
+Define a map consisting of named CSS rules that can be statically typed and useable with other Compiled APIs.
+
+> The `cssMap` function returns an object at runtime, which contains classnames as its values and variant names as its keys. 
+> It's important to note that these can only be used in conjunction with other Compiled APIs.
+
+```jsx
+import { cssMap } from '@compiled/react'
+
+const borderStyleMap = cssMap({
+  none: { borderStyle: 'none' },
+  solid: { borderStyle: 'solid' },
+});
+
+const Component = () => <div css={borderStyleMap['none']} />;
+```
+
+## Dynamic declarations
+
+Choose CSS rules at runtime.
+
+```jsx
+import { cssMap } from '@compiled/react'
+
+const borderStyleMap = cssMap({
+  none: { borderStyle: 'none' },
+  solid: { borderStyle: 'solid' },
+});
+
+const Component = ({ variant }) => <div css={borderStyleMap[variant]} />;
+```
+
+## Composing styles
+
+Composing CSS Map with other styles. 
+
+```jsx
+import { css, cssMap } from '@compiled/react'
+
+const base = css({
+  borderColor: 'red'
+});
+
+const borderStyleMap = cssMap({
+  none: { borderStyle: 'none' },
+  solid: { borderStyle: 'solid' },
+});
+
+const Component = ({ variant }) => <div css={[base, borderStyleMap[variant]]} />;
+```
+
+Read [composition](/composition) for more information around composing styles together.
