@@ -142,6 +142,19 @@ const blackText = css`
 `;
 ```
 
+## CSS Map
+
+Use [`css`](/api-cssmap) to define a map consisting of named CSS rules that can be statically typed and useable with other Compiled APIs.
+
+```jsx
+import { cssMap } from '@compiled/react'
+
+const borderStyleMap = cssMap({
+  none: { borderStyle: 'none' },
+  solid: { borderStyle: 'solid' },
+});
+```
+
 ## Keyframes
 
 Use [`keyframes`](/api-keyframes) to define keyframes to be used in a [CSS animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation).
