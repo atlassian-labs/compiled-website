@@ -36,6 +36,6 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.1",
-    "yaml": "^1.10.2"
+    "yaml": "^2.3.2"
   }
 }
