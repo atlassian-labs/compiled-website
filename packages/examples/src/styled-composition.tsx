@@ -1,9 +1,9 @@
 import { styled } from '@compiled/react';
 
-const RedText = styled.span`
-  color: red;
-`;
+const RedText = styled.span({
+  color: 'red',
+});
 
-export const BlueText = styled(RedText)`
-  color: blue;
-`;
+export const BlueText = styled(RedText)({
+  color: 'blue'
+});

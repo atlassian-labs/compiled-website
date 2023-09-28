@@ -6,17 +6,17 @@ order: 4
 
 # Writing CSS
 
-Write CSS using template literals and objects with any of the APIs available with Compiled.
+Write CSS using object styles and objects with any of the APIs available with Compiled.
 
 ```jsx
 import { styled } from '@compiled/react';
 
-const Button = styled.button`
+const Button = styled.button({
   font-size: 10px;
   font-weight: 500;
   border-radius: 3px;
   border: 1px solid blue;
-`;
+});
 ```
 
 ## Features
@@ -28,8 +28,10 @@ Compiled comes with extra features above standard [CSS](https://developer.mozill
 Nest CSS rules within each other.
 
 ```jsx
+import { css } from '@compiled/react';
+
 <div
-  css={{
+  css={css({
     margin: '0 auto',
     div: {
       color: 'red',
@@ -38,7 +40,7 @@ Nest CSS rules within each other.
         textDecoration: 'none',
       },
     },
-  }}>
+  })}>
   <div>
     <a />
   </div>
@@ -52,9 +54,9 @@ however more selectors are created when nested.
 To create less CSS rules assign styles directly to the elements instead.
 
 ```jsx
-<div css={{ margin: '0 auto' }}>
-  <div css={{ color: 'red', fontSize: 12 }}>
-    <a css={{ textDecoration: 'none' }} />
+<div css={css({ margin: '0 auto' })}>
+  <div css={css({ color: 'red', fontSize: 12 })}>
+    <a css={css({ textDecoration: 'none' })} />
   </div>
 </div>
 ```
@@ -66,14 +68,14 @@ In the example below the two selectors (textarea and input) both alter the color
 
 ```jsx
 <div
-  css={{
+  css={css({
     'textarea,input': {
       color: '#a7a7a7',
       '&:hover': {
         color: '#000',
       },
     },
-  }}
+  })}
 />
 ```
 
@@ -98,11 +100,11 @@ These rules are transformed to receive a nesting selector.
 
 ```jsx
 <div
-  css={{
+  css={css({
     ':before': {
       content: 'Hello',
     },
-  }}
+  })}
 />
 ```
 
