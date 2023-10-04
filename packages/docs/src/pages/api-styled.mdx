@@ -74,9 +74,9 @@ any interpolation will have access to the props defined in the tagged template g
 ```jsx
 import { styled } from '@compiled/react';
 
-const BigIfTrue = styled.div<{ big: true }>`
-  font-size: ${props => props.big ? 100 : 10};
-`;
+const BigIfTrue = styled.div<{ big: true }>({
+  fontSize: props => props.big ? 100 : 10
+});
 
 <BigIfTrue />
  ^^^^^^^^^ Property 'big' is missing in type [..]

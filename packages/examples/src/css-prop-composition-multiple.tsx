@@ -1,14 +1,15 @@
 /** @jsxImportSource @compiled/react */
+import { css } from '@compiled/react';
 
-const danger = {
+const danger = css({
   color: 'red',
-};
+});
 
-const base = {
+const base = css({
   color: 'hotpink',
   padding: '0.5rem 0',
   backgroundColor: 'rgba(0, 0, 0, 0.05)',
-};
+});
 
 export const CompositionMultiple = () => {
   return (

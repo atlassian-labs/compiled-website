@@ -1,14 +1,15 @@
 /** @jsxImportSource @compiled/react */
+import { css } from '@compiled/react';
 
 const EmphasisText = (props) => (
   <span
     className={props.className}
     // <-- bug (no style prop!)
-    css={{
+    css={css({
       color: '#00b8d9',
       textTransform: 'uppercase',
       fontWeight: 700,
-    }}>
+    })}>
     {props.children}
   </span>
 );
