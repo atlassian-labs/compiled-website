@@ -12,10 +12,10 @@ Write CSS using object styles and objects with any of the APIs available with Co
 import { styled } from '@compiled/react';
 
 const Button = styled.button({
-  font-size: 10px;
-  font-weight: 500;
-  border-radius: 3px;
-  border: 1px solid blue;
+  fontSize: '10px',
+  fontWeight: '500',
+  borderRadius: '3px',
+  border: '1px solid blue'
 });
 ```
 
@@ -69,7 +69,7 @@ In the example below the two selectors (textarea and input) both alter the color
 ```jsx
 <div
   css={css({
-    'textarea,input': {
+    'textarea, input': {
       color: '#a7a7a7',
       '&:hover': {
         color: '#000',
