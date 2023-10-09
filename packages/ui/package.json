@@ -12,7 +12,7 @@
     "@compiled/react": "^0.15.0",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
-    "@types/react-syntax-highlighter": "^15.5.7",
+    "@types/react-syntax-highlighter": "^15.5.8",
     "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5.2.2"
   },
