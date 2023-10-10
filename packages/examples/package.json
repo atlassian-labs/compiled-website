@@ -18,8 +18,8 @@
     "@babel/preset-react": "^7.22.15",
     "@compiled/babel-plugin": "^0.22.0",
     "@compiled/react": "^0.15.0",
-    "@types/react": "^18.2.27",
-    "@types/react-dom": "^18.2.12",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
     "typescript": "^5.2.2"
   }
 }
