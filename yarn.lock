@@ -1106,10 +1106,10 @@
     "@compiled/css" "^0.12.0"
     "@compiled/utils" "^0.8.0"
 
-"@compiled/babel-plugin@^0.24.0":
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.24.0.tgz#e227e9125896eaf38b7035a4144ac1410f8d6f18"
-  integrity sha512-5MTqDIub51pK5mLETIud/SB4QE+Br8gXAMUBEgoFIFYk4tcFS9GWtgz7wJSHd5G2FFtcIFBrMgVZt625IYYVnw==
+"@compiled/babel-plugin@^0.24.1":
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.24.1.tgz#c959de1e4b747e3201d08d26ad1e5a2ebc5131d2"
+  integrity sha512-sDVDqxwT3B+PSWv59fKEvkjGi5KI7xq+nsgYB1gu9mBRtqexSxXGxcDwY4sQyTlA6oKYd9S7NzBSl9anbtzo/g==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/generator" "^7.21.5"
@@ -1118,7 +1118,7 @@
     "@babel/plugin-syntax-jsx" "^7.21.4"
     "@babel/plugin-transform-flow-strip-types" "^7.21.0"
     "@babel/template" "^7.20.7"
-    "@babel/traverse" "^7.21.5"
+    "@babel/traverse" "^7.23.2"
     "@babel/types" "^7.21.5"
     "@compiled/css" "^0.12.0"
     "@compiled/utils" "^0.8.0"
@@ -1139,10 +1139,10 @@
     postcss-selector-parser "^6.0.11"
     postcss-values-parser "^6.0.2"
 
-"@compiled/react@^0.15.0":
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.15.0.tgz#46c9f8f14bce4db48ac36d28eef43eb5e4161613"
-  integrity sha512-TTuFX4GE1lbqaEYQeILko1/fpOK+No9YM5Q6g0rc6WSdA1oAlKRH9SjYt1hH2ZgpFrAdyRdsrmcZH2cb9OOrPg==
+"@compiled/react@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.16.0.tgz#a5d8a82fdecbe6678471af0b2a3962f002eaa70d"
+  integrity sha512-OgUaXpt1uwZj5j2Xf+pEsBQ2D7p0yEKcQ7oLcsXiDwLfYYNw1C+hxwpxHQyoRafQmnxQhvY8p8QhLjZJ70mnHA==
   dependencies:
     csstype "^3.1.2"
 
@@ -1154,14 +1154,14 @@
     convert-source-map "^2.0.0"
     source-map "^0.7.4"
 
-"@compiled/webpack-loader@^0.11.5":
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.11.5.tgz#9f69156e81a0a301b406c028d5eef58c65824990"
-  integrity sha512-/0q4DewyD4DYJuy+ljebPCgY7jCziIrdsfrhdNoJBAT8vUnqD397mxKlE7FEInek1PPRLi/D2RAn9urQWPevyQ==
+"@compiled/webpack-loader@^0.11.6":
+  version "0.11.6"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.11.6.tgz#fa4a589ac3ba6f73e066263db06528d5cb92329d"
+  integrity sha512-CL16icy+1Zh1TmrUuu9JOufmgTVE9IUDrQCwpGit50oC4KIlzopwWzkcZVS0jj6MD6giV8jtiF2uuByzIGIq8g==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/parser" "^7.21.8"
-    "@compiled/babel-plugin" "^0.24.0"
+    "@compiled/babel-plugin" "^0.24.1"
     "@compiled/babel-plugin-strip-runtime" "^0.23.0"
     "@compiled/css" "^0.12.0"
     "@compiled/utils" "^0.8.0"
