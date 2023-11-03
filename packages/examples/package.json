@@ -16,8 +16,8 @@
     "@babel/cli": "^7.23.0",
     "@babel/preset-typescript": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "@compiled/babel-plugin": "^0.24.1",
-    "@compiled/react": "^0.16.0",
+    "@compiled/babel-plugin": "^0.24.2",
+    "@compiled/react": "^0.16.1",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
     "typescript": "^5.2.2"
