@@ -1106,10 +1106,10 @@
     "@compiled/css" "^0.12.0"
     "@compiled/utils" "^0.8.0"
 
-"@compiled/babel-plugin@^0.24.1", "@compiled/babel-plugin@^0.24.2":
-  version "0.24.2"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.24.2.tgz#142ad9e835fffe614f6ee74bbf9b44c75f471d22"
-  integrity sha512-MkkV0rPqr7NQz4OyjYi34V9VFv/jwQyTaDgbN6ahGXP5nHnlDDwDlm8E0P8uNau2JnRE+ohHbsmDPkZwZi7xUg==
+"@compiled/babel-plugin@^0.24.1", "@compiled/babel-plugin@^0.24.3":
+  version "0.24.3"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.24.3.tgz#64ca9954e237d62e9169f51b33f4efe21fda029c"
+  integrity sha512-QwBCHV+9i0ar+jdnubp6kQgsfzjXQvmZvfzMN87kwOiX9j2qMVhbkNdPYuXFVHxZwiVUQplD0s9GkOX0hFbHrQ==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/generator" "^7.21.5"
@@ -1139,10 +1139,10 @@
     postcss-selector-parser "^6.0.11"
     postcss-values-parser "^6.0.2"
 
-"@compiled/react@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.16.1.tgz#702ac690edf3a355b1a238df793879d1bff04d34"
-  integrity sha512-LrZABLg34ZNZriPJywS3DYXGt6Vw9RHL+h3DGhJB5SnAb3RKywLY6OEV/UZCXG81skIhwNVJ7lSzPf6p3+3SeQ==
+"@compiled/react@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@compiled/react/-/react-0.16.2.tgz#7feea28ae6af1f2a3de66b0408323ab21acbe03e"
+  integrity sha512-uyPscr2mhPcnNXH9deZe1/7DA0L9mRAOEBpL28kPRbIuzEfK/WRl37Rw174k6YaAVbKQbUTfbisGPuFmv/VK0A==
   dependencies:
     csstype "^3.1.2"
 
