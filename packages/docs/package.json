@@ -7,8 +7,8 @@
     "build": "webpack build"
   },
   "dependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-typescript": "^7.23.2",
+    "@babel/core": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
     "@compiled/babel-plugin": "^0.24.3",
     "@compiled/react": "^0.16.2",
     "@compiled/website-examples": "^1.0.0",
