@@ -10,8 +10,8 @@
     "@babel/preset-typescript": "^7.23.3",
     "@compiled/babel-plugin": "^0.25.0",
     "@compiled/react": "^0.16.2",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.16",
     "@types/react-syntax-highlighter": "^15.5.10",
     "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5.3.2"
