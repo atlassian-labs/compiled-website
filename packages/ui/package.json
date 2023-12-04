@@ -9,7 +9,7 @@
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@compiled/babel-plugin": "^0.26.1",
-    "@compiled/react": "^0.16.3",
+    "@compiled/react": "^0.16.4",
     "@types/react": "^18.2.41",
     "@types/react-dom": "^18.2.17",
     "@types/react-syntax-highlighter": "^15.5.10",
