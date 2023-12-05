@@ -1163,10 +1163,10 @@
     convert-source-map "^2.0.0"
     source-map "^0.7.4"
 
-"@compiled/webpack-loader@^0.11.8":
-  version "0.11.8"
-  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.11.8.tgz#44fd83254e7bcbf9ad199d4728cc1319935bd929"
-  integrity sha512-roX0a3jaLA9POnWz5QWKaSbv1EOGqZrPKZB8DDf29nMiL25x6CHoTXLtKTt8E1p7mOB4InAK+wxmjpG3EZ78Xg==
+"@compiled/webpack-loader@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@compiled/webpack-loader/-/webpack-loader-0.12.0.tgz#188f7935d263b987b1749e6bf73f063d9bcc9fb8"
+  integrity sha512-PtWApzVkPFNZRPqMsftHXYXufYDMlaFczfX6CR46wKNr3AZUEFJOtkgjfYtxSjmnGk24dIY+axvKj7w1wirC+g==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/parser" "^7.21.8"
