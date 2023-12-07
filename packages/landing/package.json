@@ -9,8 +9,8 @@
     "build": "webpack build"
   },
   "dependencies": {
-    "@compiled/react": "^0.16.4",
-    "@compiled/webpack-loader": "^0.12.0",
+    "@compiled/react": "^0.16.5",
+    "@compiled/webpack-loader": "^0.12.1",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/loader": "^1.6.22",
