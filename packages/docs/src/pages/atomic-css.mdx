@@ -167,6 +167,33 @@ however other pseudo selectors including media queries may unexpectedly clash.
 At those times an easy option could be to double the specificity using the [nesting selector](/writing-css#nesting-selector),
 however re-writing your styles so only a single declaration can take affect at once may prove more fruitful.
 
+When adopting a mobile-first strategy, you might encounter something similar to the following.
+
+```jsx
+import { css } from "@compiled/react"
+
+const style = css({
+   "color": "yellow",
+   "@media (min-width: 720px)": { color: "red" },
+   "@media (min-width: 1280px)": { color: "green" }
+})
+```
+
+Both `@media (min-width: 30rem) { color: red }` and `@media (min-width: 64rem) { color: green }` can take affect at once.
+As mentioned above, it can cause unexpected behaviors.
+Instead, please make sure that only one declaration can take affect at once.
+
+```jsx
+import { css } from "@compiled/react"
+
+const style = css({
+   "color": "yellow",
+   "@media (min-width: 720px) and (max-width: 1279px)": { color: "red" },
+   "@media (min-width: 1280px)": { color: "green" }
+})
+```
+
+
 ## Other resources
 
 - [Atomic CSS-in-JS](https://sebastienlorber.com/atomic-css-in-js)
