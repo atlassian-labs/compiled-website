@@ -10,7 +10,7 @@
     "@babel/core": "^7.23.6",
     "@babel/preset-typescript": "^7.23.3",
     "@compiled/babel-plugin": "^0.26.3",
-    "@compiled/react": "^0.16.5",
+    "@compiled/react": "^0.16.6",
     "@compiled/website-examples": "^1.0.0",
     "@compiled/website-ui": "^1.0.0",
     "@mdx-js/loader": "^1.6.22",
