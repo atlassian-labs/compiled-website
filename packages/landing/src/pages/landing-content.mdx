@@ -10,12 +10,17 @@ leveraging the language to create expressive & dynamic experiences.
 ```jsx
 /** @jsxImportSource @compiled/react */
 
+import { css } from '@compiled/react';
+
+// We recommend using `css` for statically defined
+// styles, and `style` for dynamically defined styles.
+const largeTextStyles = css({
+  fontSize: '48px',
+});
+
 export const LargeText = ({ color, children }) => (
   <span
-    css={{
-      color: color,
-      fontSize: 48,
-    }}>
+    css={largeTextStyles} style={{ color }}>
     {children}
   </span>
 );

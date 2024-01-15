@@ -70,23 +70,23 @@ const TabButton = (props: {
 };
 
 const CodeExamples = () => {
-  const [shown, setShown] = useState<'css' | 'styled' | 'cn'>('styled');
+  const [shown, setShown] = useState<'css' | 'styled' | 'cn'>('css');
 
   return (
     <div>
-      <TabButton
-        id="styled-tab"
-        aria-controls="styled-example"
-        isSelected={shown === 'styled'}
-        onClick={() => setShown('styled')}>
-        Styled
-      </TabButton>
       <TabButton
         id="css-tab"
         aria-controls="css-example"
         isSelected={shown === 'css'}
         onClick={() => setShown('css')}>
         CSS prop
+      </TabButton>
+      <TabButton
+        id="styled-tab"
+        aria-controls="styled-example"
+        isSelected={shown === 'styled'}
+        onClick={() => setShown('styled')}>
+        Styled
       </TabButton>
       <TabButton
         id="cn-tab"
@@ -96,18 +96,6 @@ const CodeExamples = () => {
         Class names
       </TabButton>
 
-      {shown === 'css' && (
-        <div id="css-example" role="tabpanel" aria-labelledby="css-tab">
-          <Example
-            codeBackground={codeBackground}
-            variant="fixed"
-            exampleCode="<Button>Button</Button>"
-            before={cssPropBefore}
-            after={cssPropAfter}>
-            <cssProp.Button>Button</cssProp.Button>
-          </Example>
-        </div>
-      )}
       {shown === 'styled' && (
         <div id="styled-example" role="tabpanel" aria-labelledby="styled-tab">
           <Example
@@ -117,6 +105,18 @@ const CodeExamples = () => {
             before={styledBefore}
             after={styledAfter}>
             <styledExamples.Button>Button</styledExamples.Button>
+          </Example>
+        </div>
+      )}
+      {shown === 'css' && (
+        <div id="css-example" role="tabpanel" aria-labelledby="css-tab">
+          <Example
+            codeBackground={codeBackground}
+            variant="fixed"
+            exampleCode="<Button>Button</Button>"
+            before={cssPropBefore}
+            after={cssPropAfter}>
+            <cssProp.Button>Button</cssProp.Button>
           </Example>
         </div>
       )}
