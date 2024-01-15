@@ -12,15 +12,14 @@ leveraging the language to create expressive & dynamic experiences.
 
 import { css } from '@compiled/react';
 
+const largeTextStyles = css({ fontSize: '48px' });
+
 export const LargeText = ({ color, children }) => {
-  const largeTextStyles = css({
-    fontSize: '48px',
-    color: color,
-  });
+  const dynamicColorStyles = css({ color: color });
 
   return (
     <span
-      css={largeTextStyles}>
+      css={[largeTextStyles, dynamicColorStyles]}>
       {children}
     </span>
   )
