@@ -12,18 +12,19 @@ leveraging the language to create expressive & dynamic experiences.
 
 import { css } from '@compiled/react';
 
-// We recommend using `css` for statically defined
-// styles, and `style` for dynamically defined styles.
-const largeTextStyles = css({
-  fontSize: '48px',
-});
+export const LargeText = ({ color, children }) => {
+  const largeTextStyles = css({
+    fontSize: '48px',
+    color: color,
+  });
 
-export const LargeText = ({ color, children }) => (
-  <span
-    css={largeTextStyles} style={{ color }}>
-    {children}
-  </span>
-);
+  return (
+    <span
+      css={largeTextStyles}>
+      {children}
+    </span>
+  )
+};
 ```
 
 <!-- prettier-ignore -->
