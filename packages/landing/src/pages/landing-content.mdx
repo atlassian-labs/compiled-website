@@ -10,15 +10,20 @@ leveraging the language to create expressive & dynamic experiences.
 ```jsx
 /** @jsxImportSource @compiled/react */
 
-export const LargeText = ({ color, children }) => (
-  <span
-    css={{
-      color: color,
-      fontSize: 48,
-    }}>
-    {children}
-  </span>
-);
+import { css } from '@compiled/react';
+
+const largeTextStyles = css({ fontSize: '48px' });
+
+export const LargeText = ({ color, children }) => {
+  const dynamicColorStyles = css({ color: color });
+
+  return (
+    <span
+      css={[largeTextStyles, dynamicColorStyles]}>
+      {children}
+    </span>
+  )
+};
 ```
 
 <!-- prettier-ignore -->
