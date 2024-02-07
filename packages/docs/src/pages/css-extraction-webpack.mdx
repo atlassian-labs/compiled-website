@@ -5,10 +5,6 @@ name: Webpack CSS Extraction
 
 # Webpack CSS Extraction
 
-> **Experimental**<br />
-> CSS extraction is experimental, please use at your own risk.
-> Found a bug? [Raise an issue](https://github.com/atlassian-labs/compiled/issues/new?assignees=&labels=&template=bug_report.md&title=Webpack%20extraction%20bug:&labels=bug%20%F0%9F%90%9B).
-
 Extracting to a static style sheet can be enabled with some extra configuration.
 We recommend only extracting when building an application for production.
 
@@ -37,9 +33,9 @@ module.exports = {
           { loader: 'babel-loader' },
           {
             loader: '@compiled/webpack-loader',
-            options: {
++            options: {
 +              extract: true,
-            },
++            },
           },
         ],
       },
@@ -55,13 +51,13 @@ For more configuration options see the [loader package docs](/pkg-webpack-loader
 
 ### CSS configuration
 
-Add loaders to handle and extract found styles.
-We recommend using [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin/),
-anything else is unsupported.
+Add loaders to handle and extract found styles. We support and recommend [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin/); we don't currently support other CSS loaders.
 
 ```bash
 npm i css-loader mini-css-extract-plugin --save-dev
 ```
+
+If you don't already handle `.css` files in your `webpack.config.js`, you can update it like this:
 
 ```diff
 // webpack.config.js
@@ -90,7 +86,49 @@ module.exports = {
     ],
   },
   plugins: [
-+    new MiniCssExtractPlugin()
++    new MiniCssExtractPlugin(),
+    new CompiledExtractPlugin(),
+  ],
+};
+```
+
+Note that we don't currently support `style-loader` for loading `css` files from Compiled. If you are using `style-loader`, or you're using a different loader for your `css` files already, you can use regular expressions to ensure that both Compiled's `css` files and your other `css` files are loaded correctly:
+
+```diff
+// webpack.config.js
++const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@compiled/webpack-loader',
+            options: {
+              extract: true,
+            },
+          },
+        ],
+      },
++      {
++        test: /\.compiled-css.css$/i,
++        use: [MiniCssExtractPlugin.loader, 'css-loader'],
++      },
+      // The following loader will be used for css files that are not from Compiled.
+      {
+-        test: /\.css$/i,
++        test: /(?<!compiled-css)(?<!\.compiled)\.css$/,
+        // Put your existing css loader configuration here
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
++    new MiniCssExtractPlugin(),
     new CompiledExtractPlugin(),
   ],
 };
