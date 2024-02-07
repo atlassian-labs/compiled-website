@@ -54,6 +54,12 @@ When using `@babel/preset-react` with the [automatic runtime](https://babeljs.io
 
 Defaults to `true`.
 
+### importSources: string[]
+
+Additional libraries that should be parsed as though they were `@compiled/react` imports. This is passed directly to `@compiled/babel-plugin`.
+
+Specifying this is important if you are using Compiled APIs through another package using the `createStrictAPI` function.
+
 ### extract: boolean
 
 Enables extracting all styles to an atomic style sheet,

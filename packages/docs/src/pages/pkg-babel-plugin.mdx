@@ -73,3 +73,9 @@ Will callback at the end of a file pass with all imported files that were static
 Add the component name as class name to DOM in non-production environment if styled is used.
 
 Default to `false`
+
+### importSources: string[]
+
+Additional libraries that should be parsed as though they were `@compiled/react` imports.
+
+Specifying this is important if you are using Compiled APIs through another package using the `createStrictAPI` function.
