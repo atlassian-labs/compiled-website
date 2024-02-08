@@ -147,3 +147,9 @@ Default to `false`
 ### extractStylesToDirectory?: { source: string; dest: string };
 
 When set, extracts styles to an external CSS file. Read [babel-plugin-strip-runtime](/pkg-babel-plugin-strip-runtime#extractstylestodirectory) for more information.
+
+### importSources: string[]
+
+Additional libraries that should be parsed as though they were `@compiled/react` imports. This is passed directly to `@compiled/babel-plugin`.
+
+Specifying this is important if you are using Compiled APIs through another package using the `createStrictAPI` function.
