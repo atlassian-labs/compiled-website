@@ -18,7 +18,7 @@
     "@types/mdx-js__react": "^1.5.8",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.63",
-    "@types/react-dom": "^18.2.19",
+    "@types/react-dom": "^18.2.20",
     "@types/react-router-dom": "^5.3.3",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
     "babel-loader": "^9.1.3",
