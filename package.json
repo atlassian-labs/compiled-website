@@ -17,7 +17,7 @@
     "postinstall": "npx yarn-deduplicate"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.24.1",
+    "@babel/preset-env": "^7.24.3",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
     "prettier": "^3.2.5",
