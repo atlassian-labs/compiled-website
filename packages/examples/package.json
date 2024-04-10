@@ -20,6 +20,6 @@
     "@compiled/react": "^0.17.1",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   }
 }
