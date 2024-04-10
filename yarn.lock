@@ -1123,10 +1123,10 @@
     "@compiled/css" "^0.12.3"
     "@compiled/utils" "^0.10.0"
 
-"@compiled/babel-plugin@^0.28.6":
-  version "0.28.6"
-  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.28.6.tgz#23ee37ebf5d87a0e9e130297bcbb9e756ca72eda"
-  integrity sha512-gh3iXD2PTVYkf0fKwxFdGsLLIJj3tQlOGQ+l+6JW8Xu1aQ7q9eVC4WhGz7oSymhbSZVNZHE3+WQIkvqpckyfEw==
+"@compiled/babel-plugin@^0.28.6", "@compiled/babel-plugin@^0.28.7":
+  version "0.28.7"
+  resolved "https://registry.yarnpkg.com/@compiled/babel-plugin/-/babel-plugin-0.28.7.tgz#d2fb76058a7097fb13bbcea5e5211f2cdfccf323"
+  integrity sha512-Xe4LKXItx2tVrXL9N5KtzaxlZwADJAHwEb0ZX0fv/q90rb73vZniER/bxvieI7/cof0Xm69j8cspjJPIn/B9KQ==
   dependencies:
     "@babel/core" "^7.21.8"
     "@babel/generator" "^7.21.5"
