@@ -12,8 +12,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.5",
+    "@babel/cli": "^7.24.5",
     "@babel/preset-typescript": "^7.24.1",
     "@babel/preset-react": "^7.24.1",
     "@compiled/babel-plugin": "^0.28.8",
