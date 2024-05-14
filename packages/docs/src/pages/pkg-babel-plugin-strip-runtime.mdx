@@ -42,7 +42,7 @@ Defaults to `false`.
 
 ### extractStylesToDirectory
 
-extractStylesToDirectory?: { source: string; dest: string };
+extractStylesToDirectory?: \{ source: string; dest: string \};
 
 When set, extracts styles to an external CSS file. This is beneficial for building platform components that are to be published on NPM.
 
@@ -74,7 +74,7 @@ Set the source folder and output folder relative to the root project path.
 ]
 ```
 
-It extracts the CSS sheet to a seperate file. 
+It extracts the CSS sheet to a seperate file.
 
 - dist
   - index.js
@@ -94,3 +94,11 @@ const Component = () =>
     'hello world'
   );
 ```
+
+### sortAtRules: boolean
+
+Whether to sort at-rules, including media queries.
+
+See [here](/media-queries-and-other-at-rules) for more information.
+
+Defaults to `true`.

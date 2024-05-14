@@ -11,10 +11,9 @@ This page goes over what it is and what behaviors are enabled by using it.
 If you're just getting started don't feel the need to read this page,
 but if you're interested in understanding more under-the-hood keep on reading.
 
-## What is it
+## What is it?
 
-Atomic CSS is a method of reducing the total amount of defined rules by creating a single rule for every declaration —
-enabling large style re-use.
+Atomic CSS is a method of reducing the total amount of defined rules by creating a single rule (and in turn, a unique class name) for every declaration – enabling large style re-use.
 
 Take a regular looking style rule:
 
@@ -31,7 +30,7 @@ Take a regular looking style rule:
 <button className="button">Hello world</button>
 ```
 
-Transformed to atomic CSS every declaration is now a rule:
+If we apply the atomic CSS principle, every declaration is now its own rule:
 
 ```css
 .b-none {
@@ -55,8 +54,9 @@ Transformed to atomic CSS every declaration is now a rule:
 <button className="b-none fs-14 bgc-purple br-3">Hello world</button>
 ```
 
-When other components define the same styles they use the same rules.
-As your styles grow rules are created less often.
+(The actual class names that Compiled uses are different, but the principle is the same.)
+
+When other components define the same styles they use the same rules – creating no negative impact to the stylesheet size and less impact to the HTML size. As the size of your project increases, the stylesheet size grows less and less.
 
 ## Overriding through composition
 
@@ -159,40 +159,12 @@ We have [optimization ideas](https://github.com/atlassian-labs/compiled/issues/3
 
 ### Selector specificity
 
-Styles delivered with atomic CSS share the same [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity),
-so its up to their order in the style sheet to determine what takes presedence over the other.
-Compiled handles common [pseudo class ordering](#ordered-pseudos) for you,
-however other pseudo selectors including media queries may unexpectedly clash.
+Styles where several CSS blocks can be applied at once can be problematic (i.e. when using pseudo-selectors and at-rules). This is because styles delivered with atomic CSS share the same [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity),
+so it is up to their order in the stylesheet to determine what takes precedence over the other.  However, when importing CSS from Compiled components across several files or packages, the order in which CSS classes appear in the stylesheet may be non-deterministic.
 
-At those times an easy option could be to double the specificity using the [nesting selector](/writing-css#nesting-selector),
-however re-writing your styles so only a single declaration can take affect at once may prove more fruitful.
+Compiled sorts common [pseudo-class ordering](#ordered-pseudos) for you, as well as [all at-rules](/limitations#overlapping-styles) (including media queries) in *most* cases. However, other pseudo-selectors and situations may result in unpredictable behaviour.
 
-When adopting a mobile-first strategy, you might encounter something similar to the following.
-
-```jsx
-import { css } from "@compiled/react"
-
-const style = css({
-   "color": "yellow",
-   "@media (min-width: 720px)": { color: "red" },
-   "@media (min-width: 1280px)": { color: "green" }
-})
-```
-
-Both `@media (min-width: 30rem) { color: red }` and `@media (min-width: 64rem) { color: green }` can take affect at once.
-As mentioned above, it can cause unexpected behaviors.
-Instead, please make sure that only one declaration can take affect at once.
-
-```jsx
-import { css } from "@compiled/react"
-
-const style = css({
-   "color": "yellow",
-   "@media (min-width: 720px) and (max-width: 1279px)": { color: "red" },
-   "@media (min-width: 1280px)": { color: "green" }
-})
-```
-
+In cases where this is a problem, we recommend re-writing your styles so that only a single declaration can take effect at once. If this is not possible, you may resort to the [nesting selector](/writing-css#nesting-selector), however we do not recommend this.
 
 ## Other resources
 
