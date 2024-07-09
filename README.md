@@ -1,6 +1,12 @@
-# @compiled/website
+# We've moved!
 
-**The documentation website for [Compiled](https://github.com/atlassian-labs/compiled).**
+For easier maintainability, we've moved the Compiled website repository into [the main Compiled CSS-in-JS codebase](https://github.com/atlassian-labs/compiled). Please use https://github.com/atlassian-labs/compiled/tree/master/website when making any changes to the website.
+
+Thank you for your understanding!
+
+---
+
+The documentation website for [Compiled](https://github.com/atlassian-labs/compiled).
 
 ## Getting started
 
